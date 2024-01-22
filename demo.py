@@ -9,3 +9,9 @@ def mul(a, b):
 
 def div(a,b):
     return a / b
+
+def main():
+    print(add(10, 20))
+    print(sub(10, 20))
+    print(mul(10, 20))
+    print(div(10, 20))
