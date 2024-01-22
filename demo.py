@@ -15,3 +15,6 @@ def main():
     print(sub(10, 20))
     print(mul(10, 20))
     print(div(10, 20))
+    
+if __name__ == '__main__':
+    main()
