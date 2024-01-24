@@ -3,3 +3,6 @@ Software Engineering CS 360 Group Project. Data Security and Compliance in a col
 
 # Version 0.0.1
 Initializing Repo
+
+# Version 0.0.2
+Initializing Project
