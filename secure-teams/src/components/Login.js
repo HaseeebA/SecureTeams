@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import './homepage.jsx';
 
 const Login = () => {
     const[emaill, setEmail] = useState("");
@@ -6,6 +7,8 @@ const Login = () => {
 
     const handleLogin = (e) => {
         e.preventDefault();
+        //assume correct
+        console.log("Login successful!");
     };
 
     return (

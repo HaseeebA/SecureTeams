@@ -1,0 +1,39 @@
+/* Navbar.css */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #3498db; /* Blue background color */
+    padding: 1rem;
+  }
+  
+  .search-container {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .search-input {
+    border: 1px solid #fff; /* White border */
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    width: 100%;
+    outline: none;
+  }
+  
+  .menu-button,
+  .profile-button {
+    cursor: pointer;
+    color: #fff; /* White text color */
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+
+  .blue-gradient {
+    background: linear-gradient(to right, rgb(1, 41, 90), transparent);
+  }
+  /* Add more styles as needed */
+  
