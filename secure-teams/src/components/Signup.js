@@ -1,5 +1,6 @@
-// Signup.js
 import React, { useState } from "react";
+import "./signup.css"; 
+import StarsCanvas from '../components/canvas/Stars';
 
 const Signup = () => {
   const [name, setName] = useState("");
@@ -8,33 +9,36 @@ const Signup = () => {
 
   const handleSignup = (e) => {
     e.preventDefault();
-
     // Perform signup logic here, e.g., send data to the server
     console.log("Signup data:", { name, email, password });
   };
 
   return (
-    <div className="signup">
-      <form>
+    <div className="signup-container">
+      <StarsCanvas />
+      <form className="signup-form">
         <input
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder="Name"
           type="text"
+          className="signup-input"
         />
         <input
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Email"
           type="email"
+          className="signup-input"
         />
         <input
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
           type="password"
+          className="signup-input"
         />
-        <button type="submit" onClick={handleSignup}>
+        <button type="submit" onClick={handleSignup} className="signup-button">
           Sign Up
         </button>
       </form>

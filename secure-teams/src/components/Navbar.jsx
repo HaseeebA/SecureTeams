@@ -1,4 +1,3 @@
-// Navbar.jsx
 import React, { useState } from 'react';
 import '../index.css';
 import face from '../images/face.png';

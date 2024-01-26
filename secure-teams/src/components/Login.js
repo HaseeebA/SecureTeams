@@ -1,32 +1,38 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
+import "./login.css";
 import './homepage.jsx';
+import StarsCanvas from '../components/canvas/Stars';
 
 const Login = () => {
-    const[emaill, setEmail] = useState("");
-    const[passwordd, setPassword] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
     const handleLogin = (e) => {
         e.preventDefault();
-        //assume correct
-        console.log("Login successful!");
+        // Assume correct login logic here
+        alert("Login successful!");
+        window.location.href = "/homepage";
     };
 
     return (
         <div className="login">
-            <form>
+            <StarsCanvas />
+            <form className="login-form">
                 <input
-                    value={emaill}
+                    value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Email"
                     type="email"
+                    className="login-input"
                 />
                 <input
-                    value={passwordd}
+                    value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="Password"
                     type="password"
+                    className="login-input"
                 />
-                <button type="submit" onClick={handleLogin}>
+                <button type="submit" onClick={handleLogin} className="login-button">
                     Sign In
                 </button>
             </form>

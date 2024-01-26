@@ -1,4 +1,3 @@
-// ParentComponent.jsx
 import React from 'react';
 import Sidepanel from './Sidepanel';
 import Sidepanel2 from './Sidepanel2';
