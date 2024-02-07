@@ -22,3 +22,14 @@ mongoose
   .catch((error) => {
     console.log(error);
   });
+
+const userSchema = new mongoose.Schema({
+  username: String,
+  password: String,
+  email: String,
+  role: String,
+  teams: [String],
+});
+
+const User = mongoose.model("User", userSchema);
+
