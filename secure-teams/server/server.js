@@ -6,11 +6,8 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
 dotenv.config();
-
 const app = express();
-
 app.use(express.json());
-
 app.use(cors());
 
 mongoose
@@ -25,6 +22,21 @@ mongoose
 		console.log(error);
 	});
 
+// Middleware to verify token
+const authenticateToken = (req, res, next) => {
+	const authHeader = req.headers["authorization"];
+	const token = authHeader && authHeader.split(" ")[1];
+	if (token == null)
+		return res.sendStatus(401).json({ message: "Unauthorized" });
+
+	jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
+		if (err)
+			return res.sendStatus(403).json({ message: "Invalid or expired token" });
+		req.user = user;
+		next();
+	});
+};
+
 const userSchema = new mongoose.Schema({
 	name: { type: String, required: true },
 	password: { type: String, required: true },
@@ -38,6 +50,13 @@ const userSchema = new mongoose.Schema({
 });
 
 const User = mongoose.model("User", userSchema);
+
+// Protected routes
+app.get("/homepage", authenticateToken, (req, res) => {
+	console.log("Homepage");
+	res.status(200).json({ message: "Homepage" });
+	res.render("homepage");
+});
 
 app.post("/api/signup", async (req, res) => {
 	const { name, email, password, role } = req.body;
@@ -76,7 +95,7 @@ app.post("/api/login", async (req, res) => {
 		const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, {
 			expiresIn: "1h",
 		});
-    
+
 		res.status(200).json({ token: token });
 		console.log("Login successful");
 	} catch (error) {
