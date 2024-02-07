@@ -6,7 +6,7 @@ const ProtectedRoute = ({ component: Component, ...rest }) => {
     
     if (!authenticateToken) {
         alert("You must be logged in to access this page");
-        return <Navigate to="/login" />;
+        return <Navigate to="/" />;
     }
 
     return <Component {...rest} />;
