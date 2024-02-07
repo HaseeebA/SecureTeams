@@ -6,7 +6,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #3498db; /* Blue background color */
+    background-color: #68d391;
     padding: 1rem;
   }
   
@@ -31,8 +31,4 @@
     margin-right: 0.5rem;
   }
 
-  .blue-gradient {
-    background: linear-gradient(to right, rgb(1, 41, 90), transparent);
-  }
-  /* Add more styles as needed */
   

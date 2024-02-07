@@ -1,16 +1,16 @@
 import React from 'react';
 import Navbar from './navbar';
-import InformationPanel from './infopanel';
+import TeamInfo from './teaminfo';
 import Sidepanel from './sidepanel';
 
-const homepage = () => {
+const team = () => {
   return (
     <div >
       <Navbar />
       <Sidepanel />
-      <InformationPanel/>
+      <TeamInfo />
     </div>
   );
 };
 
-export default homepage;
+export default team;
