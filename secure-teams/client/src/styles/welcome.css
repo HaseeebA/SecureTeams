@@ -27,6 +27,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: 100;
 }
 
 .head2 {
@@ -54,6 +55,7 @@ button {
   border: none;
   border-radius: 5px;
   transition: background-color 0.3s ease;
+  z-index: 100;
 }
 
 button:hover {

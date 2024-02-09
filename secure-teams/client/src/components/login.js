@@ -44,6 +44,7 @@ const Login = () => {
 	};
 
 	return (
+		<div className="login-bg">
 		<div className="login">
 			<StarsCanvas />
 			<form className="login-form">
@@ -65,6 +66,7 @@ const Login = () => {
 					Sign In
 				</button>
 			</form>
+		</div>
 		</div>
 	);
 };

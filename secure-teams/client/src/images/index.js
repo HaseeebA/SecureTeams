@@ -14,6 +14,7 @@ import maha from './maha.png'
 import anas from './anas.png'
 import gilani from './gilani.png'
 import haseeb from './haseeb.png'
+import theme from './theme.png'
 
 export {
     home,
@@ -31,5 +32,6 @@ export {
     maha,
     anas,
     gilani,
-    haseeb
+    haseeb,
+    theme
 };

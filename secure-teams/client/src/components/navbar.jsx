@@ -1,23 +1,26 @@
-import React, { useState } from 'react';
-import '../index.css'; 
+import React, { useState, useEffect } from 'react';
+import '../index.css';
 import face from '../images/face.png';
 import profile from '../images/q.png';
 import menu from '../images/menu.png';
 import '../styles/navbar.css';
 
-const Navbar = () => {
-  const [isMenuOpen, setMenuOpen] = useState(false);
+const Navbar = ({ selectedTheme }) => {
+  console.log('navbar ', selectedTheme);
+
+  useEffect(() => {
+    const storedTheme = localStorage.getItem('themeColor') || selectedTheme;
+    document.documentElement.style.setProperty('--navbar-theme-color', storedTheme);
+  }, [selectedTheme]);
+
   const [isProfileOpen, setProfileOpen] = useState(false);
 
-  const handleMenuClick = () => {
-    setMenuOpen(!isMenuOpen);
-  };
   const handleProfileClick = () => {
     setProfileOpen(!isProfileOpen);
   };
 
   return (
-    <div className="navbar">
+    <div className="navbar" style={{ backgroundColor: selectedTheme }}>
       <div className="flex items-center">
         <img
           src={face}
@@ -34,52 +37,26 @@ const Navbar = () => {
         />
       </div>
 
-      <div className="flex items-center relative">
-        <img
-          src={menu}
-          alt="Menu"
-          className="w-6 h-6 mr-4 cursor-pointer transition-transform transform hover:scale-110"
-          onClick={handleMenuClick}
-        />
-
-        {isMenuOpen && (
-          <div className="absolute top-full right-7">
-            <div className="bg-gradient-to-b from-green-200 to-green-800 p-2 rounded shadow mt-1">
-              <span>Option 1</span>
-              <span>Option 2</span>
-              <span>Option 3</span>
-            </div>
-          </div>
-        )}
-
+      <div className="relative inline-block">
         <img
           src={profile}
           alt="Profile"
-          className="w-8 h-8 rounded-full"
+          className="w-8 h-8 rounded-full profile-button cursor-pointer"
           onClick={handleProfileClick}
         />
 
-        {isProfileOpen && (
-          <div className="relative">
-            <div className="bg-gradient-to-b from-green-200 to-green-800 p-2 rounded shadow mt-1">
-              <button className="text-white hover:text-purple-500">
-                Profile
-              </button>
-              <button className="text-white hover:text-purple-500">
-                Settings
-              </button>
-              <button
-                className="text-white hover:text-purple-500"
-                onClick={() => {
-                  localStorage.removeItem("token");
-                  window.location.href = "/";
-                }}
-              >
-                Logout
-              </button>
-            </div>
+        <div className={`profile-dropdown ${isProfileOpen ? 'show' : ''}`}>
+          <div className="profile-dropdown-item">Settings</div>
+          <div
+            className="profile-dropdown-item"
+            onClick={() => {
+              localStorage.removeItem("token");
+              window.location.href = "/";
+            }}
+          >
+            Logout
           </div>
-        )}
+        </div>
       </div>
     </div>
   );

@@ -3,32 +3,66 @@
 @import 'tailwindcss/utilities';
 
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #68d391;
-    padding: 1rem;
-  }
-  
-  .search-container {
-    flex: 1;
-    text-align: center;
-  }
-  
-  .search-input {
-    border: 1px solid #fff; /* White border */
-    padding: 0.5rem;
-    border-radius: 0.25rem;
-    width: 100%;
-    outline: none;
-  }
-  
-  .menu-button,
-  .profile-button {
-    cursor: pointer;
-    color: #fff; /* White text color */
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
-  }
+  display: flex;
+  background-color: var(--navbar-theme-color);
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
 
-  
+.search-container {
+  flex: 1;
+  text-align: center;
+}
+
+.search-input {
+  border: 1px solid #fff;
+  /* White border */
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  width: 100%;
+  outline: none;
+}
+
+.profile-button {
+  cursor: pointer;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  /* If the icon itself is small, consider adding padding to increase the clickable area */
+  padding: 8px; 
+  border-radius: 50%;
+  z-index: 10;
+  /* Ensure that the width and height are sufficient for easy clicking */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-dropdown {
+  display: none; /* Initially hidden */
+  position: absolute;
+  top: 100%; /* Position just below the profile icon */
+  right: 0;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: 5; /* Ensure dropdown is above profile icon */
+}
+
+.profile-dropdown.show {
+  display: block;
+  /* Show dropdown */
+}
+
+.profile-dropdown-item {
+  color: black;
+  padding: 10px;
+  text-align: left;
+  text-decoration: none;
+  display: block;
+}
+
+.profile-dropdown-item:hover {
+  background-color: #f2f2f2;
+}
