@@ -2,6 +2,10 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+:root {
+  --navbar-theme-color: #68d391;
+}
+
 .navbar {
   display: flex;
   background-color: var(--navbar-theme-color);
@@ -41,14 +45,15 @@
 .profile-dropdown {
   display: none; /* Initially hidden */
   position: absolute;
-  top: 100%; /* Position just below the profile icon */
+  top: 100%; /* Position below the profile icon */
   right: 0;
   background-color: white;
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
   border-radius: 8px;
   overflow: hidden;
-  z-index: 5; /* Ensure dropdown is above profile icon */
+  z-index: 20; /* Ensure dropdown is above other content */
 }
+
 
 .profile-dropdown.show {
   display: block;

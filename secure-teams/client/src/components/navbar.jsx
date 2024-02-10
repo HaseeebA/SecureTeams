@@ -36,7 +36,7 @@ const Navbar = ({ selectedTheme }) => {
 				/>
 			</div>
 
-			<div className="relative top-0 right-0">
+			<div className="relative inline-block">
 				<img
 					src={profile}
 					alt="Profile"
@@ -45,7 +45,7 @@ const Navbar = ({ selectedTheme }) => {
 				/>
 
 				{isProfileOpen && (
-					<div className="absolute right-0 mt-2 bg-white w-40 shadow-md rounded-md top-10">
+					<div className="profile-dropdown show">
 						<button className="block w-full px-4 py-2 text-left hover:bg-gray-200">
 							Profile
 						</button>
@@ -56,6 +56,7 @@ const Navbar = ({ selectedTheme }) => {
 							className="block w-full px-4 py-2 text-left hover:bg-gray-200"
 							onClick={() => {
 								localStorage.removeItem("token");
+								localStorage.removeItem("themeColor");
 								window.location.href = "/";
 							}}
 						>
