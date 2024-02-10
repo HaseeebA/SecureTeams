@@ -75,6 +75,7 @@ const Signup = (props) => {
 		<div className="signup-container">
 			<StarsCanvas />
 			<form className="signup-form">
+				<h2 className="head2">Sign Up</h2>
 				<input
 					value={name}
 					onChange={(e) => setName(e.target.value)}

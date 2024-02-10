@@ -45,28 +45,29 @@ const Login = () => {
 
 	return (
 		<div className="login-bg">
-		<div className="login">
-			<StarsCanvas />
-			<form className="login-form">
-				<input
-					value={email}
-					onChange={(e) => setEmail(e.target.value)}
-					placeholder="Email"
-					type="email"
-					className="login-input"
-				/>
-				<input
-					value={password}
-					onChange={(e) => setPassword(e.target.value)}
-					placeholder="Password"
-					type="password"
-					className="login-input"
-				/>
-				<button type="submit" onClick={handleLogin} className="login-button">
-					Sign In
-				</button>
-			</form>
-		</div>
+			<div className="login">
+				<StarsCanvas />
+				<form className="login-form">
+					<h2 className="head2">Login</h2>
+					<input
+						value={email}
+						onChange={(e) => setEmail(e.target.value)}
+						placeholder="Email"
+						type="email"
+						className="login-input"
+					/>
+					<input
+						value={password}
+						onChange={(e) => setPassword(e.target.value)}
+						placeholder="Password"
+						type="password"
+						className="login-input"
+					/>
+					<button type="submit" onClick={handleLogin} className="login-button">
+						Sign In
+					</button>
+				</form>
+			</div>
 		</div>
 	);
 };

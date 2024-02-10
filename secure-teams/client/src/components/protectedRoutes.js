@@ -5,7 +5,7 @@ const ProtectedRoute = ({ component: Component, ...rest }) => {
 	const authenticateToken = localStorage.getItem("token");
     
     if (!authenticateToken) {
-        alert("You must be logged in to access this page");
+        // alert("You must be logged in to access this page");
         return <Navigate to="/" />;
     }
 

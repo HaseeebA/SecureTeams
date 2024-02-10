@@ -39,13 +39,24 @@ body {
   margin: 0 0 20px 0;
 }
 
+.login-button {
+  background-color: #333;
+  color: #fff;
+  font-size: 10px;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px;
+}
+
 p {
   color: #ffffff;
   font-size: 25px;
   margin-bottom: 20px;
 }
 
-button {
+/* button {
   background-color: #333333;
   color: #fff;
   font-size: 18px;
@@ -60,4 +71,4 @@ button {
 
 button:hover {
   background-color: #000503;
-}
+} */
