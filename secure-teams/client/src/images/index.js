@@ -8,6 +8,13 @@ import members from './members.png'
 import settings from './settings.png'
 import calendar from './calendar.png'
 import add from './add.png'
+import team from './team.png'
+import mk from './mk.png'
+import maha from './maha.png'
+import anas from './anas.png'
+import gilani from './gilani.png'
+import haseeb from './haseeb.png'
+import theme from './theme.png'
 
 export {
     home,
@@ -19,5 +26,12 @@ export {
     members,
     settings,
     calendar,
-    add
+    add,
+    team,
+    mk,
+    maha,
+    anas,
+    gilani,
+    haseeb,
+    theme
 };

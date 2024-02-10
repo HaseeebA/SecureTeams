@@ -1,14 +1,124 @@
 @keyframes slideInFromLeft {
-    from {
-        transform: translateX(-100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 .side-panel {
-    animation: slideInFromLeft 0.5s ease-out;
+  animation: slideInFromLeft 0.5s ease-out;
+  position: fixed;
+  left: 20px;
+  top: 100px;
+  bottom: 60px;
+  width: 200px;
+  background-color: var(--side-panel-background-color);
+  padding: 16px;
+  color: #fff;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-top-left-radius: 20px;
+}
+
+.side-panel.visible {
+  display: block;
+}
+
+.side-panel>div {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+}
+
+.side-panel>div:hover {
+  color: #000000;
+  font-size: 20px;
+}
+
+.side-panel>div img {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+}
+
+.side-panel>div span {
+  margin-left: 8px;
+}
+
+.team-section {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 16px;
+  background-color: var(--side-panel-background-color);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.team-section img {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+}
+
+.team-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+  color: inherit;
+}
+
+.team-link:hover {
+  color: #006125;
+}
+
+.home-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+  color: inherit;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+  top: -50px;
+  right: 0%;
+  z-index: 10;
+}
+
+.theme-options {
+  display: flex;
+  flex-direction: column;
+  font-size: 15px; 
+  border: 1px solid #ccc;
+  border-radius: 15px; 
+  padding: 5px; 
+}
+
+.theme-option {
+  cursor: pointer;
+  padding: 5px;
+}
+
+.theme-option:hover {
+  background-color: lightgray;
 }
