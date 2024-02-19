@@ -26,8 +26,10 @@ const Sidepanel = ({ show, onThemeChange }) => {
                 </Link>
             </div>
             <div className="flex items-center mb-9 cursor-pointer">
-                <img src={messages} alt="Messages Icon" />
-                <span>Messages</span>
+                <Link to="/messages" className="messages-link">
+                    <img src={messages} alt="Messages Icon" />
+                    <span>Messages</span>
+                </Link>
             </div>
             <div className="flex items-center mb-9 cursor-pointer">
                 <img src={tasks} alt="Tasks Icon" />
