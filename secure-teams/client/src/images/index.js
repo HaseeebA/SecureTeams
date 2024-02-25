@@ -15,6 +15,7 @@ import anas from './anas.png'
 import gilani from './gilani.png'
 import haseeb from './haseeb.png'
 import theme from './theme.png'
+import rightarrow from './rightarrow.png'
 
 export {
     home,
@@ -33,5 +34,6 @@ export {
     anas,
     gilani,
     haseeb,
-    theme
+    theme,
+    rightarrow
 };
