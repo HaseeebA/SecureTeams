@@ -29,18 +29,17 @@
 }
 
 .profile-button {
-  cursor: pointer;
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
-  /* If the icon itself is small, consider adding padding to increase the clickable area */
-  padding: 8px; 
+  width: 40px;    
+  height: 40px;     
   border-radius: 50%;
-  z-index: 10;
-  /* Ensure that the width and height are sufficient for easy clicking */
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 30;
+  position: relative; 
 }
+
 
 .profile-dropdown {
   display: none; /* Initially hidden */
@@ -53,7 +52,6 @@
   overflow: hidden;
   z-index: 20; /* Ensure dropdown is above other content */
 }
-
 
 .profile-dropdown.show {
   display: block;

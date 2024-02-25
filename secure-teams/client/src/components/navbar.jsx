@@ -2,25 +2,39 @@ import React, { useState, useEffect } from "react";
 import "../index.css";
 import face from "../images/face.png";
 import profile from "../images/q.png";
-import menu from "../images/menu.png";
 import "../styles/navbar.css";
 
 const Navbar = ({ selectedTheme }) => {
 	console.log("navbar ", selectedTheme);
 
+	
+	const [isProfileOpen, setProfileOpen] = useState(false);
+	
+	const handleProfileClick = (event) => {
+		setProfileOpen(!isProfileOpen);
+		event.stopPropagation();
+	};
+	
+	const handleClickOutside = (event) => {
+		if (!event.target.closest('.profile-button') && !event.target.closest('.profile-dropdown')) {
+			setProfileOpen(false);
+        }
+    };
+	
 	useEffect(() => {
+		document.addEventListener('click', handleClickOutside);
+
 		const storedTheme = localStorage.getItem("themeColor") || selectedTheme;
 		document.documentElement.style.setProperty(
 			"--navbar-theme-color",
 			storedTheme
 		);
+
+		return () => {
+            document.removeEventListener('click', handleClickOutside);
+        };
+
 	}, [selectedTheme]);
-
-	const [isProfileOpen, setProfileOpen] = useState(false);
-
-	const handleProfileClick = () => {
-		setProfileOpen(!isProfileOpen);
-	};
 
 	return (
 		<div className="navbar" style={{ backgroundColor: selectedTheme }}>
@@ -40,7 +54,7 @@ const Navbar = ({ selectedTheme }) => {
 				<img
 					src={profile}
 					alt="Profile"
-					className="w-10 h-10 rounded-full cursor-pointer"
+					className="profile-button"
 					onClick={handleProfileClick}
 				/>
 
