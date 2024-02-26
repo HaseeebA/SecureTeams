@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import StarsCanvas from "./canvas/Stars";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 import "../styles/signup.css";
 
 const Signup = (props) => {
@@ -13,7 +12,6 @@ const Signup = (props) => {
 
 	const handleSignup = async (event) => {
 		event.preventDefault();
-		// const navigate = useNavigate();
 
     const role = document.querySelector("select").value;
 

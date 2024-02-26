@@ -16,6 +16,7 @@ import gilani from './gilani.png'
 import haseeb from './haseeb.png'
 import theme from './theme.png'
 import rightarrow from './rightarrow.png'
+import bg from './bg.png'
 
 export {
     home,
@@ -35,5 +36,6 @@ export {
     gilani,
     haseeb,
     theme,
-    rightarrow
+    rightarrow,
+    bg,
 };
