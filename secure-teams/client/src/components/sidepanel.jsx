@@ -12,7 +12,7 @@ const Sidepanel = ({ show, onThemeChange }) => {
 
     const togglePanel = () => {
         setIsPanelOpen(!isPanelOpen);
-        const newLeftPosition = isPanelOpen ? '25px' : '220px'; 
+        const newLeftPosition = isPanelOpen ? '25px' : '220px';
         const toggleButton = document.querySelector('.toggle-panel-button');
         if (toggleButton) {
             toggleButton.style.left = newLeftPosition;
@@ -58,7 +58,7 @@ const Sidepanel = ({ show, onThemeChange }) => {
         return () => {
             document.removeEventListener('mousedown', closeThemeOptions);
         };
-    }, [isThemeOptionsOpen]); 
+    }, [isThemeOptionsOpen]);
 
     return (
         <>
@@ -85,8 +85,10 @@ const Sidepanel = ({ show, onThemeChange }) => {
                     <span>Members</span>
                 </div>
                 <div className="flex items-center mb-9 cursor-pointer">
+                <Link to="/settings" className="settings-link">
                     <img src={settings} alt="Settings Icon" />
                     <span>Settings</span>
+                </Link>
                 </div>
                 <div className="flex items-center mb-9 cursor-pointer">
                     <img src={calendar} alt="Calendar Icon" />

@@ -88,6 +88,21 @@
 .side-panel>div span {
   margin-left: 8px;
 }
+
+.settings-section img {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+}
+
+.settings-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+  color: inherit;
+}
+
 .team-section {
   position: absolute;
   bottom: 0;
