@@ -58,15 +58,11 @@ const Signup = (props) => {
       setPassword("");
 
       alert("Signup successful! Redirecting to the login page...");
-      // navigate("/login");
       window.location = "/login";
 		} catch (error) {
 			alert("Error signing up");
 			console.log(error);
 		}
-
-		// Alternatively, you can use the window.location object to redirect to the login page
-		// window.location = "/login";
 	};
 
 	return (

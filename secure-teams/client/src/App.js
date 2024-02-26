@@ -6,6 +6,7 @@ import Login from "./components/login.js";
 import Signup from "./components/signup.js";
 import ProtectedRoute from "./components/protectedRoutes.js";
 import Team from "./components/team.jsx";
+import Settings from "./components/settings.jsx";
 
 function App() {
 	return (
@@ -19,6 +20,7 @@ function App() {
 					element={<ProtectedRoute component={Homepage} />}
 				/>
 				<Route path="/team" element={<Team />} />
+				<Route path="/settings" element={<Settings />} />
 			</Routes>
 		</Router>
 	);

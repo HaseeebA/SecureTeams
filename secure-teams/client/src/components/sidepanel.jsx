@@ -8,11 +8,11 @@ const Sidepanel = ({ show, onThemeChange }) => {
     const [themeColor, setThemeColor] = useState(localStorage.getItem('themeColor'));
     const [isThemeOptionsOpen, setIsThemeOptionsOpen] = useState(false);
     const [invertImages, setInvertImages] = useState(false);
-    const noHoverColors = ['#0b1623', '#190b14', '#013220'];
+    const noHoverColors = ['#0b1623', '#540D0D', '#013220'];
 
     const togglePanel = () => {
         setIsPanelOpen(!isPanelOpen);
-        const newLeftPosition = isPanelOpen ? '25px' : '220px'; 
+        const newLeftPosition = isPanelOpen ? '25px' : '220px';
         const toggleButton = document.querySelector('.toggle-panel-button');
         if (toggleButton) {
             toggleButton.style.left = newLeftPosition;
@@ -23,7 +23,6 @@ const Sidepanel = ({ show, onThemeChange }) => {
         document.documentElement.style.setProperty('--side-panel-background-color', themeColor);
         onThemeChange(themeColor);
 
-        // Determine if hover effects should be disabled
         const shouldDisableHover = noHoverColors.includes(themeColor);
         if (shouldDisableHover) {
             document.body.classList.add('no-hover');
@@ -31,11 +30,9 @@ const Sidepanel = ({ show, onThemeChange }) => {
             document.body.classList.remove('no-hover');
         }
 
-        // Determine if images should be inverted based on the theme color
         const shouldInvert = noHoverColors.includes(themeColor);
         setInvertImages(shouldInvert);
 
-        // Save the theme color to local storage
         localStorage.setItem('themeColor', themeColor);
     }, [themeColor, onThemeChange]);
 
@@ -61,7 +58,7 @@ const Sidepanel = ({ show, onThemeChange }) => {
         return () => {
             document.removeEventListener('mousedown', closeThemeOptions);
         };
-    }, [isThemeOptionsOpen]); 
+    }, [isThemeOptionsOpen]);
 
     return (
         <>
@@ -88,8 +85,10 @@ const Sidepanel = ({ show, onThemeChange }) => {
                     <span>Members</span>
                 </div>
                 <div className="flex items-center mb-9 cursor-pointer">
+                <Link to="/settings" className="settings-link">
                     <img src={settings} alt="Settings Icon" />
                     <span>Settings</span>
+                </Link>
                 </div>
                 <div className="flex items-center mb-9 cursor-pointer">
                     <img src={calendar} alt="Calendar Icon" />
@@ -112,7 +111,7 @@ const Sidepanel = ({ show, onThemeChange }) => {
                             <div className="theme-option" onClick={() => handleThemeChange('#ddb892')}>Peach</div>
                             <div className="theme-option" onClick={() => handleThemeChange('#45dfb1')}>Neon Green</div>
                             <div className="theme-option" onClick={() => handleThemeChange('#0b1623')}>Midnight Blue</div>
-                            <div className="theme-option" onClick={() => handleThemeChange('#190b14')}>Dark Velvet</div>
+                            <div className="theme-option" onClick={() => handleThemeChange('#540D0D')}>Dark Velvet</div>
                             <div className="theme-option" onClick={() => handleThemeChange('#013220')}>Forest Shadow</div>
                         </div>
                     )}
