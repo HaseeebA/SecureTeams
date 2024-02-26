@@ -5,7 +5,8 @@ import Sidepanel from './sidepanel';
 
 const Homepage = () => {
     const [showSidePanel, setShowSidePanel] = useState(true);
-    const initialTheme = localStorage.getItem('themeColor');
+    const initialTheme = localStorage.getItem('themeColor') || '#68d391';
+    console.log('initial theme:', initialTheme)
     const [theme, setTheme] = useState(initialTheme);
 
     const handleThemeChange = (newTheme) => {
