@@ -33,6 +33,7 @@ const Login = () => {
 
 			if (response.data.token) {
 				localStorage.setItem("token", response.data.token);
+				localStorage.setItem("role", response.data.role);
 				window.location.href = "/homepage";
 			} else {
 				alert("Invalid credentials");

@@ -22,6 +22,21 @@ mongoose
 		console.log(error);
 	});
 
+const userSchema = new mongoose.Schema({
+	name: { type: String, required: true },
+	password: { type: String, required: true },
+	email: { type: String, required: true, unique: true },
+	role: {
+		type: String,
+		required: false,
+		enum: ["team-member", "team-lead", "manager", "admin", "employee"],
+		default: "employee",
+	},
+	teams: { type: Array },
+});
+
+const User = mongoose.model("User", userSchema);
+
 // Middleware to verify token
 const authenticateToken = (req, res, next) => {
 	const authHeader = req.headers["authorization"];
@@ -37,20 +52,6 @@ const authenticateToken = (req, res, next) => {
 	});
 };
 
-const userSchema = new mongoose.Schema({
-	name: { type: String, required: true },
-	password: { type: String, required: true },
-	email: { type: String, required: true, unique: true },
-	role: {
-		type: String,
-		required: true,
-		enum: ["team-member", "team-lead", "manager", "admin"],
-	},
-	teams: { type: Array },
-});
-
-const User = mongoose.model("User", userSchema);
-
 // Protected routes
 app.get("/homepage", authenticateToken, (req, res) => {
 	console.log("Homepage");
@@ -59,7 +60,7 @@ app.get("/homepage", authenticateToken, (req, res) => {
 });
 
 app.post("/api/signup", async (req, res) => {
-	const { name, email, password, role } = req.body;
+	const { name, email, password} = req.body;
 	try {
 		let user = await User.findOne({ email: email });
 		if (user) {
@@ -69,7 +70,7 @@ app.post("/api/signup", async (req, res) => {
 
 		const salt = await bcrypt.genSalt(10);
 		const hashedPassword = await bcrypt.hash(password, salt);
-		user = new User({ name, email, password: hashedPassword, role });
+		user = new User({ name, email, password: hashedPassword});
 		await user.save();
 		res.status(201).json({ message: "User created successfully" });
 		console.log("User created successfully");
@@ -96,10 +97,70 @@ app.post("/api/login", async (req, res) => {
 			expiresIn: "1h",
 		});
 
-		res.status(200).json({ token: token });
+		if (email === "as1725@secureteams.com") {
+			console.log("User role", user.role);
+			res.status(200).json({ token: token, role: "admin" });
+			console.log("User is admin");
+		} else {
+			console.log("User role", user.role);
+			res.status(200).json({ token: token, role: user.role });
+		}
+
+		// res.status(200).json({ token: token });
 		console.log("Login successful");
 	} catch (error) {
 		console.log(error);
 		res.status(500).json({ message: "Error logging in" });
+	}
+});
+
+app.get("/api/users", async (req, res) => {
+	try {
+		const users = await User.find();
+		// console.log("Users:", users);
+		res.status(200).json(users);
+	} catch (error) {
+		console.log(error);
+		return res.status(500).json({ message: "Error fetching users" });
+	}
+});
+
+app.get("/api/newUsers", async (req, res) => {
+	try {
+		const users = await User.find({ role: "employee" });
+		// console.log("Users:", users);
+		res.status(200).json(users);
+	} catch (error) {
+		console.log(error);
+		return res.status(500).json({ message: "Error fetching users" });
+	}
+});
+
+app.put("/api/users/:id", async (req, res) => {
+	const { role, email } = req.body;
+	try {
+		const user = await User.findOne({ email: email });
+		if (!user) {
+			console.log("User not found");
+			return res.status(400).json({ message: "User not found" });
+		}
+		if (role === "Team Member") {
+			user.role = "team-member";
+		}
+		if (role === "Team Lead") {
+			user.role = "team-lead";
+		}
+		if (role === "Manager") {
+			user.role = "manager";
+		}
+		if (role === "Admin") {
+			return res.status(400).json({ message: "Cannot assign admin role" });
+		}
+		await user.save();
+		console.log("Role updated successfully");
+		res.status(200).json({ message: "Role updated successfully" });
+	} catch (error) {
+		console.log(error);
+		res.status(500).json({ message: "Error updating role" });
 	}
 });

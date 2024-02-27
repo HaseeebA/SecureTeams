@@ -6,6 +6,7 @@ import Login from "./components/login.js";
 import Signup from "./components/signup.js";
 import ProtectedRoute from "./components/protectedRoutes.js";
 import Team from "./components/team.jsx";
+import Roles from "./components/admin/manageRoles.jsx";
 
 function App() {
 	return (
@@ -18,7 +19,8 @@ function App() {
 					path="/homepage"
 					element={<ProtectedRoute component={Homepage} />}
 				/>
-				<Route path="/team" element={<Team />} />
+				<Route path="/team" element={<ProtectedRoute component={Team} />} />
+				<Route path="/manageRoles" element={<ProtectedRoute component={Roles} />} />
 			</Routes>
 		</Router>
 	);
