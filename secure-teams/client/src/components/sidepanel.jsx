@@ -14,23 +14,71 @@ import "../styles/side.css";
 import { Link } from "react-router-dom";
 
 const Sidepanel = ({ show, onThemeChange }) => {
-	const [isHovered, setIsHovered] = useState(false);
+	const [isPanelOpen, setIsPanelOpen] = useState(false);
 	const [themeColor, setThemeColor] = useState(
 		localStorage.getItem("themeColor")
 	);
+	const [isThemeOptionsOpen, setIsThemeOptionsOpen] = useState(false);
+	const [invertImages, setInvertImages] = useState(false);
+	const noHoverColors = ["#0b1623", "#540D0D", "#013220"];
+
+	const togglePanel = () => {
+		setIsPanelOpen(!isPanelOpen);
+		const newLeftPosition = isPanelOpen ? "25px" : "220px";
+		const toggleButton = document.querySelector(".toggle-panel-button");
+		if (toggleButton) {
+			toggleButton.style.left = newLeftPosition;
+		}
+	};
 
 	useEffect(() => {
 		document.documentElement.style.setProperty(
 			"--side-panel-background-color",
 			themeColor
 		);
-	}, [themeColor]);
+		onThemeChange(themeColor);
+
+		const shouldDisableHover = noHoverColors.includes(themeColor);
+		if (shouldDisableHover) {
+			document.body.classList.add("no-hover");
+		} else {
+			document.body.classList.remove("no-hover");
+		}
+
+		const shouldInvert = noHoverColors.includes(themeColor);
+		setInvertImages(shouldInvert);
+
+		localStorage.setItem("themeColor", themeColor);
+	}, [themeColor, onThemeChange]);
 
 	const handleThemeChange = (primaryColor) => {
 		setThemeColor(primaryColor);
 		onThemeChange(primaryColor);
 		localStorage.setItem("themeColor", primaryColor);
+		setIsThemeOptionsOpen(false);
 	};
+
+	const toggleThemeOptions = () => {
+		setIsThemeOptionsOpen(!isThemeOptionsOpen);
+	};
+
+	const closeThemeOptions = (event) => {
+		if (
+			isThemeOptionsOpen &&
+			!event.target.closest(".theme-options") &&
+			!event.target.closest(".change-theme-trigger")
+		) {
+			setIsThemeOptionsOpen(false);
+		}
+	};
+
+	useEffect(() => {
+		document.addEventListener("mousedown", closeThemeOptions);
+		return () => {
+			document.removeEventListener("mousedown", closeThemeOptions);
+		};
+	}, [isThemeOptionsOpen]);
+	
 	const role = localStorage.getItem("role");
 	if (role === "admin") {
 		return (
@@ -56,12 +104,11 @@ const Sidepanel = ({ show, onThemeChange }) => {
 
 				<div
 					className="flex items-center mb-9 cursor-pointer relative"
-					onMouseEnter={() => setIsHovered(true)}
-					onMouseLeave={() => setIsHovered(false)}
+					onClick={toggleThemeOptions}
 				>
 					<img src={theme} alt="Theme" />
 					<span>Change Theme</span>
-					{isHovered && (
+					{isThemeOptionsOpen && (
 						<div className="theme-options absolute bg-white p-2 shadow-md">
 							<div
 								className="theme-option"
@@ -86,6 +133,48 @@ const Sidepanel = ({ show, onThemeChange }) => {
 								onClick={() => handleThemeChange("#6f6f6f")}
 							>
 								Grey
+							</div>
+							<div
+								className="theme-option"
+								onClick={() => handleThemeChange("#b5c99a")}
+							>
+								Mint
+							</div>
+							<div
+								className="theme-option"
+								onClick={() => handleThemeChange("#9c6644")}
+							>
+								Brown
+							</div>
+							<div
+								className="theme-option"
+								onClick={() => handleThemeChange("#ddb892")}
+							>
+								Peach
+							</div>
+							<div
+								className="theme-option"
+								onClick={() => handleThemeChange("#45dfb1")}
+							>
+								Neon Green
+							</div>
+							<div
+								className="theme-option"
+								onClick={() => handleThemeChange("#0b1623")}
+							>
+								Midnight Blue
+							</div>
+							<div
+								className="theme-option"
+								onClick={() => handleThemeChange("#540D0D")}
+							>
+								Dark Velvet
+							</div>
+							<div
+								className="theme-option"
+								onClick={() => handleThemeChange("#013220")}
+							>
+								Forest Shadow
 							</div>
 						</div>
 					)}
@@ -123,12 +212,11 @@ const Sidepanel = ({ show, onThemeChange }) => {
 				</div>
 				<div
 					className="flex items-center mb-9 cursor-pointer relative"
-					onMouseEnter={() => setIsHovered(true)}
-					onMouseLeave={() => setIsHovered(false)}
+					onClick={toggleThemeOptions}
 				>
 					<img src={theme} alt="Theme" />
 					<span>Change Theme</span>
-					{isHovered && (
+					{isThemeOptionsOpen && (
 						<div className="theme-options absolute bg-white p-2 shadow-md">
 							<div
 								className="theme-option"
@@ -153,6 +241,48 @@ const Sidepanel = ({ show, onThemeChange }) => {
 								onClick={() => handleThemeChange("#6f6f6f")}
 							>
 								Grey
+							</div>
+							<div
+								className="theme-option"
+								onClick={() => handleThemeChange("#b5c99a")}
+							>
+								Mint
+							</div>
+							<div
+								className="theme-option"
+								onClick={() => handleThemeChange("#9c6644")}
+							>
+								Brown
+							</div>
+							<div
+								className="theme-option"
+								onClick={() => handleThemeChange("#ddb892")}
+							>
+								Peach
+							</div>
+							<div
+								className="theme-option"
+								onClick={() => handleThemeChange("#45dfb1")}
+							>
+								Neon Green
+							</div>
+							<div
+								className="theme-option"
+								onClick={() => handleThemeChange("#0b1623")}
+							>
+								Midnight Blue
+							</div>
+							<div
+								className="theme-option"
+								onClick={() => handleThemeChange("#540D0D")}
+							>
+								Dark Velvet
+							</div>
+							<div
+								className="theme-option"
+								onClick={() => handleThemeChange("#013220")}
+							>
+								Forest Shadow
 							</div>
 						</div>
 					)}

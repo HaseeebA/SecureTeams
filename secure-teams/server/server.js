@@ -56,7 +56,6 @@ const authenticateToken = (req, res, next) => {
 app.get("/homepage", authenticateToken, (req, res) => {
 	console.log("Homepage");
 	res.status(200).json({ message: "Homepage" });
-	res.render("homepage");
 });
 
 app.post("/api/signup", async (req, res) => {
