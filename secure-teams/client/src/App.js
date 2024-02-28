@@ -6,6 +6,7 @@ import Login from "./components/login.js";
 import Signup from "./components/signup.js";
 import ProtectedRoute from "./components/protectedRoutes.js";
 import Team from "./components/team.jsx";
+import Messages from "./components/messages.jsx";
 import Settings from "./components/settings.jsx";
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
 				/>
 				<Route path="/team" element={<Team />} />
 				<Route path="/settings" element={<Settings />} />
+        <Route path="/messages" element={<ProtectedRoute component={Messages} />} />
 			</Routes>
 		</Router>
 	);

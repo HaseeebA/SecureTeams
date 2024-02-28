@@ -61,7 +61,6 @@ const Sidepanel = ({ show, onThemeChange }) => {
     }, [isThemeOptionsOpen]);
 
     return (
-        <>
             <div className={`side-panel ${show ? 'visible' : ''} ${isPanelOpen ? 'expanded' : 'collapsed'} ${invertImages ? 'inverted-images' : ''}`}>
                 <button onClick={togglePanel} className="toggle-panel-button">
                     <img src={rightarrow} alt="Toggle" />
@@ -72,10 +71,12 @@ const Sidepanel = ({ show, onThemeChange }) => {
                         <span>Home</span>
                     </Link>
                 </div>
-                <div className="flex items-center mb-9 cursor-pointer">
+                 <div className="flex items-center mb-9 cursor-pointer">
+                <Link to="/messages" className="messages-link">
                     <img src={messages} alt="Messages Icon" />
                     <span>Messages</span>
-                </div>
+                </Link>
+            </div>
                 <div className="flex items-center mb-9 cursor-pointer">
                     <img src={tasks} alt="Tasks Icon" />
                     <span>Tasks</span>
