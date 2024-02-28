@@ -104,30 +104,31 @@ app.post("/api/login", async (req, res) => {
 	}
 });
 
-app.post("/api/update", authenticateToken, async (req, res) => {
-	const userId = req.user._id;
+app.post("/api/update", async (req, res) => {
+	// const userId = req.user._id;
 	const { email, password } = req.body;
-	console.log("User ID:", userId);
+	// console.log("User ID:", userId);
 	try {
-	  let user = await User.findById(userId);
+		let user = await User.findOne({ email });
 
-	  if (email) {
-		const emailExists = await User.findOne({ email: email });
-		if (emailExists) {
-		  return res.status(400).json({ message: "Email already in use" });
+		// if (email) {
+		// 	const emailExists = await User.findOne({ email: email });
+		// 	if (emailExists) {
+		// 		return res.status(400).json({ message: "Email already in use" });
+		// 	}
+		// 	user.email = email;
+		// }
+		if (password) {
+			const salt = await bcrypt.genSalt(10);
+			const hashedPassword = await bcrypt.hash(password, salt);
+			user.password = hashedPassword;
 		}
-		user.email = email;
-	  }
-	  if (password) {
-		const salt = await bcrypt.genSalt(10);
-		const hashedPassword = await bcrypt.hash(password, salt);
-		user.password = hashedPassword;
-	  }
-	  await user.save();
-	  res.status(200).json({ message: "Account updated successfully" });
+		await user.save();
+		return res.status(200).json({ message: "Account updated successfully" }); // Use 'return' here
+
 	} catch (error) {
-	  console.error("Error updating account:", error);
-	  res.status(500).json({ message: "Error updating account" });
+		console.error("Error updating account:", error);
+		return res.status(500).json({ message: "Error updating account" }); // Use 'return' here
 	}
-  });
-  
+});
+

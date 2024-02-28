@@ -61,74 +61,73 @@ const Sidepanel = ({ show, onThemeChange }) => {
     }, [isThemeOptionsOpen]);
 
     return (
-            <div className={`side-panel ${show ? 'visible' : ''} ${isPanelOpen ? 'expanded' : 'collapsed'} ${invertImages ? 'inverted-images' : ''}`}>
-                <button onClick={togglePanel} className="toggle-panel-button">
-                    <img src={rightarrow} alt="Toggle" />
-                </button>
-                <div className="flex items-center mb-9 cursor-pointer">
-                    <Link to="/homepage" className="home-link">
-                        <img src={home} alt="Home Icon" />
-                        <span>Home</span>
-                    </Link>
-                </div>
-                 <div className="flex items-center mb-9 cursor-pointer">
+        <div className={`side-panel ${show ? 'visible' : ''} ${isPanelOpen ? 'expanded' : 'collapsed'} ${invertImages ? 'inverted-images' : ''}`}>
+            <button onClick={togglePanel} className="toggle-panel-button">
+                <img src={rightarrow} alt="Toggle" />
+            </button>
+            <div className="flex items-center mb-9 cursor-pointer">
+                <Link to="/homepage" className="home-link">
+                    <img src={home} alt="Home Icon" />
+                    <span>Home</span>
+                </Link>
+            </div>
+            <div className="flex items-center mb-9 cursor-pointer">
                 <Link to="/messages" className="messages-link">
                     <img src={messages} alt="Messages Icon" />
                     <span>Messages</span>
                 </Link>
             </div>
-                <div className="flex items-center mb-9 cursor-pointer">
-                    <img src={tasks} alt="Tasks Icon" />
-                    <span>Tasks</span>
-                </div>
-                <div className="flex items-center mb-9 cursor-pointer">
-                    <img src={members} alt="Members Icon" />
-                    <span>Members</span>
-                </div>
-                <div className="flex items-center mb-9 cursor-pointer">
+            <div className="flex items-center mb-9 cursor-pointer">
+                <img src={tasks} alt="Tasks Icon" />
+                <span>Tasks</span>
+            </div>
+            <div className="flex items-center mb-9 cursor-pointer">
+                <img src={members} alt="Members Icon" />
+                <span>Members</span>
+            </div>
+            <div className="flex items-center mb-9 cursor-pointer">
                 <Link to="/settings" className="settings-link">
                     <img src={settings} alt="Settings Icon" />
                     <span>Settings</span>
                 </Link>
-                </div>
-                <div className="flex items-center mb-9 cursor-pointer">
-                    <img src={calendar} alt="Calendar Icon" />
-                    <span>Calendar</span>
-                </div>
-                <div
-                    className="flex items-center mb-9 cursor-pointer relative"
-                    onClick={toggleThemeOptions}
-                >
-                    <img src={theme} alt="Theme" />
-                    <span>Change Theme</span>
-                    {isThemeOptionsOpen && (
-                        <div className="theme-options absolute bg-white p-2 shadow-md">
-                            <div className="theme-option" onClick={() => handleThemeChange('#68d391')}>Green</div>
-                            <div className="theme-option" onClick={() => handleThemeChange('#5DADE2')}>Blue</div>
-                            <div className="theme-option" onClick={() => handleThemeChange('#d873c9')}>Pink</div>
-                            <div className="theme-option" onClick={() => handleThemeChange('#6f6f6f')}>Grey</div>
-                            <div className="theme-option" onClick={() => handleThemeChange('#b5c99a')}>Mint</div>
-                            <div className="theme-option" onClick={() => handleThemeChange('#9c6644')}>Brown</div>
-                            <div className="theme-option" onClick={() => handleThemeChange('#ddb892')}>Peach</div>
-                            <div className="theme-option" onClick={() => handleThemeChange('#45dfb1')}>Neon Green</div>
-                            <div className="theme-option" onClick={() => handleThemeChange('#0b1623')}>Midnight Blue</div>
-                            <div className="theme-option" onClick={() => handleThemeChange('#540D0D')}>Dark Velvet</div>
-                            <div className="theme-option" onClick={() => handleThemeChange('#013220')}>Forest Shadow</div>
-                        </div>
-                    )}
-                </div>
-                <div className="flex items-center mb-9 cursor-pointer">
-                    <img src={add} alt="Project Icon" />
-                    <span>My Projects</span>
-                </div>
-                <div className="team-section">
-                    <Link to="/team" className="team-link">
-                        <img src={team} alt="Team" />
-                        <span>Our Team</span>
-                    </Link>
-                </div>
             </div>
-        </>
+            <div className="flex items-center mb-9 cursor-pointer">
+                <img src={calendar} alt="Calendar Icon" />
+                <span>Calendar</span>
+            </div>
+            <div
+                className="flex items-center mb-9 cursor-pointer relative"
+                onClick={toggleThemeOptions}
+            >
+                <img src={theme} alt="Theme" />
+                <span>Change Theme</span>
+                {isThemeOptionsOpen && (
+                    <div className="theme-options absolute bg-white p-2 shadow-md">
+                        <div className="theme-option" onClick={() => handleThemeChange('#68d391')}>Green</div>
+                        <div className="theme-option" onClick={() => handleThemeChange('#5DADE2')}>Blue</div>
+                        <div className="theme-option" onClick={() => handleThemeChange('#d873c9')}>Pink</div>
+                        <div className="theme-option" onClick={() => handleThemeChange('#6f6f6f')}>Grey</div>
+                        <div className="theme-option" onClick={() => handleThemeChange('#b5c99a')}>Mint</div>
+                        <div className="theme-option" onClick={() => handleThemeChange('#9c6644')}>Brown</div>
+                        <div className="theme-option" onClick={() => handleThemeChange('#ddb892')}>Peach</div>
+                        <div className="theme-option" onClick={() => handleThemeChange('#45dfb1')}>Neon Green</div>
+                        <div className="theme-option" onClick={() => handleThemeChange('#0b1623')}>Midnight Blue</div>
+                        <div className="theme-option" onClick={() => handleThemeChange('#540D0D')}>Dark Velvet</div>
+                        <div className="theme-option" onClick={() => handleThemeChange('#013220')}>Forest Shadow</div>
+                    </div>
+                )}
+            </div>
+            <div className="flex items-center mb-9 cursor-pointer">
+                <img src={add} alt="Project Icon" />
+                <span>My Projects</span>
+            </div>
+            <div className="team-section">
+                <Link to="/team" className="team-link">
+                    <img src={team} alt="Team" />
+                    <span>Our Team</span>
+                </Link>
+            </div>
+        </div>
     );
 };
 

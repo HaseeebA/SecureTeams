@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Navbar from './navbar';
 import InformationPanel from './infopanel';
-import Sidepanel from './messagessidepanel';
+import Sidepanel from './sidepanel';
 
 const Messages = () => {
     const [contacts, setContacts] = useState([]); // Array to store contacts

@@ -103,6 +103,14 @@
   color: inherit;
 }
 
+.messages-link{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+    color: inherit;
+  }
+  
 .team-section {
   position: absolute;
   bottom: 0;
