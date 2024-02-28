@@ -1,7 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import { home, messages, tasks, members, settings, calendar, add, team, theme, rightarrow } from "../images";
-import '../styles/side.css';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import {
+	home,
+	messages,
+	tasks,
+	members,
+	settings,
+	calendar,
+	add,
+	team,
+	theme,
+} from "../images";
+import "../styles/side.css";
+import { Link } from "react-router-dom";
 
 const Sidepanel = ({ show, onThemeChange }) => {
     const [isPanelOpen, setIsPanelOpen] = useState(false);
@@ -59,8 +69,111 @@ const Sidepanel = ({ show, onThemeChange }) => {
             document.removeEventListener('mousedown', closeThemeOptions);
         };
     }, [isThemeOptionsOpen]);
+	
+	const role = localStorage.getItem("role");
+	if (role === "admin") {
+		return (
+			<div className={`side-panel ${show ? "visible" : ""}`}>
+				<div className="flex items-center mb-9 cursor-pointer">
+					<Link to="/homepage" className="home-link">
+						<img src={home} alt="Home Icon" />
+						<span>Home</span>
+					</Link>
+				</div>
 
-    return (
+				<div className="flex items-center mb-9 cursor-pointer">
+					<img src={settings} alt="Settings Icon" />
+					<span>Settings</span>
+				</div>
+
+				<div className="flex items-center mb-9 cursor-pointer">
+					<Link to="/manageRoles" className="home-link">
+						<img src={team} alt="Team" />
+						<span>Manage Roles</span>
+					</Link>
+				</div>
+
+				<div
+					className="flex items-center mb-9 cursor-pointer relative"
+					onClick={toggleThemeOptions}
+				>
+					<img src={theme} alt="Theme" />
+					<span>Change Theme</span>
+					{isThemeOptionsOpen && (
+						<div className="theme-options absolute bg-white p-2 shadow-md">
+							<div
+								className="theme-option"
+								onClick={() => handleThemeChange("#68d391")}
+							>
+								Green
+							</div>
+							<div
+								className="theme-option"
+								onClick={() => handleThemeChange("#5DADE2")}
+							>
+								Blue
+							</div>
+							<div
+								className="theme-option"
+								onClick={() => handleThemeChange("#d873c9")}
+							>
+								Pink
+							</div>
+							<div
+								className="theme-option"
+								onClick={() => handleThemeChange("#6f6f6f")}
+							>
+								Grey
+							</div>
+							<div
+								className="theme-option"
+								onClick={() => handleThemeChange("#b5c99a")}
+							>
+								Mint
+							</div>
+							<div
+								className="theme-option"
+								onClick={() => handleThemeChange("#9c6644")}
+							>
+								Brown
+							</div>
+							<div
+								className="theme-option"
+								onClick={() => handleThemeChange("#ddb892")}
+							>
+								Peach
+							</div>
+							<div
+								className="theme-option"
+								onClick={() => handleThemeChange("#45dfb1")}
+							>
+								Neon Green
+							</div>
+							<div
+								className="theme-option"
+								onClick={() => handleThemeChange("#0b1623")}
+							>
+								Midnight Blue
+							</div>
+							<div
+								className="theme-option"
+								onClick={() => handleThemeChange("#540D0D")}
+							>
+								Dark Velvet
+							</div>
+							<div
+								className="theme-option"
+								onClick={() => handleThemeChange("#013220")}
+							>
+								Forest Shadow
+							</div>
+						</div>
+					)}
+				</div>
+			</div>
+		);
+	} else {
+		return (
         <div className={`side-panel ${show ? 'visible' : ''} ${isPanelOpen ? 'expanded' : 'collapsed'} ${invertImages ? 'inverted-images' : ''}`}>
             <button onClick={togglePanel} className="toggle-panel-button">
                 <img src={rightarrow} alt="Toggle" />
@@ -129,6 +242,7 @@ const Sidepanel = ({ show, onThemeChange }) => {
             </div>
         </div>
     );
+	}
 };
 
 export default Sidepanel;

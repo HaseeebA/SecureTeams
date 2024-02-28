@@ -33,7 +33,18 @@ const Login = () => {
 
 			if (response.data.token) {
 				localStorage.setItem("token", response.data.token);
+				localStorage.setItem("role", response.data.role);
 				window.location.href = "/homepage";
+				// try {
+				// 	axios.get("http://localhost:3000/homepage", {
+				// 		headers: {
+				// 			Authorization: "Bearer " + localStorage.getItem("token"),
+				// 		},
+				// 	});
+				// 	window.location.href = "/homepage";
+				// } catch (error) {
+				// 	console.log("Error fetching homepage:", error);
+				// }
 			} else {
 				alert("Invalid credentials");
 			}
