@@ -70,7 +70,6 @@ const Navbar = ({ selectedTheme }) => {
 							className="block w-full px-4 py-2 text-left hover:bg-gray-200"
 							onClick={() => {
 								localStorage.removeItem("token");
-								localStorage.removeItem("themeColor");
 								window.location.href = "/";
 							}}
 						>

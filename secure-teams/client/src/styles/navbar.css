@@ -21,7 +21,6 @@
 
 .search-input {
   border: 1px solid #fff;
-  /* White border */
   padding: 0.5rem;
   border-radius: 0.25rem;
   width: 100%;
@@ -42,20 +41,19 @@
 
 
 .profile-dropdown {
-  display: none; /* Initially hidden */
+  display: none; 
   position: absolute;
-  top: 100%; /* Position below the profile icon */
+  top: 100%; 
   right: 0;
   background-color: white;
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
   border-radius: 8px;
   overflow: hidden;
-  z-index: 20; /* Ensure dropdown is above other content */
+  z-index: 20; 
 }
 
 .profile-dropdown.show {
   display: block;
-  /* Show dropdown */
 }
 
 .profile-dropdown-item {

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import StarsCanvas from "./canvas/Stars";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 import "../styles/signup.css";
 
 const Signup = (props) => {
@@ -12,7 +11,6 @@ const Signup = (props) => {
 
 	const handleSignup = async (event) => {
 		event.preventDefault();
-		// const navigate = useNavigate();
 
 
 		console.log("Name: " + name);
@@ -55,8 +53,8 @@ const Signup = (props) => {
 			setEmail("");
 			setPassword("");
 
-			alert("Signup successful! Redirecting to the login page...");
-			window.location = "/login";
+      alert("Signup successful! Redirecting to the login page...");
+      window.location = "/login";
 		} catch (error) {
 			alert("Error signing up");
 			console.log(error);

@@ -1,0 +1,8 @@
+.side-panel {
+    display: flex;
+    flex-direction: column;   /* Arrange items in a column */
+}
+
+.messages-tab {
+    margin-top: max;         /* Push the tab to the bottom */
+}

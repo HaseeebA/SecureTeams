@@ -5,8 +5,23 @@
   height: 100vh;
 }
 
+.login-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.2); 
+  z-index: 2;
+}
+
 .login-bg {
   background-color: #000000;
+  background-image: url("../images/bg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   position: fixed;
   top: 0;
   left: 0;
@@ -16,7 +31,7 @@
 }
 
 .login-form {
-  background-color: #38b44d;
+  background-color: rgba(56, 145, 180, 0.8);
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
