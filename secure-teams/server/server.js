@@ -53,10 +53,10 @@ const authenticateToken = (req, res, next) => {
 };
 
 // Protected routes
-app.get("/homepage", authenticateToken, (req, res) => {
-	console.log("Homepage");
-	res.status(200).json({ message: "Homepage" });
-});
+// app.get("/homepage", authenticateToken, (req, res) => {
+// 	console.log("Homepage");
+// 	res.status(200).json({ message: "Homepage" });
+// });
 
 app.post("/api/signup", async (req, res) => {
 	const { name, email, password} = req.body;

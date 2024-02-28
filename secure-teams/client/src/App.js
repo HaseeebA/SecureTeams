@@ -4,9 +4,10 @@ import Welcome from "./components/welcome.js";
 import Homepage from "./components/homepage.jsx";
 import Login from "./components/login.js";
 import Signup from "./components/signup.js";
-import ProtectedRoute from "./components/protectedRoutes.js";
+// import ProtectedRoute from "./components/protectedRoutes.js";
 import Team from "./components/team.jsx";
 import Roles from "./components/admin/manageRoles.jsx";
+import { AdminProtectedRoute, ProtectedRoute } from "./components/protectedRoutes.js";
 
 function App() {
 	return (
@@ -20,7 +21,10 @@ function App() {
 					element={<ProtectedRoute component={Homepage} />}
 				/>
 				<Route path="/team" element={<ProtectedRoute component={Team} />} />
-				<Route path="/manageRoles" element={<ProtectedRoute component={Roles} />} />
+				<Route
+					path="/manageRoles"
+					element={<AdminProtectedRoute component={Roles} />}
+				/>
 			</Routes>
 		</Router>
 	);
