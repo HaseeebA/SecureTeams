@@ -21,7 +21,6 @@
 
 .search-input {
   border: 1px solid #fff;
-  /* White border */
   padding: 0.5rem;
   border-radius: 0.25rem;
   width: 100%;
@@ -29,35 +28,32 @@
 }
 
 .profile-button {
-  cursor: pointer;
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
-  /* If the icon itself is small, consider adding padding to increase the clickable area */
-  padding: 8px; 
+  width: 40px;    
+  height: 40px;     
   border-radius: 50%;
-  z-index: 10;
-  /* Ensure that the width and height are sufficient for easy clicking */
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 30;
+  position: relative; 
 }
 
+
 .profile-dropdown {
-  display: none; /* Initially hidden */
+  display: none; 
   position: absolute;
-  top: 100%; /* Position below the profile icon */
+  top: 100%; 
   right: 0;
   background-color: white;
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
   border-radius: 8px;
   overflow: hidden;
-  z-index: 20; /* Ensure dropdown is above other content */
+  z-index: 20; 
 }
-
 
 .profile-dropdown.show {
   display: block;
-  /* Show dropdown */
 }
 
 .profile-dropdown-item {

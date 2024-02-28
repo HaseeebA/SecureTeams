@@ -6,23 +6,26 @@ import Login from "./components/login.js";
 import Signup from "./components/signup.js";
 import ProtectedRoute from "./components/protectedRoutes.js";
 import Team from "./components/team.jsx";
-import Messages from "./components/messages.jsx"; // Import the Messages component
+import Messages from "./components/messages.jsx";
+import Settings from "./components/settings.jsx";
 
 function App() {
-    return (
-        <Router>
-            <Routes>
-                <Route path="/" element={<Welcome />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/signup" element={<Signup />} />
-                {/* ProtectedRoute wraps the Homepage component */}
-                <Route path="/homepage" element={<ProtectedRoute component={Homepage} />} />
-                <Route path="/team" element={<Team />} />
-                {/* ProtectedRoute wraps the Messages component */}
-                <Route path="/messages" element={<ProtectedRoute component={Messages} />} />
-            </Routes>
-        </Router>
-    );
+	return (
+		<Router>
+			<Routes>
+				<Route path="/" element={<Welcome />} />
+				<Route path="/login" element={<Login />} />
+				<Route path="/signup" element={<Signup />} />
+				<Route
+					path="/homepage"
+					element={<ProtectedRoute component={Homepage} />}
+				/>
+				<Route path="/team" element={<Team />} />
+				<Route path="/settings" element={<Settings />} />
+        <Route path="/messages" element={<ProtectedRoute component={Messages} />} />
+			</Routes>
+		</Router>
+	);
 }
 
 export default App;

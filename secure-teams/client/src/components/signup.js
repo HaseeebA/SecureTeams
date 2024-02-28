@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import StarsCanvas from "./canvas/Stars";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 import "../styles/signup.css";
 
 const Signup = (props) => {
@@ -13,7 +12,6 @@ const Signup = (props) => {
 
 	const handleSignup = async (event) => {
 		event.preventDefault();
-		// const navigate = useNavigate();
 
     const role = document.querySelector("select").value;
 
@@ -60,15 +58,11 @@ const Signup = (props) => {
       setPassword("");
 
       alert("Signup successful! Redirecting to the login page...");
-      // navigate("/login");
       window.location = "/login";
 		} catch (error) {
 			alert("Error signing up");
 			console.log(error);
 		}
-
-		// Alternatively, you can use the window.location object to redirect to the login page
-		// window.location = "/login";
 	};
 
 	return (
