@@ -3,26 +3,29 @@ import "../index.css";
 import face from "../images/face.png";
 import profile from "../images/q.png";
 import "../styles/navbar.css";
+import { NavLink } from "react-router-dom";
 
 const Navbar = ({ selectedTheme }) => {
 	console.log("navbar ", selectedTheme);
 
-	
 	const [isProfileOpen, setProfileOpen] = useState(false);
-	
+
 	const handleProfileClick = (event) => {
 		setProfileOpen(!isProfileOpen);
 		event.stopPropagation();
 	};
-	
+
 	const handleClickOutside = (event) => {
-		if (!event.target.closest('.profile-button') && !event.target.closest('.profile-dropdown')) {
+		if (
+			!event.target.closest(".profile-button") &&
+			!event.target.closest(".profile-dropdown")
+		) {
 			setProfileOpen(false);
-        }
-    };
-	
+		}
+	};
+
 	useEffect(() => {
-		document.addEventListener('click', handleClickOutside);
+		document.addEventListener("click", handleClickOutside);
 
 		const storedTheme = localStorage.getItem("themeColor") || selectedTheme;
 		document.documentElement.style.setProperty(
@@ -31,9 +34,8 @@ const Navbar = ({ selectedTheme }) => {
 		);
 
 		return () => {
-            document.removeEventListener('click', handleClickOutside);
-        };
-
+			document.removeEventListener("click", handleClickOutside);
+		};
 	}, [selectedTheme]);
 
 	return (
@@ -64,7 +66,7 @@ const Navbar = ({ selectedTheme }) => {
 							Profile
 						</button>
 						<button className="block w-full px-4 py-2 text-left hover:bg-gray-200">
-							Settings
+							<NavLink to="/settings">Settings</NavLink>
 						</button>
 						<button
 							className="block w-full px-4 py-2 text-left hover:bg-gray-200"

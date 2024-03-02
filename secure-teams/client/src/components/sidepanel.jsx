@@ -99,8 +99,10 @@ const Sidepanel = ({ show, onThemeChange }) => {
 				</div>
 
 				<div className="flex items-center mb-9 cursor-pointer">
-					<img src={settings} alt="Settings Icon" />
-					<span>Settings</span>
+					<Link to="/settings" className="settings-link">
+						<img src={settings} alt="Settings Icon" />
+						<span>Settings</span>
+					</Link>
 				</div>
 
 				<div className="flex items-center mb-9 cursor-pointer">

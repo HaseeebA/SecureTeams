@@ -59,7 +59,7 @@ const authenticateToken = (req, res, next) => {
 // });
 
 app.post("/api/signup", async (req, res) => {
-	const { name, email, password} = req.body;
+	const { name, email, password } = req.body;
 	try {
 		let user = await User.findOne({ email: email });
 		if (user) {
@@ -69,7 +69,7 @@ app.post("/api/signup", async (req, res) => {
 
 		const salt = await bcrypt.genSalt(10);
 		const hashedPassword = await bcrypt.hash(password, salt);
-		user = new User({ name, email, password: hashedPassword});
+		user = new User({ name, email, password: hashedPassword });
 		await user.save();
 		res.status(201).json({ message: "User created successfully" });
 		console.log("User created successfully");
@@ -164,29 +164,26 @@ app.put("/api/users/:id", async (req, res) => {
 	}
 });
 app.post("/api/update", async (req, res) => {
-	// const userId = req.user._id;
-	const { email, password } = req.body;
-	// console.log("User ID:", userId);
+	const { email, password, newPassword } = req.body;
 	try {
-		let user = await User.findOne({ email });
-
-		// if (email) {
-		// 	const emailExists = await User.findOne({ email: email });
-		// 	if (emailExists) {
-		// 		return res.status(400).json({ message: "Email already in use" });
-		// 	}
-		// 	user.email = email;
-		// }
-		if (password) {
-			const salt = await bcrypt.genSalt(10);
-			const hashedPassword = await bcrypt.hash(password, salt);
-			user.password = hashedPassword;
+		const user = await User.findOne({ email: email });
+		if (!user) {
+			console.log("User not found");
+			return res.status(400).json({ message: "User not found" });
 		}
+		const validPassword = await bcrypt.compare(password, user.password);
+		if (!validPassword) {
+			console.log("Invalid password");
+			return res.status(400).json({ message: "Invalid password" });
+		}
+		const salt = await bcrypt.genSalt(10);
+		const hashedPassword = await bcrypt.hash(newPassword, salt);
+		user.password = hashedPassword;
 		await user.save();
-		return res.status(200).json({ message: "Account updated successfully" }); // Use 'return' here
-
+		console.log("Password updated successfully");
+		res.status(200).json({ message: "Password updated successfully" });
 	} catch (error) {
-		console.error("Error updating account:", error);
-		return res.status(500).json({ message: "Error updating account" }); // Use 'return' here
+		console.log(error);
+		res.status(500).json({ message: "Error updating password" });
 	}
 });
