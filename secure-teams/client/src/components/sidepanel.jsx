@@ -14,7 +14,7 @@ import "../styles/side.css";
 import { Link } from "react-router-dom";
 
 const Sidepanel = ({ show, onThemeChange }) => {
-	const [isPanelOpen, setIsPanelOpen] = useState(false);
+	const [isPanelOpen, setIsPanelOpen] = useState(true);
 	const [themeColor, setThemeColor] = useState(
 		localStorage.getItem("themeColor")
 	);
