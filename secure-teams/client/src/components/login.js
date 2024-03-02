@@ -34,6 +34,7 @@ const Login = () => {
 			if (response.data.token) {
 				localStorage.setItem("token", response.data.token);
 				localStorage.setItem("role", response.data.role);
+				localStorage.setItem("email", email);
 				window.location.href = "/homepage";
 				// try {
 				// 	axios.get("http://localhost:3000/homepage", {

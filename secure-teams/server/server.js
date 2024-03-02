@@ -35,7 +35,25 @@ const userSchema = new mongoose.Schema({
 	teams: { type: Array },
 });
 
+
 const User = mongoose.model("User", userSchema);
+
+const messagesSchema = new mongoose.Schema({
+	sender: { type: String, required: true },
+	receiver: { type: String, required: true },
+	message: { type: String, required: true },
+	timestamp: { type: Date, default: Date.now },
+});
+
+const Message = mongoose.model("Message", messagesSchema);
+
+const contactsSchema = new mongoose.Schema({
+	email: { type: String, required: true },
+	contacts: { type: Array, required: true },
+});
+
+const Contact = mongoose.model("Contact", contactsSchema);
+
 
 // Middleware to verify token
 const authenticateToken = (req, res, next) => {
@@ -57,9 +75,62 @@ const authenticateToken = (req, res, next) => {
 // 	console.log("Homepage");
 // 	res.status(200).json({ message: "Homepage" });
 // });
+app.post("/api/messages", async (req, res) => {
+	const { sender, receiver, message } = req.body;
+	try {
+		const newMessage = new Message({ sender, receiver, message });
+		await newMessage.save();
+		res.status(201).json({ message: "Message sent successfully" });
+	} catch (error) {
+		console.log(error);
+		res.status(500).json({ message: "Error sending message" });
+	}
+});
+
+app.get("/api/messages", async (req, res) => {
+	try {
+		const messages = await Message.find();
+		res.status(200).json(messages);
+	} catch (error) {
+		console.log(error);
+		res.status(500).json({ message: "Error fetching messages" });
+	}
+});
+
+app.post("/api/contacts", async (req, res) => {
+	const { email, contact } = req.body;
+	try {
+		// Find the existing contacts for the user
+		const userExists = await User.findOne({ email: contact });
+		if (!userExists) {
+			return res.status(400).json({ message: "User does not exist" });
+		}
+		console.log("email:", email);
+		let existingContacts = await Contact.findOne({ email });
+		if (!existingContacts) {
+			// If no existing contacts, create a new entry
+			existingContacts = new Contact({ email, contacts: [contact] });
+		} else {
+			if (existingContacts.contacts.includes(contact)) {
+				return res.status(400).json({ message: "Contact already exists" });
+			}
+			else {
+				// If existing contacts found, append the new contact
+				existingContacts.contacts.push(contact);
+			}
+		}
+		await existingContacts.save();
+
+		res.status(201).json({ message: "Contact added successfully", existingContacts });
+	} catch (error) {
+		console.log(error);
+		res.status(500).json({ message: "Error adding contact" });
+	}
+});
+
 
 app.post("/api/signup", async (req, res) => {
-	const { name, email, password} = req.body;
+	const { name, email, password } = req.body;
 	try {
 		let user = await User.findOne({ email: email });
 		if (user) {
@@ -69,7 +140,7 @@ app.post("/api/signup", async (req, res) => {
 
 		const salt = await bcrypt.genSalt(10);
 		const hashedPassword = await bcrypt.hash(password, salt);
-		user = new User({ name, email, password: hashedPassword});
+		user = new User({ name, email, password: hashedPassword });
 		await user.save();
 		res.status(201).json({ message: "User created successfully" });
 		console.log("User created successfully");
@@ -190,3 +261,19 @@ app.post("/api/update", async (req, res) => {
 		return res.status(500).json({ message: "Error updating account" }); // Use 'return' here
 	}
 });
+
+app.get("/api/contacts", async (req, res) => {
+    const { email } = req.query; // Access email from query parameters
+    try {
+        console.log("Email:", email);
+        const contacts = await Contact.findOne({ email });
+        if (!contacts) {
+            return res.status(404).json({ message: "Contacts not found" });
+        }
+        res.status(200).json(contacts.contacts);
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ message: "Error fetching contacts" });
+    }
+});
+
