@@ -6,9 +6,12 @@ import Login from "./components/login.js";
 import Signup from "./components/signup.js";
 import Team from "./components/team.jsx";
 import Roles from "./components/admin/manageRoles.jsx";
-import { AdminProtectedRoute, ProtectedRoute } from "./components/protectedRoutes.js";
+import {
+	AdminProtectedRoute,
+	ProtectedRoute,
+} from "./components/protectedRoutes.js";
 import Messages from "./components/messages.jsx";
-import Settings from "./components/settings.jsx";
+import Profile from "./components/profile.jsx";
 
 function App() {
 	return (
@@ -26,8 +29,14 @@ function App() {
 					path="/manageRoles"
 					element={<AdminProtectedRoute component={Roles} />}
 				/>
-        <Route path="/settings" element={<Settings />} />
-        <Route path="/messages" element={<ProtectedRoute component={Messages} />} />
+				<Route
+					path="/profile"
+					element={<ProtectedRoute component={Profile} />}
+				/>
+				<Route
+					path="/messages"
+					element={<ProtectedRoute component={Messages} />}
+				/>
 			</Routes>
 		</Router>
 	);

@@ -4,11 +4,31 @@ import face from "../images/face.png";
 import profile from "../images/q.png";
 import "../styles/navbar.css";
 import { NavLink } from "react-router-dom";
+import axios from "axios";
 
 const Navbar = ({ selectedTheme }) => {
 	console.log("navbar ", selectedTheme);
-
+	const [profilePhoto, setProfilePhoto] = useState(null);
 	const [isProfileOpen, setProfileOpen] = useState(false);
+
+	useEffect(() => {
+		const fetchProfileData = async () => {
+			try {
+				const response = await axios.get(
+					"http://localhost:3000/api/profile?email=" +
+						localStorage.getItem("email")
+				);
+				const { email, name, profilePhoto } = response.data;
+				if (profilePhoto) {
+					const profilePhotoUrl = "http://localhost:3000/uploads/" + profilePhoto;
+					setProfilePhoto(profilePhotoUrl);
+				}
+			} catch (error) {
+				console.error("Error fetching profile data:", error);
+			}
+		};
+		fetchProfileData();
+	}, []);
 
 	const handleProfileClick = (event) => {
 		setProfileOpen(!isProfileOpen);
@@ -54,19 +74,19 @@ const Navbar = ({ selectedTheme }) => {
 
 			<div className="relative inline-block">
 				<img
-					src={profile}
+					src={profilePhoto || profile}
 					alt="Profile"
-					className="profile-button"
+					className="profile-button w-10 h-10 rounded-full cursor-pointer"
 					onClick={handleProfileClick}
 				/>
 
 				{isProfileOpen && (
 					<div className="profile-dropdown show">
 						<button className="block w-full px-4 py-2 text-left hover:bg-gray-200">
-							Profile
+							<NavLink to="/profile">Profile</NavLink>
 						</button>
 						<button className="block w-full px-4 py-2 text-left hover:bg-gray-200">
-							<NavLink to="/settings">Settings</NavLink>
+							Settings
 						</button>
 						<button
 							className="block w-full px-4 py-2 text-left hover:bg-gray-200"

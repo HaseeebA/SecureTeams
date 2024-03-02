@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
+import multer from "multer";
 
 dotenv.config();
 const app = express();
@@ -26,6 +27,7 @@ const userSchema = new mongoose.Schema({
 	name: { type: String, required: true },
 	password: { type: String, required: true },
 	email: { type: String, required: true, unique: true },
+	profilePhoto: { type: String, required: false },
 	role: {
 		type: String,
 		required: false,
@@ -96,7 +98,7 @@ app.post("/api/login", async (req, res) => {
 			expiresIn: "1h",
 		});
 
-		if (email === "as1725@secureteams.com") {
+		if (email === "as1472@secureteams.com") {
 			console.log("User role", user.role);
 			res.status(200).json({ token: token, role: "admin" });
 			console.log("User is admin");
@@ -105,7 +107,6 @@ app.post("/api/login", async (req, res) => {
 			res.status(200).json({ token: token, role: user.role });
 		}
 
-		// res.status(200).json({ token: token });
 		console.log("Login successful");
 	} catch (error) {
 		console.log(error);
@@ -163,8 +164,22 @@ app.put("/api/users/:id", async (req, res) => {
 		res.status(500).json({ message: "Error updating role" });
 	}
 });
-app.post("/api/update", async (req, res) => {
-	const { email, password, newPassword } = req.body;
+
+const storage = multer.diskStorage({
+	destination: function (req, file, cb) {
+		cb(null, "uploads/");
+	},
+	filename: function (req, file, cb) {
+		const userEmail = req.body.email;
+		const uniqueFileName = `${userEmail}-${file.originalname}`;
+		cb(null, uniqueFileName);
+	},
+});
+
+const upload = multer({ storage: storage });
+
+app.post("/api/update", upload.single("profilePhoto"), async (req, res) => {
+	const { email, password, newPassword, name } = req.body;
 	try {
 		const user = await User.findOne({ email: email });
 		if (!user) {
@@ -179,11 +194,39 @@ app.post("/api/update", async (req, res) => {
 		const salt = await bcrypt.genSalt(10);
 		const hashedPassword = await bcrypt.hash(newPassword, salt);
 		user.password = hashedPassword;
+		user.name = name;
+
+		if (req.file) {
+			user.profilePhoto = req.file.filename;
+		}
 		await user.save();
-		console.log("Password updated successfully");
-		res.status(200).json({ message: "Password updated successfully" });
+		console.log("Profile updated successfully");
+		res.status(200).json({ message: "Profile updated successfully" });
 	} catch (error) {
 		console.log(error);
-		res.status(500).json({ message: "Error updating password" });
+		res.status(500).json({ message: "Error updating profile" });
 	}
 });
+
+app.get("/api/profile", async (req, res) => {
+	const email = req.query.email;
+	try {
+		const user = await User.findOne({ email: email });
+		if (!user) {
+			console.log("User not found");
+			return res.status(404).json({ message: "User not found" });
+		}
+		// console.log("Profile:", user);
+		res.status(200).json(user);
+	} catch (error) {
+		console.error(error);
+		return res.status(500).json({ message: "Error fetching profile" });
+	}
+});
+
+app.get("/uploads/:profilePhoto", (req, res) => {
+	const profilePhoto = req.params.profilePhoto;
+	// console.log("Profile photo:", profilePhoto);
+	res.sendFile(profilePhoto, { root: "uploads" });
+});
+
