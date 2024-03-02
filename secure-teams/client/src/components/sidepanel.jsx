@@ -4,7 +4,6 @@ import {
 	messages,
 	tasks,
 	members,
-	settings,
 	calendar,
 	add,
 	team,
@@ -96,11 +95,6 @@ const Sidepanel = ({ show, onThemeChange }) => {
 						<img src={home} alt="Home Icon" />
 						<span>Home</span>
 					</Link>
-				</div>
-
-				<div className="flex items-center mb-9 cursor-pointer">
-						<img src={settings} alt="Settings Icon" />
-						<span>Settings</span>
 				</div>
 
 				<div className="flex items-center mb-9 cursor-pointer">
@@ -218,12 +212,6 @@ const Sidepanel = ({ show, onThemeChange }) => {
 				<div className="flex items-center mb-9 cursor-pointer">
 					<img src={members} alt="Members Icon" />
 					<span>Members</span>
-				</div>
-				<div className="flex items-center mb-9 cursor-pointer">
-					<Link to="/settings" className="settings-link">
-						<img src={settings} alt="Settings Icon" />
-						<span>Settings</span>
-					</Link>
 				</div>
 				<div className="flex items-center mb-9 cursor-pointer">
 					<img src={calendar} alt="Calendar Icon" />

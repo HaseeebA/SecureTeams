@@ -16,7 +16,7 @@ const Navbar = ({ selectedTheme }) => {
 			try {
 				const response = await axios.get(
 					"http://localhost:3000/api/profile?email=" +
-						localStorage.getItem("email")
+					localStorage.getItem("email")
 				);
 				const { email, name, profilePhoto } = response.data;
 				if (profilePhoto) {
@@ -61,17 +61,10 @@ const Navbar = ({ selectedTheme }) => {
 	return (
 		<div className="navbar" style={{ backgroundColor: selectedTheme }}>
 			<div className="flex items-center">
-				<img src={face} alt="Icon" className="w-10 h-10 mr-2 rounded-full" />
+				<NavLink to="/homepage" className="text-2xl font-bold text-white">
+					<img src={face} alt="Icon" className="w-10 h-10 mr-2 rounded-full" />
+				</NavLink>
 			</div>
-
-			<div className="flex-1 text-center">
-				<input
-					type="text"
-					placeholder="Search"
-					className="border p-2 rounded-md w-full max-w-xs mx-auto"
-				/>
-			</div>
-
 			<div className="relative inline-block">
 				<img
 					src={profilePhoto || profile}
