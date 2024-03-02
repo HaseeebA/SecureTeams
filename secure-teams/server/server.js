@@ -98,35 +98,50 @@ app.get("/api/messages", async (req, res) => {
 });
 
 app.post("/api/contacts", async (req, res) => {
-	const { email, contact } = req.body;
-	try {
-		// Find the existing contacts for the user
-		const userExists = await User.findOne({ email: contact });
-		if (!userExists) {
-			return res.status(400).json({ message: "User does not exist" });
-		}
-		console.log("email:", email);
-		let existingContacts = await Contact.findOne({ email });
-		if (!existingContacts) {
-			// If no existing contacts, create a new entry
-			existingContacts = new Contact({ email, contacts: [contact] });
-		} else {
-			if (existingContacts.contacts.includes(contact)) {
-				return res.status(400).json({ message: "Contact already exists" });
-			}
-			else {
-				// If existing contacts found, append the new contact
-				existingContacts.contacts.push(contact);
-			}
-		}
-		await existingContacts.save();
+    const { email, contact } = req.body;
+    try {
+        // Check if the contact email exists in the system
+        const userExists = await User.findOne({ email: contact });
+        if (!userExists) {
+            return res.status(400).json({ message: "User does not exist" });
+        }
 
-		res.status(201).json({ message: "Contact added successfully", existingContacts });
-	} catch (error) {
-		console.log(error);
-		res.status(500).json({ message: "Error adding contact" });
-	}
+        // Find the existing contacts for the current user
+        let existingContactsCurrentUser = await Contact.findOne({ email });
+        if (!existingContactsCurrentUser) {
+            // If no existing contacts for current user, create a new entry
+            existingContactsCurrentUser = new Contact({ email, contacts: [contact] });
+        } else {
+            if (existingContactsCurrentUser.contacts.includes(contact)) {
+                return res.status(400).json({ message: "Contact already exists" });
+            }
+            // If existing contacts found, append the new contact
+            existingContactsCurrentUser.contacts.push(contact);
+        }
+
+        // Save the current user's updated contacts
+        await existingContactsCurrentUser.save();
+
+        // Add the current user to the contact's list as well
+        let existingContactsContact = await Contact.findOne({ email: contact });
+        if (!existingContactsContact) {
+            // If no existing contacts for the contact, create a new entry
+            existingContactsContact = new Contact({ email: contact, contacts: [email] });
+        } else {
+            // If existing contacts found for contact, append the current user
+            existingContactsContact.contacts.push(email);
+        }
+
+        // Save the contact's updated contacts
+        await existingContactsContact.save();
+
+        res.status(201).json({ message: "Contact added successfully", existingContactsCurrentUser });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ message: "Error adding contact" });
+    }
 });
+
 
 
 app.post("/api/signup", async (req, res) => {
