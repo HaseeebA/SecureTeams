@@ -97,12 +97,39 @@ const Messages = () => {
         setSelectedContact(contact);
         // Show the component when a contact is clicked
         setShowComponent(true);
+        // setShowComponent(false);
     };
 
 
-    const handleSendMessage = () => {
+    const handleSendMessage = async () => {
         // Implement logic to send message to selected contact
         // This can include sending the message content to the backend and storing it in the database
+        try {
+            // console.log(message);
+            // Make POST request to the server's /api/messages endpoint
+            const response = await axios.post("http://localhost:3000/api/messages", {
+                sender: email, // Pass the user ID
+                receiver: selectedContact, // Pass the contact
+                message: message // Pass the message content
+            });
+            // Check if the request was successful
+            if (response.status === 201) {
+                console.log('Message sent successfully');
+                // Clear the message input field
+                setMessage('');
+                // Optionally, display a success message to the user
+            } else {
+                // Handle error response
+                const data = response.json();
+                console.log('Error:', data.message);
+                // Optionally, display an error message to the user
+            }
+        }
+        catch (error) {
+            console.log('Error sending message:', error);
+            console.error('Error:', error);
+            // Handle network error or other issues
+        }
     };
 
     const handleKeyPress = (event) => {
@@ -110,6 +137,8 @@ const Messages = () => {
         if (event.keyCode === 13 && !event.shiftKey) {
             event.preventDefault(); // Prevent default behavior (creating new line)
             handleSendMessage(); // Call the function to send the message
+            // clear message input field
+            setMessage('');
         }
     };
 
@@ -121,15 +150,8 @@ const Messages = () => {
             <InformationPanel />
             <div className="flex-grow p-7 ml-60 relative"> {/* Make this div flexible and allow it to grow, added relative positioning */}
 
-                <div className="bg-gray-200 rounded-lg p-2 h-full relative flex flex-col justify-end"> {/* Added flexbox properties */}
-                    {showComponent && (
-                        <div className="modal">
-                            <div className="modal-content">
-                                <ContactDetailsComponent contact={selectedContact} />
-                            </div>
-                        </div>
-                    )}
-                    
+                <div className="bg-gray-200 rounded-lg p-2 h-full relative flex flex-col justify-end">
+
                     <div className="transform bg-purple flex justify-between h-full"> {/* Removed absolute positioning */}
                         <div className="bg-orange-50 h-full relative contacts-list overflow-y-auto p-4 w-1/6 pr-4 rounded px-4"> {/* Added overflow property */}
                             <button className="bg-blue-400 text-white px-4 py-3 rounded hover:bg-blue-600 flex items-center" onClick={handleAddContact}>
@@ -161,6 +183,13 @@ const Messages = () => {
                             </div>
                         </div>
                     </div>
+                    {showComponent && (
+                        <div className="modal">
+                            <div className="modal-content flex-grow flex flex-col">
+                                <ContactDetailsComponent receiver={selectedContact} sender={email} />
+                            </div>
+                        </div>
+                    )}
                     <div className="transform bg-orange-2 flex justify-end"> {/* Removed absolute positioning */}
                         <textarea
                             className="w-full h-1/8 p-2 mb-4 border border-gray-300 rounded px-4"

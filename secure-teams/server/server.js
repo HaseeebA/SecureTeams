@@ -4,6 +4,9 @@ import dotenv from "dotenv";
 import cors from "cors";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
+// const { Server } = require("socket.io");
+import { createServer } from "http";
+import { Server } from "socket.io";
 import multer from "multer";
 import nodemailer from "nodemailer";
 
@@ -13,16 +16,42 @@ app.use(express.json());
 app.use(cors());
 
 mongoose
-	.connect(process.env.MONGO_URI)
-	.then(() => {
-		app.listen(process.env.PORT, () => {
-			console.log(`listening on port ${process.env.PORT}`);
-			console.log("Connected to Database");
-		});
-	})
-	.catch((error) => {
-		console.log(error);
-	});
+  .connect(process.env.MONGO_URI)
+  .then(() => {
+    console.log("Connected to MongoDB");
+
+    // Create HTTP server
+    const httpServer = createServer(app);
+
+    // Create Socket.IO server
+    const io = new Server(httpServer, {
+      cors: {
+        origin: "http://localhost:3000",
+        methods: ["GET", "POST"],
+      },
+    });
+
+    // Listen for Socket.IO connections
+    io.on("connection", (socket) => {
+      console.log("A user connected LMAO");
+
+      // Example: Handle socket events
+      socket.on("disconnect", () => {
+        console.log("User disconnected");
+      });
+    });
+
+    // Start listening on the HTTP server
+    const PORT = process.env.PORT || 3000;
+    httpServer.listen(PORT, () => {
+      console.log(`Server is running on port ${PORT}`);
+	//   local ip address
+	
+    });
+  })
+  .catch((error) => {
+    console.error("Error connecting to MongoDB:", error);
+  })
 
 const userSchema = new mongoose.Schema({
 	name: { type: String, required: true },
@@ -78,16 +107,13 @@ const authenticateToken = (req, res, next) => {
 	});
 };
 
-// Protected routes
-// app.get("/homepage", authenticateToken, (req, res) => {
-// 	console.log("Homepage");
-// 	res.status(200).json({ message: "Homepage" });
-// });
+
 app.post("/api/messages", async (req, res) => {
 	const { sender, receiver, message } = req.body;
 	try {
 		const newMessage = new Message({ sender, receiver, message });
 		await newMessage.save();
+		io.emit("message", newMessage);
 		res.status(201).json({ message: "Message sent successfully" });
 	} catch (error) {
 		console.log(error);
@@ -96,14 +122,25 @@ app.post("/api/messages", async (req, res) => {
 });
 
 app.get("/api/messages", async (req, res) => {
-	try {
-		const messages = await Message.find();
-		res.status(200).json(messages);
-	} catch (error) {
-		console.log(error);
-		res.status(500).json({ message: "Error fetching messages" });
-	}
+    const { sender, receiver } = req.query;
+    try {
+        // Find messages based on sender and receiver
+        const messages = await Message.find({ sender: sender, receiver: receiver });
+        res.status(200).json(messages);
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ message: "Error fetching messages" });
+    }
 });
+
+// io.on('connection', (socket) => {
+//     console.log('A user connected');
+// });
+// const PORT = process.env.PORT || 3000;
+// http.listen(PORT, () => {
+//     console.log(`Server is running on port ${PORT}`);
+// });
+
 
 app.post("/api/contacts", async (req, res) => {
     const { email, contact } = req.body;
