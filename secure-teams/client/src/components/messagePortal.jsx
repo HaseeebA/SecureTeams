@@ -47,9 +47,8 @@ const ContactDetailsComponent = ({ receiver, sender }) => {
             <div className="contact-info">
                 <h3>{receiver}</h3>
             </div>
-            <div className="message-panel-container">
+            <div className="message-panel-container flex flex-grow flex-col">
                 <div className="message-panel">
-                    <h2>Messages</h2>
                     <div className="message-list">
                         {messages
                             .sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp)) // Sort messages by timestamp

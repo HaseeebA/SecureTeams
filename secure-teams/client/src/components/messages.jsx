@@ -151,13 +151,6 @@ const Messages = () => {
             <div className="flex-grow p-7 ml-60 relative"> {/* Make this div flexible and allow it to grow, added relative positioning */}
 
                 <div className="bg-gray-200 rounded-lg p-2 h-full relative flex flex-col justify-end">
-                    {showComponent && (
-                        <div className="modal">
-                            <div className="modal-content">
-                                <ContactDetailsComponent receiver={selectedContact} sender={email} />
-                            </div>
-                        </div>
-                    )}
 
                     <div className="transform bg-purple flex justify-between h-full"> {/* Removed absolute positioning */}
                         <div className="bg-orange-50 h-full relative contacts-list overflow-y-auto p-4 w-1/6 pr-4 rounded px-4"> {/* Added overflow property */}
@@ -190,6 +183,13 @@ const Messages = () => {
                             </div>
                         </div>
                     </div>
+                    {showComponent && (
+                        <div className="modal">
+                            <div className="modal-content flex-grow flex flex-col">
+                                <ContactDetailsComponent receiver={selectedContact} sender={email} />
+                            </div>
+                        </div>
+                    )}
                     <div className="transform bg-orange-2 flex justify-end"> {/* Removed absolute positioning */}
                         <textarea
                             className="w-full h-1/8 p-2 mb-4 border border-gray-300 rounded px-4"

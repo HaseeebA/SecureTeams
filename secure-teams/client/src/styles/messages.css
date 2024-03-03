@@ -45,6 +45,7 @@
     display: flex;
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
+    z-index: 2;
 }
 
 .modal-content {
@@ -70,27 +71,23 @@
 }
 
 .message-panel-container {
-    width: 100%;
-    max-width: calc(16 / 9 * 100vh); /* Set max-width to maintain 16:9 aspect ratio */
-    height: 100vh; /* Full height of viewport */
+    width: 120vh;
+    /* max-width: calc(16 / 9 * 100vh); Set max-width to maintain 16:9 aspect ratio */
+    height: 66vh; 
     overflow: hidden; /* Hide overflow outside container */
     display: flex;
     flex-direction: column;
 }
 
 .message-panel {
-    flex: 1; /* Allow message panel to take up remaining space */
+    /* flex: 1; Allow message panel to take up remaining space */
     overflow-y: auto; /* Enable vertical scrolling */
     padding: 10px; /* Add padding to message panel */
 }
 
-.message-list {
-    margin: 0;
-    padding: 0;
-}
 
 .message {
-    margin: 10px 0; /* Add margin between messages */
+    margin: 5px 0; /* Add margin between messages */
     padding: 5px;
     border-radius: 5px;
 }
