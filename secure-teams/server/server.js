@@ -43,7 +43,25 @@ const userSchema = new mongoose.Schema({
 	teams: { type: Array },
 });
 
+
 const User = mongoose.model("User", userSchema);
+
+const messagesSchema = new mongoose.Schema({
+	sender: { type: String, required: true },
+	receiver: { type: String, required: true },
+	message: { type: String, required: true },
+	timestamp: { type: Date, default: Date.now },
+});
+
+const Message = mongoose.model("Message", messagesSchema);
+
+const contactsSchema = new mongoose.Schema({
+	email: { type: String, required: true },
+	contacts: { type: Array, required: true },
+});
+
+const Contact = mongoose.model("Contact", contactsSchema);
+
 
 // Middleware to verify token
 const authenticateToken = (req, res, next) => {
@@ -65,6 +83,74 @@ const authenticateToken = (req, res, next) => {
 // 	console.log("Homepage");
 // 	res.status(200).json({ message: "Homepage" });
 // });
+app.post("/api/messages", async (req, res) => {
+	const { sender, receiver, message } = req.body;
+	try {
+		const newMessage = new Message({ sender, receiver, message });
+		await newMessage.save();
+		res.status(201).json({ message: "Message sent successfully" });
+	} catch (error) {
+		console.log(error);
+		res.status(500).json({ message: "Error sending message" });
+	}
+});
+
+app.get("/api/messages", async (req, res) => {
+	try {
+		const messages = await Message.find();
+		res.status(200).json(messages);
+	} catch (error) {
+		console.log(error);
+		res.status(500).json({ message: "Error fetching messages" });
+	}
+});
+
+app.post("/api/contacts", async (req, res) => {
+    const { email, contact } = req.body;
+    try {
+        // Check if the contact email exists in the system
+        const userExists = await User.findOne({ email: contact });
+        if (!userExists) {
+            return res.status(400).json({ message: "User does not exist" });
+        }
+
+        // Find the existing contacts for the current user
+        let existingContactsCurrentUser = await Contact.findOne({ email });
+        if (!existingContactsCurrentUser) {
+            // If no existing contacts for current user, create a new entry
+            existingContactsCurrentUser = new Contact({ email, contacts: [contact] });
+        } else {
+            if (existingContactsCurrentUser.contacts.includes(contact)) {
+                return res.status(400).json({ message: "Contact already exists" });
+            }
+            // If existing contacts found, append the new contact
+            existingContactsCurrentUser.contacts.push(contact);
+        }
+
+        // Save the current user's updated contacts
+        await existingContactsCurrentUser.save();
+
+        // Add the current user to the contact's list as well
+        let existingContactsContact = await Contact.findOne({ email: contact });
+        if (!existingContactsContact) {
+            // If no existing contacts for the contact, create a new entry
+            existingContactsContact = new Contact({ email: contact, contacts: [email] });
+        } else {
+            // If existing contacts found for contact, append the current user
+            existingContactsContact.contacts.push(email);
+        }
+
+        // Save the contact's updated contacts
+        await existingContactsContact.save();
+
+        res.status(201).json({ message: "Contact added successfully", existingContactsCurrentUser });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ message: "Error adding contact" });
+    }
+});
+
+
 
 app.post("/api/signup", async (req, res) => {
 	const { name, email, password } = req.body;
@@ -374,3 +460,19 @@ app.post("/api/2faVerify", async (req, res) => {
 		res.status(500).json({ message: "Error verifying 2FA code" });
 	}
 });
+
+app.get("/api/contacts", async (req, res) => {
+    const { email } = req.query; // Access email from query parameters
+    try {
+        console.log("Email:", email);
+        const contacts = await Contact.findOne({ email });
+        if (!contacts) {
+            return res.status(404).json({ message: "Contacts not found" });
+        }
+        res.status(200).json(contacts.contacts);
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ message: "Error fetching contacts" });
+    }
+});
+

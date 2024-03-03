@@ -6,3 +6,49 @@
 .messages-tab {
     margin-top: max;         /* Push the tab to the bottom */
 }
+
+/* CSS */
+/* .contact-list {
+    /* Add styles for the contact list container */
+/* } */
+
+.contact-item {
+    /* Add styles for each contact item container */
+    margin-bottom: 10px;
+}
+
+.contact-button {
+    /* Add styles for the contact buttons */
+    padding: 5px 2px;
+    background-color: #5ab55d; /* Green */
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.contact-button:hover {
+    background-color: #5f45a0; /* Darker green on hover */
+}
+
+.modal {
+    position: absolute;
+    top: 10px;
+    right: 150;
+    left: 500px;
+    background-color: rgba(68, 44, 44, 0); /* Semi-transparent background */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+.modal-content {
+    background-color: rgba(32, 6, 6, 0.296);
+    padding: 20px;
+    border-radius: 8px;
+}
