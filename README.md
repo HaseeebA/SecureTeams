@@ -3,6 +3,7 @@
 SecureTeams is a collaboration tool designed for IT companies, focusing on data security and compliance. This README provides instructions for setting up and running the application.
 
 ## Version 0.1.0
+![Homepage](secure-teams/client/src/images/Screenshot from 2024-03-04 00-00-10.png)
 
 ### Features:
 - **Login and Signup:** Users can securely login and signup with hashed passwords.
