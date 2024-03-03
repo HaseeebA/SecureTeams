@@ -6,11 +6,13 @@ SecureTeams is a collaboration tool designed for IT companies, focusing on data 
 
 ### Features:
 - **Login and Signup:** Users can securely login and signup with hashed passwords.
-- **Two-Factor Authentication (2FA):** Added 2FA during Login for enhanced security.
+- **JWT Tokens:** Session tokens are implemented alongside protected routes to ensure authenticated access.
+- **Two-Factor Authentication (2FA):** Added 2FA during Login for enhanced security. Users can select this optional option by going to their settings.
 - **Adding Contacts:** Users can add contacts using their emails.
 - **Individual Messaging:** Allows individual messaging between team members.
-- **Profile:** Users can now see their profile and edit it.
+- **Profile:** Users can now see their profile and edit it. This includes their name, email, password and profile photo.
 - **Role Assignment:** Admin will assign roles to users whem they signup. Admin can also edit previously assigned roles.
+- **Dynamic Themes:** Users can select themes of their choice to stylize the website to their preference.
 
 ## Setup Instructions:
 
