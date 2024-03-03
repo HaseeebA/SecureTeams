@@ -86,7 +86,7 @@ const Navbar = ({ selectedTheme }) => {
 							<NavLink to="/profile">Profile</NavLink>
 						</button>
 						<button className="block w-full px-4 py-2 text-left hover:bg-gray-200">
-							Settings
+							<NavLink to="/settings">Settings</NavLink>
 						</button>
 						<button
 							className="block w-full px-4 py-2 text-left hover:bg-gray-200"
