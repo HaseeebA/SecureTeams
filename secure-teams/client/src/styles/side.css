@@ -45,6 +45,11 @@
   z-index: 101; 
   cursor: pointer;
   transition: left 0.3s ease;
+  background-color: white;
+}
+
+.toggle-panel-button:hover {
+  background-color: #f2f2f200;
 }
 
 .toggle-panel-button img {

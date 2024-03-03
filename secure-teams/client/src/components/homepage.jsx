@@ -20,6 +20,9 @@ const Homepage = () => {
             <Sidepanel show={showSidePanel} onThemeChange={handleThemeChange} />
             <Navbar selectedTheme={theme} />
             <InformationPanel />
+            <div className="flex justify-center items-center">
+                <h1 className="text-4xl font-bold text-gray-800 mt-10">Welcome to Secure Teams</h1>
+            </div>
         </div>
     );
 };
