@@ -4,7 +4,6 @@ import {
 	messages,
 	tasks,
 	members,
-	settings,
 	calendar,
 	add,
 	team,
@@ -15,7 +14,7 @@ import "../styles/side.css";
 import { Link } from "react-router-dom";
 
 const Sidepanel = ({ show, onThemeChange }) => {
-	const [isPanelOpen, setIsPanelOpen] = useState(false);
+	const [isPanelOpen, setIsPanelOpen] = useState(true);
 	const [themeColor, setThemeColor] = useState(
 		localStorage.getItem("themeColor")
 	);
@@ -84,9 +83,8 @@ const Sidepanel = ({ show, onThemeChange }) => {
 	if (role === "admin") {
 		return (
 			<div
-				className={`side-panel ${show ? "visible" : ""} ${
-					isPanelOpen ? "expanded" : "collapsed"
-				} ${invertImages ? "inverted-images" : ""}`}
+				className={`side-panel ${show ? "visible" : ""} ${isPanelOpen ? "expanded" : "collapsed"
+					} ${invertImages ? "inverted-images" : ""}`}
 			>
 				<button onClick={togglePanel} className="toggle-panel-button">
 					<img src={rightarrow} alt="Toggle" />
@@ -96,11 +94,6 @@ const Sidepanel = ({ show, onThemeChange }) => {
 						<img src={home} alt="Home Icon" />
 						<span>Home</span>
 					</Link>
-				</div>
-
-				<div className="flex items-center mb-9 cursor-pointer">
-					<img src={settings} alt="Settings Icon" />
-					<span>Settings</span>
 				</div>
 
 				<div className="flex items-center mb-9 cursor-pointer">
@@ -192,9 +185,8 @@ const Sidepanel = ({ show, onThemeChange }) => {
 	} else {
 		return (
 			<div
-				className={`side-panel ${show ? "visible" : ""} ${
-					isPanelOpen ? "expanded" : "collapsed"
-				} ${invertImages ? "inverted-images" : ""}`}
+				className={`side-panel ${show ? "visible" : ""} ${isPanelOpen ? "expanded" : "collapsed"
+					} ${invertImages ? "inverted-images" : ""}`}
 			>
 				<button onClick={togglePanel} className="toggle-panel-button">
 					<img src={rightarrow} alt="Toggle" />
@@ -216,13 +208,9 @@ const Sidepanel = ({ show, onThemeChange }) => {
 					<span>Tasks</span>
 				</div>
 				<div className="flex items-center mb-9 cursor-pointer">
-					<img src={members} alt="Members Icon" />
-					<span>Members</span>
-				</div>
-				<div className="flex items-center mb-9 cursor-pointer">
-					<Link to="/settings" className="settings-link">
-						<img src={settings} alt="Settings Icon" />
-						<span>Settings</span>
+					<Link to="/members" className="members-link">
+						<img src={members} alt="Members Icon" />
+						<span>Members</span>
 					</Link>
 				</div>
 				<div className="flex items-center mb-9 cursor-pointer">

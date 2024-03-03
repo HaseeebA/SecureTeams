@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import StarsCanvas from "./canvas/Stars";
 import axios from "axios";
 import "../styles/signup.css";
+import { Link } from "react-router-dom";
 
 const Signup = (props) => {
 	const [name, setName] = useState("");
@@ -96,6 +97,10 @@ const Signup = (props) => {
 				/>
 				<button type="submit" onClick={handleSignup} className="signup-button">
 					Sign Up
+				</button>
+				<h2>Already have an account?</h2>
+				<button type="submit" className="signup-button">
+					<Link to="/login">Login</Link>
 				</button>
 			</form>
 		</div>

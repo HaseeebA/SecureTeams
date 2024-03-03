@@ -1,7 +1,3 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
-
 :root {
   --navbar-theme-color: #68d391;
 }
@@ -66,4 +62,8 @@
 
 .profile-dropdown-item:hover {
   background-color: #f2f2f2;
+}
+
+.invert {
+  filter: invert(100%);
 }

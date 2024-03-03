@@ -7,7 +7,8 @@ import jwt from "jsonwebtoken";
 // const { Server } = require("socket.io");
 import { createServer } from "http";
 import { Server } from "socket.io";
-
+import multer from "multer";
+import nodemailer from "nodemailer";
 
 dotenv.config();
 const app = express();
@@ -56,6 +57,12 @@ const userSchema = new mongoose.Schema({
 	name: { type: String, required: true },
 	password: { type: String, required: true },
 	email: { type: String, required: true, unique: true },
+	settings: {
+		is2FAEnabled: { type: Boolean, required: false, default: false },
+		secondaryEmail: { type: String, required: false },
+		twoFactorAuthCode: { type: String, required: false },
+	},
+	profilePhoto: { type: String, required: false },
 	role: {
 		type: String,
 		required: false,
@@ -203,6 +210,16 @@ app.post("/api/signup", async (req, res) => {
 	}
 });
 
+app.get("/api/members", async (req, res) => {
+	try {
+		const users = await User.find().select("name -_id");
+		const names = users.map((user) => user.name);
+		res.status(200).json(names);
+	} catch (error) {
+		return res.status(500).json({ message: "Error fetching members", error });
+	}
+});
+
 app.post("/api/login", async (req, res) => {
 	const { email, password } = req.body;
 	try {
@@ -220,7 +237,7 @@ app.post("/api/login", async (req, res) => {
 			expiresIn: "1h",
 		});
 
-		if (email === "as1725@secureteams.com") {
+		if (email === "as1472@secureteams.com") {
 			console.log("User role", user.role);
 			res.status(200).json({ token: token, role: "admin" });
 			console.log("User is admin");
@@ -229,7 +246,6 @@ app.post("/api/login", async (req, res) => {
 			res.status(200).json({ token: token, role: user.role });
 		}
 
-		// res.status(200).json({ token: token });
 		console.log("Login successful");
 	} catch (error) {
 		console.log(error);
@@ -240,7 +256,6 @@ app.post("/api/login", async (req, res) => {
 app.get("/api/users", async (req, res) => {
 	try {
 		const users = await User.find();
-		// console.log("Users:", users);
 		res.status(200).json(users);
 	} catch (error) {
 		console.log(error);
@@ -251,7 +266,6 @@ app.get("/api/users", async (req, res) => {
 app.get("/api/newUsers", async (req, res) => {
 	try {
 		const users = await User.find({ role: "employee" });
-		// console.log("Users:", users);
 		res.status(200).json(users);
 	} catch (error) {
 		console.log(error);
@@ -287,31 +301,200 @@ app.put("/api/users/:id", async (req, res) => {
 		res.status(500).json({ message: "Error updating role" });
 	}
 });
-app.post("/api/update", async (req, res) => {
-	// const userId = req.user._id;
-	const { email, password } = req.body;
-	// console.log("User ID:", userId);
-	try {
-		let user = await User.findOne({ email });
 
-		// if (email) {
-		// 	const emailExists = await User.findOne({ email: email });
-		// 	if (emailExists) {
-		// 		return res.status(400).json({ message: "Email already in use" });
-		// 	}
-		// 	user.email = email;
-		// }
-		if (password) {
-			const salt = await bcrypt.genSalt(10);
-			const hashedPassword = await bcrypt.hash(password, salt);
-			user.password = hashedPassword;
+const storage = multer.diskStorage({
+	destination: function (req, file, cb) {
+		cb(null, "uploads/");
+	},
+	filename: function (req, file, cb) {
+		const userEmail = req.body.email;
+		const uniqueFileName = `${userEmail}-${file.originalname}`;
+		cb(null, uniqueFileName);
+	},
+});
+
+const upload = multer({ storage: storage });
+
+app.post("/api/update", upload.single("profilePhoto"), async (req, res) => {
+	const { email, password, newPassword, name } = req.body;
+	try {
+		const user = await User.findOne({ email: email });
+		if (!user) {
+			console.log("User not found");
+			return res.status(400).json({ message: "User not found" });
+		}
+		const validPassword = await bcrypt.compare(password, user.password);
+		if (!validPassword) {
+			console.log("Invalid password");
+			return res.status(400).json({ message: "Invalid password" });
+		}
+		const salt = await bcrypt.genSalt(10);
+		const hashedPassword = await bcrypt.hash(newPassword, salt);
+		user.password = hashedPassword;
+		user.name = name;
+
+		if (req.file) {
+			user.profilePhoto = req.file.filename;
 		}
 		await user.save();
-		return res.status(200).json({ message: "Account updated successfully" }); // Use 'return' here
-
+		console.log("Profile updated successfully");
+		res.status(200).json({ message: "Profile updated successfully" });
 	} catch (error) {
-		console.error("Error updating account:", error);
-		return res.status(500).json({ message: "Error updating account" }); // Use 'return' here
+		console.log(error);
+		res.status(500).json({ message: "Error updating profile" });
+	}
+});
+
+app.get("/api/profile", async (req, res) => {
+	const email = req.query.email;
+	try {
+		const user = await User.findOne({ email: email });
+		if (!user) {
+			console.log("User not found");
+			return res.status(404).json({ message: "User not found" });
+		}
+		// console.log("Profile:", user);
+		res.status(200).json(user);
+	} catch (error) {
+		console.error(error);
+		return res.status(500).json({ message: "Error fetching profile" });
+	}
+});
+
+app.get("/uploads/:profilePhoto", (req, res) => {
+	const profilePhoto = req.params.profilePhoto;
+	// console.log("Profile photo:", profilePhoto);
+	res.sendFile(profilePhoto, { root: "uploads" });
+});
+
+app.post("/api/settings", async (req, res) => {
+	const { is2FAEnabled, secondaryEmail, userEmail } = req.body;
+	try {
+		const user = await User.findOne({ email: userEmail });
+		if (!user) {
+			console.log("User not found");
+			return res.status(400).json({ message: "User not found" });
+		}
+		user.settings.is2FAEnabled = is2FAEnabled;
+		user.settings.secondaryEmail = secondaryEmail;
+		await user.save();
+		console.log("Settings updated successfully");
+		res.status(200).json({ message: "Settings updated successfully" });
+	} catch (error) {
+		console.log(error);
+		res.status(500).json({ message: "Error updating settings" });
+	}
+});
+
+app.get("/api/2faEnabled", async (req, res) => {
+	const email = req.query.email;
+	try {
+		const user = await User.findOne({ email: email });
+		if (!user) {
+			console.log("User not found");
+			return res.status(400).json({ message: "User not found" });
+		}
+		const is2FAEnabled = user.settings.is2FAEnabled;
+		console.log("2FA enabled:", is2FAEnabled);
+		res.status(200).json({ enabled: is2FAEnabled });
+	} catch (error) {
+		console.log(error);
+		res.status(500).json({ message: "Error fetching 2FA status" });
+	}
+});
+
+// Nodemailer configuration
+const transporter = nodemailer.createTransport({
+	service: "Outlook",
+	auth: {
+		user: process.env.EMAIL_USERNAME,
+		pass: process.env.EMAIL_PASSWORD,
+	},
+});
+
+app.post("/api/2faSend", async (req, res) => {
+	let emailSent = false;
+	const { email } = req.body;
+	try {
+		const user = await User.findOne({ email: email });
+
+		if (!user) {
+			console.log("User not found");
+			return res.status(400).json({ message: "User not found" });
+		}
+
+		const receiverEmail = user.settings.secondaryEmail;
+
+		if (!receiverEmail) {
+			console.log("Secondary email not found");
+			return res.status(400).json({ message: "Secondary email not found" });
+		}
+
+		// Generate a random 6-digit code for 2FA
+		const code = Math.floor(100000 + Math.random() * 900000);
+
+		// Email content
+		const mailOptions = {
+			from: process.env.EMAIL_USERNAME,
+			to: receiverEmail,
+			subject: "Your 2FA Code",
+			text: `Your 2FA verification code is: ${code}`,
+		};
+
+		if (emailSent) {
+			console.log("Email already sent");
+			return res.status(400).json({ message: "Email already sent" });
+		}
+
+		emailSent = true;
+
+		// Send email with 2FA code
+		transporter.sendMail(mailOptions, async (error, info) => {
+			if (error) {
+				console.log(error);
+				emailSent = false; // Reset the flag if there was an error sending the email
+				return res.status(500).json({ message: "Error sending 2FA token" });
+			}
+			console.log("2FA token sent to", receiverEmail);
+
+			// Store the 2FA code in the user document after email sent successfully
+			user.settings.twoFactorAuthCode = code;
+			console.log("2FA code:", code);
+			await user.save();
+			console.log("2FA code stored in user document");
+
+			res.status(200).json({ message: "2FA token sent and code saved" });
+		});
+	} catch (error) {
+		console.log(error);
+		res.status(500).json({ message: "Error sending 2FA token" });
+	}
+});
+
+app.post("/api/2faVerify", async (req, res) => {
+	const { email, twofaToken } = req.body;
+	try {
+		const user = await User.findOne({ email: email });
+
+		if (!user) {
+			console.log("User not found");
+			return res.status(400).json({ message: "User not found" });
+		}
+
+		const storedCode = user.settings.twoFactorAuthCode; // Assuming the code is stored in the user document
+		console.log("Stored 2FA code:", storedCode);
+		console.log("Received 2FA code:", twofaToken);
+
+		if (twofaToken === storedCode) {
+			console.log("2FA code verified successfully");
+			return res.status(200).json({ verified: true });
+		} else {
+			console.log("Invalid 2FA code");
+			return res.status(400).json({ message: "Invalid 2FA code" });
+		}
+	} catch (error) {
+		console.log(error);
+		res.status(500).json({ message: "Error verifying 2FA code" });
 	}
 });
 

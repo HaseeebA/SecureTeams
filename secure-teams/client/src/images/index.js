@@ -17,6 +17,8 @@ import haseeb from './haseeb.png'
 import theme from './theme.png'
 import rightarrow from './rightarrow.png'
 import bg from './bg.png'
+import closed from './closed.png'
+import open from './open.png'
 
 export {
     home,
@@ -38,4 +40,6 @@ export {
     theme,
     rightarrow,
     bg,
+    closed,
+    open
 };
