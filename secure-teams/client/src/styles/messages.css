@@ -40,7 +40,7 @@
     position: absolute;
     top: 10px;
     right: 150;
-    left: 500px;
+    left: 240px;
     background-color: rgba(68, 44, 44, 0); /* Semi-transparent background */
     display: flex;
     justify-content: center; /* Center horizontally */
@@ -49,6 +49,48 @@
 
 .modal-content {
     background-color: rgba(32, 6, 6, 0.296);
-    padding: 20px;
+    padding: 3px;
     border-radius: 8px;
+}
+
+.message {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.received {
+    background-color: #f0f0f000;
+    text-align: left;
+}
+
+.sent {
+    background-color: #e2f5fc00;
+    text-align: right;
+}
+
+.message-panel-container {
+    width: 100%;
+    max-width: calc(16 / 9 * 100vh); /* Set max-width to maintain 16:9 aspect ratio */
+    height: 100vh; /* Full height of viewport */
+    overflow: hidden; /* Hide overflow outside container */
+    display: flex;
+    flex-direction: column;
+}
+
+.message-panel {
+    flex: 1; /* Allow message panel to take up remaining space */
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding: 10px; /* Add padding to message panel */
+}
+
+.message-list {
+    margin: 0;
+    padding: 0;
+}
+
+.message {
+    margin: 10px 0; /* Add margin between messages */
+    padding: 5px;
+    border-radius: 5px;
 }
