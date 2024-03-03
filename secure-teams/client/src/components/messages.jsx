@@ -129,14 +129,15 @@ const Messages = () => {
                             </div>
                         </div>
                     )}
+                    
                     <div className="transform bg-purple flex justify-between h-full"> {/* Removed absolute positioning */}
                         <div className="bg-orange-50 h-full relative contacts-list overflow-y-auto p-4 w-1/6 pr-4 rounded px-4"> {/* Added overflow property */}
                             <button className="bg-blue-400 text-white px-4 py-3 rounded hover:bg-blue-600 flex items-center" onClick={handleAddContact}>
                                 Add Contact
                             </button>
                             {isModalOpen && (
-                                <div className="modal">
-                                    <div className="modal-content">
+                                <div>
+                                    <div >
                                         <span className="close" onClick={() => setIsModalOpen(false)}>&times;</span>
                                         <input type="text" value={emailInput} onChange={handleEmailInputChange} placeholder="Enter email" />
                                         <button onClick={handleAddContactConfirm}>Add</button>
