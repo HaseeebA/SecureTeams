@@ -323,7 +323,6 @@ app.post("/api/2faSend", async (req, res) => {
 			return res.status(400).json({ message: "Email already sent" });
 		}
 
-		// Set the flag to true after sending the email
 		emailSent = true;
 
 		// Send email with 2FA code

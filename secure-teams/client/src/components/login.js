@@ -14,7 +14,9 @@ const Login = () => {
 	const [token, setToken] = useState("");
 	const [role, setRole] = useState("");
 	const [loginSuccess, setLoginSuccess] = useState(false);
-	const [twofaToken, set2faToken] = useState("");
+	const [twofaToken, setTwofaToken] = useState(
+		Array.from({ length: 6 }, () => "")
+	);
 
 	const handleLogin = async (event) => {
 		event.preventDefault();
@@ -35,7 +37,6 @@ const Login = () => {
 				password: password,
 			});
 
-			// setEmail("");
 			setEmail(email);
 
 			if (response.data.token) {
@@ -59,13 +60,12 @@ const Login = () => {
 	useEffect(() => {
 		if (loginSuccess) {
 			if (is2FAEnabled) {
-				// alert("2FA enabled, redirecting to 2FA verification");
 				console.log("Email", email);
 				axios.post("http://localhost:3000/api/2faSend", {
 					email: email,
 				});
 			} else {
-				alert("Login successful");
+				// alert("Login successful");
 				localStorage.setItem("token", token);
 				localStorage.setItem("role", role);
 				localStorage.setItem("email", email);
@@ -81,8 +81,8 @@ const Login = () => {
 	const handle2FAVerification = async (event) => {
 		event.preventDefault();
 
-		if (token === "") {
-			alert("Token cannot be empty");
+		if (twofaToken.some((token) => token === "")) {
+			alert("All fields must be filled");
 			return;
 		}
 
@@ -90,23 +90,28 @@ const Login = () => {
 			console.log("2FA Verification", email, twofaToken);
 			const response = await axios.post("http://localhost:3000/api/2faVerify", {
 				email: email,
-				twofaToken: twofaToken,
+				twofaToken: twofaToken.join(""),
 			});
 
 			if (response.data.verified) {
-				alert("2FA verification successful");
 				localStorage.setItem("token", token);
 				localStorage.setItem("role", role);
 				localStorage.setItem("email", email);
 				window.location.href = "/homepage";
 			} else {
 				alert("2FA verification failed");
-				// window.location.href = "/login";
 			}
 		} catch (error) {
 			alert("2FA verification failed");
 			console.error(error);
 		}
+	};
+
+	const handleTwofaTokenChange = (e, index) => {
+		const newToken = [...twofaToken];
+		newToken[index] = e.target.value;
+
+		setTwofaToken(newToken);
 	};
 
 	return (
@@ -116,13 +121,19 @@ const Login = () => {
 				{is2FAEnabled ? (
 					<div className="login-form">
 						<h2 className="head2">2FA Verification</h2>
-						<input
-							value={twofaToken}
-							onChange={(e) => set2faToken(e.target.value)}
-							placeholder="2FA Token"
-							type="text"
-							className="login-input"
-						/>
+						<div className="twofa-input-container">
+							{twofaToken.map((value, index) => (
+								<input
+									key={index}
+									value={value}
+									onChange={(e) => handleTwofaTokenChange(e, index)}
+									placeholder="0"
+									type="text"
+									className="twofa-input"
+									maxLength={1}
+								/>
+							))}
+						</div>
 						<button
 							type="submit"
 							onClick={handle2FAVerification}
