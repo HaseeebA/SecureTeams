@@ -56,4 +56,4 @@ SecureTeams is a collaboration tool designed for IT companies, focusing on data 
     npm start
     ```
 
-7. The application should now be running. Access it in your web browser at the specified URL (usually http://localhost:3000).
+7. The application should now be running. Access it in your web browser at the specified URL (usually http://localhost:3001).
