@@ -18,9 +18,16 @@ const ContactDetailsComponent = ({ receiver, sender }) => {
                 params: { sender: sender, receiver: receiver } // Pass the email as a query parameter
             });
             console.log('response:', response);
+            const response2 = await axios.get("http://localhost:3000/api/messages", {
+                params: { sender: receiver, receiver: sender } // Pass the email as a query parameter
+            });
             if (response.status === 200) {
                 setMessages(response.data); // Set messages state with fetched messages
-            } else {
+            }
+            else if (response2.status === 200) {
+                setMessages(response2.data); // Set messages state with fetched messages
+            } 
+            else {
                 console.error('Failed to fetch messages');
             }
         } catch (error) {
