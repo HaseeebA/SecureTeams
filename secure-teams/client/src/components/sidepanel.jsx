@@ -83,9 +83,8 @@ const Sidepanel = ({ show, onThemeChange }) => {
 	if (role === "admin") {
 		return (
 			<div
-				className={`side-panel ${show ? "visible" : ""} ${
-					isPanelOpen ? "expanded" : "collapsed"
-				} ${invertImages ? "inverted-images" : ""}`}
+				className={`side-panel ${show ? "visible" : ""} ${isPanelOpen ? "expanded" : "collapsed"
+					} ${invertImages ? "inverted-images" : ""}`}
 			>
 				<button onClick={togglePanel} className="toggle-panel-button">
 					<img src={rightarrow} alt="Toggle" />
@@ -186,9 +185,8 @@ const Sidepanel = ({ show, onThemeChange }) => {
 	} else {
 		return (
 			<div
-				className={`side-panel ${show ? "visible" : ""} ${
-					isPanelOpen ? "expanded" : "collapsed"
-				} ${invertImages ? "inverted-images" : ""}`}
+				className={`side-panel ${show ? "visible" : ""} ${isPanelOpen ? "expanded" : "collapsed"
+					} ${invertImages ? "inverted-images" : ""}`}
 			>
 				<button onClick={togglePanel} className="toggle-panel-button">
 					<img src={rightarrow} alt="Toggle" />
@@ -210,8 +208,10 @@ const Sidepanel = ({ show, onThemeChange }) => {
 					<span>Tasks</span>
 				</div>
 				<div className="flex items-center mb-9 cursor-pointer">
-					<img src={members} alt="Members Icon" />
-					<span>Members</span>
+					<Link to="/members" className="members-link">
+						<img src={members} alt="Members Icon" />
+						<span>Members</span>
+					</Link>
 				</div>
 				<div className="flex items-center mb-9 cursor-pointer">
 					<img src={calendar} alt="Calendar Icon" />

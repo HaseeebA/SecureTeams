@@ -81,6 +81,17 @@ app.post("/api/signup", async (req, res) => {
 	}
 });
 
+app.get("/api/members", async (req, res) => {
+	try {
+		const users = await User.find().select("name -_id");
+		const names = users.map(user => user.name); 
+        res.status(200).json(names); 
+	} catch (error) {
+		return res.status(500).json({ message: 'Error fetching members', error });
+	}
+});
+
+
 app.post("/api/login", async (req, res) => {
 	const { email, password } = req.body;
 	try {
@@ -117,7 +128,6 @@ app.post("/api/login", async (req, res) => {
 app.get("/api/users", async (req, res) => {
 	try {
 		const users = await User.find();
-		// console.log("Users:", users);
 		res.status(200).json(users);
 	} catch (error) {
 		console.log(error);
@@ -128,7 +138,6 @@ app.get("/api/users", async (req, res) => {
 app.get("/api/newUsers", async (req, res) => {
 	try {
 		const users = await User.find({ role: "employee" });
-		// console.log("Users:", users);
 		res.status(200).json(users);
 	} catch (error) {
 		console.log(error);

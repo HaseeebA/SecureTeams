@@ -12,6 +12,7 @@ import {
 } from "./components/protectedRoutes.js";
 import Messages from "./components/messages.jsx";
 import Profile from "./components/profile.jsx";
+import Members from "./components/members.jsx";
 
 function App() {
 	return (
@@ -33,9 +34,9 @@ function App() {
 					path="/profile"
 					element={<ProtectedRoute component={Profile} />}
 				/>
-				<Route
-					path="/messages"
-					element={<ProtectedRoute component={Messages} />}
+				<Route path="/messages"	element={<ProtectedRoute component={Messages} />}
+				/>
+				<Route path="/members" element={<ProtectedRoute component={Members} />}
 				/>
 			</Routes>
 		</Router>

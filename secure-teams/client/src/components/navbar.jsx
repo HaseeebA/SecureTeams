@@ -7,9 +7,10 @@ import { NavLink } from "react-router-dom";
 import axios from "axios";
 
 const Navbar = ({ selectedTheme }) => {
-	console.log("navbar ", selectedTheme);
 	const [profilePhoto, setProfilePhoto] = useState(null);
 	const [isProfileOpen, setProfileOpen] = useState(false);
+	const [invertImages, setInvertImages] = useState(false);
+	const noHoverColors = ["#0b1623", "#540D0D", "#013220"];
 
 	useEffect(() => {
 		const fetchProfileData = async () => {
@@ -29,6 +30,11 @@ const Navbar = ({ selectedTheme }) => {
 		};
 		fetchProfileData();
 	}, []);
+
+	useEffect(() => {
+		const shouldInvert = noHoverColors.includes(localStorage.getItem("themeColor"));
+		setInvertImages(shouldInvert);
+	  }, [selectedTheme]);
 
 	const handleProfileClick = (event) => {
 		setProfileOpen(!isProfileOpen);
@@ -62,7 +68,8 @@ const Navbar = ({ selectedTheme }) => {
 		<div className="navbar" style={{ backgroundColor: selectedTheme }}>
 			<div className="flex items-center">
 				<NavLink to="/homepage" className="text-2xl font-bold text-white">
-					<img src={face} alt="Icon" className="w-10 h-10 mr-2 rounded-full" />
+				<img src={face} alt="Icon" className={`w-10 h-10 mr-2 rounded-full ${invertImages ? "invert" : ""}`}
+          />
 				</NavLink>
 			</div>
 			<div className="relative inline-block">
