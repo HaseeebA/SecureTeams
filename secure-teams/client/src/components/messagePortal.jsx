@@ -7,27 +7,34 @@ const ContactDetailsComponent = ({ receiver, sender }) => {
     useEffect(() => {
         // Fetch messages when component mounts
         fetchMessages();
-        const intervalId = setInterval(fetchMessages, 3000); // Fetch messages every second
+        const intervalId = setInterval(fetchMessages, 3000); // Fetch messages every 3 seconds
         return () => clearInterval(intervalId); // Cleanup function to clear the interval
-    }, [receiver]); // Empty dependency array to fetch messages only once when component mounts
+    }, [receiver]); // Include receiver in the dependency array
 
     const fetchMessages = async () => {
         try {
-            // Make API request to fetch messages
-            const response = await axios.get("http://localhost:3000/api/messages", {
-                params: { sender: sender, receiver: receiver } // Pass the email as a query parameter
+            // Make API request to fetch messages from sender to receiver
+            const response1 = await axios.get("http://localhost:3000/api/messages", {
+                params: { sender: sender, receiver: receiver }
             });
-            console.log('response:', response);
+
+            // Make API request to fetch messages from receiver to sender
             const response2 = await axios.get("http://localhost:3000/api/messages", {
-                params: { sender: receiver, receiver: sender } // Pass the email as a query parameter
+                params: { sender: receiver, receiver: sender }
             });
-            if (response.status === 200) {
-                setMessages(response.data); // Set messages state with fetched messages
-            }
-            else if (response2.status === 200) {
+
+            // Determine which response to use based on status and set the messages state accordingly
+            if (response1.status === 200 && response2.status === 200) {
+                setMessages(response1.data.concat(response2.data)); // Set messages state with fetched messages
+                console.log('response1:', response1.data);
+                console.log('response2:', response2.data);
+            } else if (response1.status === 200) {
+                setMessages(response1.data); // Set messages state with fetched messages;
+                console.log('response1:', response1.data);
+            } else if (response2.status === 200) {
                 setMessages(response2.data); // Set messages state with fetched messages
-            } 
-            else {
+                console.log('response2:', response2.data);
+            } else {
                 console.error('Failed to fetch messages');
             }
         } catch (error) {
@@ -59,8 +66,6 @@ const ContactDetailsComponent = ({ receiver, sender }) => {
             </div>
         </div>
     );
-    
-
 };
 
 export default ContactDetailsComponent;
