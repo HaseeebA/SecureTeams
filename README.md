@@ -14,7 +14,7 @@ SecureTeams is a collaboration tool designed for IT companies, focusing on data 
 
 1. Clone the repository to your local machine:
     ```bash
-    git clone <repository_link>
+    git clone https://github.com/HaseeebA/SecureTeams.git
     ```
 
 2. Navigate to the cloned repository:
