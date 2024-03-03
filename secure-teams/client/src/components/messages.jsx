@@ -54,7 +54,7 @@ const Messages = () => {
     const handleThemeChange = (newTheme) => {
         setTheme(newTheme);
         document.documentElement.style.setProperty('--navbar-theme-color', newTheme);
-        console.log('homepage theme:', newTheme);
+        // console.log('homepage theme:', newTheme);
     };
 
 

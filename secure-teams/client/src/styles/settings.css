@@ -1,55 +1,51 @@
 .settings-container {
-    position: absolute;
-    left: 250px; 
-    top: 0;
-    right: 0;
-    bottom: 0;
-    overflow-y: auto; 
-}
-
-.settings-content {
-    color:rgb(0, 0, 0);
-    width: 100%;
-    padding: 20px; 
-}
-
-.settings-form {
-    background-color: inherit; 
+    max-width: 400px;
+    margin: 50px auto;
     padding: 20px;
-    border-radius: 8px;
-}
-
-.settings-form label,
-.settings-form input {
-    display: block; 
-    width: 100%;
-    margin-bottom: 15px; 
-}
-
-.heading {
+    border: 1px solid #ccc;
     border-radius: 5px;
-    margin-bottom: 20px; 
+    background-color: #f9f9f9;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+label {
     display: block;
+    margin-bottom: 10px;
 }
 
-.update-button {
-    background-color: #FFF;
-    color: #000;
+.toggle {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+input[type="email"] {
+    width: 100%;
+    padding: 5px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.settings-container button {
     padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
     border: none;
-    border-radius: 5px;
+    border-radius: 3px;
     cursor: pointer;
-    display: block; 
-    width: 15%; 
-    margin: 20px auto 5px; 
-    transition: box-shadow 0.3s ease;
+    margin-top: 10px;
 }
 
-.update-button:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.settings-form input::placeholder {
-    text-align: center;
+button:hover {
+    background-color: #0056b3;
 }
 

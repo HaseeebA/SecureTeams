@@ -39,7 +39,7 @@
 
 .toggle-panel-button {
   position: fixed;
-  left: 25px; 
+  left: 220px; 
   top: 100px;
   bottom:60px;
   z-index: 101; 
@@ -110,6 +110,14 @@
     cursor: pointer;
     color: inherit;
   }
+
+.members-link{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+    color: inherit;
+  }
   
 .team-section {
   position: absolute;
@@ -171,6 +179,7 @@
 }
 
 .theme-option {
+  color: black;
   cursor: pointer;
   padding: 5px;
 }
