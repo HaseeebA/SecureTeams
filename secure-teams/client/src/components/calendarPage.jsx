@@ -2,19 +2,16 @@ import React, { useState } from 'react';
 import Navbar from './navbar';
 import InformationPanel from './infopanel';
 import Sidepanel from './sidepanel';
-import CalendarHomeComponent from './calendarHomeComponent';
+import CalendarComponent from './calendarComponent'; // Import your calendar component here
 
-
-const Homepage = () => {
+const CalendarPage = () => {
     const [showSidePanel, setShowSidePanel] = useState(true);
     const initialTheme = localStorage.getItem('themeColor') || '#68d391';
-    // console.log('initial theme:', initialTheme)/
     const [theme, setTheme] = useState(initialTheme);
 
     const handleThemeChange = (newTheme) => {
         setTheme(newTheme);
         document.documentElement.style.setProperty('--navbar-theme-color', newTheme);
-        // console.log('homepage theme:', newTheme);
     };
 
     return (
@@ -23,13 +20,12 @@ const Homepage = () => {
             <Navbar selectedTheme={theme} />
             <InformationPanel />
             <div className="flex justify-center items-center">
-                <h1 className="text-4xl font-bold text-gray-800 mt-10">Welcome to Secure Teams</h1>
-            </div>
-            <div className="ml-10">
-                <CalendarHomeComponent />
+                <div style={{ marginTop: '30px' }}>
+                    <CalendarComponent />
+                </div>
             </div>
         </div>
     );
 };
 
-export default Homepage;
+export default CalendarPage;
