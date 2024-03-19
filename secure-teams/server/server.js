@@ -533,12 +533,16 @@ app.get("/api/events", async (req, res) => {
             // Create a new entry with userEmail and empty events array
             eventsData = new Events({ userEmail: email, events: [] });
             await eventsData.save();
+        } else {
+            // Filter events array to remove events with dates smaller than the current date
+            eventsData.events = eventsData.events.filter(event => new Date(event.date) >= new Date());
+            await eventsData.save();
         }
 
         res.status(200).json(eventsData.events);
     } catch (error) {
         console.log(error);
-        res.status(500).json({ message: "Error fetching events" });
+        res.status(500).json({ message: "Error fetching and updating events" });
     }
 });
 
