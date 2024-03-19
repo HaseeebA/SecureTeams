@@ -14,6 +14,7 @@ import Messages from "./components/messages.jsx";
 import Profile from "./components/profile.jsx";
 import Members from "./components/members.jsx";
 import Settings from "./components/settings.jsx";
+import CalendarPage from "./components/calendarPage.jsx";
 
 function App() {
 	return (
@@ -47,6 +48,11 @@ function App() {
 					path="/members"
 					element={<ProtectedRoute component={Members} />}
 				/>
+				<Route
+					path="/calendar"
+					element={<ProtectedRoute component={CalendarPage} />}
+				/>
+
 			</Routes>
 		</Router>
 	);

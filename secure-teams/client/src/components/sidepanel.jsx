@@ -214,8 +214,11 @@ const Sidepanel = ({ show, onThemeChange }) => {
 					</Link>
 				</div>
 				<div className="flex items-center mb-9 cursor-pointer">
-					<img src={calendar} alt="Calendar Icon" />
-					<span>Calendar</span>
+					<Link to="/calendar" className="members-link">
+						<img src={calendar} alt="Calendar Icon" />
+						<span>Calendar</span>
+					</Link>
+
 				</div>
 				<div
 					className="flex items-center mb-9 cursor-pointer relative"
