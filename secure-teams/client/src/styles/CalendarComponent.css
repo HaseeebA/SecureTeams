@@ -4,36 +4,26 @@
 .homepage-container {
     max-width: 500px; /* Increase the maximum width of the calendar */
     margin: 0 auto; 
+    width: 100%;
 }
 .calendar-container {
-    max-width: 100%; /* Increase the maximum width of the calendar */
+    max-width: 800px; /* Increase the maximum width of the calendar */
     margin: 0 auto; /* Center the calendar horizontally */
+    width: 100%;
 }
-
-/* Style for the navigation buttons */
-.react-calendar__navigation button {
-    background-color: #68d391; /* Set background color for the navigation buttons */
-    color: #fff; /* Set text color for the navigation buttons */
-    border: none; /* Remove border from the navigation buttons */
-    border-radius: 4px; /* Add border radius for rounded corners */
-    padding: 8px 12px; /* Add padding to the navigation buttons */
-    cursor: pointer; /* Change cursor to pointer on hover */
-}
-
-/* Hover effect for navigation buttons */
-.react-calendar__navigation button:hover {
-    background-color: #5cbf79; /* Darken the background color on hover */
-}
-
 
 /* Style for the calendar tiles (days) */
 .react-calendar__tile {
-    height: 80px; /* Set the height of each calendar tile */
+    height: 100px; /* Set the fixed height of each calendar tile */
+    width: 100px; /* Set the fixed width of each calendar tile */
     font-size: 18px; /* Increase the font size of the dates */
     background-color: #f0f0f0; /* Set a light background color for the calendar tiles */
     color: #333; /* Set text color for the dates */
     border: 1px solid #ccc; /* Add a border to each calendar tile */
     cursor: pointer; /* Change cursor to pointer on hover */
+    display: flex; /* Use flexbox for centering content */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
 }
 
 /* Hover effect for calendar tiles */
@@ -57,6 +47,40 @@
     background-color: #68d391; /* Set the background color for event markers */
     color: #fff; /* Set text color for event markers */
     margin-bottom: 8px; /* Add margin between event markers */
+}
+
+.react-calendar__navigation {
+    background-color: #68d391; /* Set background color for the month box and navigation buttons */
+    color: #fff; /* Set text color for the month box and navigation buttons */
+    border-radius: 5px; /* Add border radius for rounded corners */
+    display: flex; /* Use flexbox for alignment */
+    justify-content: space-between; /* Space evenly between elements */
+    align-items: center; /* Center items vertically */
+}
+
+/* Hover effect for month box and navigation buttons */
+.react-calendar__navigation:hover {
+    background-color: #5cbf79; /* Darken the background color on hover */
+}
+
+/* Style for the month label */
+.react-calendar__navigation__label {
+    font-size: 20px; /* Increase font size for the month label */
+}
+
+/* Style for the navigation buttons */
+.react-calendar__navigation button {
+    background-color: transparent; /* Set background color for navigation buttons */
+    color: #fff; /* Set text color for navigation buttons */
+    border: none; /* Remove border from navigation buttons */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    font-size: 20px; /* Set font size for navigation buttons */
+    padding: 8px 12px; /* Add padding to the navigation buttons (adjust as needed) */
+}
+
+/* Hover effect for navigation buttons */
+.react-calendar__navigation button:hover {
+    color: #f0f0f0; /* Change text color on hover */
 }
 
 /* Style for the delete button */
