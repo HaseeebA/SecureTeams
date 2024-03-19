@@ -76,7 +76,7 @@ const CalendarComponent = () => {
   };
 
   return (
-    <div className="calendar-container" style={{ marginLeft: '250px' }}>
+    <div className="homepage-container" style={{ marginLeft: '250px' }}>
       <Calendar
         onChange={handleDateChange}
         value={date}

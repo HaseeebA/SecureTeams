@@ -1,8 +1,12 @@
 /* CalendarComponent.css */
 
 /* Style for the calendar container */
+.homepage-container {
+    max-width: 500px; /* Increase the maximum width of the calendar */
+    margin: 0 auto; 
+}
 .calendar-container {
-    max-width: 800px; /* Increase the maximum width of the calendar */
+    max-width: 100%; /* Increase the maximum width of the calendar */
     margin: 0 auto; /* Center the calendar horizontally */
 }
 
