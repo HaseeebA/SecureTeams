@@ -3,6 +3,7 @@
 SecureTeams is a collaboration tool designed for IT companies, focusing on data security and compliance. This README provides instructions for setting up and running the application.
 
 ## Version 0.1.0
+![Homepage](secure-teams/client/src/images/Screenshot%20from%202024-03-04%2000-00-10.png)
 
 ### Features:
 - **Login and Signup:** Users can securely login and signup with hashed passwords.
@@ -11,7 +12,7 @@ SecureTeams is a collaboration tool designed for IT companies, focusing on data 
 - **Adding Contacts:** Users can add contacts using their emails.
 - **Individual Messaging:** Allows individual messaging between team members.
 - **Profile:** Users can now see their profile and edit it. This includes their name, email, password and profile photo.
-- **Role Assignment:** Admin will assign roles to users whem they signup. Admin can also edit previously assigned roles.
+- **Role Assignment:** Admin will assign roles to users when they signup. Admin can also edit previously assigned roles.
 - **Dynamic Themes:** Users can select themes of their choice to stylize the website to their preference.
 
 ## Setup Instructions:
@@ -56,4 +57,8 @@ SecureTeams is a collaboration tool designed for IT companies, focusing on data 
     npm start
     ```
 
-7. The application should now be running. Access it in your web browser at the specified URL (usually http://localhost:3000).
+7. The application should now be running. Access it in your web browser at the specified URL (usually http://localhost:3001).
+
+## Additional Information:
+
+SecureTeams allows users to sign up as team members directly and then log in to view the application. The project is structured such that server and client files are in separate folders, including components, admin, styles, and images folders.
