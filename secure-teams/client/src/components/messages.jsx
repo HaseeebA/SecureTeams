@@ -4,7 +4,6 @@ import InformationPanel from './infopanel';
 import Sidepanel from './sidepanel';
 import axios from "axios";
 import ContactDetailsComponent from './messagePortal';
-// import css 
 import '../styles/messages.css';
 
 const Messages = () => {
@@ -49,14 +48,11 @@ const Messages = () => {
         }
     };
 
-
-
     const handleThemeChange = (newTheme) => {
         setTheme(newTheme);
         document.documentElement.style.setProperty('--navbar-theme-color', newTheme);
         // console.log('homepage theme:', newTheme);
     };
-
 
     const handleAddContact = () => {
         setIsModalOpen(true);
@@ -100,7 +96,6 @@ const Messages = () => {
         // setShowComponent(false);
     };
 
-
     const handleSendMessage = async () => {
         // Implement logic to send message to selected contact
         // This can include sending the message content to the backend and storing it in the database
@@ -142,18 +137,15 @@ const Messages = () => {
         }
     };
 
-
     return (
         <div className="flex flex-col h-screen relative"> {/* Added relative positioning */}
             <Sidepanel show={showSidePanel} onThemeChange={handleThemeChange} />
             <Navbar selectedTheme={theme} />
             <InformationPanel />
-            <div className="flex-grow p-7 ml-60 relative"> {/* Make this div flexible and allow it to grow, added relative positioning */}
-
+            <div className="bg-white flex-grow p-7 ml-60 relative"> {/* Make this div flexible and allow it to grow, added relative positioning */}
                 <div className="bg-gray-200 rounded-lg p-2 h-full relative flex flex-col justify-end">
-
                     <div className="transform bg-purple flex justify-between h-full"> {/* Removed absolute positioning */}
-                        <div className="bg-orange-50 h-full relative contacts-list overflow-y-auto p-4 w-1/6 pr-4 rounded px-4"> {/* Added overflow property */}
+                        <div className="bg-black h-full relative contacts-list overflow-y-auto p-4 w-1/6 pr-4 rounded px-4"> {/* Added overflow property */}
                             <button className="bg-blue-400 text-white px-4 py-3 rounded hover:bg-blue-600 flex items-center" onClick={handleAddContact}>
                                 Add Contact
                             </button>
@@ -162,14 +154,14 @@ const Messages = () => {
                                     <div >
                                         <span className="close" onClick={() => setIsModalOpen(false)}>&times;</span>
                                         <input type="text" value={emailInput} onChange={handleEmailInputChange} placeholder="Enter email" />
-                                        <button onClick={handleAddContactConfirm}>Add</button>
+                                        <button onClick={handleAddContactConfirm} className='text-white'>Add</button>
                                     </div>
                                 </div>
                             )}
 
                             <div className="contact-list">
                                 {/* Display the list of contacts */}
-                                <div className="contact-container">
+                                <div className="contact-container mt-5">
                                     {contacts ? (
                                         contacts.map((contact, index) => (
                                             <div key={index} className="contact-item">
@@ -213,10 +205,6 @@ const Messages = () => {
         </div >
 
     );
-
-
-
-
 };
 
 export default Messages;

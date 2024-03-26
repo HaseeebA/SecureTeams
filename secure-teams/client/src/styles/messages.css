@@ -20,7 +20,7 @@
 .contact-button {
     /* Add styles for the contact buttons */
     padding: 5px 2px;
-    background-color: #5ab55d; /* Green */
+    background-color: #9b5ab5; /* Green */
     border: none;
     color: white;
     text-align: center;
@@ -38,10 +38,11 @@
 
 .modal {
     position: absolute;
-    top: 10px;
-    right: 150;
-    left: 240px;
-    background-color: rgba(68, 44, 44, 0); /* Semi-transparent background */
+    top:5px;
+    bottom: 85px;
+    right: 15px;
+    left: 295px;
+    height: 90%;
     display: flex;
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
@@ -49,45 +50,19 @@
 }
 
 .modal-content {
-    background-color: rgba(32, 6, 6, 0.296);
+    background-color: #060606;
     padding: 3px;
-    border-radius: 8px;
-}
-
-.message {
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-}
-
-.received {
-    background-color: #f0f0f000;
-    text-align: left;
-}
-
-.sent {
-    background-color: #e2f5fc00;
-    text-align: right;
+    border-radius: 20px;
+    box-sizing: border-box; /* Include padding and border in the element's total dimensions */
+    overflow: hidden; /* Hide overflow to allow scrolling within message-panel-container */
+    height: 90%; /* Take the full height of the modal */
+    display: flex;
 }
 
 .message-panel-container {
-    width: 120vh;
-    /* max-width: calc(16 / 9 * 100vh); Set max-width to maintain 16:9 aspect ratio */
-    height: 66vh; 
-    overflow: hidden; /* Hide overflow outside container */
-    display: flex;
-    flex-direction: column;
-}
-
-.message-panel {
-    /* flex: 1; Allow message panel to take up remaining space */
-    overflow-y: auto; /* Enable vertical scrolling */
-    padding: 10px; /* Add padding to message panel */
-}
-
-
-.message {
-    margin: 5px 0; /* Add margin between messages */
-    padding: 5px;
-    border-radius: 5px;
+    width: 100%; /* Use the full width available */
+    height: 100%; /* Use the full height available */
+    max-height: 66vh; /* Limit the height of the message panel */
+    overflow-y: auto; /* Allow vertical scrolling */
+    box-sizing: border-box; /* Include padding and border in the element's total dimensions */
 }
