@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import '../styles/msgportal.css';
 
 const ContactDetailsComponent = ({ receiver, sender }) => {
     const [messages, setMessages] = useState([]);
@@ -45,13 +46,13 @@ const ContactDetailsComponent = ({ receiver, sender }) => {
     return (
         <div>
             <div className="contact-info">
-                <h3>{receiver}</h3>
+            <h3 className='yo'>{receiver.split('@')[0]}</h3>
             </div>
             <div className="message-panel-container flex flex-grow flex-col">
                 <div className="message-panel">
                     <div className="message-list">
                         {messages
-                            .sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp)) // Sort messages by timestamp
+                            .sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp))
                             .map((message, index) => (
                                 <div
                                     key={index}
