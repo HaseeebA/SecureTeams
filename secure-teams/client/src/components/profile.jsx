@@ -10,8 +10,8 @@ const Profile = () => {
 	const initialTheme = localStorage.getItem("themeColor") || "#68d391";
 	const [theme, setTheme] = useState(initialTheme);
 	const [email, setEmail] = useState("");
-	const [password, setPassword] = useState("");
-	const [newPassword, setNewPassword] = useState("");
+	// const [password, setPassword] = useState("");
+	// const [newPassword, setNewPassword] = useState("");
 	const [name, setName] = useState("");
 	const [profilePhoto, setProfilePhoto] = useState(null);
 	const [isEditing, setIsEditing] = useState(false);
@@ -55,25 +55,25 @@ const Profile = () => {
 			return;
 		}
 
-		if (!password || !newPassword) {
-			alert("Password cannot be empty");
-			return;
-		}
+		// if (!password || !newPassword) {
+		// 	alert("Password cannot be empty");
+		// 	return;
+		// }
 
-		if (!/\d/.test(newPassword)) {
-			alert("Password must contain at least one number");
-			return;
-		}
+		// if (!/\d/.test(newPassword)) {
+		// 	alert("Password must contain at least one number");
+		// 	return;
+		// }
 
-		if (!/[!@#$%^&*.]/.test(newPassword)) {
-			alert("Password must contain at least one special character");
-			return;
-		}
+		// if (!/[!@#$%^&*.]/.test(newPassword)) {
+		// 	alert("Password must contain at least one special character");
+		// 	return;
+		// }
 
 		const formData = new FormData();
 		formData.append("email", email);
-		formData.append("password", password);
-		formData.append("newPassword", newPassword);
+		// formData.append("password", password);
+		// formData.append("newPassword", newPassword);
 		formData.append("name", name);
 		formData.append("profilePhoto", profilePhoto);
 
@@ -88,8 +88,8 @@ const Profile = () => {
 				}
 			);
 			alert(response.data.message);
-			setPassword("");
-			setNewPassword("");
+			// setPassword("");
+			// setNewPassword("");
 			setIsEditing(false);
 		} catch (error) {
 			console.log(error);
@@ -113,6 +113,7 @@ const Profile = () => {
 									type="file"
 									id="profilePhoto"
 									onChange={(event) => setProfilePhoto(event.target.files[0])}
+									style={{ color: "white"}}
 								/>
 							) : (
 								<img
@@ -148,7 +149,7 @@ const Profile = () => {
 								<p>{name}</p>
 							)}
 						</div>
-						<div
+						{/* <div
 							className="form-group"
 							style={{ display: isEditing ? "block" : "none" }}
 						>
@@ -171,7 +172,7 @@ const Profile = () => {
 								value={newPassword}
 								onChange={(event) => setNewPassword(event.target.value)}
 							/>
-						</div>
+						</div> */}
 						<button
 							className="update-button"
 							type="submit"

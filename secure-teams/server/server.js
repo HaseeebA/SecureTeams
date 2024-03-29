@@ -16,42 +16,41 @@ app.use(express.json());
 app.use(cors());
 
 mongoose
-  .connect(process.env.MONGO_URI)
-  .then(() => {
-    console.log("Connected to MongoDB");
+	.connect(process.env.MONGO_URI)
+	.then(() => {
+		console.log("Connected to MongoDB");
 
-    // Create HTTP server
-    const httpServer = createServer(app);
+		// Create HTTP server
+		const httpServer = createServer(app);
 
-    // Create Socket.IO server
-    const io = new Server(httpServer, {
-      cors: {
-        origin: "http://localhost:3000",
-        methods: ["GET", "POST"],
-      },
-    });
+		// Create Socket.IO server
+		const io = new Server(httpServer, {
+			cors: {
+				origin: "http://localhost:3000",
+				methods: ["GET", "POST"],
+			},
+		});
 
-    // Listen for Socket.IO connections
-    io.on("connection", (socket) => {
-      console.log("A user connected LMAO");
+		// Listen for Socket.IO connections
+		io.on("connection", (socket) => {
+			console.log("A user connected LMAO");
 
-      // Example: Handle socket events
-      socket.on("disconnect", () => {
-        console.log("User disconnected");
-      });
-    });
+			// Example: Handle socket events
+			socket.on("disconnect", () => {
+				console.log("User disconnected");
+			});
+		});
 
-    // Start listening on the HTTP server
-    const PORT = process.env.PORT || 3000;
-    httpServer.listen(PORT, () => {
-      console.log(`Server is running on port ${PORT}`);
-	//   local ip address
-	
-    });
-  })
-  .catch((error) => {
-    console.error("Error connecting to MongoDB:", error);
-  })
+		// Start listening on the HTTP server
+		const PORT = process.env.PORT || 3000;
+		httpServer.listen(PORT, () => {
+			console.log(`Server is running on port ${PORT}`);
+			//   local ip address
+		});
+	})
+	.catch((error) => {
+		console.error("Error connecting to MongoDB:", error);
+	});
 
 const userSchema = new mongoose.Schema({
 	name: { type: String, required: true },
@@ -72,7 +71,6 @@ const userSchema = new mongoose.Schema({
 	teams: { type: Array },
 });
 
-
 const User = mongoose.model("User", userSchema);
 
 const messagesSchema = new mongoose.Schema({
@@ -91,7 +89,6 @@ const contactsSchema = new mongoose.Schema({
 
 const Contact = mongoose.model("Contact", contactsSchema);
 
-
 // Middleware to verify token
 const authenticateToken = (req, res, next) => {
 	const authHeader = req.headers["authorization"];
@@ -107,7 +104,6 @@ const authenticateToken = (req, res, next) => {
 	});
 };
 
-
 app.post("/api/messages", async (req, res) => {
 	const { sender, receiver, message } = req.body;
 	try {
@@ -122,15 +118,15 @@ app.post("/api/messages", async (req, res) => {
 });
 
 app.get("/api/messages", async (req, res) => {
-    const { sender, receiver } = req.query;
-    try {
-        // Find messages based on sender and receiver
-        const messages = await Message.find({ sender: sender, receiver: receiver });
-        res.status(200).json(messages);
-    } catch (error) {
-        console.log(error);
-        res.status(500).json({ message: "Error fetching messages" });
-    }
+	const { sender, receiver } = req.query;
+	try {
+		// Find messages based on sender and receiver
+		const messages = await Message.find({ sender: sender, receiver: receiver });
+		res.status(200).json(messages);
+	} catch (error) {
+		console.log(error);
+		res.status(500).json({ message: "Error fetching messages" });
+	}
 });
 
 // io.on('connection', (socket) => {
@@ -141,53 +137,56 @@ app.get("/api/messages", async (req, res) => {
 //     console.log(`Server is running on port ${PORT}`);
 // });
 
-
 app.post("/api/contacts", async (req, res) => {
-    const { email, contact } = req.body;
-    try {
-        // Check if the contact email exists in the system
-        const userExists = await User.findOne({ email: contact });
-        if (!userExists) {
-            return res.status(400).json({ message: "User does not exist" });
-        }
+	const { email, contact } = req.body;
+	try {
+		// Check if the contact email exists in the system
+		const userExists = await User.findOne({ email: contact });
+		if (!userExists) {
+			return res.status(400).json({ message: "User does not exist" });
+		}
 
-        // Find the existing contacts for the current user
-        let existingContactsCurrentUser = await Contact.findOne({ email });
-        if (!existingContactsCurrentUser) {
-            // If no existing contacts for current user, create a new entry
-            existingContactsCurrentUser = new Contact({ email, contacts: [contact] });
-        } else {
-            if (existingContactsCurrentUser.contacts.includes(contact)) {
-                return res.status(400).json({ message: "Contact already exists" });
-            }
-            // If existing contacts found, append the new contact
-            existingContactsCurrentUser.contacts.push(contact);
-        }
+		// Find the existing contacts for the current user
+		let existingContactsCurrentUser = await Contact.findOne({ email });
+		if (!existingContactsCurrentUser) {
+			// If no existing contacts for current user, create a new entry
+			existingContactsCurrentUser = new Contact({ email, contacts: [contact] });
+		} else {
+			if (existingContactsCurrentUser.contacts.includes(contact)) {
+				return res.status(400).json({ message: "Contact already exists" });
+			}
+			// If existing contacts found, append the new contact
+			existingContactsCurrentUser.contacts.push(contact);
+		}
 
-        // Save the current user's updated contacts
-        await existingContactsCurrentUser.save();
+		// Save the current user's updated contacts
+		await existingContactsCurrentUser.save();
 
-        // Add the current user to the contact's list as well
-        let existingContactsContact = await Contact.findOne({ email: contact });
-        if (!existingContactsContact) {
-            // If no existing contacts for the contact, create a new entry
-            existingContactsContact = new Contact({ email: contact, contacts: [email] });
-        } else {
-            // If existing contacts found for contact, append the current user
-            existingContactsContact.contacts.push(email);
-        }
+		// Add the current user to the contact's list as well
+		let existingContactsContact = await Contact.findOne({ email: contact });
+		if (!existingContactsContact) {
+			// If no existing contacts for the contact, create a new entry
+			existingContactsContact = new Contact({
+				email: contact,
+				contacts: [email],
+			});
+		} else {
+			// If existing contacts found for contact, append the current user
+			existingContactsContact.contacts.push(email);
+		}
 
-        // Save the contact's updated contacts
-        await existingContactsContact.save();
+		// Save the contact's updated contacts
+		await existingContactsContact.save();
 
-        res.status(201).json({ message: "Contact added successfully", existingContactsCurrentUser });
-    } catch (error) {
-        console.log(error);
-        res.status(500).json({ message: "Error adding contact" });
-    }
+		res.status(201).json({
+			message: "Contact added successfully",
+			existingContactsCurrentUser,
+		});
+	} catch (error) {
+		console.log(error);
+		res.status(500).json({ message: "Error adding contact" });
+	}
 });
-
-
 
 app.post("/api/signup", async (req, res) => {
 	const { name, email, password } = req.body;
@@ -316,21 +315,21 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 app.post("/api/update", upload.single("profilePhoto"), async (req, res) => {
-	const { email, password, newPassword, name } = req.body;
+	const { email, name } = req.body;
 	try {
 		const user = await User.findOne({ email: email });
 		if (!user) {
 			console.log("User not found");
 			return res.status(400).json({ message: "User not found" });
 		}
-		const validPassword = await bcrypt.compare(password, user.password);
-		if (!validPassword) {
-			console.log("Invalid password");
-			return res.status(400).json({ message: "Invalid password" });
-		}
-		const salt = await bcrypt.genSalt(10);
-		const hashedPassword = await bcrypt.hash(newPassword, salt);
-		user.password = hashedPassword;
+		// const validPassword = await bcrypt.compare(password, user.password);
+		// if (!validPassword) {
+		// 	console.log("Invalid password");
+		// 	return res.status(400).json({ message: "Invalid password" });
+		// }
+		// const salt = await bcrypt.genSalt(10);
+		// const hashedPassword = await bcrypt.hash(newPassword, salt);
+		// user.password = hashedPassword;
 		user.name = name;
 
 		if (req.file) {
@@ -342,6 +341,31 @@ app.post("/api/update", upload.single("profilePhoto"), async (req, res) => {
 	} catch (error) {
 		console.log(error);
 		res.status(500).json({ message: "Error updating profile" });
+	}
+});
+
+app.post("/api/updatePassword", async (req, res) => {
+	const { userEmail, password, newPassword } = req.body;
+	try {
+		const user = await User.findOne({ email: userEmail });
+		if (!user) {
+			console.log("User not found");
+			return res.status(200).json({ message: "User not found" });
+		}
+		const validPassword = await bcrypt.compare(password, user.password);
+		if (!validPassword) {
+			console.log("Invalid password");
+			return res.status(200).json({ message: "Invalid password, please try again" });
+		}
+		const salt = await bcrypt.genSalt(10);
+		const hashedPassword = await bcrypt.hash(newPassword, salt);
+		user.password = hashedPassword;
+		await user.save();
+		console.log("Password updated successfully");
+		res.status(200).json({ message: "Password updated successfully" });
+	} catch (error) {
+		console.log(error);
+		res.status(500).json({ message: "Error updating password" });
 	}
 });
 
@@ -499,102 +523,108 @@ app.post("/api/2faVerify", async (req, res) => {
 });
 
 app.get("/api/contacts", async (req, res) => {
-    const { email } = req.query; // Access email from query parameters
-    try {
-        console.log("Email:", email);
-        const contacts = await Contact.findOne({ email });
-        if (!contacts) {
-            return res.status(404).json({ message: "Contacts not found" });
-        }
-        res.status(200).json(contacts.contacts);
-    } catch (error) {
-        console.log(error);
-        res.status(500).json({ message: "Error fetching contacts" });
-    }
+	const { email } = req.query; // Access email from query parameters
+	try {
+		console.log("Email:", email);
+		const contacts = await Contact.findOne({ email });
+		if (!contacts) {
+			return res.status(404).json({ message: "Contacts not found" });
+		}
+		res.status(200).json(contacts.contacts);
+	} catch (error) {
+		console.log(error);
+		res.status(500).json({ message: "Error fetching contacts" });
+	}
 });
 
 const eventsSchema = new mongoose.Schema({
-    userEmail: { type: String, required: true },
-    events: [{
-        id: { type: Number, required: true },
-        date: { type: Date, required: true },
-        title: { type: String, required: true },
-    }],
+	userEmail: { type: String, required: true },
+	events: [
+		{
+			id: { type: Number, required: true },
+			date: { type: Date, required: true },
+			title: { type: String, required: true },
+		},
+	],
 });
 
 const Events = mongoose.model("Events", eventsSchema);
 
 //api call to fetch all the events marked by the user in the calendar
 app.get("/api/events", async (req, res) => {
-    const { email } = req.query;
-    try {
-        let eventsData = await Events.findOne({ userEmail: email });
-        if (!eventsData) {
-            // Create a new entry with userEmail and empty events array
-            eventsData = new Events({ userEmail: email, events: [] });
-            await eventsData.save();
-        } else {
-            // Filter events array to remove events with dates smaller than the current date
-            eventsData.events = eventsData.events.filter(event => new Date(event.date) >= new Date());
-            await eventsData.save();
-        }
+	const { email } = req.query;
+	try {
+		let eventsData = await Events.findOne({ userEmail: email });
+		if (!eventsData) {
+			// Create a new entry with userEmail and empty events array
+			eventsData = new Events({ userEmail: email, events: [] });
+			await eventsData.save();
+		} else {
+			// Filter events array to remove events with dates smaller than the current date
+			eventsData.events = eventsData.events.filter(
+				(event) => new Date(event.date) >= new Date()
+			);
+			await eventsData.save();
+		}
 
-        res.status(200).json(eventsData.events);
-    } catch (error) {
-        console.log(error);
-        res.status(500).json({ message: "Error fetching and updating events" });
-    }
+		res.status(200).json(eventsData.events);
+	} catch (error) {
+		console.log(error);
+		res.status(500).json({ message: "Error fetching and updating events" });
+	}
 });
 
 //api call to add new event to calendar
 app.post("/api/add-event", async (req, res) => {
-    const { email, title, date } = req.body;
-    try {
-        let eventsData = await Events.findOne({ userEmail: email });
-        if (!eventsData) {
-            // Create a new entry with userEmail and empty events array
-            eventsData = new Events({ userEmail: email, events: [] });
-        }
+	const { email, title, date } = req.body;
+	try {
+		let eventsData = await Events.findOne({ userEmail: email });
+		if (!eventsData) {
+			// Create a new entry with userEmail and empty events array
+			eventsData = new Events({ userEmail: email, events: [] });
+		}
 
-        const newEvent = {
-            id: eventsData.events.length + 1,
-            date: date,
-            title: title,
-        };
+		const newEvent = {
+			id: eventsData.events.length + 1,
+			date: date,
+			title: title,
+		};
 
-        eventsData.events.push(newEvent);
-        await eventsData.save();
+		eventsData.events.push(newEvent);
+		await eventsData.save();
 
-        res.status(201).json({ message: "Event added successfully" });
-    } catch (error) {
-        console.log(error);
-        res.status(500).json({ message: "Error adding event" });
-    }
+		res.status(201).json({ message: "Event added successfully" });
+	} catch (error) {
+		console.log(error);
+		res.status(500).json({ message: "Error adding event" });
+	}
 });
 
 //api call to delete an event from the calender
 app.delete("/api/delete-event/:email/:eventId", async (req, res) => {
-    const { email, eventId } = req.params;
-    try {
-        // Logic to delete the event based on email and eventId
-        let eventsData = await Events.findOne({ userEmail: email });
-        if (!eventsData) {
-            return res.status(404).json({ message: "Events data not found" });
-        }
+	const { email, eventId } = req.params;
+	try {
+		// Logic to delete the event based on email and eventId
+		let eventsData = await Events.findOne({ userEmail: email });
+		if (!eventsData) {
+			return res.status(404).json({ message: "Events data not found" });
+		}
 
-        // Find the index of the event to delete
-        const eventIndex = eventsData.events.findIndex(event => event.id === parseInt(eventId));
-        if (eventIndex === -1) {
-            return res.status(404).json({ message: "Event not found" });
-        }
+		// Find the index of the event to delete
+		const eventIndex = eventsData.events.findIndex(
+			(event) => event.id === parseInt(eventId)
+		);
+		if (eventIndex === -1) {
+			return res.status(404).json({ message: "Event not found" });
+		}
 
-        // Remove the event from the events array
-        eventsData.events.splice(eventIndex, 1);
-        await eventsData.save();
+		// Remove the event from the events array
+		eventsData.events.splice(eventIndex, 1);
+		await eventsData.save();
 
-        res.status(200).json({ message: "Event deleted successfully" });
-    } catch (error) {
-        console.log(error);
-        res.status(500).json({ message: "Error deleting event" });
-    }
+		res.status(200).json({ message: "Event deleted successfully" });
+	} catch (error) {
+		console.log(error);
+		res.status(500).json({ message: "Error deleting event" });
+	}
 });
