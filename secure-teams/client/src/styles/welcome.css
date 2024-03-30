@@ -14,12 +14,12 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.3); 
+  background: rgba(0, 0, 0, 0.3);
   z-index: 1;
 }
 
 .welcome-white {
-  background-image: url("../images/bg.png");
+  background-image: url("../images/bg.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -32,17 +32,17 @@ body {
 }
 
 .container {
-  text-align: center;
-  background-color: rgba(56, 145, 180, 0.8);
-  padding: 30px;
-  border-radius: 20px;
+  text-align: left;
+  background-color: rgba(33, 12, 98, 0.93);
+  padding: 100px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   z-index: 100;
+  height: 100vh;
+  width: 40%;
+  padding-top: 180px;
 }
+
 
 .head2 {
   color: #ffffff;
@@ -53,15 +53,47 @@ body {
   margin: 0 0 20px 0;
 }
 
-.login-button {
-  background-color: #333;
+.btn-login {
+  background-color: #2073b4;
   color: #fff;
-  font-size: 10px;
-  padding: 5px;
+  font-size: 25px;
+  padding: 10px 20px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  margin: 10px;
+  margin-bottom: 10px;
+  width: 450px;
+  margin-top: 10px;
+}
+
+.btn-signup {
+  background-color: #23425a;
+  color: #fff;
+  font-size: 25px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 450px;
+  margin-top: 10px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.btn-login:hover {
+  background-color: #61a9e8;
+}
+
+.btn-signup:hover {
+  background-color: #286492;
 }
 
 p {
