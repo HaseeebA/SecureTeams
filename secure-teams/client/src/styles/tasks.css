@@ -1,0 +1,36 @@
+/* tasks.css */
+
+/* Style the dropdown container */
+.mb-4 {
+    margin-bottom: 1rem; /* Adjust as needed */
+}
+
+/* Style the label for the dropdown */
+.mr-2 {
+    margin-right: 0.5rem; /* Adjust as needed */
+}
+
+/* Style the dropdown select element */
+.p-2 {
+    padding: 0.5rem; /* Adjust as needed */
+}
+
+/* Style the dropdown border and appearance */
+.rounded {
+    border-radius: 0.25rem; /* Adjust as needed */
+    border: 1px solid #ccc; /* Adjust color as needed */
+}
+
+/* Style the dropdown options */
+select {
+    width: 100%; /* Make dropdown full width */
+}
+
+/* Style the dropdown hover and focus effects */
+select:focus, select:hover {
+    border-color: #aaa; /* Adjust color as needed */
+}
+
+.inputText {
+    color: black;
+}

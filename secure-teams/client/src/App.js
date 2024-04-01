@@ -15,6 +15,7 @@ import Profile from "./components/profile.jsx";
 import Members from "./components/members.jsx";
 import Settings from "./components/settings.jsx";
 import CalendarPage from "./components/calendarPage.jsx";
+import Tasks from "./components/tasks.jsx";
 
 function App() {
 	return (
@@ -47,6 +48,10 @@ function App() {
 				<Route
 					path="/members"
 					element={<ProtectedRoute component={Members} />}
+				/>
+				<Route
+					path="/tasks"
+					element={<ProtectedRoute component={Tasks} />}
 				/>
 				<Route
 					path="/calendar"
