@@ -89,8 +89,10 @@ const TasksPage = () => {
         <Navbar selectedTheme={theme} onThemeChange={handleThemeChange} />
 
         <div className="flex-grow flex justify-center items-center">
-        <div className="container mx-auto max-w-md mt-16 ml-8" style={{ backgroundColor: theme, color: 'white', maxHeight: '80vh', marginTop: '80px', overflow: 'auto' }}>
-                <h2 className="text-lg font-semibold mb-4">Tasks Page</h2>
+        {/* <div className="flex-grow"> */}
+        <div className="container mx-auto max-w-md ml-8" style={{ backgroundColor: theme, color: 'white', maxHeight: '80vh', marginTop: '30px', overflow: 'auto',borderRadius: '10px' }}>
+        {/* <h2 className="text-lg font-semibold text-center">Tasks Page</h2> */}
+        <h2 className="text-lg font-semibold text-center">Tasksvff Page</h2>
                 <div className="text-center">
                         <h2>Add New Task</h2>
                         <form onSubmit={handleAddTask} className="mx-auto max-w-md">
