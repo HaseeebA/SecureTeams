@@ -189,6 +189,10 @@
   background-color: #05192f; /* Darker shade of blue on hover */
 }
 
+.login-button, .signup-button {
+  background-color: #0e59a8; /* Same color for both buttons */
+}
+
 .input-container {
   position: relative;
   display: flex;
