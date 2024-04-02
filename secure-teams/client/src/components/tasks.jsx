@@ -4,6 +4,8 @@ import Sidepanel from './sidepanel';
 import axios from 'axios';
 import '../styles/tasks.css';
 
+//RMBR TO IMPLEMENT RESPONSIVE DESIGN
+
 const TasksPage = () => {
     const initialTheme = localStorage.getItem('themeColor');
     const [theme, setTheme] = useState(initialTheme);
@@ -87,7 +89,7 @@ const TasksPage = () => {
         <Navbar selectedTheme={theme} onThemeChange={handleThemeChange} />
 
         <div className="flex-grow flex justify-center items-center">
-        <div className="container mx-auto max-w-md mt-8 ml-8" style={{ backgroundColor: theme, color: 'white', maxHeight: '80vh' }}> {/* Apply dynamic background color, set text color to white, and set max-height */}
+        <div className="container mx-auto max-w-md mt-16 ml-8" style={{ backgroundColor: theme, color: 'white', maxHeight: '80vh', marginTop: '80px', overflow: 'auto' }}>
                 <h2 className="text-lg font-semibold mb-4">Tasks Page</h2>
                 <div className="text-center">
                         <h2>Add New Task</h2>
