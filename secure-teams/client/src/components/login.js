@@ -167,7 +167,7 @@ const Login = () => {
 								onClick={togglePasswordVisibility}
 							/>
 						</div>
-						<button
+						{/* <button
 							type="submit"
 							onClick={handleLogin}
 							className="login-button"
@@ -176,7 +176,19 @@ const Login = () => {
 						</button>
 						<button type="submit" className="signup-button">
 							<Link to="/signup">Sign Up</Link>
+						</button> */}
+						<button 
+							type="submit" 
+							onClick={handleLogin}
+							className="login-button"
+							>
+							Sign In
 						</button>
+						<button type="submit" className="signup-button" style={{ marginTop: '10px' }}> {/* Added inline style for margin top */}
+							<Link to="/signup">Sign Up</Link>
+						</button>
+
+						
 					</form>
 				)}
 			</div>
