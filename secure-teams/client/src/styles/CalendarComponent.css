@@ -2,15 +2,34 @@
 
 /* Style for the calendar container */
 .homepage-container {
-    max-width: 500px; /* Increase the maximum width of the calendar */
+    max-width: 40%; /* Increase the maximum width of the calendar */
     margin: 0 auto; 
     width: 100%;
 }
 .calendar-container {
-    max-width: 800px; /* Increase the maximum width of the calendar */
+    max-width: 60%; /* Increase the maximum width of the calendar */
     margin: 0 auto; /* Center the calendar horizontally */
     width: 100%;
 }
+
+.event-box {
+    min-height: 100px; /* Set the minimum height of the event box */
+    width: 100px; /* Set the width of the event box */
+    font-size: 14px; /* Adjust font size for events */
+    padding: 8px; /* Add padding to event box */
+    display: flex; /* Use flexbox for centering content */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    flex-direction: column; /* Display items vertically */
+  }
+  
+  .event-box .event-found {
+    font-size: medium; /* Smaller font size for events with class 'event-found' */
+    color: black; /* Set the color of events with class 'event-found' to black */
+    margin-bottom: 5px; /* Reduce the bottom margin between events */
+    border-bottom: 1px solid black;
+  }
+  
 
 /* Style for the calendar tiles (days) */
 .react-calendar__tile {

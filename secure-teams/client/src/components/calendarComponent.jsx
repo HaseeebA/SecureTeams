@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Calendar from "react-calendar";
-import "../styles/CalendarComponent.css"; // Import the CSS file
+import "../styles/CalendarComponent.css";
 
 const CalendarComponent = () => {
   const [date, setDate] = useState(new Date());
@@ -104,22 +104,48 @@ const CalendarComponent = () => {
   };
 
   const tileContent = ({ date: calendarDate, view }) => {
-    if (!events || events.length === 0) {
-      return null;
-    }
+    const clickedDate = new Date(calendarDate);
+    const eventsOnDate = events.filter((event) => {
+      const eventDate = new Date(event.date);
+      return isSameDay(eventDate, clickedDate);
+    });
 
-    const eventCount = events.filter((event) =>
-      isSameDay(event.date, calendarDate)
-    ).length;
-    return view === "month" && eventCount > 0 ? (
-      <div
-        className="event-marker"
-        onClick={() => handleTileClick(calendarDate)}
-      >
-        <span>{`${eventCount} Event${eventCount !== 1 ? "s" : ""}`}</span>
+    const handleTileClick = () => {
+      setPopupEvents(eventsOnDate);
+      setShowPopup(true);
+    };
+
+    let exceededEventsCount = 0;
+
+    return (
+      <div className="event-box" onClick={handleTileClick}>
+        {eventsOnDate.map((event, index) => {
+          const eventStyle = {
+            backgroundColor: `hsl(${index * 20}, 70%, 80%)`,
+          };
+          if (index * 20 < 30) {
+            return (
+              <div key={event.id} className="event-found" style={eventStyle}>
+                {event.title}
+              </div>
+            );
+          } else {
+            exceededEventsCount++;
+            return null;
+          }
+          
+        })}
+        {exceededEventsCount > 0 && (
+        <div className="exceeded-events-message" style={{ backgroundColor: `white` }}>
+          {`+ ${exceededEventsCount} more`}
+        </div>
+      )}
       </div>
-    ) : null;
+      
+    );
   };
+
+
 
   return (
     <div className="calendar-container">

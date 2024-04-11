@@ -58,21 +58,45 @@ const CalendarComponent = () => {
   };
 
   const tileContent = ({ date: calendarDate, view }) => {
-    if (!events || events.length === 0) {
-      return null;
-    }
+    const clickedDate = new Date(calendarDate);
+    const eventsOnDate = events.filter((event) => {
+      const eventDate = new Date(event.date);
+      return isSameDay(eventDate, clickedDate);
+    });
 
-    const eventCount = events.filter((event) =>
-      isSameDay(event.date, calendarDate)
-    ).length;
-    return view === "month" && eventCount > 0 ? (
-      <div
-        className="event-marker"
-        onClick={() => handleTileClick(calendarDate)}
-      >
-        <span>{`${eventCount} Event${eventCount !== 1 ? "s" : ""}`}</span>
+    const handleTileClick = () => {
+      setPopupEvents(eventsOnDate);
+      setShowPopup(true);
+    };
+
+    let exceededEventsCount = 0;
+
+    return (
+      <div className="event-box" onClick={handleTileClick}>
+        {eventsOnDate.map((event, index) => {
+          const eventStyle = {
+            backgroundColor: `hsl(${index * 20}, 70%, 80%)`,
+          };
+          if (index * 20 < 10) {
+            return (
+              <div key={event.id} className="event-found" style={eventStyle}>
+                {event.title}
+              </div>
+            );
+          } else {
+            exceededEventsCount++;
+            return null;
+          }
+          
+        })}
+        {exceededEventsCount > 0 && (
+        <div className="exceeded-events-message" style={{ backgroundColor: `white` }}>
+          {`+ ${exceededEventsCount} more`}
+        </div>
+      )}
       </div>
-    ) : null;
+      
+    );
   };
 
   return (
