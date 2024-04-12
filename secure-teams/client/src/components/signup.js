@@ -44,7 +44,7 @@ const Signup = (props) => {
 		}
 
 		try {
-			const response = await axios.post("http://localhost:3000/api/signup", {
+			const response = await axios.post("https://secureteams.onrender.com/api/signup", {
 				name: name,
 				email: email,
 				password: password,

@@ -36,7 +36,7 @@ const Login = () => {
 		}
 
 		try {
-			const response = await axios.post("http://localhost:3000/api/login", {
+			const response = await axios.post("https://secureteams.onrender.com/api/login", {
 				email: email,
 				password: password,
 			});
@@ -45,7 +45,7 @@ const Login = () => {
 
 			if (response.data.token) {
 				const is2FAEnabledResponse = await axios.get(
-					"http://localhost:3000/api/2faEnabled?email=" + email
+					"https://secureteams.onrender.com/api/2faEnabled?email=" + email
 				);
 
 				setIs2FAEnabled(is2FAEnabledResponse.data.enabled);
@@ -65,7 +65,7 @@ const Login = () => {
 		if (loginSuccess) {
 			if (is2FAEnabled) {
 				console.log("Email", email);
-				axios.post("http://localhost:3000/api/2faSend", {
+				axios.post("https://secureteams.onrender.com/api/2faSend", {
 					email: email,
 				});
 			} else {
@@ -93,7 +93,7 @@ const Login = () => {
 
 		try {
 			console.log("2FA Verification", email, twofaToken);
-			const response = await axios.post("http://localhost:3000/api/2faVerify", {
+			const response = await axios.post("https://secureteams.onrender.com/api/2faVerify", {
 				email: email,
 				twofaToken: twofaToken.join(""),
 			});

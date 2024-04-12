@@ -11,6 +11,7 @@ import nodemailer from "nodemailer";
 import fs from "fs";
 import path from "path";
 import loggingMiddleware from "./loggingMiddleware.js";
+import path from "path"; // Import path module
 
 dotenv.config();
 const app = express();
@@ -73,7 +74,7 @@ mongoose
 
 		// Start listening on the HTTP server
 		const PORT = process.env.PORT || 3000;
-		httpServer.listen(PORT, () => {
+		httpServer.listen(PORT, '0.0.0.0', () => {
 			console.log(`Server is running on port ${PORT}`);
 			//   local ip address
 		});
@@ -660,4 +661,14 @@ app.delete("/api/delete-event/:email/:eventId", async (req, res) => {
 		console.log(error);
 		res.status(500).json({ message: "Error deleting event" });
 	}
+});
+const __dirname = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
+
+// Serve static files from the React app's build directory
+app.use(express.static(path.join(__dirname, 'client', 'build')));
+
+// mountRoutes(app);
+// Serve the React app for any other routes
+app.get('*', (req, res) => {
+	res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
 });

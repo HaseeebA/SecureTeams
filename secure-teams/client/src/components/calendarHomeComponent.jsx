@@ -13,7 +13,7 @@ const CalendarComponent = () => {
       try {
         const email = localStorage.getItem("email");
         const response = await fetch(
-          `http://localhost:3000/api/events?email=${email}`
+          `https://secureteams.onrender.com/api/events?email=${email}`
         );
         if (response.ok) {
           const data = await response.json();

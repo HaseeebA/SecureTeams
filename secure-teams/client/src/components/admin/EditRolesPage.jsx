@@ -9,7 +9,7 @@ const EditRolesPage = () => {
 	useEffect(() => {
 		console.log("Fetching users...");
 		try {
-			axios.get("http://localhost:3000/api/users").then((response) => {
+			axios.get("https://secureteams.onrender.com/api/users").then((response) => {
 				console.log("Users:", response.data);
 				setUsers(response.data);
 			});
@@ -21,7 +21,7 @@ const EditRolesPage = () => {
 	const editRole = async () => {
 		try {
 			const response = await axios.put(
-				`http://localhost:3000/api/users/${selectedUser}`,
+				`https://secureteams.onrender.com/api/users/${selectedUser}`,
 				{
 					role: selectedRole,
 					email: selectedUser,

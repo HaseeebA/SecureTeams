@@ -6,14 +6,15 @@
 }
 
 .message-panel {
-    overflow-y: auto;
+    overflow-y: visible;
     padding: 10px;
     position: relative;
 }
-
 .message-list {
     display: flex;
     flex-direction: column;
+    overflow-y: auto; /* Enable vertical scrolling */
+    max-height: 400px; /* Set maximum height for scrollable area */
 }
 
 .message {

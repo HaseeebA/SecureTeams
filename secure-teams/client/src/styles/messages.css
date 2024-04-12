@@ -1,6 +1,6 @@
 .side-panel {
     display: flex;
-    flex-direction: column;   /* Arrange items in a column */
+    flex-direction: column;   
 }
 
 .messages-tab {
@@ -19,43 +19,43 @@
 
 .contact-button {
     /* Add styles for the contact buttons */
-    padding: 5px 2px;
-    background-color: #9b5ab5; /* Green */
+    padding: 4px 4px;
+    background-color: #71a3be; /* Green */
     border: none;
     color: white;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 13px;
     transition-duration: 0.4s;
     cursor: pointer;
     border-radius: 8px;
 }
 
 .contact-button:hover {
-    background-color: #5f45a0; /* Darker green on hover */
+    background-color: #5f45a02d; /* Darker green on hover */
 }
 
 .modal {
     position: absolute;
-    top:5px;
-    bottom: 85px;
+    top:0px;
+    bottom: 5px;
     right: 15px;
-    left: 295px;
-    height: 90%;
+    left: 200px;
+    /* height: 120%; */
     display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    z-index: 2;
+    /* justify-content: center; Center horizontally */
+    /* align-items: center; Center vertically */
+    z-index: 1;
 }
 
 .modal-content {
-    background-color: #060606;
+    background-color: #1716162c;
     padding: 3px;
     border-radius: 20px;
     box-sizing: border-box; /* Include padding and border in the element's total dimensions */
     overflow: hidden; /* Hide overflow to allow scrolling within message-panel-container */
-    height: 90%; /* Take the full height of the modal */
+    /* height: 80%; Take the full height of the modal */
     display: flex;
 }
 

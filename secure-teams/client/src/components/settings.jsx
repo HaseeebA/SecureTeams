@@ -64,7 +64,7 @@ const Settings = () => {
 			try {
 				const userEmail = localStorage.getItem("email");
 				const response = await axios.post(
-					"http://localhost:3000/api/updatePassword",
+					"https://secureteams.onrender.com/api/updatePassword",
 					{
 						userEmail,
 						password,
@@ -103,7 +103,7 @@ const Settings = () => {
 			try {
 				const userEmail = localStorage.getItem("email");
 				const response = await axios.post(
-					"http://localhost:3000/api/settings",
+					"https://secureteams.onrender.com/api/settings",
 					{
 						is2FAEnabled,
 						secondaryEmail,

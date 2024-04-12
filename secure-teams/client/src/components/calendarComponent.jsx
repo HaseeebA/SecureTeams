@@ -14,7 +14,7 @@ const CalendarComponent = () => {
       try {
         const email = localStorage.getItem("email");
         const response = await fetch(
-          `http://localhost:3000/api/events?email=${email}`
+          `https://secureteams.onrender.com/api/events?email=${email}`
         );
         if (response.ok) {
           const data = await response.json();
@@ -48,7 +48,7 @@ const CalendarComponent = () => {
     try {
       const email = localStorage.getItem("email");
       const response = await fetch(
-        `http://localhost:3000/api/delete-event/${email}/${eventId}`,
+        `https://secureteams.onrender.com/api/delete-event/${email}/${eventId}`,
         {
           method: "DELETE",
         }
@@ -81,7 +81,7 @@ const CalendarComponent = () => {
     if (newEventTitle.trim() !== "") {
       try {
         const email = localStorage.getItem("email");
-        const response = await fetch("http://localhost:3000/api/add-event", {
+        const response = await fetch("https://secureteams.onrender.com/api/add-event", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
