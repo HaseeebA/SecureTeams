@@ -29,7 +29,7 @@ mongoose
 		// Create Socket.IO server
 		const io = new Server(httpServer, {
 			cors: {
-				origin: "http://localhost:3000",
+				origin: process.env.REACT_APP_API_BASE_URL,
 				methods: ["GET", "POST"],
 			},
 		});
@@ -73,7 +73,7 @@ mongoose
 
 		// Start listening on the HTTP server
 		const PORT = process.env.PORT || 3000;
-		httpServer.listen(PORT, '0.0.0.0', () => {
+		httpServer.listen(PORT, "0.0.0.0", () => {
 			console.log(`Server is running on port ${PORT}`);
 			//   local ip address
 		});
@@ -661,13 +661,16 @@ app.delete("/api/delete-event/:email/:eventId", async (req, res) => {
 		res.status(500).json({ message: "Error deleting event" });
 	}
 });
-const __dirname = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
+const __dirname = path.resolve(
+	path.dirname(new URL(import.meta.url).pathname),
+	".."
+);
 
 // Serve static files from the React app's build directory
-app.use(express.static(path.join(__dirname, 'client', 'build')));
+app.use(express.static(path.join(__dirname, "client", "build")));
 
 // mountRoutes(app);
 // Serve the React app for any other routes
-app.get('*', (req, res) => {
-	res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
+app.get("*", (req, res) => {
+	res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 });
