@@ -12,11 +12,14 @@ const Members = () => {
     const [sortAsc, setSortAsc] = useState(true);
     const makeWhite = ["#0b1623", "#540D0D", "#013220"];
     const [isDarkTheme, setIsDarkTheme] = useState(makeWhite.includes(initialTheme));
+    const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
+	// console.log("API Base URL", apiBaseUrl);
 
     useEffect(() => {
         const fetchUsers = async () => {
             try {
-                const response = await axios.get("https://secureteams.onrender.com/api/members");
+                // const response = await axios.get("https://secureteams.onrender.com/api/members");
+                const response = await axios.get(apiBaseUrl + "/members");
                 console.log("Members:", response.data);
                 setNames(response.data);
             } catch (error) {

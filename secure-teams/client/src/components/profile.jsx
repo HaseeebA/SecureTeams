@@ -5,6 +5,9 @@ import "../styles/profile.css";
 import axios from "axios";
 import profile from "../images/q.png";
 
+const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
+// console.log("API Base URL", apiBaseUrl);
+
 const Profile = () => {
 	const [showSidePanel, setShowSidePanel] = useState(true);
 	const initialTheme = localStorage.getItem("themeColor") || "#68d391";
@@ -19,16 +22,20 @@ const Profile = () => {
 	useEffect(() => {
 		const fetchProfileData = async () => {
 			try {
+				// const response = await axios.get(
+				// 	"https://secureteams.onrender.com/api/profile?email=" +
+				// 		localStorage.getItem("email")
+				// );
 				const response = await axios.get(
-					"https://secureteams.onrender.com/api/profile?email=" +
-						localStorage.getItem("email")
+					apiBaseUrl + "/profile?email=" + localStorage.getItem("email")
 				);
 				const { email, name, profilePhoto } = response.data;
 				setEmail(email);
 				setName(name);
 				if (profilePhoto) {
 					const profilePhotoUrl =
-						"https://secureteams.onrender.com/uploads/" + profilePhoto;
+						// "https://secureteams.onrender.com/uploads/" + profilePhoto;
+						apiBaseUrl + "/uploads/" + profilePhoto;
 					setProfilePhoto(profilePhotoUrl);
 				}
 			} catch (error) {
@@ -50,7 +57,7 @@ const Profile = () => {
 	const handleUpdate = async (event) => {
 		event.preventDefault();
 
-		if (!email){
+		if (!email) {
 			alert("Email cannot be empty");
 			return;
 		}
@@ -79,7 +86,8 @@ const Profile = () => {
 
 		try {
 			const response = await axios.post(
-				"https://secureteams.onrender.com/api/update",
+				// "https://secureteams.onrender.com/api/update",
+				apiBaseUrl + "/update",
 				formData,
 				email,
 				{
@@ -114,7 +122,7 @@ const Profile = () => {
 									type="file"
 									id="profilePhoto"
 									onChange={(event) => setProfilePhoto(event.target.files[0])}
-									style={{ color: "white"}}
+									style={{ color: "white" }}
 								/>
 							) : (
 								<img

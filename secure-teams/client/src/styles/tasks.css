@@ -67,6 +67,8 @@ ul {
     list-style: none; /* Remove default list style */
 }
 
-
-
+.inputText {
+    color: black; /* This will set the text color to black */
+    /* Other styles can go here */
+}
 

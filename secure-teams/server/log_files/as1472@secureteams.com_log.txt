@@ -1,2 +1,6 @@
-User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWUzNDFjMzIyM2ZjZjA0ODQ3MzVlYWEiLCJpYXQiOjE3MTI5MzcxNDgsImV4cCI6MTcxMjk0MDc0OH0.5EMILLtJ3dqT88DcfelDitBtYCsb2VTtS8ZxeeTjzRw
-User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWUzNDFjMzIyM2ZjZjA0ODQ3MzVlYWEiLCJpYXQiOjE3MTI5MzcyNjUsImV4cCI6MTcxMjk0MDg2NX0.8lhljvxLyV_0T9HHGi__DAqrOD-r1xNgIryY2Qjk0Aw
+12/04/2024, 11:16:05 pm - GET /api/2faEnabled?email=as1472@secureteams.com
+User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFzMTQ3MkBzZWN1cmV0ZWFtcy5jb20iLCJpYXQiOjE3MTI5NDU3NjUsImV4cCI6MTcxMjk0OTM2NX0.L32xS0ubhcX_mFknzmbs_Hsy_T5fQWVxm0zg2aW5XH4
+12/04/2024, 11:17:08 pm - GET /api/2faEnabled?email=as1472@secureteams.com
+
+User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFzMTQ3MkBzZWN1cmV0ZWFtcy5jb20iLCJpYXQiOjE3MTI5NDU4MjgsImV4cCI6MTcxMjk0OTQyOH0.VoVHeQ406Ir-smhyTxNcsAWNWEGy_7SAYNMdh_ccLM8
+12/04/2024, 11:17:32 pm - POST /api/settings

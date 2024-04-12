@@ -8,7 +8,7 @@ import { closed, open } from "../images/index.js";
 import io from "socket.io-client";
 
 // const socket = io("http://localhost:3000");
-const socket = io("http://localhost:3000", { transports: ['websocket'] });
+const socket = io("http://localhost:3000", { transports: ["websocket"] });
 
 const Login = () => {
 	const [email, setEmail] = useState("");
@@ -21,6 +21,8 @@ const Login = () => {
 	const [twofaToken, setTwofaToken] = useState(
 		Array.from({ length: 6 }, () => "")
 	);
+	const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
+	console.log("API Base URL", apiBaseUrl);
 
 	const handleLogin = async (event) => {
 		event.preventDefault();
@@ -36,7 +38,7 @@ const Login = () => {
 		}
 
 		try {
-			const response = await axios.post("https://secureteams.onrender.com/api/login", {
+			const response = await axios.post(apiBaseUrl + "/login", {
 				email: email,
 				password: password,
 			});
@@ -44,8 +46,11 @@ const Login = () => {
 			setEmail(email);
 
 			if (response.data.token) {
+				// const is2FAEnabledResponse = await axios.get(
+				// 	"https://secureteams.onrender.com/api/2faEnabled?email=" + email
+				// );
 				const is2FAEnabledResponse = await axios.get(
-					"https://secureteams.onrender.com/api/2faEnabled?email=" + email
+					apiBaseUrl + "/2faEnabled?email=" + email
 				);
 
 				setIs2FAEnabled(is2FAEnabledResponse.data.enabled);
@@ -65,7 +70,10 @@ const Login = () => {
 		if (loginSuccess) {
 			if (is2FAEnabled) {
 				console.log("Email", email);
-				axios.post("https://secureteams.onrender.com/api/2faSend", {
+				// axios.post("https://secureteams.onrender.com/api/2faSend", {
+				// 	email: email,
+				// });
+				axios.post(apiBaseUrl + "/2faSend", {
 					email: email,
 				});
 			} else {
@@ -93,10 +101,18 @@ const Login = () => {
 
 		try {
 			console.log("2FA Verification", email, twofaToken);
-			const response = await axios.post("https://secureteams.onrender.com/api/2faVerify", {
-				email: email,
-				twofaToken: twofaToken.join(""),
-			});
+			const response = await axios.post(
+				// "https://secureteams.onrender.com/api/2faVerify",
+				// {
+				// 	email: email,
+				// 	twofaToken: twofaToken.join(""),
+				// }
+				apiBaseUrl + "/2faVerify",
+				{
+					email: email,
+					twofaToken: twofaToken.join(""),
+				}
+			);
 
 			if (response.data.verified) {
 				socket.emit("login", { email: email, token: token });
