@@ -5,6 +5,10 @@ import StarsCanvas from "./canvas/Stars.jsx";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { closed, open } from "../images/index.js";
+import io from "socket.io-client";
+
+// const socket = io("http://localhost:3000");
+const socket = io("http://localhost:3000", { transports: ['websocket'] });
 
 const Login = () => {
 	const [email, setEmail] = useState("");
@@ -69,6 +73,7 @@ const Login = () => {
 				localStorage.setItem("token", token);
 				localStorage.setItem("role", role);
 				localStorage.setItem("email", email);
+				socket.emit("login", { email: email, token: token });
 				window.location.href = "/homepage";
 			}
 		}
@@ -94,6 +99,8 @@ const Login = () => {
 			});
 
 			if (response.data.verified) {
+				socket.emit("login", { email: email, token: token });
+
 				localStorage.setItem("token", token);
 				localStorage.setItem("role", role);
 				localStorage.setItem("email", email);
@@ -107,12 +114,11 @@ const Login = () => {
 		}
 	};
 
-	const handleTwofaTokenChange = (e, index) => {
-		const newToken = [...twofaToken];
-		newToken[index] = e.target.value;
+	// const handleTwofaTokenChange = (e) => {
+	// 	const newToken = e.target.value;
 
-		setTwofaToken(newToken);
-	};
+	// 	setTwofaToken(newToken);
+	// };
 
 	return (
 		<div className="login-bg">
@@ -122,17 +128,14 @@ const Login = () => {
 					<div className="login-form">
 						<h2 className="head2">2FA Verification</h2>
 						<div className="twofa-input-container">
-							{twofaToken.map((value, index) => (
-								<input
-									key={index}
-									value={value}
-									onChange={(e) => handleTwofaTokenChange(e, index)}
-									placeholder="0"
-									type="text"
-									className="twofa-input"
-									maxLength={1}
-								/>
-							))}
+							<input
+								value={twofaToken}
+								onChange={(e) => setTwofaToken(e.target.value)}
+								placeholder="Enter 2FA Token"
+								type="text"
+								className="twofa-input"
+								style={{ width: "100%" }}
+							/>
 						</div>
 						<button
 							type="submit"
@@ -177,18 +180,22 @@ const Login = () => {
 						<button type="submit" className="signup-button">
 							<Link to="/signup">Sign Up</Link>
 						</button> */}
-						<button 
-							type="submit" 
+						<button
+							type="submit"
 							onClick={handleLogin}
 							className="login-button"
-							>
+						>
 							Sign In
 						</button>
-						<button type="submit" className="signup-button" style={{ marginTop: '10px' }}> {/* Added inline style for margin top */}
+						<button
+							type="submit"
+							className="signup-button"
+							style={{ marginTop: "10px" }}
+						>
+							{" "}
+							{/* Added inline style for margin top */}
 							<Link to="/signup">Sign Up</Link>
 						</button>
-
-						
 					</form>
 				)}
 			</div>
