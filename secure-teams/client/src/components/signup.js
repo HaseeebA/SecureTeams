@@ -239,6 +239,9 @@ const Signup = (props) => {
                 <button type="submit" onClick={handleSignup} className="signup-button">
                     Sign Up
                 </button>
+				<div> 
+					
+				</div>
                 <h2>Already have an account?</h2>
                 <button type="submit" className="signup-button">
                     <Link to="/login">Login</Link>
