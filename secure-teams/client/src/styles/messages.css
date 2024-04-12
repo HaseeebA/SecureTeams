@@ -19,7 +19,7 @@
 
 .contact-button {
     /* Add styles for the contact buttons */
-    padding: 2px 2px;
+    padding: 4px 4px;
     background-color: #71a3be; /* Green */
     border: none;
     color: white;
@@ -33,7 +33,7 @@
 }
 
 .contact-button:hover {
-    background-color: #5f45a000; /* Darker green on hover */
+    background-color: #5f45a02d; /* Darker green on hover */
 }
 
 .modal {

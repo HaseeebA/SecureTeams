@@ -6,7 +6,7 @@
 }
 
 .message-panel {
-    overflow-y: auto;
+    overflow-y: visible;
     padding: 10px;
     position: relative;
 }

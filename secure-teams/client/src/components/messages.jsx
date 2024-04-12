@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './navbar';
-import InformationPanel from './infopanel';
 import Sidepanel from './sidepanel';
 import axios from "axios";
 import ContactDetailsComponent from './messagePortal';
 import '../styles/messages.css';
-
+import abc from './sidepanel';
 const Messages = () => {
     const email = localStorage.getItem('email');
     const [selectedContact, setSelectedContact] = useState(''); // Selected contact for sending messages
@@ -24,10 +23,17 @@ const Messages = () => {
         fetchContacts();
     }, []);
 
+    const reloadPage = () => {
+        // Reload the entire page
+        window.location.reload();
+    };
+
     const fetchContacts = async () => {
+        console.log('fetching contacts');
         try {
             // Make a GET request to fetch the contacts
             console.log(email);
+
             const response = await axios.get("http://localhost:3000/api/contacts", {
                 params: { email: email } // Pass the email as a query parameter
             });
@@ -38,6 +44,7 @@ const Messages = () => {
                 const emailsArray = data;
                 // const emailsArray = data[2]; // Access the array of emails at the third index
                 // Set the contacts state with the extracted array
+                console.log("emailsArray:", emailsArray)
                 setContacts(emailsArray);
             } else {
                 // If the request fails, log the error
@@ -51,7 +58,6 @@ const Messages = () => {
     const handleThemeChange = (newTheme) => {
         setTheme(newTheme);
         document.documentElement.style.setProperty('--navbar-theme-color', newTheme);
-        // console.log('homepage theme:', newTheme);
     };
 
     const handleAddContact = () => {
@@ -74,20 +80,26 @@ const Messages = () => {
             if (response.status === 201) {
                 console.log('Contact added successfully');
                 // Close the modal
+                window.alert("User added successfully")
                 setIsModalOpen(false);
+                reloadPage();
             } else {
                 // Handle error response
                 const data = await response.json();
                 console.log('Error:', data.message);
-                // Optionally, display an error message to the user
+                window.alert("User does not exist, please try again")
+                // Set error message
+                // setErrorMessage(data.message);
             }
         } catch (error) {
             console.log('Error adding contact:', error);
             console.error('Error:', error);
+            window.alert("User does not exist, please try again")
+
             // Handle network error or other issues
+            // setErrorMessage('Network error. Please try again later.');
         }
     };
-
     const handleContactClick = (contact) => {
         // Set the selected contact state when a contact is clicked
         setSelectedContact(contact);
@@ -139,48 +151,77 @@ const Messages = () => {
 
     return (
         <div className="flex flex-col h-screen relative"> {/* Added relative positioning */}
-            <Sidepanel show={showSidePanel} onThemeChange={handleThemeChange} />
             <Navbar selectedTheme={theme} />
-            <InformationPanel />
-            <div className="bg-white flex-grow p-7 ml-60 relative"> {/* Make this div flexible and allow it to grow, added relative positioning */}
-                <div className="bg-gray-200 rounded-lg p-2 h-full relative flex flex-col justify-end">
+            {/* <InformationPanel /> */}
+            <div className="flex h-screen"> {/* Make this div flexible and allow it to grow, added relative positioning */}
+                <div className={`w-16 sm:w-64 ${abc ? 'block' : 'hidden'}`}>
+                    <Sidepanel show={showSidePanel} onThemeChange={handleThemeChange} />
+                </div>
+                <div className={`relative h-full flex flex-col p-2 flex-1 bg-gray-100 transition-all duration-500 ease-in-out ${abc ? 'ml-0' : 'ml-0'}`}>
                     <div className="transform bg-purple flex justify-between h-full"> {/* Removed absolute positioning */}
                         <div className="h-full relative overflow-y-auto p-4 w-1/6 pr-4 rounded px-4"> {/* Added overflow property */}
-                            <button className="bg-blue-400 text-white px-4 py-3 rounded hover:bg-blue-600 flex items-center" onClick={handleAddContact}>
+                            <button className="bg-blue-400 text-white px-1 py-1 rounded hover:bg-blue-500 flex items-center" onClick={handleAddContact}>
                                 Add Contact
                             </button>
                             {isModalOpen && (
-                                <div>
-                                    <div >
-                                        <span className="close" onClick={() => setIsModalOpen(false)}>&times;</span>
-                                        <input type="text" value={emailInput} onChange={handleEmailInputChange} placeholder="Enter email" />
-                                        <button onClick={handleAddContactConfirm} className='text-white'>Add</button>
+                                <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-0 z-50">
+                                    <div className="bg-white w-full max-w-md p-6 rounded-lg shadow-lg">
+                                        <div className="flex justify-end">
+                                            <button className="text-gray-600 hover:text-gray-800" onClick={() => setIsModalOpen(false)}>
+                                                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        <div className="mt-4">
+                                            <input
+                                                type="text"
+                                                value={emailInput}
+                                                onChange={handleEmailInputChange}
+                                                onKeyPress={(e) => {
+                                                    if (e.key === 'Enter') {
+                                                        handleAddContactConfirm();
+                                                    }
+                                                }}
+                                                placeholder="Enter email"
+                                                className="block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
+                                            />
+                                        </div>
+                                        <div className="mt-4 flex justify-end">
+                                            <button onClick={handleAddContactConfirm} className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Add</button>
+                                        </div>
                                     </div>
                                 </div>
                             )}
+
 
                             <div>
                                 {/* Display the list of contacts */}
                                 <div>
                                     {contacts ? (
-                                        contacts.map((contact, index) => (
-                                            <div key={index} className="contact-item">
-                                                <button className="contact-button" onClick={() => handleContactClick(contact)}>{contact}</button>
-                                            </div>
-                                        ))
+                                        contacts.map((contact, index) => {
+                                            // Split the contact string by "@" and take the first part
+                                            const contactName = contact.split('@')[0];
+                                            return (
+                                                <div key={index} className="contact-item">
+                                                    <button className="contact-button" onClick={() => handleContactClick(contact)}>{contactName}</button>
+                                                </div>
+                                            );
+                                        })
                                     ) : (
                                         <div className="contact-item">No contacts available</div>
                                     )}
                                 </div>
                             </div>
+
                         </div>
-                    {showComponent && (
-                        <div className="modal">
-                            <div className="modal-content flex-grow flex flex-col">
-                                <ContactDetailsComponent receiver={selectedContact} sender={email} />
+                        {showComponent && (
+                            <div className="modal">
+                                <div className="modal-content flex-grow flex flex-col">
+                                    <ContactDetailsComponent receiver={selectedContact} sender={email} />
+                                </div>
                             </div>
-                        </div>
-                    )}
+                        )}
                     </div>
                     <div className="transform bg-orange-2 flex justify-end"> {/* Removed absolute positioning */}
                         <textarea

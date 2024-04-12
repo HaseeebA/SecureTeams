@@ -8,7 +8,7 @@ const ContactDetailsComponent = ({ receiver, sender }) => {
     useEffect(() => {
         // Fetch messages when component mounts
         fetchMessages();
-        const intervalId = setInterval(fetchMessages, 3000); // Fetch messages every 3 seconds
+        const intervalId = setInterval(fetchMessages, 1500); // Fetch messages every 3 seconds
         return () => clearInterval(intervalId); // Cleanup function to clear the interval
     }, [receiver]); // Include receiver in the dependency array
 

@@ -4,16 +4,18 @@ import dotenv from "dotenv";
 import cors from "cors";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-// const { Server } = require("socket.io");
 import { createServer } from "http";
 import { Server } from "socket.io";
 import multer from "multer";
 import nodemailer from "nodemailer";
+import path from "path"; // Import path module
 
 dotenv.config();
 const app = express();
 app.use(express.json());
 app.use(cors());
+
+// Get the directory name using import.meta.url
 
 mongoose
 	.connect(process.env.MONGO_URI)
@@ -627,4 +629,14 @@ app.delete("/api/delete-event/:email/:eventId", async (req, res) => {
 		console.log(error);
 		res.status(500).json({ message: "Error deleting event" });
 	}
+});
+const __dirname = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
+
+// Serve static files from the React app's build directory
+app.use(express.static(path.join(__dirname, 'client', 'build')));
+
+// mountRoutes(app);
+// Serve the React app for any other routes
+app.get('*', (req, res) => {
+	res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
 });
