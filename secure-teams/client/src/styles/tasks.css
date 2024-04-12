@@ -1,0 +1,72 @@
+/* tasks.css
+
+/* Style the dropdown container */
+/* .mb-4 {
+    margin-bottom: 1rem; 
+} */
+
+/* Style the label for the dropdown */
+/* .mr-2 {
+    margin-right: 0.5rem; 
+} */
+
+/* Style the dropdown select element */
+/* .p-2 {
+    padding: 0.5rem; 
+} */
+
+/* Style the dropdown border and appearance */
+/* .rounded {
+    border-radius: 0.25rem; 
+    border: 1px solid #ccc; 
+} */
+
+/* Style the dropdown options */
+/* select {
+    width: 100%; 
+} */
+
+/* Style the dropdown hover and focus effects */
+/* select:focus, select:hover {
+    border-color: #aaa; 
+}
+
+.inputText {
+    color: black;
+}  */
+/* tasks.css */
+
+/* Style the container */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Style the text elements to be top-aligned */
+.text-center {
+    text-align: center;
+}
+
+/* Style the h2 elements */
+h2 {
+    margin-top: 0; /* Reset the default margin */
+}
+
+/* Style the form elements */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Style the list */
+ul {
+    margin-top: 0; /* Reset the default margin */
+    padding-left: 0; /* Reset the default padding */
+    list-style: none; /* Remove default list style */
+}
+
+
+
+
