@@ -130,6 +130,7 @@ const Signup = (props) => {
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [showPassword, setShowPassword] = useState(false);
+	const [showConfirmPassword, setShowConfirmPassword] = useState(false); // New state for confirm password
 
     const handleSignup = async (event) => {
         event.preventDefault();
@@ -182,6 +183,10 @@ const Signup = (props) => {
         setShowPassword(!showPassword);
     };
 
+    const toggleConfirmPasswordVisibility = () => {
+        setShowConfirmPassword(!showConfirmPassword); // New function to toggle confirm password visibility
+    };
+
     return (
         <div className="signup-container">
             <StarsCanvas />
@@ -225,9 +230,9 @@ const Signup = (props) => {
                         className="signup-input"
                     />
                     <img
-                        src={showPassword ? open : closed}
-                        onClick={togglePasswordVisibility}
-                        alt="Toggle visibility"
+                        src={showConfirmPassword ? open : closed}
+                        onClick={toggleConfirmPasswordVisibility}
+                        alt="Toggle confirm password visibility"
                         className="toggle-password"
                     />
                 </div>
