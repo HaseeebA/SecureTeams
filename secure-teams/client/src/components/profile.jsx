@@ -20,7 +20,7 @@ const Profile = () => {
 		const fetchProfileData = async () => {
 			try {
 				const response = await axios.get(
-					"http://localhost:3000/api/profile?email=" +
+					"https://secureteams.onrender.com/api/profile?email=" +
 						localStorage.getItem("email")
 				);
 				const { email, name, profilePhoto } = response.data;
@@ -28,7 +28,7 @@ const Profile = () => {
 				setName(name);
 				if (profilePhoto) {
 					const profilePhotoUrl =
-						"http://localhost:3000/uploads/" + profilePhoto;
+						"https://secureteams.onrender.com/uploads/" + profilePhoto;
 					setProfilePhoto(profilePhotoUrl);
 				}
 			} catch (error) {
@@ -79,7 +79,7 @@ const Profile = () => {
 
 		try {
 			const response = await axios.post(
-				"http://localhost:3000/api/update",
+				"https://secureteams.onrender.com/api/update",
 				formData,
 				{
 					headers: {

@@ -16,12 +16,12 @@ const Navbar = ({ selectedTheme }) => {
 		const fetchProfileData = async () => {
 			try {
 				const response = await axios.get(
-					"http://localhost:3000/api/profile?email=" +
+					"https://secureteams.onrender.com/api/profile?email=" +
 					localStorage.getItem("email")
 				);
 				const { email, name, profilePhoto } = response.data;
 				if (profilePhoto) {
-					const profilePhotoUrl = "http://localhost:3000/uploads/" + profilePhoto;
+					const profilePhotoUrl = "https://secureteams.onrender.com/uploads/" + profilePhoto;
 					setProfilePhoto(profilePhotoUrl);
 				}
 			} catch (error) {

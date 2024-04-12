@@ -15,12 +15,12 @@ const ContactDetailsComponent = ({ receiver, sender }) => {
     const fetchMessages = async () => {
         try {
             // Make API request to fetch messages from sender to receiver
-            const response1 = await axios.get("http://localhost:3000/api/messages", {
+            const response1 = await axios.get("https://secureteams.onrender.com/api/messages", {
                 params: { sender: sender, receiver: receiver }
             });
 
             // Make API request to fetch messages from receiver to sender
-            const response2 = await axios.get("http://localhost:3000/api/messages", {
+            const response2 = await axios.get("https://secureteams.onrender.com/api/messages", {
                 params: { sender: receiver, receiver: sender }
             });
 

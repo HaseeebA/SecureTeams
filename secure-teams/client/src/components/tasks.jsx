@@ -24,7 +24,7 @@ const TasksPage = () => {
 
     const fetchUsers = async () => {
         try {
-            const response = await axios.get("http://localhost:3000/api/newUsers");
+            const response = await axios.get("https://secureteams.onrender.com/api/newUsers");
             console.log("Fetched Users:", response.data); // Log fetched users
             setUsers(response.data);
         } catch (error) {
@@ -34,7 +34,7 @@ const TasksPage = () => {
 
     const fetchTasks = async () => {
         try {
-            const response = await axios.get("http://localhost:3000/api/tasks");
+            const response = await axios.get("https://secureteams.onrender.com/api/tasks");
             setTasks(response.data);
             fetchAssignedTasks(response.data);
         } catch (error) {
@@ -64,7 +64,7 @@ const TasksPage = () => {
                 description: inputDesc,
                 assignedTo: selectedUser
             };
-            const response = await axios.post("http://localhost:3000/api/tasks", newTask);
+            const response = await axios.post("https://secureteams.onrender.com/api/tasks", newTask);
             if (response.status === 201) {
                 setTasks([...tasks, response.data]);
                 fetchAssignedTasks([...tasks, response.data]);

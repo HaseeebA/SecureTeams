@@ -16,7 +16,7 @@ const Members = () => {
     useEffect(() => {
         const fetchUsers = async () => {
             try {
-                const response = await axios.get("http://localhost:3000/api/members");
+                const response = await axios.get("https://secureteams.onrender.com/api/members");
                 console.log("Members:", response.data);
                 setNames(response.data);
             } catch (error) {

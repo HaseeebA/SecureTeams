@@ -71,7 +71,7 @@ const Messages = () => {
     const handleAddContactConfirm = async () => {
         try {
             // Make POST request to the server's /api/contacts endpoint
-            const response = await axios.post("http://localhost:3000/api/contacts", {
+            const response = await axios.post("https://secureteams.onrender.com/api/contacts", {
                 email: email, // Pass the user ID
                 contact: emailInput // Pass the contact
             });
@@ -114,7 +114,7 @@ const Messages = () => {
         try {
             // console.log(message);
             // Make POST request to the server's /api/messages endpoint
-            const response = await axios.post("http://localhost:3000/api/messages", {
+            const response = await axios.post("https://secureteams.onrender.com/api/messages", {
                 sender: email, // Pass the user ID
                 receiver: selectedContact, // Pass the contact
                 message: message // Pass the message content
