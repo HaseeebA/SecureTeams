@@ -120,6 +120,11 @@
   font-size: 20px; /* Reduced font size for headings */
 }
 
+.head3, .signup-form h2 {
+  margin: 10px 0; /* Reduced margin */
+  font-size: 15px; /* Reduced font size for headings */
+  color: #fff;
+}
 /* If the Link component has a class, you might want to adjust it as well */
 .link {
   font-size: 14px; /* Adjust link font size */
