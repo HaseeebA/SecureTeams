@@ -6,11 +6,13 @@ const __dirname = path.resolve();
 
 const loggingMiddleware = (req, res, next) => {
 	const { method, url } = req;
+	console.log("Request received:", method, url);
 	const timestamp = new Date().toLocaleString(); // Convert timestamp to a human-readable format
 	const logMessage = `${timestamp} - ${method} ${url}\n`;
 
 	// Extract the email from the request body
 	const email = req.body.email;
+	console.log("request body", req.body);
 
 	if (!email) {
 		console.error("Email not provided in the request body.");
