@@ -125,8 +125,54 @@
   font-size: 15px; /* Reduced font size for headings */
   color: #fff;
 }
-/* If the Link component has a class, you might want to adjust it as well */
+
+
 .link {
-  font-size: 14px; /* Adjust link font size */
-  margin-top: 10px; /* Added margin at the top */
+  font-size: 14px; 
+  margin-top: 10px; 
 }
+
+.signup-button:hover {
+  background-color: #05192f; 
+}
+
+.input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+}
+
+.toggle-password-visibility {
+  position: absolute;
+  right: 10px; 
+  transform: translateY(-50%);
+  cursor: pointer;
+  width: 20px; 
+  height: 20px; 
+}
+
+.signup-input,
+.password-field {
+  width: 100%; 
+  position: relative; 
+  display: flex; 
+  align-items: center; 
+}
+
+.toggle-password {
+  position: absolute; 
+  right: 10px; 
+  cursor: pointer; 
+  width: 20px; 
+  height: 20px; 
+}
+
+
