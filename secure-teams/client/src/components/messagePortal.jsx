@@ -46,10 +46,10 @@ const ContactDetailsComponent = ({ receiver, sender }) => {
     return (
         <div>
             <div className="contact-info">
-            <h3 className='yo'>{receiver.split('@')[0]}</h3>
+            <h3 className=''>{receiver.split('@')[0]}</h3>
             </div>
-            <div className="message-panel-container flex flex-grow flex-col">
-                <div className="message-panel">
+            <div className="">
+                <div className="">
                     <div className="message-list">
                         {messages
                             .sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp))

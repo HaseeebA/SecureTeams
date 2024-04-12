@@ -145,7 +145,7 @@ const Messages = () => {
             <div className="bg-white flex-grow p-7 ml-60 relative"> {/* Make this div flexible and allow it to grow, added relative positioning */}
                 <div className="bg-gray-200 rounded-lg p-2 h-full relative flex flex-col justify-end">
                     <div className="transform bg-purple flex justify-between h-full"> {/* Removed absolute positioning */}
-                        <div className="bg-black h-full relative contacts-list overflow-y-auto p-4 w-1/6 pr-4 rounded px-4"> {/* Added overflow property */}
+                        <div className="h-full relative overflow-y-auto p-4 w-1/6 pr-4 rounded px-4"> {/* Added overflow property */}
                             <button className="bg-blue-400 text-white px-4 py-3 rounded hover:bg-blue-600 flex items-center" onClick={handleAddContact}>
                                 Add Contact
                             </button>
@@ -159,9 +159,9 @@ const Messages = () => {
                                 </div>
                             )}
 
-                            <div className="contact-list">
+                            <div>
                                 {/* Display the list of contacts */}
-                                <div className="contact-container mt-5">
+                                <div>
                                     {contacts ? (
                                         contacts.map((contact, index) => (
                                             <div key={index} className="contact-item">
@@ -174,7 +174,6 @@ const Messages = () => {
                                 </div>
                             </div>
                         </div>
-                    </div>
                     {showComponent && (
                         <div className="modal">
                             <div className="modal-content flex-grow flex flex-col">
@@ -182,6 +181,7 @@ const Messages = () => {
                             </div>
                         </div>
                     )}
+                    </div>
                     <div className="transform bg-orange-2 flex justify-end"> {/* Removed absolute positioning */}
                         <textarea
                             className="w-full h-1/8 p-2 mb-4 border border-gray-300 rounded px-4"
