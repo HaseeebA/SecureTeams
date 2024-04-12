@@ -41,14 +41,20 @@ const AssignRolesPage = () => {
 
 	return (
 		<div>
-			<h1 className="text-3xl font-bold text-left pl-10 pt-10">Assign Roles</h1>
+			<h1
+				className="text-3xl font-bold text-left pl-10 pt-10"
+				style={{ color: "white" }}
+			>
+				Assign Roles
+			</h1>
 			<div className="flex justify-left items-center mt-10 pl-10">
 				<div className="w-1/2">
 					<form>
 						<div className="mb-4">
 							<label
-								className="block text-gray-700 text-sm font-bold mb-2"
+								className="block text-sm font-bold mb-2"
 								htmlFor="email"
+								style={{ color: "white" }}
 							>
 								Email
 							</label>
@@ -72,6 +78,7 @@ const AssignRolesPage = () => {
 							<label
 								className="block text-gray-700 text-sm font-bold mb-2"
 								htmlFor="role"
+								style={{ color: "white" }}
 							>
 								Role
 							</label>
@@ -94,6 +101,7 @@ const AssignRolesPage = () => {
 								className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
 								type="button"
 								onClick={assignRole}
+								style={{ backgroundColor: "white", color: "black" }}
 							>
 								Assign Role
 							</button>
