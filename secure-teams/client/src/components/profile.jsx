@@ -81,6 +81,7 @@ const Profile = () => {
 			const response = await axios.post(
 				"https://secureteams.onrender.com/api/update",
 				formData,
+				email,
 				{
 					headers: {
 						"Content-Type": "multipart/form-data",

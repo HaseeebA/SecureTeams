@@ -149,6 +149,7 @@ const Settings = () => {
 								type="email"
 								value={secondaryEmail}
 								onChange={handleSecondaryEmailChange}
+								style={{ color: "black" }}
 							/>
 						</label>
 					</div>

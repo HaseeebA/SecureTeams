@@ -16,11 +16,13 @@ import Members from "./components/members.jsx";
 import Settings from "./components/settings.jsx";
 import CalendarPage from "./components/calendarPage.jsx";
 import Tasks from "./components/tasks.jsx";
+import NotFound from "./components/notfound.jsx";
 
 function App() {
 	return (
 		<Router>
 			<Routes>
+				<Route path="*" element={<NotFound />} />
 				<Route path="/" element={<Welcome />} />
 				<Route path="/login" element={<Login />} />
 				<Route path="/signup" element={<Signup />} />

@@ -3,6 +3,7 @@ import { Navigate } from "react-router-dom";
 
 const ProtectedRoute = ({ component: Component, ...rest }) => {
 	const authenticateToken = localStorage.getItem("token");
+	const role = localStorage.getItem("role");
 
 	if (!authenticateToken) {
 		// alert("You must be logged in to access this page");

@@ -8,14 +8,16 @@ import { createServer } from "http";
 import { Server } from "socket.io";
 import multer from "multer";
 import nodemailer from "nodemailer";
+import fs from "fs";
+import path from "path";
+import loggingMiddleware from "./loggingMiddleware.js";
 import path from "path"; // Import path module
 
 dotenv.config();
 const app = express();
 app.use(express.json());
 app.use(cors());
-
-// Get the directory name using import.meta.url
+app.use(loggingMiddleware);
 
 mongoose
 	.connect(process.env.MONGO_URI)
@@ -35,7 +37,34 @@ mongoose
 
 		// Listen for Socket.IO connections
 		io.on("connection", (socket) => {
-			console.log("A user connected LMAO");
+			console.log("A user connected");
+
+			// Listen for the 'login' event
+			socket.on("login", (data) => {
+				console.log("User logged in:", data);
+				const { email, token } = data;
+
+				// Specify the directory where log files will be stored
+				const logDirectory = "log_files";
+				const __dirname = path.resolve();
+				// console.log("__dirname:", __dirname);
+
+				// Create the full path for the log file
+				const filePath = path.join(__dirname, logDirectory, `${email}_log.txt`);
+
+				console.log("Logging activity for user:", email);
+
+				// Write the login event to a log file
+				fs.appendFile(
+					filePath,
+					"User logged in with token: " + token + "\n",
+					(err) => {
+						if (err) {
+							console.error("Error writing to log file:", err);
+						}
+					}
+				);
+			});
 
 			// Example: Handle socket events
 			socket.on("disconnect", () => {
@@ -92,19 +121,19 @@ const contactsSchema = new mongoose.Schema({
 const Contact = mongoose.model("Contact", contactsSchema);
 
 // Middleware to verify token
-const authenticateToken = (req, res, next) => {
-	const authHeader = req.headers["authorization"];
-	const token = authHeader && authHeader.split(" ")[1];
-	if (token == null)
-		return res.sendStatus(401).json({ message: "Unauthorized" });
+// const authenticateToken = (req, res, next) => {
+// 	const authHeader = req.headers["authorization"];
+// 	const token = authHeader && authHeader.split(" ")[1];
+// 	if (token == null)
+// 		return res.sendStatus(401).json({ message: "Unauthorized" });
 
-	jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
-		if (err)
-			return res.sendStatus(403).json({ message: "Invalid or expired token" });
-		req.user = user;
-		next();
-	});
-};
+// 	jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
+// 		if (err)
+// 			return res.sendStatus(403).json({ message: "Invalid or expired token" });
+// 		req.user = user;
+// 		next();
+// 	});
+// };
 
 app.post("/api/messages", async (req, res) => {
 	const { sender, receiver, message } = req.body;
@@ -234,7 +263,7 @@ app.post("/api/login", async (req, res) => {
 			console.log("Invalid password");
 			return res.status(400).json({ message: "Invalid password" });
 		}
-		const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, {
+		const token = jwt.sign({ email: email }, process.env.JWT_SECRET, {
 			expiresIn: "1h",
 		});
 
@@ -318,6 +347,7 @@ const upload = multer({ storage: storage });
 
 app.post("/api/update", upload.single("profilePhoto"), async (req, res) => {
 	const { email, name } = req.body;
+	console.log("Request body:", req.body);
 	try {
 		const user = await User.findOne({ email: email });
 		if (!user) {
@@ -357,7 +387,9 @@ app.post("/api/updatePassword", async (req, res) => {
 		const validPassword = await bcrypt.compare(password, user.password);
 		if (!validPassword) {
 			console.log("Invalid password");
-			return res.status(200).json({ message: "Invalid password, please try again" });
+			return res
+				.status(200)
+				.json({ message: "Invalid password, please try again" });
 		}
 		const salt = await bcrypt.genSalt(10);
 		const hashedPassword = await bcrypt.hash(newPassword, salt);
