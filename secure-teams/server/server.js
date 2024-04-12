@@ -11,7 +11,6 @@ import nodemailer from "nodemailer";
 import fs from "fs";
 import path from "path";
 import loggingMiddleware from "./loggingMiddleware.js";
-import path from "path"; // Import path module
 
 dotenv.config();
 const app = express();
