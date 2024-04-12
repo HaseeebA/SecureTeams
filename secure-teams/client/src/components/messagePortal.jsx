@@ -3,7 +3,7 @@ import axios from "axios";
 import "../styles/msgportal.css";
 
 const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
-console.log("API Base URL", apiBaseUrl);
+// console.log("API Base URL", apiBaseUrl);
 
 const ContactDetailsComponent = ({ receiver, sender }) => {
 	const [messages, setMessages] = useState([]);

@@ -1,6 +1,0 @@
-12/04/2024, 11:16:05 pm - GET /api/2faEnabled?email=as1472@secureteams.com
-User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFzMTQ3MkBzZWN1cmV0ZWFtcy5jb20iLCJpYXQiOjE3MTI5NDU3NjUsImV4cCI6MTcxMjk0OTM2NX0.L32xS0ubhcX_mFknzmbs_Hsy_T5fQWVxm0zg2aW5XH4
-12/04/2024, 11:17:08 pm - GET /api/2faEnabled?email=as1472@secureteams.com
-
-User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFzMTQ3MkBzZWN1cmV0ZWFtcy5jb20iLCJpYXQiOjE3MTI5NDU4MjgsImV4cCI6MTcxMjk0OTQyOH0.VoVHeQ406Ir-smhyTxNcsAWNWEGy_7SAYNMdh_ccLM8
-12/04/2024, 11:17:32 pm - POST /api/settings

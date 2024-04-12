@@ -1,5 +1,10 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import {
+	BrowserRouter as Router,
+	Routes,
+	Route,
+	useLocation,
+} from "react-router-dom";
 import Welcome from "./components/welcome.js";
 import Homepage from "./components/homepage.jsx";
 import Login from "./components/login.js";
@@ -17,12 +22,31 @@ import Settings from "./components/settings.jsx";
 import CalendarPage from "./components/calendarPage.jsx";
 import Tasks from "./components/tasks.jsx";
 import NotFound from "./components/notfound.jsx";
+import axios from "axios";
+
+function LogUserEmail() {
+	const location = useLocation();
+	const [logged, setLogged] = useState(false);
+
+	useEffect(() => {
+		const userEmail = localStorage.getItem("email");
+		if (userEmail) {
+			axios.post(process.env.REACT_APP_API_BASE_URL + "/log", {
+				email: userEmail,
+				route: location.pathname,
+			});
+			setLogged(true);
+		}
+	}, [location.pathname, logged]);
+
+	return null;
+}
 
 function App() {
 	return (
 		<Router>
+			<LogUserEmail />
 			<Routes>
-				<Route path="*" element={<NotFound />} />
 				<Route path="/" element={<Welcome />} />
 				<Route path="/login" element={<Login />} />
 				<Route path="/signup" element={<Signup />} />
@@ -51,15 +75,12 @@ function App() {
 					path="/members"
 					element={<ProtectedRoute component={Members} />}
 				/>
-				<Route
-					path="/tasks"
-					element={<ProtectedRoute component={Tasks} />}
-				/>
+				<Route path="/tasks" element={<ProtectedRoute component={Tasks} />} />
 				<Route
 					path="/calendar"
 					element={<ProtectedRoute component={CalendarPage} />}
 				/>
-
+				<Route path="*" element={<NotFound />} />
 			</Routes>
 		</Router>
 	);

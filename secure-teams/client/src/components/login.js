@@ -7,8 +7,13 @@ import { Link } from "react-router-dom";
 import { closed, open } from "../images/index.js";
 import io from "socket.io-client";
 
-// const socket = io("http://localhost:3000");
+const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
+const socketUrl = process.env.REACT_APP_SOCKET_URL;
+// console.log("API Base URL", apiBaseUrl);
+
 const socket = io("http://localhost:3000", { transports: ["websocket"] });
+// const socket = io(socketUrl, { transports: ["websocket"] });
+
 
 const Login = () => {
 	const [email, setEmail] = useState("");
@@ -21,8 +26,7 @@ const Login = () => {
 	const [twofaToken, setTwofaToken] = useState(
 		Array.from({ length: 6 }, () => "")
 	);
-	const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
-	console.log("API Base URL", apiBaseUrl);
+	
 
 	const handleLogin = async (event) => {
 		event.preventDefault();
