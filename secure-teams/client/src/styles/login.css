@@ -137,7 +137,7 @@
 
 .login-bg {
   background-color: #000000;
-  background-image: url("../images/bg.png");
+  background-image: url("../images/bg.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -151,7 +151,7 @@
 
 .login-form {
   background-color: rgba(56, 145, 180, 0.8);
-  padding: 20px;
+  padding: 30px;
   border-radius: 8px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   position: absolute;
@@ -186,10 +186,13 @@
 
 .login-button:hover,
 .signup-button:hover {
+  width: 50%;
+
   background-color: #05192f; /* Darker shade of blue on hover */
 }
 
 .login-button, .signup-button {
+  width: 50%;
   background-color: #0e59a8; /* Same color for both buttons */
 }
 
