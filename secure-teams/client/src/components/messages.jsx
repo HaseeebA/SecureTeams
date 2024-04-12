@@ -34,7 +34,7 @@ const Messages = () => {
             // Make a GET request to fetch the contacts
             console.log(email);
 
-            const response = await axios.get("http://localhost:3000/api/contacts", {
+            const response = await axios.get("/api/contacts", {
                 params: { email: email } // Pass the email as a query parameter
             });
             if (response.status === 200) {
