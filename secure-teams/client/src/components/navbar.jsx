@@ -6,6 +6,9 @@ import "../styles/navbar.css";
 import { NavLink } from "react-router-dom";
 import axios from "axios";
 
+const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
+// console.log("API Base URL", apiBaseUrl);
+
 const Navbar = ({ selectedTheme }) => {
 	const [profilePhoto, setProfilePhoto] = useState(null);
 	const [isProfileOpen, setProfileOpen] = useState(false);
@@ -15,13 +18,18 @@ const Navbar = ({ selectedTheme }) => {
 	useEffect(() => {
 		const fetchProfileData = async () => {
 			try {
+				// const response = await axios.get(
+				// 	"https://secureteams.onrender.com/api/profile?email=" +
+				// 	localStorage.getItem("email")
+				// );
 				const response = await axios.get(
-					"https://secureteams.onrender.com/api/profile?email=" +
-					localStorage.getItem("email")
+					apiBaseUrl + "/profile?email=" + localStorage.getItem("email")
 				);
 				const { email, name, profilePhoto } = response.data;
 				if (profilePhoto) {
-					const profilePhotoUrl = "https://secureteams.onrender.com/uploads/" + profilePhoto;
+					const profilePhotoUrl =
+						// "https://secureteams.onrender.com/uploads/" + profilePhoto;
+						apiBaseUrl + "/uploads/" + profilePhoto;
 					setProfilePhoto(profilePhotoUrl);
 				}
 			} catch (error) {
@@ -32,9 +40,11 @@ const Navbar = ({ selectedTheme }) => {
 	}, []);
 
 	useEffect(() => {
-		const shouldInvert = noHoverColors.includes(localStorage.getItem("themeColor"));
+		const shouldInvert = noHoverColors.includes(
+			localStorage.getItem("themeColor")
+		);
 		setInvertImages(shouldInvert);
-	  }, [selectedTheme]);
+	}, [selectedTheme]);
 
 	const handleProfileClick = (event) => {
 		setProfileOpen(!isProfileOpen);
@@ -68,8 +78,13 @@ const Navbar = ({ selectedTheme }) => {
 		<div className="navbar" style={{ backgroundColor: selectedTheme }}>
 			<div className="flex items-center">
 				<NavLink to="/homepage" className="text-2xl font-bold text-white">
-				<img src={face} alt="Icon" className={`w-10 h-10 mr-2 rounded-full ${invertImages ? "invert" : ""}`}
-          />
+					<img
+						src={face}
+						alt="Icon"
+						className={`w-10 h-10 mr-2 rounded-full ${
+							invertImages ? "invert" : ""
+						}`}
+					/>
 				</NavLink>
 			</div>
 			<div className="relative inline-block">

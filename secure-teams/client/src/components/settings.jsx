@@ -5,6 +5,9 @@ import Sidepanel from "./sidepanel";
 import Switch from "react-switch";
 import "../styles/settings.css";
 
+const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
+// console.log("API Base URL", apiBaseUrl);
+
 const Settings = () => {
 	const [is2FAEnabled, setIs2FAEnabled] = useState(false);
 	const [secondaryEmail, setSecondaryEmail] = useState("");
@@ -64,7 +67,8 @@ const Settings = () => {
 			try {
 				const userEmail = localStorage.getItem("email");
 				const response = await axios.post(
-					"https://secureteams.onrender.com/api/updatePassword",
+					// "https://secureteams.onrender.com/api/updatePassword",
+					apiBaseUrl + "/updatePassword",
 					{
 						userEmail,
 						password,
@@ -103,7 +107,8 @@ const Settings = () => {
 			try {
 				const userEmail = localStorage.getItem("email");
 				const response = await axios.post(
-					"https://secureteams.onrender.com/api/settings",
+					// "https://secureteams.onrender.com/api/settings",
+					apiBaseUrl + "/settings",
 					{
 						is2FAEnabled,
 						secondaryEmail,

@@ -4,6 +4,9 @@ import axios from "axios";
 import "../styles/signup.css";
 import { Link } from "react-router-dom";
 
+const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
+// console.log("API Base URL", apiBaseUrl);
+
 const Signup = (props) => {
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
@@ -12,7 +15,6 @@ const Signup = (props) => {
 
 	const handleSignup = async (event) => {
 		event.preventDefault();
-
 
 		console.log("Name: " + name);
 		console.log("Password: " + password);
@@ -44,18 +46,22 @@ const Signup = (props) => {
 		}
 
 		try {
-			const response = await axios.post("https://secureteams.onrender.com/api/signup", {
-				name: name,
-				email: email,
-				password: password,
-			});
+			const response = await axios.post(
+				// "https://secureteams.onrender.com/api/signup",
+				apiBaseUrl + "/signup",
+				{
+					name: name,
+					email: email,
+					password: password,
+				}
+			);
 			console.log(response.data);
 			setName("");
 			setEmail("");
 			setPassword("");
 
-      alert("Signup successful! Redirecting to the login page...");
-      window.location = "/login";
+			alert("Signup successful! Redirecting to the login page...");
+			window.location = "/login";
 		} catch (error) {
 			alert("Error signing up");
 			console.log(error);
