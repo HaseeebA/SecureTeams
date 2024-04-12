@@ -43,7 +43,6 @@ body {
   padding-top: 180px;
 }
 
-
 .head2 {
   color: #ffffff;
   font-size: 50px;
@@ -53,21 +52,9 @@ body {
   margin: 0 0 20px 0;
 }
 
-.btn-login {
-  background-color: #2073b4;
-  color: #fff;
-  font-size: 25px;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-bottom: 10px;
-  width: 450px;
-  margin-top: 10px;
-}
-
+.btn-login,
 .btn-signup {
-  background-color: #23425a;
+  background-color: #2073b4;
   color: #fff;
   font-size: 25px;
   padding: 10px 20px;
@@ -100,4 +87,17 @@ p {
   color: #ffffff;
   font-size: 25px;
   margin-bottom: 20px;
+}
+
+/* Media Queries */
+@media only screen and (max-width: 768px) {
+  .container {
+    width: 80%;
+    padding: 50px;
+  }
+
+  .btn-login,
+  .btn-signup {
+    width: 100%;
+  }
 }
