@@ -30,6 +30,8 @@ const Navbar = ({ selectedTheme }) => {
 					const profilePhotoUrl =
 						// "https://secureteams.onrender.com/uploads/" + profilePhoto;
 						apiBaseUrl + "/uploads/" + profilePhoto;
+
+					console.log("Profile Photo URL", profilePhotoUrl);
 					setProfilePhoto(profilePhotoUrl);
 				}
 			} catch (error) {

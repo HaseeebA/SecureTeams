@@ -10,13 +10,14 @@ import multer from "multer";
 import nodemailer from "nodemailer";
 import fs from "fs";
 import path from "path";
-import loggingMiddleware from "./loggingMiddleware.js";
+// import loggingMiddleware from "./loggingMiddleware.js";
+import logtoFile from "./loggingMiddleware.js";
 
 dotenv.config();
 const app = express();
 app.use(express.json());
 app.use(cors());
-app.use(loggingMiddleware);
+// app.use(loggingMiddleware);
 
 mongoose
 	.connect(process.env.MONGO_URI)
@@ -40,7 +41,7 @@ mongoose
 
 			// Listen for the 'login' event
 			socket.on("login", (data) => {
-				console.log("User logged in:", data);
+				// console.log("User logged in:", data);
 				const { email, token } = data;
 
 				// Specify the directory where log files will be stored
@@ -51,12 +52,12 @@ mongoose
 				// Create the full path for the log file
 				const filePath = path.join(__dirname, logDirectory, `${email}_log.txt`);
 
-				console.log("Logging activity for user:", email);
+				// console.log("Logging activity for user:", email);
 
 				// Write the login event to a log file
 				fs.appendFile(
 					filePath,
-					"User logged in with token: " + token + "\n",
+					"\nUser logged in with token: " + token + "\n",
 					(err) => {
 						if (err) {
 							console.error("Error writing to log file:", err);
@@ -251,6 +252,9 @@ app.get("/api/members", async (req, res) => {
 
 app.post("/api/login", async (req, res) => {
 	const { email, password } = req.body;
+
+	// logtoFile(req.method, req.url, email);
+
 	try {
 		const user = await User.findOne({ email: email });
 		if (!user) {
@@ -304,6 +308,9 @@ app.get("/api/newUsers", async (req, res) => {
 
 app.put("/api/users/:id", async (req, res) => {
 	const { role, email } = req.body;
+
+	logtoFile(req.method, req.url, email);
+
 	try {
 		const user = await User.findOne({ email: email });
 		if (!user) {
@@ -346,6 +353,9 @@ const upload = multer({ storage: storage });
 
 app.post("/api/update", upload.single("profilePhoto"), async (req, res) => {
 	const { email, name } = req.body;
+
+	logtoFile(req.method, req.url, email);
+
 	console.log("Request body:", req.body);
 	try {
 		const user = await User.findOne({ email: email });
@@ -377,6 +387,9 @@ app.post("/api/update", upload.single("profilePhoto"), async (req, res) => {
 
 app.post("/api/updatePassword", async (req, res) => {
 	const { userEmail, password, newPassword } = req.body;
+
+	logtoFile(req.method, req.url, userEmail);
+
 	try {
 		const user = await User.findOne({ email: userEmail });
 		if (!user) {
@@ -404,6 +417,9 @@ app.post("/api/updatePassword", async (req, res) => {
 
 app.get("/api/profile", async (req, res) => {
 	const email = req.query.email;
+
+	// logtoFile(req.method, req.url, email);
+
 	try {
 		const user = await User.findOne({ email: email });
 		if (!user) {
@@ -418,7 +434,7 @@ app.get("/api/profile", async (req, res) => {
 	}
 });
 
-app.get("/uploads/:profilePhoto", (req, res) => {
+app.get("/api/uploads/:profilePhoto", (req, res) => {
 	const profilePhoto = req.params.profilePhoto;
 	// console.log("Profile photo:", profilePhoto);
 	res.sendFile(profilePhoto, { root: "uploads" });
@@ -426,6 +442,9 @@ app.get("/uploads/:profilePhoto", (req, res) => {
 
 app.post("/api/settings", async (req, res) => {
 	const { is2FAEnabled, secondaryEmail, userEmail } = req.body;
+
+	logtoFile(req.method, req.url, userEmail);
+
 	try {
 		const user = await User.findOne({ email: userEmail });
 		if (!user) {
@@ -445,6 +464,9 @@ app.post("/api/settings", async (req, res) => {
 
 app.get("/api/2faEnabled", async (req, res) => {
 	const email = req.query.email;
+
+	logtoFile(req.method, req.url, email);
+
 	try {
 		const user = await User.findOne({ email: email });
 		if (!user) {
@@ -472,6 +494,9 @@ const transporter = nodemailer.createTransport({
 app.post("/api/2faSend", async (req, res) => {
 	let emailSent = false;
 	const { email } = req.body;
+
+	logtoFile(req.method, req.url, email);
+
 	try {
 		const user = await User.findOne({ email: email });
 
@@ -530,6 +555,9 @@ app.post("/api/2faSend", async (req, res) => {
 
 app.post("/api/2faVerify", async (req, res) => {
 	const { email, twofaToken } = req.body;
+
+	logtoFile(req.method, req.url, email);
+
 	try {
 		const user = await User.findOne({ email: email });
 
