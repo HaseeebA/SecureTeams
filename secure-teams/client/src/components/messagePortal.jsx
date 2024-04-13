@@ -56,13 +56,13 @@ const ContactDetailsComponent = ({ receiver, sender }) => {
 			if (response1.status === 200 && response2.status === 200) {
 				const combinedMessages = response1.data.concat(response2.data);
 				setMessages(combinedMessages); // Set messages state with fetched messages
-				scrollToBottom(); // Scroll to bottom if there are new messages
+				// scrollToBottom(); // Scroll to bottom if there are new messages
 			} else if (response1.status === 200) {
 				setMessages(response1.data); // Set messages state with fetched messages
-				scrollToBottom(); // Scroll to bottom if there are new messages
+				// scrollToBottom(); // Scroll to bottom if there are new messages
 			} else if (response2.status === 200) {
 				setMessages(response2.data); // Set messages state with fetched messages
-				scrollToBottom(); // Scroll to bottom if there are new messages
+				// scrollToBottom(); // Scroll to bottom if there are new messages
 			} else {
 				console.error("Failed to fetch messages");
 			}
