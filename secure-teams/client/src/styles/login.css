@@ -115,3 +115,9 @@
     border: 1px solid #ccc;
     border-radius: 5px;
 }
+
+.head3, .signup-form h2 {
+  margin: 10px 0; /* Reduced margin */
+  font-size: 15px; /* Reduced font size for headings */
+  color: #fff;
+}
