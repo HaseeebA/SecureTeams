@@ -67,3 +67,13 @@
 .invert {
   filter: invert(100%);
 }
+
+.role-display {
+  position: absolute;
+  right: 0;
+  transform: translateX(-80%);
+  margin-right: 10px;
+  font-size: 1rem; 
+  font-weight: bold; 
+  color: white; 
+}

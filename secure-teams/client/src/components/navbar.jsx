@@ -9,7 +9,7 @@ import axios from "axios";
 const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
 // console.log("API Base URL", apiBaseUrl);
 
-const Navbar = ({ selectedTheme }) => {
+const Navbar = ({ selectedTheme, role }) => {
 	const [profilePhoto, setProfilePhoto] = useState(null);
 	const [isProfileOpen, setProfileOpen] = useState(false);
 	const [invertImages, setInvertImages] = useState(false);
@@ -80,6 +80,7 @@ const Navbar = ({ selectedTheme }) => {
 		<div className="navbar" style={{ backgroundColor: selectedTheme }}>
 			<div className="flex items-center">
 				<NavLink to="/homepage" className="text-2xl font-bold text-white">
+					<span className="role-display">{role}</span> 
 					<img
 						src={face}
 						alt="Icon"
