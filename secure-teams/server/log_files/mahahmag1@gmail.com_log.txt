@@ -1,3 +1,6 @@
 13/04/2024, 03:18:53 - GET /api/2faEnabled?email=mahahmag1@gmail.com
 
 User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1haGFobWFnMUBnbWFpbC5jb20iLCJpYXQiOjE3MTI5NjAzMzMsImV4cCI6MTcxMjk2MzkzM30.U89A25fDObP2aMUFWff-iuYkRVeOJZ1lcnXqG40b1d8
+13/04/2024, 22:38:55 - GET /api/2faEnabled?email=mahahmag1@gmail.com
+
+User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1haGFobWFnMUBnbWFpbC5jb20iLCJpYXQiOjE3MTMwMjk5MzUsImV4cCI6MTcxMzAzMzUzNX0.thFDL8njay88hTCx0ZZspOAfqGJcfUy1NLWX_dm6vgA
