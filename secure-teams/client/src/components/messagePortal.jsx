@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import "../styles/msgportal.css";
+import { useSocket } from "../socketProvider.js";
 
 const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
 // console.log("API Base URL", apiBaseUrl);
@@ -8,6 +9,9 @@ const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
 const ContactDetailsComponent = ({ receiver, sender }) => {
 	const [messages, setMessages] = useState([]);
 	const messageListRef = useRef(null);
+
+	const socket = useSocket();
+
 	const [messages2, setMessages2] = useState([]);
 	useEffect(() => {
 		// Fetch messages when component mounts
@@ -39,20 +43,28 @@ const ContactDetailsComponent = ({ receiver, sender }) => {
 
 	const fetchMessages = async () => {
 		try {
-			// Get the timestamp of the latest message
-			const latestTimestamp = getLatestTimestamp(); // Implement this function to retrieve the latest timestamp
-	
-			// Make API request to fetch newer messages from sender to receiver
-			const response1 = await axios.get(apiBaseUrl + "/messages", {
-				params: { sender: sender, receiver: receiver, timestamp: latestTimestamp },
-			});
-	
-			// Make API request to fetch newer messages from receiver to sender
-			const response2 = await axios.get(apiBaseUrl + "/messages", {
-				params: { sender: receiver, receiver: sender, timestamp: latestTimestamp },
-			});
-	
-			// Determine which response to use based on status and update the messages state accordingly
+			// Make API request to fetch messages from sender to receiver
+			const response1 = await axios.get(
+				// "https://secureteams.onrender.com/api/messages",
+				apiBaseUrl + "/messages",
+				{
+					params: { sender: sender, receiver: receiver },
+				}
+			);
+
+			// Make API request to fetch messages from receiver to sender
+			const response2 = await axios.get(
+				// "https://secureteams.onrender.com/api/messages",
+				// {
+				// 	params: { sender: receiver, receiver: sender },
+				// }
+				apiBaseUrl + "/messages",
+				{
+					params: { sender: receiver, receiver: sender },
+				}
+			);
+
+			// Determine which response to use based on status and set the messages state accordingly
 			if (response1.status === 200 && response2.status === 200) {
 				const combinedMessages = response1.data.concat(response2.data);
 				setMessages(combinedMessages); // Set messages state with fetched messages

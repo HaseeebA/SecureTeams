@@ -4,6 +4,22 @@ import path from "path";
 const logDirectory = "log_files";
 const __dirname = path.resolve();
 
+const logtoFile = (method, url, email) => {
+	const timestamp = new Date().toLocaleString();
+	const logMessage = `${timestamp} - ${method} ${url}\n`;
+
+	const logFileName = `${email}_log.txt`;
+	const logFilePath = path.join(__dirname, logDirectory, logFileName);
+
+	fs.appendFile(logFilePath, logMessage, (err) => {
+		if (err) {
+			console.error("Error writing to log file:", err);
+		}
+	});
+};
+
+export default logtoFile;
+
 // const loggingMiddleware = (req, res, next) => {
 // 	const { method, url } = req;
 // 	// console.log("Request received:", method, url);
@@ -32,24 +48,6 @@ const __dirname = path.resolve();
 
 // 	next();
 // };
-
-const logtoFile = (method, url, email) => {
-	const timestamp = new Date().toLocaleString(); // Convert timestamp to a human-readable format
-	const logMessage = `${timestamp} - ${method} ${url}\n`;
-
-	// Construct the log file path using the email address
-	const logFileName = `${email}_log.txt`;
-	const logFilePath = path.join(__dirname, logDirectory, logFileName);
-
-	// Append the log message to the user-specific log file
-	fs.appendFile(logFilePath, logMessage, (err) => {
-		if (err) {
-			console.error("Error writing to log file:", err);
-		}
-	});
-};
-
-export default logtoFile;
 
 // export default loggingMiddleware;
 // export { logtoFile };

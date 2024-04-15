@@ -5,6 +5,7 @@ import axios from "axios";
 import ContactDetailsComponent from "./messagePortal";
 import "../styles/messages.css";
 import abc from "./sidepanel";
+import { useSocket } from "../socketProvider";
 
 const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
 // console.log("API Base URL", apiBaseUrl);
@@ -20,6 +21,7 @@ const Messages = () => {
 	const [emailInput, setEmailInput] = useState("");
 	const [contacts, setContacts] = useState([]);
 	const [showComponent, setShowComponent] = useState(false);
+	const socket = useSocket();
 
 	useEffect(() => {
 		// Fetch contacts from the server when the component mounts
@@ -39,6 +41,11 @@ const Messages = () => {
 
 			const response = await axios.get(apiBaseUrl + "/contacts", {
 				params: { email: email }, // Pass the email as a query parameter
+			});
+			socket.emit("logActivity", {
+				method: "GET",
+				path: "/contacts",
+				email: email,
 			});
 			if (response.status === 200) {
 				// If the request is successful, extract the array of emails from the response data
@@ -81,6 +88,11 @@ const Messages = () => {
 			const response = await axios.post(apiBaseUrl + "/contacts", {
 				email: email, // Pass the user ID
 				contact: emailInput, // Pass the contact
+			});
+			socket.emit("logActivity", {
+				method: "POST",
+				path: "/contacts",
+				email: email,
 			});
 
 			// Check if the request was successful
@@ -131,6 +143,12 @@ const Messages = () => {
 					time: new Date().toISOString(), // Pass the current time
 				}
 			);
+			socket.emit("logActivity", {
+				method: "POST",
+				path: "/messages",
+				email: email,
+			});
+
 			// Check if the request was successful
 			if (response.status === 201) {
 				console.log("Message sent successfully");

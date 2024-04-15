@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import Calendar from "react-calendar";
 import "../styles/CalendarComponent.css";
 
+import { useSocket } from "../socketProvider.js";
+
 const CalendarComponent = () => {
 	const [date, setDate] = useState(new Date());
 	const [events, setEvents] = useState([]);
@@ -11,6 +13,8 @@ const CalendarComponent = () => {
 	const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
 	console.log("API Base URL", apiBaseUrl);
 
+	const socket = useSocket();
+
 	useEffect(() => {
 		const fetchEvents = async () => {
 			try {
@@ -19,6 +23,11 @@ const CalendarComponent = () => {
 				//   `https://secureteams.onrender.com/api/events?email=${email}`
 				// );
 				const response = await fetch(apiBaseUrl + "/events?email=" + email);
+				socket.emit("logActivity", {
+					method: "GET",
+					path: "/events?email=" + email,
+					email: email,
+				});
 				if (response.ok) {
 					const data = await response.json();
 					setEvents(data);
@@ -60,6 +69,12 @@ const CalendarComponent = () => {
 					method: "DELETE",
 				}
 			);
+			socket.emit("logActivity", {
+				method: "DELETE",
+				path: `/delete-event/${email}/${eventId}`,
+				email: email,
+			});
+
 			if (response.ok) {
 				window.location.reload();
 			} else {
@@ -100,6 +115,13 @@ const CalendarComponent = () => {
 						date: date,
 					}),
 				});
+
+				socket.emit("logActivity", {
+					method: "POST",
+					path: "/add-event",
+					email: email,
+				});
+
 				if (response.ok) {
 					window.location.reload();
 				} else {

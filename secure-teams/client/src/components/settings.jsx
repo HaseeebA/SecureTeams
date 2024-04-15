@@ -4,6 +4,7 @@ import Navbar from "./navbar";
 import Sidepanel from "./sidepanel";
 import Switch from "react-switch";
 import "../styles/settings.css";
+import { useSocket } from "../socketProvider";
 
 const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
 // console.log("API Base URL", apiBaseUrl);
@@ -17,6 +18,7 @@ const Settings = () => {
 	const [theme, setTheme] = useState(initialTheme);
 	const [password, setPassword] = useState("");
 	const [newPassword, setNewPassword] = useState("");
+	const socket = useSocket();
 
 	const handleThemeChange = (newTheme) => {
 		setTheme(newTheme);
@@ -75,6 +77,11 @@ const Settings = () => {
 						newPassword,
 					}
 				);
+				socket.emit("logActivity", {
+					method: "POST",
+					path: "/updatePassword",
+					email: userEmail,
+				});
 
 				if (response.status === 200) {
 					alert(response.data.message);
@@ -115,6 +122,11 @@ const Settings = () => {
 						userEmail,
 					}
 				);
+				socket.emit("logActivity", {
+					method: "POST",
+					path: "/settings",
+					email: userEmail,
+				});
 				alert(response.data.message);
 				setSecondaryEmail("");
 				setIs2FAEnabled(false);

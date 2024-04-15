@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Calendar from "react-calendar";
 import "../styles/CalendarComponent.css";
+import { useSocket } from "../socketProvider";
 
 const CalendarComponent = () => {
 	const [date, setDate] = useState(new Date());
@@ -9,6 +10,7 @@ const CalendarComponent = () => {
 	const [showPopup, setShowPopup] = useState(false);
 	const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
 	// console.log("API Base URL", apiBaseUrl);
+	const socket = useSocket();
 
 	useEffect(() => {
 		const fetchEvents = async () => {
@@ -18,6 +20,12 @@ const CalendarComponent = () => {
 				//   `https://secureteams.onrender.com/api/events?email=${email}`
 				// );
 				const response = await fetch(apiBaseUrl + "/events?email=" + email);
+				socket.emit("logActivity", {
+					method: "GET",
+					path: "/events?email=" + email,
+					email: email,
+				});
+
 				if (response.ok) {
 					const data = await response.json();
 					setEvents(data);

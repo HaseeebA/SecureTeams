@@ -1,0 +1,128 @@
+13/04/2024, 9:35:30 pm - GET /api/2faEnabled?email=haseebasad1@secureteams.com
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imhhc2VlYmFzYWQxQHNlY3VyZXRlYW1zLmNvbSIsImlhdCI6MTcxMzAyNjEzMCwiZXhwIjoxNzEzMDI5NzMwfQ.9X4TW-Gjsp7_RtzYHZqzqiY8_vMj-D3qv3jVKKb0lNI !!!
+User visited route: /homepage
+13/04/2024, 9:35:31 pm - GET /api/events?email=haseebasad1@secureteams.com
+User visited route: /homepage
+User visited route: /homepage
+13/04/2024, 9:35:31 pm - GET /api/events?email=haseebasad1@secureteams.com
+User visited route: /tasks
+User visited route: /messages
+User visited route: /members
+User visited route: /messages
+User visited route: /homepage
+13/04/2024, 9:36:16 pm - GET /api/events?email=haseebasad1@secureteams.com
+13/04/2024, 9:36:16 pm - GET /api/events?email=haseebasad1@secureteams.com
+User visited route: /members
+User visited route: /homepage
+13/04/2024, 9:36:19 pm - GET /api/events?email=haseebasad1@secureteams.com
+13/04/2024, 9:36:19 pm - GET /api/events?email=haseebasad1@secureteams.com
+!!! User logged out !!!
+
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /login
+13/04/2024, 9:47:01 pm - GET /api/2faEnabled?email=haseebasad1@secureteams.com
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imhhc2VlYmFzYWQxQHNlY3VyZXRlYW1zLmNvbSIsImlhdCI6MTcxMzAyNjgyMCwiZXhwIjoxNzEzMDMwNDIwfQ.9gNgSqs_QRax9XNOut5Wg4GYVoeRxcFCglN3tyY_lFE !!!
+User visited route: /homepage
+13/04/2024, 9:47:01 pm - GET /api/events?email=haseebasad1@secureteams.com
+User visited route: /homepage
+User visited route: /homepage
+13/04/2024, 9:47:01 pm - GET /api/events?email=haseebasad1@secureteams.com
+User visited route: /homepage
+13/04/2024, 9:50:38 pm - GET /api/events?email=haseebasad1@secureteams.com
+User visited route: /homepage
+User visited route: /homepage
+13/04/2024, 9:50:39 pm - GET /api/events?email=haseebasad1@secureteams.com
+!!! User logged out !!!
+
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /login
+13/04/2024, 9:50:48 pm - GET /api/2faEnabled?email=haseebasad1@secureteams.com
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imhhc2VlYmFzYWQxQHNlY3VyZXRlYW1zLmNvbSIsImlhdCI6MTcxMzAyNzA0OCwiZXhwIjoxNzEzMDMwNjQ4fQ.wJ55r9QQXQ4LdTP01ksj6dLEFQVnthBzQDTM5IiddME !!!
+User visited route: /homepage
+13/04/2024, 9:50:48 pm - GET /api/events?email=haseebasad1@secureteams.com
+User visited route: /homepage
+User visited route: /homepage
+13/04/2024, 9:50:49 pm - GET /api/events?email=haseebasad1@secureteams.com
+!!! User logged out !!!
+
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /login
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imhhc2VlYmFzYWQxQHNlY3VyZXRlYW1zLmNvbSIsImlhdCI6MTcxMzAzNTU4OSwiZXhwIjoxNzEzMDM5MTg5fQ.u_m5GiSLpYBkNjrAOCVWfn1of3_DpbhuJddruMsvcsU !!!
+User visited route: /homepage
+14/04/2024, 12:13:09 am - GET /api/events?email=haseebasad1@secureteams.com
+User visited route: /homepage
+User visited route: /homepage
+14/04/2024, 12:13:09 am - GET /api/events?email=haseebasad1@secureteams.com
+User visited route: /profile
+14/04/2024, 12:16:46 am - POST /api/update
+!!! User logged out !!!
+
+User visited route: /
+User visited route: /
+User visited route: /
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imhhc2VlYmFzYWQxQHNlY3VyZXRlYW1zLmNvbSIsImlhdCI6MTcxMzAzNjgxMywiZXhwIjoxNzEzMDQwNDEzfQ.Du3oiNlxrEBQHevk2J8oTx-eQ5BTelApgfZRQy6oE6Q !!!
+User visited route: /homepage
+14/04/2024, 12:33:33 am - GET /api/events?email=haseebasad1@secureteams.com
+User visited route: /homepage
+User visited route: /homepage
+14/04/2024, 12:33:33 am - GET /api/events?email=haseebasad1@secureteams.com
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /login
+User visited route: /homepage
+User visited route: /homepage
+14/04/2024, 12:35:33 am - GET /api/events?email=haseebasad1@secureteams.com
+User visited route: /homepage
+14/04/2024, 12:35:34 am - GET /api/events?email=haseebasad1@secureteams.com
+14/04/2024, 12:36:01 am - GET /api/events?email=haseebasad1@secureteams.com
+14/04/2024, 12:36:01 am - GET /api/events?email=haseebasad1@secureteams.com
+14/04/2024, 12:36:05 am - GET /api/events?email=haseebasad1@secureteams.com
+14/04/2024, 12:36:05 am - GET /api/events?email=haseebasad1@secureteams.com
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /login
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imhhc2VlYmFzYWQxQHNlY3VyZXRlYW1zLmNvbSIsImlhdCI6MTcxMzAzNzQ0MiwiZXhwIjoxNzEzMDQxMDQyfQ.cprdCkVpdaHOlOyFUYHCLRLpKRQBgvFpLR3PAx6SP0Q !!!
+User visited route: /homepage
+14/04/2024, 12:44:02 am - GET /api/events?email=haseebasad1@secureteams.com
+User visited route: /homepage
+User visited route: /homepage
+14/04/2024, 12:44:03 am - GET /api/events?email=haseebasad1@secureteams.com
+User visited route: /profile
+14/04/2024, 12:44:18 am - POST /api/update
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /login
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imhhc2VlYmFzYWQxQHNlY3VyZXRlYW1zLmNvbSIsImlhdCI6MTcxMzAzNzc0MywiZXhwIjoxNzEzMDQxMzQzfQ.OVpvae9-lFLeQcShfZRwzxPRyFuw8UChJ8tLvJrVMRM !!!
+User visited route: /homepage
+14/04/2024, 12:49:03 am - GET /api/events?email=haseebasad1@secureteams.com
+User visited route: /homepage
+User visited route: /homepage
+14/04/2024, 12:49:03 am - GET /api/events?email=haseebasad1@secureteams.com
+User visited route: /profile
+User visited route: /messages
+User visited route: /members
+User visited route: /calendar
+14/04/2024, 12:49:31 am - GET /api/events?email=haseebasad1@secureteams.com
+14/04/2024, 12:49:31 am - GET /api/events?email=haseebasad1@secureteams.com
+User visited route: /settings
+!!! User logged out !!!
+
+User visited route: /
+User visited route: /
+User visited route: /

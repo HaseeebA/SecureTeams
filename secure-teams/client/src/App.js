@@ -22,7 +22,9 @@ import Settings from "./components/settings.jsx";
 import CalendarPage from "./components/calendarPage.jsx";
 import Tasks from "./components/tasks.jsx";
 import NotFound from "./components/notfound.jsx";
+import Dashboard from "./components/admin/dashboard.jsx";
 import axios from "axios";
+import { SocketProvider } from "./socketProvider.js";
 
 function LogUserEmail() {
 	const location = useLocation();
@@ -46,42 +48,48 @@ function App() {
 	return (
 		<Router>
 			<LogUserEmail />
-			<Routes>
-				<Route path="/" element={<Welcome />} />
-				<Route path="/login" element={<Login />} />
-				<Route path="/signup" element={<Signup />} />
-				<Route
-					path="/homepage"
-					element={<ProtectedRoute component={Homepage} />}
-				/>
-				<Route path="/team" element={<ProtectedRoute component={Team} />} />
-				<Route
-					path="/manageRoles"
-					element={<AdminProtectedRoute component={Roles} />}
-				/>
-				<Route
-					path="/profile"
-					element={<ProtectedRoute component={Profile} />}
-				/>
-				<Route
-					path="/settings"
-					element={<ProtectedRoute component={Settings} />}
-				/>
-				<Route
-					path="/messages"
-					element={<ProtectedRoute component={Messages} />}
-				/>
-				<Route
-					path="/members"
-					element={<ProtectedRoute component={Members} />}
-				/>
-				<Route path="/tasks" element={<ProtectedRoute component={Tasks} />} />
-				<Route
-					path="/calendar"
-					element={<ProtectedRoute component={CalendarPage} />}
-				/>
-				<Route path="*" element={<NotFound />} />
-			</Routes>
+			<SocketProvider>
+				<Routes>
+					<Route path="/" element={<Welcome />} />
+					<Route path="/login" element={<Login />} />
+					<Route path="/signup" element={<Signup />} />
+					<Route
+						path="/homepage"
+						element={<ProtectedRoute component={Homepage} />}
+					/>
+					<Route path="/team" element={<ProtectedRoute component={Team} />} />
+					<Route
+						path="/manageRoles"
+						element={<AdminProtectedRoute component={Roles} />}
+					/>
+					<Route
+						path="/profile"
+						element={<ProtectedRoute component={Profile} />}
+					/>
+					<Route
+						path="/settings"
+						element={<ProtectedRoute component={Settings} />}
+					/>
+					<Route
+						path="/messages"
+						element={<ProtectedRoute component={Messages} />}
+					/>
+					<Route
+						path="/members"
+						element={<ProtectedRoute component={Members} />}
+					/>
+					<Route path="/tasks" element={<ProtectedRoute component={Tasks} />} />
+					<Route
+						path="/calendar"
+						element={<ProtectedRoute component={CalendarPage} />}
+					/>
+					<Route
+						path="/admin/dashboard"
+						element={<AdminProtectedRoute component={Dashboard} />}
+					/>
+					<Route path="*" element={<NotFound />} />
+				</Routes>
+			</SocketProvider>
 		</Router>
 	);
 }

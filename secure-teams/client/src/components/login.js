@@ -6,14 +6,14 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { closed, open } from "../images/index.js";
 import io from "socket.io-client";
+import { useSocket } from "../socketProvider.js";
 
 const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
 const socketUrl = process.env.REACT_APP_SOCKET_URL;
 // console.log("API Base URL", apiBaseUrl);
 
-const socket = io("http://localhost:3000", { transports: ["websocket"] });
+// const socket = io("http://localhost:3000", { transports: ["websocket"] });
 // const socket = io(socketUrl, { transports: ["websocket"] });
-
 
 const Login = () => {
 	const [email, setEmail] = useState("");
@@ -26,7 +26,8 @@ const Login = () => {
 	const [twofaToken, setTwofaToken] = useState(
 		Array.from({ length: 6 }, () => "")
 	);
-	
+
+	const socket = useSocket();
 
 	const handleLogin = async (event) => {
 		event.preventDefault();
@@ -78,6 +79,11 @@ const Login = () => {
 				// 	email: email,
 				// });
 				axios.post(apiBaseUrl + "/2faSend", {
+					email: email,
+				});
+				socket.emit("logActivity", {
+					method: "POST",
+					url: "/2faSend",
 					email: email,
 				});
 			} else {
