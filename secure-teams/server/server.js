@@ -30,7 +30,7 @@ mongoose
 		// Create Socket.IO server
 		const io = new Server(httpServer, {
 			cors: {
-				origin: process.env.REACT_APP_API_BASE_URL,
+				origin: process.env.REACT_APP_API_URL,
 				methods: ["GET", "POST"],
 			},
 		});
@@ -64,6 +64,19 @@ mongoose
 						}
 					}
 				);
+			});
+
+			socket.on("logout", (data) => {
+				const { email } = data;
+				const logDirectory = "log_files";
+				const __dirname = path.resolve();
+				const filePath = path.join(__dirname, logDirectory, `${email}_log.txt`);
+
+				fs.appendFile(filePath, "User logged out\n", (err) => {
+					if (err) {
+						console.error("Error writing to log file:", err);
+					}
+				});
 			});
 
 			// Example: Handle socket events
@@ -120,23 +133,31 @@ const contactsSchema = new mongoose.Schema({
 
 const Contact = mongoose.model("Contact", contactsSchema);
 
-// Middleware to verify token
-// const authenticateToken = (req, res, next) => {
-// 	const authHeader = req.headers["authorization"];
-// 	const token = authHeader && authHeader.split(" ")[1];
-// 	if (token == null)
-// 		return res.sendStatus(401).json({ message: "Unauthorized" });
+app.post("/api/log", async (req, res) => {
+	const { email, route } = req.body;
+	// console.log("User: " + email + " visited route: " + route);
+	try {
+		const logDirectory = "log_files";
+		const __dirname = path.resolve();
+		const filePath = path.join(__dirname, logDirectory, `${email}_log.txt`);
 
-// 	jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
-// 		if (err)
-// 			return res.sendStatus(403).json({ message: "Invalid or expired token" });
-// 		req.user = user;
-// 		next();
-// 	});
-// };
+		fs.appendFile(filePath, "User visited route: " + route + "\n", (err) => {
+			if (err) {
+				console.error("Error writing to log file:", err);
+			}
+		});
+		res.status(200).json({ message: "Logged successfully" });
+	} catch (error) {
+		console.log(error);
+		res.status(500).json({ message: "Error logging activity" });
+	}
+});
 
 app.post("/api/messages", async (req, res) => {
 	const { sender, receiver, message } = req.body;
+
+	logtoFile(req.method, req.url, sender);
+
 	try {
 		const newMessage = new Message({ sender, receiver, message });
 		await newMessage.save();
@@ -160,16 +181,11 @@ app.get("/api/messages", async (req, res) => {
 	}
 });
 
-// io.on('connection', (socket) => {
-//     console.log('A user connected');
-// });
-// const PORT = process.env.PORT || 3000;
-// http.listen(PORT, () => {
-//     console.log(`Server is running on port ${PORT}`);
-// });
-
 app.post("/api/contacts", async (req, res) => {
 	const { email, contact } = req.body;
+
+	logtoFile(req.method, req.url, email);
+
 	try {
 		// Check if the contact email exists in the system
 		const userExists = await User.findOne({ email: contact });
@@ -356,7 +372,7 @@ app.post("/api/update", upload.single("profilePhoto"), async (req, res) => {
 
 	logtoFile(req.method, req.url, email);
 
-	console.log("Request body:", req.body);
+	// console.log("Request body:", req.body);
 	try {
 		const user = await User.findOne({ email: email });
 		if (!user) {
@@ -585,6 +601,9 @@ app.post("/api/2faVerify", async (req, res) => {
 
 app.get("/api/contacts", async (req, res) => {
 	const { email } = req.query; // Access email from query parameters
+
+	logtoFile(req.method, req.url, email);
+
 	try {
 		console.log("Email:", email);
 		const contacts = await Contact.findOne({ email });
@@ -614,6 +633,9 @@ const Events = mongoose.model("Events", eventsSchema);
 //api call to fetch all the events marked by the user in the calendar
 app.get("/api/events", async (req, res) => {
 	const { email } = req.query;
+
+	logtoFile(req.method, req.url, email);
+
 	try {
 		let eventsData = await Events.findOne({ userEmail: email });
 		if (!eventsData) {
@@ -638,6 +660,9 @@ app.get("/api/events", async (req, res) => {
 //api call to add new event to calendar
 app.post("/api/add-event", async (req, res) => {
 	const { email, title, date } = req.body;
+
+	logtoFile(req.method, req.url, email);
+
 	try {
 		let eventsData = await Events.findOne({ userEmail: email });
 		if (!eventsData) {
@@ -664,6 +689,9 @@ app.post("/api/add-event", async (req, res) => {
 //api call to delete an event from the calender
 app.delete("/api/delete-event/:email/:eventId", async (req, res) => {
 	const { email, eventId } = req.params;
+
+	logtoFile(req.method, req.url, email);
+
 	try {
 		// Logic to delete the event based on email and eventId
 		let eventsData = await Events.findOne({ userEmail: email });
@@ -689,6 +717,7 @@ app.delete("/api/delete-event/:email/:eventId", async (req, res) => {
 		res.status(500).json({ message: "Error deleting event" });
 	}
 });
+
 const __dirname = path.resolve(
 	path.dirname(new URL(import.meta.url).pathname),
 	".."
