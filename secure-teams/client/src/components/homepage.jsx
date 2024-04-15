@@ -11,6 +11,7 @@ const Homepage = () => {
 	const [theme, setTheme] = useState(
 		localStorage.getItem("themeColor") || defaultTheme
 	);
+	const role = localStorage.getItem("role") || "Employee";
 
 	// Side effect for initializing theme color
 	useEffect(() => {
@@ -26,12 +27,12 @@ const Homepage = () => {
 		);
 	};
 
-	const role = localStorage.getItem("role");
+	//const role = localStorage.getItem("role");
 	if (role === "admin") {
 		return (
 			<div>
 				<Sidepanel show={showSidePanel} onThemeChange={handleThemeChange} />
-				<Navbar selectedTheme={theme} />
+				<Navbar selectedTheme={theme} role={role} />
 				<InformationPanel />
 				<div className="ml-10">
 					<Dashboard />
@@ -42,7 +43,7 @@ const Homepage = () => {
 		return (
 			<div>
 				<Sidepanel show={showSidePanel} onThemeChange={handleThemeChange} />
-				<Navbar selectedTheme={theme} />
+				<Navbar selectedTheme={theme} role={role} />
 				<InformationPanel />
 				<div className="flex justify-center items-center">
 					<h1 className="text-4xl font-bold text-gray-800 mt-10">

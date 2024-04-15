@@ -37,7 +37,7 @@ const Messages = () => {
 			// Make a GET request to fetch the contacts
 			console.log(email);
 
-			const response = await axios.get("/api/contacts", {
+			const response = await axios.get(apiBaseUrl + "/contacts", {
 				params: { email: email }, // Pass the email as a query parameter
 			});
 			if (response.status === 200) {
@@ -128,6 +128,7 @@ const Messages = () => {
 					sender: email, // Pass the user ID
 					receiver: selectedContact, // Pass the contact
 					message: message, // Pass the message content
+					time: new Date().toISOString(), // Pass the current time
 				}
 			);
 			// Check if the request was successful
@@ -168,20 +169,12 @@ const Messages = () => {
 			<div className="flex h-screen">
 				{" "}
 				{/* Make this div flexible and allow it to grow, added relative positioning */}
-				<div className={`w-16 sm:w-64 ${abc ? "block" : "hidden"}`}>
+				<div className={`w-16 sm:w-48 ${abc ? "block" : "hidden"}`}>
 					<Sidepanel show={showSidePanel} onThemeChange={handleThemeChange} />
 				</div>
-				<div
-					className={`relative h-full flex flex-col p-2 flex-1 bg-gray-100 transition-all duration-500 ease-in-out ${
-						abc ? "ml-0" : "ml-0"
-					}`}
-				>
-					<div className="transform bg-purple flex justify-between h-full">
-						{" "}
-						{/* Removed absolute positioning */}
-						<div className="h-full relative overflow-y-auto p-4 w-1/6 pr-4 rounded px-4">
-							{" "}
-							{/* Added overflow property */}
+				<div className={`relative h-full flex flex-col p-3 flex-1 bg-gray-100 transition-all duration-500 ease-in-out`}>
+					<div className="transform h-full">
+						<div className="h-full relative overflow-y-auto p-3 pr-4 rounded px-4">
 							<button
 								className="bg-blue-400 text-white px-1 py-1 rounded hover:bg-blue-500 flex items-center"
 								onClick={handleAddContact}

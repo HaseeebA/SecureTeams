@@ -1,0 +1,6 @@
+13/04/2024, 02:14:33 - GET /api/2faEnabled?email=25100245@outlook.com
+
+User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IjI1MTAwMjQ1QG91dGxvb2suY29tIiwiaWF0IjoxNzEyOTU2NDczLCJleHAiOjE3MTI5NjAwNzN9.rXZLsA-Lg31zF3DtgHu8ej_0l25r5Cnwh7i9Fk_LlRw
+13/04/2024, 21:23:43 - GET /api/2faEnabled?email=25100245@outlook.com
+
+User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IjI1MTAwMjQ1QG91dGxvb2suY29tIiwiaWF0IjoxNzEzMDI1NDIzLCJleHAiOjE3MTMwMjkwMjN9.CzdqYGQHey_c_xaDtIGSsSPIf1UP3jLrmSCH5nn79bM

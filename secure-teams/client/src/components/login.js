@@ -207,13 +207,15 @@ const Login = () => {
 						>
 							Sign In
 						</button>
+						<h2 className="head3">Don't have an account?</h2>
 						<button
 							type="submit"
 							className="signup-button"
-							style={{ marginTop: "10px" }}
+							style={{ marginTop: "3px" }}
 						>
 							{" "}
 							{/* Added inline style for margin top */}
+							
 							<Link to="/signup">Sign Up</Link>
 						</button>
 					</form>
