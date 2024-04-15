@@ -144,7 +144,7 @@ const CalendarComponent = () => {
 			setPopupEvents(eventsOnDate);
 			setShowPopup(true);
 		};
-
+		const MAX_EVENT_TITLE_LENGTH = 20;
 		let exceededEventsCount = 0;
 
 		return (
@@ -153,7 +153,7 @@ const CalendarComponent = () => {
 					const eventStyle = {
 						backgroundColor: `hsl(${index * 20}, 70%, 80%)`,
 					};
-					if (index * 20 < 30) {
+					if (event.title.length <= MAX_EVENT_TITLE_LENGTH) {
 						return (
 							<div key={event.id} className="event-found" style={eventStyle}>
 								{event.title}
@@ -165,10 +165,7 @@ const CalendarComponent = () => {
 					}
 				})}
 				{exceededEventsCount > 0 && (
-					<div
-						className="exceeded-events-message"
-						style={{ backgroundColor: `white` }}
-					>
+					<div className="exceeded-events-message" style={{ backgroundColor: `white` }}>
 						{`+ ${exceededEventsCount} more`}
 					</div>
 				)}
