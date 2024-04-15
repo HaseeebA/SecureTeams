@@ -1,0 +1,82 @@
+/* dashboard.css */
+
+.console-container {
+    /* background-color: #baa6a6; */
+    display: inline-block;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    margin-left: 250px;
+    padding: 10px;
+    border-radius: 5px;
+    height: calc(100vh - 150px);
+    width: calc(100vw - 650px);
+}
+
+.console-container h2 {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.console {
+    background-color: black;
+    color: white;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    height: calc(100vh - 240px);
+    overflow-y: auto;
+    width: calc(100% - 20px);
+}
+
+.console h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.console ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.console li {
+    margin-bottom: 5px;
+}
+
+.stats-container {
+    /* background-color: aqua; */
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: 50px;
+    /* margin-bottom: 50px; */
+    /* margin: 50px 50px 50px auto; */
+    border-radius: 5px;
+    height: calc(100vh - 150px);
+    width: 300px;
+}
+
+.stats1 {
+    background-color: black;
+    color: white;
+    padding: 10px;
+    margin: 30px 10px 0 10px;
+    border-radius: 5px;
+    height: calc((100vh - 250px)/2);
+    overflow-y: auto;
+    width: calc(300px - 50px);
+}
+
+.stats2 {
+    background-color: black;
+    color: white;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    height: calc((100vh - 250px)/2);
+    overflow-y: auto;
+    width: calc(300px - 50px);
+}

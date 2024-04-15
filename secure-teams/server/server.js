@@ -12,6 +12,7 @@ import fs from "fs";
 import path from "path";
 // import loggingMiddleware from "./loggingMiddleware.js";
 import logtoFile from "./loggingMiddleware.js";
+// import io from "socket.io-client";
 
 dotenv.config();
 const app = express();
@@ -35,29 +36,25 @@ mongoose
 			},
 		});
 
+		// io.emit("logMessage", "Server started");
+
 		// Listen for Socket.IO connections
 		io.on("connection", (socket) => {
-			console.log("A user connected");
+			console.log("A user connected with ID:", socket.id);
 
-			// Listen for the 'login' event
 			socket.on("login", (data) => {
 				// console.log("User logged in:", data);
 				const { email, token } = data;
+				console.log("User logged in:", email);
+				const logMessage = `>> <span style="color: lime;">${email}</span> - logged in!!!`;
+				io.emit("logMessage", logMessage);
 
-				// Specify the directory where log files will be stored
 				const logDirectory = "log_files";
 				const __dirname = path.resolve();
-				// console.log("__dirname:", __dirname);
-
-				// Create the full path for the log file
 				const filePath = path.join(__dirname, logDirectory, `${email}_log.txt`);
-
-				// console.log("Logging activity for user:", email);
-
-				// Write the login event to a log file
 				fs.appendFile(
 					filePath,
-					"\nUser logged in with token: " + token + "\n",
+					"\n!!! User logged in with token: " + token + " !!!\n",
 					(err) => {
 						if (err) {
 							console.error("Error writing to log file:", err);
@@ -66,13 +63,22 @@ mongoose
 				);
 			});
 
+			socket.on("logActivity", (data) => {
+				const { method, path, email } = data;
+				const logMessage = `>> <span style="color: lime;">${email}</span> - <span style="color: red;">${method}</span> ${path}`;
+				io.emit("logMessage", logMessage);
+			});
+
 			socket.on("logout", (data) => {
 				const { email } = data;
+				const logMessage = `>> <span style="color: lime;">${email}</span> - logged out!!!`;
+				io.emit("logMessage", logMessage);
+
 				const logDirectory = "log_files";
 				const __dirname = path.resolve();
 				const filePath = path.join(__dirname, logDirectory, `${email}_log.txt`);
 
-				fs.appendFile(filePath, "User logged out\n", (err) => {
+				fs.appendFile(filePath, "!!! User logged out !!!\n\n", (err) => {
 					if (err) {
 						console.error("Error writing to log file:", err);
 					}
@@ -95,6 +101,8 @@ mongoose
 	.catch((error) => {
 		console.error("Error connecting to MongoDB:", error);
 	});
+
+// const socket = io("http://localhost:3000", { transports: ["websocket"] });
 
 const userSchema = new mongoose.Schema({
 	name: { type: String, required: true },
@@ -152,6 +160,8 @@ app.post("/api/log", async (req, res) => {
 		res.status(500).json({ message: "Error logging activity" });
 	}
 });
+
+// app.get("/api/log/activity", async (req, res) => {
 
 app.post("/api/messages", async (req, res) => {
 	const { sender, receiver, message } = req.body;
@@ -269,7 +279,8 @@ app.get("/api/members", async (req, res) => {
 app.post("/api/login", async (req, res) => {
 	const { email, password } = req.body;
 
-	// logtoFile(req.method, req.url, email);
+	// logtoFile(req.method, req.url, email, io);
+	// socket.emit("log", { method: req.method, url: req.url, email: email });
 
 	try {
 		const user = await User.findOne({ email: email });
@@ -481,7 +492,7 @@ app.post("/api/settings", async (req, res) => {
 app.get("/api/2faEnabled", async (req, res) => {
 	const email = req.query.email;
 
-	logtoFile(req.method, req.url, email);
+	// logtoFile(req.method, req.url, email);
 
 	try {
 		const user = await User.findOne({ email: email });

@@ -1,17 +1,27 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useSocket } from "../../socketProvider.js";
+const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
 
 const EditRolesPage = () => {
 	const [users, setUsers] = useState([]);
 	const [selectedUser, setSelectedUser] = useState("");
 	const [selectedRole, setSelectedRole] = useState("");
+	const socket = useSocket();
 
 	useEffect(() => {
 		console.log("Fetching users...");
 		try {
-			axios.get("https://secureteams.onrender.com/api/users").then((response) => {
+			// axios.get("https://secureteams.onrender.com/api/users").then((response) => {
+			axios.get(apiBaseUrl + "/users").then((response) => {
 				console.log("Users:", response.data);
 				setUsers(response.data);
+			});
+
+			socket.emit("logActivity", {
+				method: "GET",
+				path: "/users",
+				email: localStorage.getItem("email"),
 			});
 		} catch (error) {
 			console.log("Error fetching users:", error);
@@ -21,12 +31,18 @@ const EditRolesPage = () => {
 	const editRole = async () => {
 		try {
 			const response = await axios.put(
-				`https://secureteams.onrender.com/api/users/${selectedUser}`,
+				// `https://secureteams.onrender.com/api/users/${selectedUser}`,
+				apiBaseUrl + `/users/${selectedUser}`,
 				{
 					role: selectedRole,
 					email: selectedUser,
 				}
 			);
+			socket.emit("logActivity", {
+				method: "PUT",
+				path: `/users/${selectedUser}`,
+				email: localStorage.getItem("email"),
+			});
 			console.log("Role edited successfully:", response.data);
 			setUsers(
 				users.map((user) =>

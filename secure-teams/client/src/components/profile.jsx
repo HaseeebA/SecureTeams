@@ -4,6 +4,7 @@ import Sidepanel from "./sidepanel";
 import "../styles/profile.css";
 import axios from "axios";
 import profile from "../images/q.png";
+import { useSocket } from "../socketProvider";
 
 const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
 // console.log("API Base URL", apiBaseUrl);
@@ -19,6 +20,8 @@ const Profile = () => {
 	const [profilePhoto, setProfilePhoto] = useState(null);
 	const [isEditing, setIsEditing] = useState(false);
 
+	const socket = useSocket();
+
 	useEffect(() => {
 		const fetchProfileData = async () => {
 			try {
@@ -29,6 +32,11 @@ const Profile = () => {
 				const response = await axios.get(
 					apiBaseUrl + "/profile?email=" + localStorage.getItem("email")
 				);
+				socket.emit("logActivity", {
+					method: "GET",
+					path: "/profile?email=" + localStorage.getItem("email"),
+					email: localStorage.getItem("email"),
+				});
 				const { email, name, profilePhoto } = response.data;
 				setEmail(email);
 				setName(name);
@@ -96,6 +104,11 @@ const Profile = () => {
 					},
 				}
 			);
+			socket.emit("logActivity", {
+				method: "POST",
+				path: "/update",
+				email: email,
+			});
 			alert(response.data.message);
 			// setPassword("");
 			// setNewPassword("");

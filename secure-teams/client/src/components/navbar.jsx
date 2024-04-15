@@ -6,21 +6,16 @@ import "../styles/navbar.css";
 import { NavLink } from "react-router-dom";
 import axios from "axios";
 import io from "socket.io-client";
+import { useSocket } from "../socketProvider";
 
 const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
-// console.log("API Base URL", apiBaseUrl);
-
-const socketUrl = process.env.REACT_APP_SOCKET_URL;
-
-// const socket = io(socketUrl, { transports: ["websocket"] });
-const socket = io("http://localhost:3000", { transports: ["websocket"] });
-
 
 const Navbar = ({ selectedTheme }) => {
 	const [profilePhoto, setProfilePhoto] = useState(null);
 	const [isProfileOpen, setProfileOpen] = useState(false);
 	const [invertImages, setInvertImages] = useState(false);
 	const noHoverColors = ["#0b1623", "#540D0D", "#013220"];
+	const socket = useSocket();
 
 	useEffect(() => {
 		const fetchProfileData = async () => {
@@ -32,6 +27,7 @@ const Navbar = ({ selectedTheme }) => {
 				const response = await axios.get(
 					apiBaseUrl + "/profile?email=" + localStorage.getItem("email")
 				);
+
 				const { email, name, profilePhoto } = response.data;
 				if (profilePhoto) {
 					const profilePhotoUrl =

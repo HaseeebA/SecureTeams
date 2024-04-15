@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import "../styles/msgportal.css";
+import { useSocket } from "../socketProvider.js";
 
 const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
 // console.log("API Base URL", apiBaseUrl);
@@ -8,6 +9,9 @@ const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
 const ContactDetailsComponent = ({ receiver, sender }) => {
 	const [messages, setMessages] = useState([]);
 	const messageListRef = useRef(null);
+
+	const socket = useSocket();
+
 	useEffect(() => {
 		// Fetch messages when component mounts
 		fetchMessages();
@@ -41,6 +45,12 @@ const ContactDetailsComponent = ({ receiver, sender }) => {
 					params: { sender: receiver, receiver: sender },
 				}
 			);
+
+			socket.emit("logActivity", {
+				method: "GET",
+				path: "/messages",
+				email: localStorage.getItem("email"),
+			});
 
 			// Determine which response to use based on status and set the messages state accordingly
 			if (response1.status === 200 && response2.status === 200) {
