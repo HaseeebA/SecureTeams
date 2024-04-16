@@ -66,7 +66,10 @@ const EditRolesPage = () => {
 			<div className="flex justify-left items-center mt-10 pl-10">
 				<div className="w-1/2">
 					<form>
-						<div className="mb-4">
+						<div
+							className="mb-4"
+							style={{ alignSelf: "flex-start", width: "400px" }}
+						>
 							<label
 								className="block text-gray-700 text-sm font-bold mb-2"
 								htmlFor="email"
@@ -90,7 +93,10 @@ const EditRolesPage = () => {
 									))}
 							</select>
 						</div>
-						<div className="mb-6">
+						<div
+							className="mb-6"
+							style={{ alignSelf: "flex-start", width: "400px" }}
+						>
 							<label
 								className="block text-gray-700 text-sm font-bold mb-2"
 								htmlFor="role"
@@ -112,7 +118,10 @@ const EditRolesPage = () => {
 								</select>
 							</div>
 						</div>
-						<div className="flex items-center justify-between">
+						<div
+							className="mb-6"
+							style={{ alignSelf: "flex-start", width: "400px" }}
+						>
 							<button
 								className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
 								type="button"

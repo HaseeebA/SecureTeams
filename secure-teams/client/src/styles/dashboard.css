@@ -12,6 +12,8 @@
     border-radius: 5px;
     height: calc(100vh - 150px);
     width: calc(100vw - 650px);
+    /* width: 80vw; */
+    /* box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2); */
 }
 
 .console-container h2 {
@@ -24,10 +26,11 @@
     color: white;
     padding: 10px;
     margin: 10px;
-    border-radius: 5px;
+    border-radius: 15px;
     height: calc(100vh - 240px);
     overflow-y: auto;
     width: calc(100% - 20px);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
 }
 
 .console h2 {
@@ -79,4 +82,30 @@
     height: calc((100vh - 250px)/2);
     overflow-y: auto;
     width: calc(300px - 50px);
+}
+
+@media screen and (max-width: 768px) {
+    .console-container {
+        margin-left: 0;
+        width: calc(100vw - 50px);
+    }
+
+    .stats-container {
+        margin-left: 0;
+        margin-right: 0;
+        width: calc(100vw - 50px);
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .console-container {
+        margin-left: 0;
+        width: calc(100vw - 100px);
+    }
+
+    .stats-container {
+        margin-left: 0;
+        margin-right: 0;
+        width: calc(100vw - 100px);
+    }
 }

@@ -42,7 +42,7 @@ const Dashboard = () => {
 				</div>
 			</div>
 
-			{/* Right Section - User Statistics */}
+			{/* Right Section - User Statistics
 			<div className="stats-container">
 				<div className="w-1/2 p-4">
 					<div className="stats1">
@@ -52,7 +52,7 @@ const Dashboard = () => {
 						<h2 className="text-xl font-bold">Active Users: {activeUsers}</h2>
 					</div>
 				</div>
-			</div>
+			</div> */}
 		</div>
 	);
 };

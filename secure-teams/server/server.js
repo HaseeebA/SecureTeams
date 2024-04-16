@@ -40,55 +40,69 @@ mongoose
 
 		// Listen for Socket.IO connections
 		io.on("connection", (socket) => {
-			console.log("A user connected with ID:", socket.id);
+			// console.log("A user connected with ID:", socket.id);
 
 			socket.on("login", (data) => {
 				// console.log("User logged in:", data);
 				const { email, token } = data;
-				console.log("User logged in:", email);
-				const logMessage = `>> <span style="color: lime;">${email}</span> - logged in!!!`;
-				io.emit("logMessage", logMessage);
+				if (email !== "admin@secureteams.com") {
+					console.log("User logged in:", email);
+					const logMessage = `>> <span style="color: lime;">${email}</span> - logged in!!!`;
+					io.emit("logMessage", logMessage);
 
-				const logDirectory = "log_files";
-				const __dirname = path.resolve();
-				const filePath = path.join(__dirname, logDirectory, `${email}_log.txt`);
-				fs.appendFile(
-					filePath,
-					"\n!!! User logged in with token: " + token + " !!!\n",
-					(err) => {
-						if (err) {
-							console.error("Error writing to log file:", err);
+					const logDirectory = "log_files";
+					const __dirname = path.resolve();
+					const filePath = path.join(
+						__dirname,
+						logDirectory,
+						`${email}_log.txt`
+					);
+					fs.appendFile(
+						filePath,
+						"\n!!! User logged in with token: " + token + " !!!\n",
+						(err) => {
+							if (err) {
+								console.error("Error writing to log file:", err);
+							}
 						}
-					}
-				);
+					);
+				}
 			});
 
 			socket.on("logActivity", (data) => {
 				const { method, path, email } = data;
-				const logMessage = `>> <span style="color: lime;">${email}</span> - <span style="color: red;">${method}</span> ${path}`;
-				io.emit("logMessage", logMessage);
+				if (email !== "admin@secureteams.com") {
+					const logMessage = `>> <span style="color: lime;">${email}</span> - <span style="color: red;">${method}</span> ${path}`;
+					io.emit("logMessage", logMessage);
+				}
 			});
 
 			socket.on("logout", (data) => {
 				const { email } = data;
-				const logMessage = `>> <span style="color: lime;">${email}</span> - logged out!!!`;
-				io.emit("logMessage", logMessage);
+				if (email !== "admin@secureteams.com") {
+					const logMessage = `>> <span style="color: lime;">${email}</span> - logged out!!!`;
+					io.emit("logMessage", logMessage);
 
-				const logDirectory = "log_files";
-				const __dirname = path.resolve();
-				const filePath = path.join(__dirname, logDirectory, `${email}_log.txt`);
+					const logDirectory = "log_files";
+					const __dirname = path.resolve();
+					const filePath = path.join(
+						__dirname,
+						logDirectory,
+						`${email}_log.txt`
+					);
 
-				fs.appendFile(filePath, "!!! User logged out !!!\n\n", (err) => {
-					if (err) {
-						console.error("Error writing to log file:", err);
-					}
-				});
+					fs.appendFile(filePath, "!!! User logged out !!!\n\n", (err) => {
+						if (err) {
+							console.error("Error writing to log file:", err);
+						}
+					});
+				}
 			});
 
-			// Example: Handle socket events
-			socket.on("disconnect", () => {
-				console.log("User disconnected");
-			});
+			// // Example: Handle socket events
+			// socket.on("disconnect", () => {
+			// 	console.log("User disconnected");
+			// });
 		});
 
 		// Start listening on the HTTP server
@@ -102,7 +116,6 @@ mongoose
 		console.error("Error connecting to MongoDB:", error);
 	});
 
-// const socket = io("http://localhost:3000", { transports: ["websocket"] });
 
 const userSchema = new mongoose.Schema({
 	name: { type: String, required: true },
@@ -144,24 +157,24 @@ const Contact = mongoose.model("Contact", contactsSchema);
 app.post("/api/log", async (req, res) => {
 	const { email, route } = req.body;
 	// console.log("User: " + email + " visited route: " + route);
-	try {
-		const logDirectory = "log_files";
-		const __dirname = path.resolve();
-		const filePath = path.join(__dirname, logDirectory, `${email}_log.txt`);
+	if (email !== "admin@secureteams.com") {
+		try {
+			const logDirectory = "log_files";
+			const __dirname = path.resolve();
+			const filePath = path.join(__dirname, logDirectory, `${email}_log.txt`);
 
-		fs.appendFile(filePath, "User visited route: " + route + "\n", (err) => {
-			if (err) {
-				console.error("Error writing to log file:", err);
-			}
-		});
-		res.status(200).json({ message: "Logged successfully" });
-	} catch (error) {
-		console.log(error);
-		res.status(500).json({ message: "Error logging activity" });
+			fs.appendFile(filePath, "User visited route: " + route + "\n", (err) => {
+				if (err) {
+					console.error("Error writing to log file:", err);
+				}
+			});
+			res.status(200).json({ message: "Logged successfully" });
+		} catch (error) {
+			console.log(error);
+			res.status(500).json({ message: "Error logging activity" });
+		}
 	}
 });
-
-// app.get("/api/log/activity", async (req, res) => {
 
 app.post("/api/messages", async (req, res) => {
 	const { sender, receiver, message } = req.body;
@@ -287,26 +300,20 @@ app.post("/api/login", async (req, res) => {
 		if (!user) {
 			console.log("User not found");
 			res.status(400).json({ message: "User not found" });
-			return
+			return;
 		}
 		const validPassword = await bcrypt.compare(password, user.password);
 		if (!validPassword) {
 			console.log("Invalid password");
 			res.status(400).json({ message: "Invalid password" });
-			return
+			return;
 		}
 		const token = jwt.sign({ email: email }, process.env.JWT_SECRET, {
 			expiresIn: "1h",
 		});
 
-		if (email === "as1472@secureteams.com") {
-			console.log("User role", user.role);
-			res.status(200).json({ token: token, role: "admin" });
-			console.log("User is admin");
-		} else {
-			console.log("User role", user.role);
-			res.status(200).json({ token: token, role: user.role });
-		}
+		console.log("User role", user.role);
+		res.status(200).json({ token: token, role: user.role });
 
 		console.log("Login successful");
 	} catch (error) {
