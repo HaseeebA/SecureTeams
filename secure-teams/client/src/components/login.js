@@ -43,6 +43,11 @@ const Login = () => {
 			return;
 		}
 
+		if (!/^.+@secureteams\.com$/.test(email)) {
+            setError("Email must be in the format _@secureteams.com");
+            return;
+        }
+
 		try {
 			const response = await axios.post(apiBaseUrl + "/login", {
 				email: email,
@@ -211,9 +216,9 @@ const Login = () => {
 						{error && (
 							<p
 								className="error-message"
-								style={{ color: '#800000', fontSize: '1.2em', fontWeight: 'bold' }}
+								style={{ color: 'yellow', fontSize: '1em'}}
 							>
-								{error}
+								ERROR!! {error}
 							</p>
 						)}
 
