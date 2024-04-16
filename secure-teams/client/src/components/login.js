@@ -49,14 +49,14 @@ const Login = () => {
         }
 
 		try {
-			// const response = await axios.post(apiBaseUrl + "/login", {
-			// 	email: email,
-			// 	password: password,
-			// });
-			const response = await axios.post("http://localhost:3000/api/login", {
+			const response = await axios.post(apiBaseUrl + "/login", {
 				email: email,
 				password: password,
 			});
+			// const response = await axios.post("http://localhost:3000/api/login", {
+			// 	email: email,
+			// 	password: password,
+			// });
 			setEmail(email);
 
 			if (response.data.token) {
