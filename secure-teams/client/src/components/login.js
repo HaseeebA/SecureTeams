@@ -23,6 +23,7 @@ const Login = () => {
 	const [token, setToken] = useState("");
 	const [role, setRole] = useState("");
 	const [loginSuccess, setLoginSuccess] = useState(false);
+	const [error, setError] = useState("");
 	const [twofaToken, setTwofaToken] = useState(
 		Array.from({ length: 6 }, () => "")
 	);
@@ -33,12 +34,12 @@ const Login = () => {
 		event.preventDefault();
 
 		if (email === "") {
-			alert("Email cannot be empty");
+			setError("Email field empty");
 			return;
 		}
 
 		if (password === "") {
-			alert("Password cannot be empty");
+			setError("Password field empty");
 			return;
 		}
 
@@ -47,7 +48,6 @@ const Login = () => {
 				email: email,
 				password: password,
 			});
-
 			setEmail(email);
 
 			if (response.data.token) {
@@ -62,12 +62,24 @@ const Login = () => {
 				setToken(response.data.token);
 				setRole(response.data.role);
 				setLoginSuccess(true); // Set login success flag
-			} else {
-				alert("Invalid credentials");
+			} 
+			else
+			{
+				setError("Invalid Credentials");
 			}
 		} catch (error) {
-			alert("Login failed");
-			console.error(error);
+			if(error.response.data.message === "Invalid password")
+			{
+				setError("Invalid Password");
+			}
+			else if(error.response.data.message === "User not found")
+			{
+				setError("User Not Found");
+			}
+			else
+			{
+				setError("Cannot reach server");
+			}
 		}
 	};
 
@@ -196,6 +208,15 @@ const Login = () => {
 								onClick={togglePasswordVisibility}
 							/>
 						</div>
+						{error && (
+							<p
+								className="error-message"
+								style={{ color: '#800000', fontSize: '1.2em', fontWeight: 'bold' }}
+							>
+								{error}
+							</p>
+						)}
+
 						{/* <button
 							type="submit"
 							onClick={handleLogin}

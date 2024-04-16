@@ -286,12 +286,14 @@ app.post("/api/login", async (req, res) => {
 		const user = await User.findOne({ email: email });
 		if (!user) {
 			console.log("User not found");
-			return res.status(400).json({ message: "User not found" });
+			res.status(400).json({ message: "User not found" });
+			return
 		}
 		const validPassword = await bcrypt.compare(password, user.password);
 		if (!validPassword) {
 			console.log("Invalid password");
-			return res.status(400).json({ message: "Invalid password" });
+			res.status(400).json({ message: "Invalid password" });
+			return
 		}
 		const token = jwt.sign({ email: email }, process.env.JWT_SECRET, {
 			expiresIn: "1h",
