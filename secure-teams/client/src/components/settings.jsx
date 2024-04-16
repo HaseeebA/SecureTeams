@@ -45,15 +45,15 @@ const Settings = () => {
     console.log("Saving settings");
     if (isPasswordEnabled) {
       if (!password || !newPassword) {
-        setError("Password cannot be empty");
+        setError("ERROR!! Password cannot be empty");
         return;
       }
       if (password === newPassword) {
-        setError("New password cannot be the same as the old password");
+        setError("ERROR!! New password cannot be the same as the old password");
         return;
       }
       if (newPassword.length < 6) {
-        setError("Password must be at least 6 characters long");
+        setError("ERROR!! Password must be at least 6 characters long");
         return;
       }
 
@@ -62,7 +62,7 @@ const Settings = () => {
 
       if (!passwordRegex.test(newPassword)) {
       	setError(
-      		"Password must contain at least one number and one special character"
+      		"ERROR!! Password must contain at least one number and one special character"
       	);
       	return;
       }
@@ -95,7 +95,7 @@ const Settings = () => {
           error.response &&
           (error.response.status === 400 || error.response.status === 401)
         ) {
-			setError(error.response.data.message);
+			      setError(error.response.data.message);
         } else {
           console.error("Error updating password:", error);
           setError("Error updating password. Please try again.");
@@ -103,12 +103,12 @@ const Settings = () => {
       }
     } else {
       if (is2FAEnabled && !secondaryEmail) {
-        setError("Secondary email cannot be empty");
+        setError("ERROR!! Secondary email cannot be empty");
         return;
       }
       const emailRegex = new RegExp(/^[a-zA-Z0-9._%+-]+@(gmail|outlook)\.com$/);
       if (is2FAEnabled && !emailRegex.test(secondaryEmail)) {
-        setError("Please enter a valid Gmail or Outlook email");
+        setError("ERROR!! Please enter a valid Gmail or Outlook email");
         return;
       }
 
@@ -214,7 +214,7 @@ const Settings = () => {
             className="error-message"
             style={{ color: "yellow", fontSize: "1em" }}
           >
-            ERROR!! {error}
+            {error}
           </p>
         )}
 

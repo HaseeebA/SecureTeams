@@ -80,6 +80,12 @@ const Login = () => {
 			if(error.response.data.message)
 			{
 				setError(error.response.data.message)
+				setPassword("")
+				if(error.response.data.attempts)
+				{
+					const attemptsLeft = 3 - error.response.data.attempts;
+    				setError(`Wrong Password. ${attemptsLeft} attempts left`);
+				}
 			}
 			else
 			{

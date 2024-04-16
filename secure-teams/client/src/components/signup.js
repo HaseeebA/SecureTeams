@@ -20,12 +20,12 @@ const Signup = (props) => {
         event.preventDefault();
 
         if (!/^.+@secureteams\.com$/.test(email)) {
-            setError("Email must be in the format _@secureteams.com");
+            setError("ERROR!! Email must be in the format _@secureteams.com");
             return;
         }
 
         if (name === "") {
-            setError("Please enter name")
+            setError("ERROR!! Please enter name")
             return;
         }
 
@@ -35,17 +35,17 @@ const Signup = (props) => {
         }
 
         if (password.length < 8) {
-            setError("Password must be at least 8 characters long");
+            setError("ERROR!! Password must be at least 8 characters long");
             return;
         }
 
         if (!/\d/.test(password)) {
-            setError("Password must contain at least one number");
+            setError("ERROR!! Password must contain at least one number");
             return;
         }
 
         if (!/[!@#$%^&*.]/.test(password)) {
-            setError("Password must contain at least one special character");
+            setError("ERROR!! Password must contain at least one special character");
             return;
         }
 
@@ -66,7 +66,7 @@ const Signup = (props) => {
             setError("Error signing up");
             if(error.response.data.message === "User already exists")
             {
-                setError("User already exists")
+                setError("ERROR!! User already exists")
             }
             console.error(error);
         }
@@ -134,7 +134,7 @@ const Signup = (props) => {
 								className="error-message"
 								style={{ color: 'yellow', fontSize: '1em'}}
 							>
-								ERROR!! {error}
+								{error}
 							</p>
 						)}
                 <button type="submit" onClick={handleSignup} className="signup-button">

@@ -134,7 +134,6 @@ const userSchema = new mongoose.Schema({
 	},
 	teams: { type: Array },
 	wrongLoginAttempts: { type: Number, default: 0 },
-	isLocked: { type: Boolean, default: false },
 	lockUntil: { type: Date, default: Date.now },
 });
 
@@ -325,7 +324,7 @@ app.post("/api/login", async (req, res) => {
 			}
 
 			console.log("Invalid password");
-			res.status(400).json({ message: "Invalid password" });
+			res.status(400).json({ message: "Invalid password" , attempts:user.wrongLoginAttempts});
 			return;
 		}
 
