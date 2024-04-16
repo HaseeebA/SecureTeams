@@ -134,6 +134,9 @@ const userSchema = new mongoose.Schema({
 		default: "employee",
 	},
 	teams: { type: Array },
+	wrongLoginAttempts: { type: Number, default: 0 },
+    isLocked: { type: Boolean, default: false },
+    lockUntil: { type: Date, default: Date.now },
 });
 
 const User = mongoose.model("User", userSchema);
@@ -302,12 +305,33 @@ app.post("/api/login", async (req, res) => {
 			res.status(400).json({ message: "User not found" });
 			return;
 		}
-		const validPassword = await bcrypt.compare(password, user.password);
-		if (!validPassword) {
-			console.log("Invalid password");
-			res.status(400).json({ message: "Invalid password" });
-			return;
-		}
+		if (user.isLocked && user.lockUntil > Date.now()) {
+            console.log("Account locked");
+            res.status(400).json({ message: "Account locked. Try again later." });
+            return;
+        }
+
+        const validPassword = await bcrypt.compare(password, user.password);
+        if (!validPassword) {
+            // Increment wrong login attempts
+            user.wrongLoginAttempts += 1;
+            await user.save();
+
+            // Lock the account if attempts reach 3
+            if (user.wrongLoginAttempts >= 3) {
+                user.isLocked = true;
+                // Set lock duration to 30 minutes from now
+                user.lockUntil = new Date(Date.now() + 15 * 60 * 1000);
+                await user.save();
+            }
+
+            console.log("Invalid password");
+            res.status(400).json({ message: "Invalid password" });
+            return;
+        }
+
+        user.wrongLoginAttempts = 0;
+        await user.save();
 		const token = jwt.sign({ email: email }, process.env.JWT_SECRET, {
 			expiresIn: "1h",
 		});
