@@ -52,8 +52,8 @@ const Settings = () => {
         setError("ERROR!! New password cannot be the same as the old password");
         return;
       }
-      if (newPassword.length < 6) {
-        setError("ERROR!! Password must be at least 6 characters long");
+      if (newPassword.length < 8) {
+        setError("ERROR!! Password must be at least 8 characters long");
         return;
       }
 
@@ -96,6 +96,12 @@ const Settings = () => {
           (error.response.status === 400 || error.response.status === 401)
         ) {
 			      setError(error.response.data.message);
+            if(error.response.data.message === "Logging Out")
+            {
+              localStorage.removeItem("token");
+							window.location.href = "/";
+							socket.emit("logout", { email: localStorage.getItem("email") });
+            }
         } else {
           console.error("Error updating password:", error);
           setError("Error updating password. Please try again.");

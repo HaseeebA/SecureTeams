@@ -317,9 +317,9 @@ app.post("/api/login", async (req, res) => {
 
 			// Lock the account if attempts reach 3
 			if (user.wrongLoginAttempts >= 3) {
-				user.isLocked = true;
 				// Set lock duration to 30 minutes from now
 				user.lockUntil = new Date(Date.now() + 15 * 60 * 1000);
+				user.wrongLoginAttempts = 0
 				await user.save();
 			}
 
@@ -456,11 +456,27 @@ app.post("/api/updatePassword", async (req, res) => {
 		}
 		const validPassword = await bcrypt.compare(password, user.password);
 		if (!validPassword) {
-			console.log("Invalid password");
-			return res
-				.status(200)
-				.json({ message: "Invalid password, please try again" });
-		}
+            // Increment wrong update password attempts
+            user.wrongLoginAttempts += 1;
+            await user.save();
+
+            // Lock the account if attempts reach 3
+            if (user.wrongLoginAttempts >= 3) {
+				user.wrongLoginAttempts = 0
+				await user.save()
+                return res.status(400).json({message: "Logging Out"})
+            }
+
+            // Determine the remaining attempts
+            const remainingAttempts = 3 - user.wrongLoginAttempts;
+
+            console.log("Invalid password");
+            return res.status(200).json({ message: `Invalid password. Logout after ${remainingAttempts} attempts` });
+        }
+
+        // Reset wrong update password attempts on successful update
+        user.wrongLoginAttempts = 0;
+        await user.save();
 		const salt = await bcrypt.genSalt(10);
 		const hashedPassword = await bcrypt.hash(newPassword, salt);
 		user.password = hashedPassword;

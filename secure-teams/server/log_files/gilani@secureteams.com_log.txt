@@ -8,3 +8,37 @@ User visited route: /homepage
 4/17/2024, 3:05:37 AM - GET /api/events?email=gilani@secureteams.com
 User visited route: /homepage
 4/17/2024, 3:05:37 AM - GET /api/events?email=gilani@secureteams.com
+User visited route: /tasks
+User visited route: /settings
+4/17/2024, 3:22:10 AM - POST /api/updatePassword
+4/17/2024, 3:22:40 AM - POST /api/updatePassword
+4/17/2024, 3:23:12 AM - POST /api/settings
+4/17/2024, 3:23:29 AM - POST /api/updatePassword
+4/17/2024, 3:23:49 AM - POST /api/updatePassword
+4/17/2024, 3:25:06 AM - POST /api/updatePassword
+4/17/2024, 3:25:28 AM - POST /api/updatePassword
+4/17/2024, 3:29:43 AM - POST /api/updatePassword
+4/17/2024, 3:29:51 AM - POST /api/updatePassword
+4/17/2024, 3:30:07 AM - POST /api/updatePassword
+4/17/2024, 3:30:46 AM - POST /api/updatePassword
+4/17/2024, 3:30:56 AM - POST /api/updatePassword
+!!! User logged out !!!
+
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /home
+User visited route: /home
+User visited route: /home
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /
+User visited route: /homepae
+User visited route: /homepae
+User visited route: /homepae
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /
