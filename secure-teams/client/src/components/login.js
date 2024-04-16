@@ -49,7 +49,11 @@ const Login = () => {
         }
 
 		try {
-			const response = await axios.post(apiBaseUrl + "/login", {
+			// const response = await axios.post(apiBaseUrl + "/login", {
+			// 	email: email,
+			// 	password: password,
+			// });
+			const response = await axios.post("http://localhost:3000/api/login", {
 				email: email,
 				password: password,
 			});
@@ -73,13 +77,9 @@ const Login = () => {
 				setError("Invalid Credentials");
 			}
 		} catch (error) {
-			if(error.response.data.message === "Invalid password")
+			if(error.response.data.message)
 			{
-				setError("Invalid Password");
-			}
-			else if(error.response.data.message === "User not found")
-			{
-				setError("User Not Found");
+				setError(error.response.data.message)
 			}
 			else
 			{
