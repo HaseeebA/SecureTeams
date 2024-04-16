@@ -121,10 +121,10 @@ const Login = () => {
 	const handle2FAVerification = async (event) => {
 		event.preventDefault();
 
-		if (twofaToken.some((token) => token === "")) {
-			alert("All fields must be filled");
-			return;
-		}
+		// if (twofaToken.some((token) => token === "")) {
+		// 	alert("All fields must be filled");
+		// 	return;
+		// }
 
 		try {
 			console.log("2FA Verification", email, twofaToken);
@@ -137,7 +137,7 @@ const Login = () => {
 				apiBaseUrl + "/2faVerify",
 				{
 					email: email,
-					twofaToken: twofaToken.join(""),
+					twofaToken: twofaToken,
 				}
 			);
 

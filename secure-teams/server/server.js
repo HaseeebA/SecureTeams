@@ -116,7 +116,6 @@ mongoose
 		console.error("Error connecting to MongoDB:", error);
 	});
 
-
 const userSchema = new mongoose.Schema({
 	name: { type: String, required: true },
 	password: { type: String, required: true },
@@ -135,8 +134,8 @@ const userSchema = new mongoose.Schema({
 	},
 	teams: { type: Array },
 	wrongLoginAttempts: { type: Number, default: 0 },
-    isLocked: { type: Boolean, default: false },
-    lockUntil: { type: Date, default: Date.now },
+	isLocked: { type: Boolean, default: false },
+	lockUntil: { type: Date, default: Date.now },
 });
 
 const User = mongoose.model("User", userSchema);
@@ -306,32 +305,32 @@ app.post("/api/login", async (req, res) => {
 			return;
 		}
 		if (user.isLocked && user.lockUntil > Date.now()) {
-            console.log("Account locked");
-            res.status(400).json({ message: "Account locked. Try again later." });
-            return;
-        }
+			console.log("Account locked");
+			res.status(400).json({ message: "Account locked. Try again later." });
+			return;
+		}
 
-        const validPassword = await bcrypt.compare(password, user.password);
-        if (!validPassword) {
-            // Increment wrong login attempts
-            user.wrongLoginAttempts += 1;
-            await user.save();
+		const validPassword = await bcrypt.compare(password, user.password);
+		if (!validPassword) {
+			// Increment wrong login attempts
+			user.wrongLoginAttempts += 1;
+			await user.save();
 
-            // Lock the account if attempts reach 3
-            if (user.wrongLoginAttempts >= 3) {
-                user.isLocked = true;
-                // Set lock duration to 30 minutes from now
-                user.lockUntil = new Date(Date.now() + 15 * 60 * 1000);
-                await user.save();
-            }
+			// Lock the account if attempts reach 3
+			if (user.wrongLoginAttempts >= 3) {
+				user.isLocked = true;
+				// Set lock duration to 30 minutes from now
+				user.lockUntil = new Date(Date.now() + 15 * 60 * 1000);
+				await user.save();
+			}
 
-            console.log("Invalid password");
-            res.status(400).json({ message: "Invalid password" });
-            return;
-        }
+			console.log("Invalid password");
+			res.status(400).json({ message: "Invalid password" });
+			return;
+		}
 
-        user.wrongLoginAttempts = 0;
-        await user.save();
+		user.wrongLoginAttempts = 0;
+		await user.save();
 		const token = jwt.sign({ email: email }, process.env.JWT_SECRET, {
 			expiresIn: "1h",
 		});
@@ -543,11 +542,21 @@ app.get("/api/2faEnabled", async (req, res) => {
 });
 
 // Nodemailer configuration
+// const transporter = nodemailer.createTransport({
+// 	service: "Gmail",
+// 	auth: {
+// 		user: process.env.EMAIL_USERNAME,
+// 		pass: process.env.EMAIL_PASSWORD,
+// 	},
+// });
 const transporter = nodemailer.createTransport({
-	service: "Outlook",
+	service: "gmail",
+	host: "smtp.gmail.com",
+	port: 465,
+	secure: true,
 	auth: {
 		user: process.env.EMAIL_USERNAME,
-		pass: process.env.EMAIL_PASSWORD,
+		pass: process.env.APP_PASSWORD,
 	},
 });
 
