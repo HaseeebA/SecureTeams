@@ -5,3 +5,7 @@ User visited route: /homepage
 User visited route: /homepage
 User visited route: /homepage
 4/17/2024, 5:31:46 PM - GET /api/events?email=gilani2@secureteams.com
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /login
