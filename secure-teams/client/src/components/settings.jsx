@@ -11,6 +11,7 @@ const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
 
 const Settings = () => {
 	const [is2FAEnabled, setIs2FAEnabled] = useState(false);
+	const [isLogAlertsEnabled, setIsLogAlertsEnabled] = useState(false);
 	const [secondaryEmail, setSecondaryEmail] = useState("");
 	const [isPasswordEnabled, setIsPasswordEnabled] = useState(false);
 	const [showSidePanel, setShowSidePanel] = useState(true);
@@ -18,6 +19,7 @@ const Settings = () => {
 	const [theme, setTheme] = useState(initialTheme);
 	const [password, setPassword] = useState("");
 	const [newPassword, setNewPassword] = useState("");
+	const [error, setError] = useState("");
 	const socket = useSocket();
 
 	const handleThemeChange = (newTheme) => {
@@ -32,6 +34,10 @@ const Settings = () => {
 		setIs2FAEnabled(!is2FAEnabled);
 	};
 
+	const handleToggleLogAlerts = () => {
+		setIsLogAlertsEnabled(!isLogAlertsEnabled);
+	};
+
 	const handleTogglePassword = () => {
 		setIsPasswordEnabled(!isPasswordEnabled);
 	};
@@ -44,27 +50,27 @@ const Settings = () => {
 		console.log("Saving settings");
 		if (isPasswordEnabled) {
 			if (!password || !newPassword) {
-				alert("Password cannot be empty");
+				setError("ERROR!! Password cannot be empty");
 				return;
 			}
 			if (password === newPassword) {
-				alert("New password cannot be the same as the old password");
+				setError("ERROR!! New password cannot be the same as the old password");
 				return;
 			}
-			if (newPassword.length < 6) {
-				alert("Password must be at least 6 characters long");
+			if (newPassword.length < 8) {
+				setError("ERROR!! Password must be at least 8 characters long");
 				return;
 			}
 
-			// const passwordRegex =
-			// 	/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
+			const passwordRegex =
+				/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
 
-			// if (!passwordRegex.test(newPassword)) {
-			// 	alert(
-			// 		"Password must contain at least one number and one special character"
-			// 	);
-			// 	return;
-			// }
+			if (!passwordRegex.test(newPassword)) {
+				setError(
+					"ERROR!! Password must contain at least one number and one special character"
+				);
+				return;
+			}
 
 			try {
 				const userEmail = localStorage.getItem("email");
@@ -84,7 +90,7 @@ const Settings = () => {
 				});
 
 				if (response.status === 200) {
-					alert(response.data.message);
+					setError(response.data.message);
 					setPassword("");
 					setNewPassword("");
 					setIsPasswordEnabled(false);
@@ -94,27 +100,36 @@ const Settings = () => {
 					error.response &&
 					(error.response.status === 400 || error.response.status === 401)
 				) {
-					alert(error.response.data.message);
+					setError(error.response.data.message);
+					if (error.response.data.message === "Logging Out") {
+						socket.emit("logAlert", {
+							email: localStorage.getItem("email"),
+							message: "logged out due to multiple incorrect password attempts",
+							type: "danger",
+						});
+						localStorage.removeItem("token");
+						window.location.href = "/";
+						socket.emit("logout", { email: localStorage.getItem("email") });
+					}
 				} else {
 					console.error("Error updating password:", error);
-					alert("Error updating password. Please try again.");
+					setError("Error updating password. Please try again.");
 				}
 			}
 		} else {
 			if (is2FAEnabled && !secondaryEmail) {
-				alert("Secondary email cannot be empty");
+				setError("ERROR!! Secondary email cannot be empty");
 				return;
 			}
 			const emailRegex = new RegExp(/^[a-zA-Z0-9._%+-]+@(gmail|outlook)\.com$/);
 			if (is2FAEnabled && !emailRegex.test(secondaryEmail)) {
-				alert("Please enter a valid Gmail or Outlook email");
+				setError("ERROR!! Please enter a valid Gmail or Outlook email");
 				return;
 			}
 
 			try {
 				const userEmail = localStorage.getItem("email");
 				const response = await axios.post(
-					// "https://secureteams.onrender.com/api/settings",
 					apiBaseUrl + "/settings",
 					{
 						is2FAEnabled,
@@ -127,9 +142,10 @@ const Settings = () => {
 					path: "/settings",
 					email: userEmail,
 				});
-				alert(response.data.message);
+				setError(response.data.message);
 				setSecondaryEmail("");
 				setIs2FAEnabled(false);
+				setIsLogAlertsEnabled(false);
 			} catch (error) {
 				console.error("Error saving settings:", error);
 			}
@@ -144,7 +160,7 @@ const Settings = () => {
 				className="settings-container"
 				style={{ background: theme, color: "white" }}
 			>
-				<h2>Two Factor Authentication</h2>
+				<h1 style={{ color: "white" }}>Settings</h1>
 				<label
 					className="toggle"
 					style={{
@@ -171,6 +187,37 @@ const Settings = () => {
 						</label>
 					</div>
 				)}
+
+				<label
+					className="toggle"
+					style={{
+						marginBottom: "10px",
+						display: "flex",
+						justifyContent: "space-between",
+						marginRight: "85px",
+					}}
+				>
+					Enable Log Alerts
+					<Switch
+						onChange={handleToggleLogAlerts}
+						checked={isLogAlertsEnabled}
+					/>
+				</label>
+
+				{isLogAlertsEnabled && (
+					<div>
+						<label>
+							Secondary Email:
+							<input
+								type="email"
+								value={secondaryEmail}
+								onChange={handleSecondaryEmailChange}
+								style={{ color: "black" }}
+							/>
+						</label>
+					</div>
+				)}
+
 				<label
 					className="toggle"
 					style={{
@@ -207,6 +254,14 @@ const Settings = () => {
 							/>
 						</div>
 					</>
+				)}
+				{error && (
+					<p
+						className="error-message"
+						style={{ color: "yellow", fontSize: "1em" }}
+					>
+						{error}
+					</p>
 				)}
 
 				<button

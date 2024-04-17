@@ -19,6 +19,7 @@ const Profile = () => {
 	const [name, setName] = useState("");
 	const [profilePhoto, setProfilePhoto] = useState(null);
 	const [isEditing, setIsEditing] = useState(false);
+	const [error, setError] = useState("");
 
 	const socket = useSocket();
 
@@ -66,7 +67,7 @@ const Profile = () => {
 		event.preventDefault();
 
 		if (!email) {
-			alert("Email cannot be empty");
+			setError("Email cannot be empty");
 			return;
 		}
 
@@ -109,13 +110,19 @@ const Profile = () => {
 				path: "/update",
 				email: email,
 			});
-			alert(response.data.message);
+			
 			// setPassword("");
 			// setNewPassword("");
 			setIsEditing(false);
 		} catch (error) {
 			console.log(error);
-			alert("Error updating profile");
+			if(error.response.data.message)
+			{
+				setError(error.response.data.message);
+			}
+			else{
+				setError("Error updating profile");
+			}
 		}
 	};
 
@@ -195,6 +202,14 @@ const Profile = () => {
 								onChange={(event) => setNewPassword(event.target.value)}
 							/>
 						</div> */}
+						{error && (
+							<p
+								className="error-message"
+								style={{ color: 'yellow', fontSize: '1em'}}
+							>
+								{error}
+							</p>
+						)}
 						<button
 							className="update-button"
 							type="submit"

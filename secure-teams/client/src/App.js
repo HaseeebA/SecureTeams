@@ -57,7 +57,7 @@ function App() {
 						path="/homepage"
 						element={<ProtectedRoute component={Homepage} />}
 					/>
-					<Route path="/team" element={<ProtectedRoute component={Team} />} />
+					{/* <Route path="/team" element={<ProtectedRoute component={Team} />} /> */}
 					<Route
 						path="/manageRoles"
 						element={<AdminProtectedRoute component={Roles} />}

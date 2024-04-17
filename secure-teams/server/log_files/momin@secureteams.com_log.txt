@@ -1,0 +1,48 @@
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vbWluQHNlY3VyZXRlYW1zLmNvbSIsImlhdCI6MTcxMzMzNzA1MSwiZXhwIjoxNzEzMzQwNjUxfQ.4x9NbJA9CBWn8-fhxidPJGUg0Uj2j9u0rImvclbZYZs !!!
+4/17/2024, 11:57:31 AM - GET /api/events?email=momin@secureteams.com
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+4/17/2024, 11:57:32 AM - GET /api/events?email=momin@secureteams.com
+4/17/2024, 11:57:44 AM - GET /api/contacts?email=momin%40secureteams.com
+User visited route: /messages
+4/17/2024, 11:57:44 AM - GET /api/contacts?email=momin%40secureteams.com
+User visited route: /tasks
+User visited route: /members
+4/17/2024, 11:58:04 AM - GET /api/events?email=momin@secureteams.com
+User visited route: /calendar
+4/17/2024, 11:58:05 AM - GET /api/events?email=momin@secureteams.com
+User visited route: /team
+4/17/2024, 11:58:36 AM - GET /api/events?email=momin@secureteams.com
+User visited route: /homepage
+4/17/2024, 11:58:36 AM - GET /api/events?email=momin@secureteams.com
+4/17/2024, 11:59:52 AM - GET /api/events?email=momin@secureteams.com
+4/17/2024, 12:00:29 PM - GET /api/events?email=momin@secureteams.com
+4/17/2024, 12:00:55 PM - GET /api/events?email=momin@secureteams.com
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+4/17/2024, 12:01:14 PM - GET /api/events?email=momin@secureteams.com
+User visited route: /homepage
+4/17/2024, 12:01:15 PM - GET /api/events?email=momin@secureteams.com
+4/17/2024, 12:47:55 PM - GET /api/events?email=momin@secureteams.com
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+4/17/2024, 12:47:56 PM - GET /api/events?email=momin@secureteams.com
+4/17/2024, 12:52:36 PM - GET /api/events?email=momin@secureteams.com
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+4/17/2024, 12:52:36 PM - GET /api/events?email=momin@secureteams.com
+4/17/2024, 12:53:18 PM - GET /api/events?email=momin@secureteams.com
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+4/17/2024, 12:53:19 PM - GET /api/events?email=momin@secureteams.com
+4/17/2024, 12:53:53 PM - GET /api/events?email=momin@secureteams.com
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+4/17/2024, 12:53:53 PM - GET /api/events?email=momin@secureteams.com

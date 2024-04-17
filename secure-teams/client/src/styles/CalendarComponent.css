@@ -131,7 +131,9 @@
 
 .event-popup-content {
     max-width: 400px;
+    word-wrap: break-word; /* Add word-wrap property */
 }
+
 
 .event-container {
     display: flex;
@@ -144,7 +146,11 @@
     font-size: 16px;
     font-weight: bold;
     margin-right: 10px;
+    word-wrap: break-word;
+    max-width: 200px; /* Adjust the max-width value as needed */
 }
+
+
 
 .delete-button {
     background-color: red;
@@ -199,4 +205,12 @@
 /* Hover effect for the add event button */
 .add-event-section button:hover {
     background-color: #5cbf79; /* Darken the background color on hover */
+}
+
+.event-found {
+    font-size: medium;
+    color: black;
+    margin-bottom: 5px;
+    border-bottom: 1px solid black;
+    word-wrap: break-word; /* Add word-wrap property */
 }
