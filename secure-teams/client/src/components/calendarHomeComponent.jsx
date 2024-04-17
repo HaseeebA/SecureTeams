@@ -3,7 +3,7 @@ import Calendar from "react-calendar";
 import "../styles/CalendarComponent.css";
 import { useSocket } from "../socketProvider";
 
-const CalendarComponent = () => {
+const CalendarComponent = ({ selectedTheme }) => {
 	const [date, setDate] = useState(new Date());
 	const [events, setEvents] = useState([]);
 	const [popupEvents, setPopupEvents] = useState([]);
@@ -85,6 +85,7 @@ const CalendarComponent = () => {
 
 		return (
 			<div className="event-box" onClick={handleTileClick}>
+			<div className="calendar-nav" style={{ backgroundColor: selectedTheme }}></div>
 				{eventsOnDate.map((event, index) => {
 					const eventStyle = {
 						backgroundColor: `hsl(${index * 20}, 70%, 80%)`,

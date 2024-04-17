@@ -15,6 +15,7 @@ const CalendarComponent = () => {
 
 	const socket = useSocket();
 
+	
 	useEffect(() => {
 		const fetchEvents = async () => {
 			try {

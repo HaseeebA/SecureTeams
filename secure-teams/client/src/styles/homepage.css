@@ -1,0 +1,16 @@
+
+/* Homepage.css */
+
+/* Homepage.css */
+
+/* Homepage.css */
+
+.reminders-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* Other styles remain the same */
+    transform: translateX(130%) translateY(60%); /* Example transform, adjust as necessary */
+  }
+  
+  
