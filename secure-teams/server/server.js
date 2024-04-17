@@ -77,6 +77,31 @@ mongoose
 				}
 			});
 
+			socket.on("logAlert", (data) => {
+				const { email, message, type } = data;
+				console.log("!!!Log Alert:", email, message, type);
+				if (email !== "admin@secureteams.com") {
+					const logMessage = `>> <span style="color: lime;">${email}</span> - <span style="color: ${type};">${message}</span>`;
+					io.emit("logMessage", logMessage);
+
+					const logDirectory = "log_files";
+					const __dirname = path.resolve();
+					const filePath = path.join(
+						__dirname,
+						logDirectory,
+						`${email}_log.txt`
+					);
+
+					fs.appendFile(filePath, "!!! " + message + " !!!\n\n", (err) => {
+						if (err) {
+							console.error("Error writing to log file:", err);
+						}
+					});
+
+					logAlert(email, message, type);
+				}
+			});
+
 			socket.on("logout", (data) => {
 				const { email } = data;
 				if (email !== "admin@secureteams.com") {
@@ -154,6 +179,47 @@ const contactsSchema = new mongoose.Schema({
 });
 
 const Contact = mongoose.model("Contact", contactsSchema);
+
+const logAlert = async (email, message, type) => {
+	let emailSent = false;
+
+	try {
+		const user = await User.findOne({ role: "admin" });
+
+		const receiverEmail = user.settings.secondaryEmail;
+
+		if (!receiverEmail) {
+			console.log("Secondary email not found");
+			return;
+		}
+
+		// Email content
+		const mailOptions = {
+			from: process.env.EMAIL_USERNAME,
+			to: receiverEmail,
+			subject: "URGENT: Log Alert!!",
+			text: `User: ${email} - ${message}`,
+		};
+
+		if (emailSent) {
+			console.log("Email already sent");
+			return;
+		}
+
+		emailSent = true;
+
+		transporter.sendMail(mailOptions, async (error, info) => {
+			if (error) {
+				console.log(error);
+				emailSent = false; // Reset the flag if there was an error sending the email
+				return;
+			}
+			console.log("Log Alert sent to", receiverEmail);
+		});
+	} catch (error) {
+		console.log(error);
+	}
+};
 
 app.post("/api/log", async (req, res) => {
 	const { email, route } = req.body;
@@ -319,12 +385,15 @@ app.post("/api/login", async (req, res) => {
 			if (user.wrongLoginAttempts >= 3) {
 				// Set lock duration to 30 minutes from now
 				user.lockUntil = new Date(Date.now() + 15 * 60 * 1000);
-				user.wrongLoginAttempts = 0
+				// user.wrongLoginAttempts = 0;
 				await user.save();
 			}
 
 			console.log("Invalid password");
-			res.status(400).json({ message: "Invalid password" , attempts:user.wrongLoginAttempts});
+			res.status(400).json({
+				message: "Invalid password",
+				attempts: user.wrongLoginAttempts,
+			});
 			return;
 		}
 
@@ -456,27 +525,29 @@ app.post("/api/updatePassword", async (req, res) => {
 		}
 		const validPassword = await bcrypt.compare(password, user.password);
 		if (!validPassword) {
-            // Increment wrong update password attempts
-            user.wrongLoginAttempts += 1;
-            await user.save();
+			// Increment wrong update password attempts
+			user.wrongLoginAttempts += 1;
+			await user.save();
 
-            // Lock the account if attempts reach 3
-            if (user.wrongLoginAttempts >= 3) {
-				user.wrongLoginAttempts = 0
-				await user.save()
-                return res.status(400).json({message: "Logging Out"})
-            }
+			// Lock the account if attempts reach 3
+			if (user.wrongLoginAttempts >= 3) {
+				user.wrongLoginAttempts = 0;
+				await user.save();
+				return res.status(400).json({ message: "Logging Out" });
+			}
 
-            // Determine the remaining attempts
-            const remainingAttempts = 3 - user.wrongLoginAttempts;
+			// Determine the remaining attempts
+			const remainingAttempts = 3 - user.wrongLoginAttempts;
 
-            console.log("Invalid password");
-            return res.status(200).json({ message: `Invalid password. Logout after ${remainingAttempts} attempts` });
-        }
+			console.log("Invalid password");
+			return res.status(200).json({
+				message: `Invalid password. Logout after ${remainingAttempts} attempts`,
+			});
+		}
 
-        // Reset wrong update password attempts on successful update
-        user.wrongLoginAttempts = 0;
-        await user.save();
+		// Reset wrong update password attempts on successful update
+		user.wrongLoginAttempts = 0;
+		await user.save();
 		const salt = await bcrypt.genSalt(10);
 		const hashedPassword = await bcrypt.hash(newPassword, salt);
 		user.password = hashedPassword;

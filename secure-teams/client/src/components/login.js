@@ -9,11 +9,6 @@ import io from "socket.io-client";
 import { useSocket } from "../socketProvider.js";
 
 const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
-const socketUrl = process.env.REACT_APP_SOCKET_URL;
-// console.log("API Base URL", apiBaseUrl);
-
-// const socket = io("http://localhost:3000", { transports: ["websocket"] });
-// const socket = io(socketUrl, { transports: ["websocket"] });
 
 const Login = () => {
 	const [email, setEmail] = useState("");
@@ -44,25 +39,18 @@ const Login = () => {
 		}
 
 		if (!/^.+@secureteams\.com$/.test(email)) {
-            setError("Email must be in the format _@secureteams.com");
-            return;
-        }
+			setError("Email must be in the format _@secureteams.com");
+			return;
+		}
 
 		try {
 			const response = await axios.post(apiBaseUrl + "/login", {
 				email: email,
 				password: password,
 			});
-			// const response = await axios.post("http://localhost:3000/api/login", {
-			// 	email: email,
-			// 	password: password,
-			// });
 			setEmail(email);
 
 			if (response.data.token) {
-				// const is2FAEnabledResponse = await axios.get(
-				// 	"https://secureteams.onrender.com/api/2faEnabled?email=" + email
-				// );
 				const is2FAEnabledResponse = await axios.get(
 					apiBaseUrl + "/2faEnabled?email=" + email
 				);
@@ -71,24 +59,28 @@ const Login = () => {
 				setToken(response.data.token);
 				setRole(response.data.role);
 				setLoginSuccess(true); // Set login success flag
-			} 
-			else
-			{
+			} else {
 				setError("Invalid Credentials");
 			}
 		} catch (error) {
-			if(error.response.data.message)
-			{
-				setError(error.response.data.message)
-				setPassword("")
-				if(error.response.data.attempts)
-				{
+			if (error.response.data.message) {
+				// setError(error.response.data.message);
+				setPassword("");
+				if (error.response.data.attempts) {
 					const attemptsLeft = 3 - error.response.data.attempts;
-    				setError(`Wrong Password. ${attemptsLeft} attempts left`);
+					setError(`Wrong Password. ${attemptsLeft} attempts left`);
+					if (attemptsLeft === 0) {
+						setError("Account locked. Try again later");
+						socket.emit("logAlert", {
+							email: email,
+							message: "locked out due to multiple incorrect password attempts",
+							type: "danger",
+						});
+					}
+				} else {
+					setError(error.response.data.message);
 				}
-			}
-			else
-			{
+			} else {
 				setError("Cannot reach server");
 			}
 		}
@@ -98,9 +90,6 @@ const Login = () => {
 		if (loginSuccess) {
 			if (is2FAEnabled) {
 				console.log("Email", email);
-				// axios.post("https://secureteams.onrender.com/api/2faSend", {
-				// 	email: email,
-				// });
 				axios.post(apiBaseUrl + "/2faSend", {
 					email: email,
 				});
@@ -110,7 +99,6 @@ const Login = () => {
 					email: email,
 				});
 			} else {
-				// alert("Login successful");
 				localStorage.setItem("token", token);
 				localStorage.setItem("role", role);
 				localStorage.setItem("email", email);
@@ -127,25 +115,12 @@ const Login = () => {
 	const handle2FAVerification = async (event) => {
 		event.preventDefault();
 
-		// if (twofaToken.some((token) => token === "")) {
-		// 	alert("All fields must be filled");
-		// 	return;
-		// }
-
 		try {
 			console.log("2FA Verification", email, twofaToken);
-			const response = await axios.post(
-				// "https://secureteams.onrender.com/api/2faVerify",
-				// {
-				// 	email: email,
-				// 	twofaToken: twofaToken.join(""),
-				// }
-				apiBaseUrl + "/2faVerify",
-				{
-					email: email,
-					twofaToken: twofaToken,
-				}
-			);
+			const response = await axios.post(apiBaseUrl + "/2faVerify", {
+				email: email,
+				twofaToken: twofaToken,
+			});
 
 			if (response.data.verified) {
 				socket.emit("login", { email: email, token: token });
@@ -162,12 +137,6 @@ const Login = () => {
 			console.error(error);
 		}
 	};
-
-	// const handleTwofaTokenChange = (e) => {
-	// 	const newToken = e.target.value;
-
-	// 	setTwofaToken(newToken);
-	// };
 
 	return (
 		<div className="login-bg">
@@ -222,7 +191,7 @@ const Login = () => {
 						{error && (
 							<p
 								className="error-message"
-								style={{ color: 'yellow', fontSize: '1em'}}
+								style={{ color: "yellow", fontSize: "1em" }}
 							>
 								ERROR!! {error}
 							</p>
@@ -253,7 +222,6 @@ const Login = () => {
 						>
 							{" "}
 							{/* Added inline style for margin top */}
-							
 							<Link to="/signup">Sign Up</Link>
 						</button>
 					</form>

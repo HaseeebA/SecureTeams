@@ -104,3 +104,25 @@ User visited route: /settings
 4/17/2024, 3:21:42 PM - GET /api/events?email=gilani@secureteams.com
 User visited route: /homepage
 4/17/2024, 3:21:42 PM - GET /api/events?email=gilani@secureteams.com
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdpbGFuaUBzZWN1cmV0ZWFtcy5jb20iLCJpYXQiOjE3MTMzNTU1MjksImV4cCI6MTcxMzM1OTEyOX0.Dmi4F7o2gwr0gM5SPtlB20WsXlHV4h2UkXkiDCz9ITE !!!
+17/04/2024, 5:05:31 pm - GET /api/events?email=gilani@secureteams.com
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+17/04/2024, 5:05:31 pm - GET /api/events?email=gilani@secureteams.com
+User visited route: /settings
+17/04/2024, 5:06:00 pm - POST /api/updatePassword
+17/04/2024, 5:06:06 pm - POST /api/updatePassword
+17/04/2024, 5:06:08 pm - POST /api/settings
+17/04/2024, 5:06:15 pm - POST /api/updatePassword
+!!! logged out due to multiple incorrect password attempts !!!
+
+!!! User logged out !!!
+
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /login
+!!! locked out due to multiple incorrect password attempts !!!
+
