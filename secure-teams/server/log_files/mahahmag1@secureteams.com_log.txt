@@ -82,3 +82,25 @@ User visited route: /homepage
 17/04/2024, 20:50:56 - GET /api/events?email=mahahmag1@secureteams.com
 User visited route: /profile
 17/04/2024, 21:09:07 - POST /api/update
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /login
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1haGFobWFnMUBzZWN1cmV0ZWFtcy5jb20iLCJpYXQiOjE3MTMzNzA1ODgsImV4cCI6MTcxMzM3NDE4OH0.ySFqq8Bq4-L83Gi1VJOHFPGvMT13CVWpVBrOH5OGLSQ !!!
+User visited route: /homepage
+User visited route: /homepage
+17/04/2024, 21:16:29 - GET /api/events?email=mahahmag1@secureteams.com
+User visited route: /homepage
+17/04/2024, 21:16:29 - GET /api/events?email=mahahmag1@secureteams.com
+17/04/2024, 21:29:59 - GET /api/contacts?email=mahahmag1%40secureteams.com
+User visited route: /messages
+17/04/2024, 21:29:59 - GET /api/contacts?email=mahahmag1%40secureteams.com
+User visited route: /tasks
+User visited route: /members
+User visited route: /members
+User visited route: /members
+User visited route: /members
+User visited route: /members
+User visited route: /members
+User visited route: /members

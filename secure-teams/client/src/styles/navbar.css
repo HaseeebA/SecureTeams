@@ -79,3 +79,18 @@
   font-weight: bold;
   color: white;
 }
+
+.role-text {
+  font-size: large;
+  text-align: right;
+  padding-top: 10px;
+  transform: translateX(20%) translateY(20%); /* Example transform, adjust as necessary */
+}
+
+.role-container {
+  float: right;
+  margin-right: 20px; 
+  color: white;
+
+
+}

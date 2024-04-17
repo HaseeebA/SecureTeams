@@ -91,17 +91,13 @@ const Navbar = ({ selectedTheme }) => {
 						}`}
 					/>
 				</NavLink>
-				<p style={{ fontSize: "large", textAlign: "center", paddingTop:"10px"}}>
-                {localStorage.getItem("role")}
-            </p>
+				<div className="role-container">
+					{localStorage.getItem("role")}
+				</div>
 			</div>
 			
 			
 			<div className="relative inline-flex items-center">
-			<p style={{ fontSize: "large", textAlign: "center", paddingRight:"10px"}}>
-                
-				{localStorage.getItem("role")}
-            </p>
 				<img
 					src={profilePhoto || profile}
 					alt="Profile"
