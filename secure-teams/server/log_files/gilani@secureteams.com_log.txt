@@ -51,3 +51,56 @@ User visited route: /homepage
 User visited route: /homepage
 4/17/2024, 3:34:35 AM - GET /api/events?email=gilani@secureteams.com
 User visited route: /profile
+User visited route: /profile
+User visited route: /profile
+User visited route: /profile
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdpbGFuaUBzZWN1cmV0ZWFtcy5jb20iLCJpYXQiOjE3MTMzNDg5ODUsImV4cCI6MTcxMzM1MjU4NX0.Fn392gDsnhvl219YoGCQvH3-SY_ybex8p-gmQjkNDEU !!!
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdpbGFuaUBzZWN1cmV0ZWFtcy5jb20iLCJpYXQiOjE3MTMzNDg5ODYsImV4cCI6MTcxMzM1MjU4Nn0.rlzULxe1kwIKvi_bWc24Yq5IM0F9Z9BmO3sW1144q2c !!!
+User visited route: /homepage
+4/17/2024, 3:16:27 PM - GET /api/events?email=gilani@secureteams.com
+User visited route: /homepage
+User visited route: /homepage
+4/17/2024, 3:16:27 PM - GET /api/events?email=gilani@secureteams.com
+User visited route: /team
+User visited route: /homepage
+User visited route: /homepage
+4/17/2024, 3:16:39 PM - GET /api/events?email=gilani@secureteams.com
+User visited route: /homepage
+4/17/2024, 3:16:40 PM - GET /api/events?email=gilani@secureteams.com
+User visited route: /team
+User visited route: /homepage
+4/17/2024, 3:16:43 PM - GET /api/events?email=gilani@secureteams.com
+User visited route: /homepage
+User visited route: /homepage
+4/17/2024, 3:16:44 PM - GET /api/events?email=gilani@secureteams.com
+User visited route: /team
+User visited route: /homepage
+4/17/2024, 3:17:28 PM - GET /api/events?email=gilani@secureteams.com
+User visited route: /homepage
+User visited route: /homepage
+4/17/2024, 3:17:28 PM - GET /api/events?email=gilani@secureteams.com
+User visited route: /members
+4/17/2024, 3:17:36 PM - GET /api/events?email=gilani@secureteams.com
+User visited route: /homepage
+4/17/2024, 3:17:37 PM - GET /api/events?email=gilani@secureteams.com
+!!! User logged out !!!
+
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /login
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdpbGFuaUBzZWN1cmV0ZWFtcy5jb20iLCJpYXQiOjE3MTMzNDkwODUsImV4cCI6MTcxMzM1MjY4NX0.cANP-g3xG5UfqYQvqfBpcZgOdsChTL16JjbxlZDgrKU !!!
+User visited route: /homepage
+4/17/2024, 3:18:06 PM - GET /api/events?email=gilani@secureteams.com
+User visited route: /homepage
+User visited route: /homepage
+4/17/2024, 3:18:07 PM - GET /api/events?email=gilani@secureteams.com
+User visited route: /profile
+User visited route: /settings
+4/17/2024, 3:19:21 PM - POST /api/settings
+4/17/2024, 3:21:42 PM - GET /api/events?email=gilani@secureteams.com
+User visited route: /homepage
+4/17/2024, 3:21:42 PM - GET /api/events?email=gilani@secureteams.com

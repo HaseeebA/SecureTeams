@@ -207,7 +207,7 @@ const Profile = () => {
 								className="error-message"
 								style={{ color: 'yellow', fontSize: '1em'}}
 							>
-								ERROR!! {error}
+								{error}
 							</p>
 						)}
 						<button
