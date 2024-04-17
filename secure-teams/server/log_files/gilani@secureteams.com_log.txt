@@ -149,3 +149,10 @@ User visited route: /login
 User visited route: /login
 User visited route: /login
 User visited route: /login
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdpbGFuaUBzZWN1cmV0ZWFtcy5jb20iLCJpYXQiOjE3MTMzNjAxODcsImV4cCI6MTcxMzM2Mzc4N30.cvXJjaqPZy8NUTxU-w7S9fd-zlYWzcru9fmJRGeRN3k !!!
+User visited route: /homepage
+User visited route: /homepage
+4/17/2024, 6:23:08 PM - GET /api/events?email=gilani@secureteams.com
+User visited route: /homepage
+4/17/2024, 6:23:08 PM - GET /api/events?email=gilani@secureteams.com

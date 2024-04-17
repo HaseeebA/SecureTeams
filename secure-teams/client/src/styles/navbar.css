@@ -8,6 +8,9 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
+  position: sticky; /* Added */
+  top: 0; /* Added */
+  z-index: 1000; /* Added */
 }
 
 .search-container {
@@ -24,28 +27,27 @@
 }
 
 .profile-button {
-  width: 40px;    
-  height: 40px;     
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 30;
-  position: relative; 
+  position: relative;
 }
 
-
 .profile-dropdown {
-  display: none; 
+  display: none;
   position: absolute;
-  top: 100%; 
+  top: 100%;
   right: 0;
   background-color: white;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
   overflow: hidden;
-  z-index: 20; 
+  z-index: 20;
 }
 
 .profile-dropdown.show {
@@ -73,7 +75,22 @@
   right: 0;
   transform: translateX(-80%);
   margin-right: 10px;
-  font-size: 1rem; 
-  font-weight: bold; 
-  color: white; 
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+}
+
+.role-text {
+  font-size: large;
+  text-align: right;
+  padding-top: 10px;
+  transform: translateX(20%) translateY(20%); /* Example transform, adjust as necessary */
+}
+
+.role-container {
+  float: right;
+  margin-right: 20px; 
+  color: white;
+
+
 }

@@ -52,6 +52,21 @@
 h2 {
     margin-top: 0; /* Reset the default margin */
 }
+.tasks-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tasks-table th, .tasks-table td {
+    border: 1px solid #dddddd;
+    padding: 8px;
+    z-index: 200;
+}
+
+.tasks-table th {
+    background-color: #f2f2f20a;
+    text-align: left;
+}
 
 /* Style the form elements */
 form {
