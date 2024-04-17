@@ -1,0 +1,84 @@
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /login
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1haGFobWFnMUBzZWN1cmV0ZWFtcy5jb20iLCJpYXQiOjE3MTMzNjI0NzQsImV4cCI6MTcxMzM2NjA3NH0.pCXB6st1Oh7XzZ1DmazSyIbRiZGboLi95imXzWSGAxA !!!
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+17/04/2024, 19:01:15 - GET /api/events?email=mahahmag1@secureteams.com
+17/04/2024, 19:01:15 - GET /api/events?email=mahahmag1@secureteams.com
+User visited route: /tasks
+User visited route: /calendar
+17/04/2024, 19:01:42 - GET /api/events?email=mahahmag1@secureteams.com
+17/04/2024, 19:01:42 - GET /api/events?email=mahahmag1@secureteams.com
+User visited route: /homepage
+17/04/2024, 19:01:45 - GET /api/events?email=mahahmag1@secureteams.com
+17/04/2024, 19:01:46 - GET /api/events?email=mahahmag1@secureteams.com
+User visited route: /settings
+User visited route: /profile
+User visited route: /profile
+User visited route: /profile
+User visited route: /profile
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1haGFobWFnMUBzZWN1cmV0ZWFtcy5jb20iLCJpYXQiOjE3MTMzNjU4NzgsImV4cCI6MTcxMzM2OTQ3OH0.fbMHtAtO3bVfS3OO2eAF2uyTFydI21aICFgruLBy-_s !!!
+User visited route: /homepage
+17/04/2024, 19:57:58 - GET /api/events?email=mahahmag1@secureteams.com
+User visited route: /homepage
+User visited route: /homepage
+17/04/2024, 19:57:58 - GET /api/events?email=mahahmag1@secureteams.com
+User visited route: /profile
+17/04/2024, 19:58:11 - GET /api/events?email=mahahmag1@secureteams.com
+User visited route: /homepage
+17/04/2024, 19:58:12 - GET /api/events?email=mahahmag1@secureteams.com
+User visited route: /homepage
+User visited route: /homepage
+17/04/2024, 19:58:14 - GET /api/events?email=mahahmag1@secureteams.com
+User visited route: /homepage
+17/04/2024, 19:58:14 - GET /api/events?email=mahahmag1@secureteams.com
+User visited route: /messages
+17/04/2024, 19:58:16 - GET /api/contacts?email=mahahmag1%40secureteams.com
+17/04/2024, 19:58:16 - GET /api/contacts?email=mahahmag1%40secureteams.com
+User visited route: /tasks
+User visited route: /members
+User visited route: /calendar
+17/04/2024, 19:58:19 - GET /api/events?email=mahahmag1@secureteams.com
+17/04/2024, 19:58:19 - GET /api/events?email=mahahmag1@secureteams.com
+User visited route: /calendar
+17/04/2024, 19:58:20 - GET /api/events?email=mahahmag1@secureteams.com
+User visited route: /calendar
+User visited route: /calendar
+17/04/2024, 19:58:20 - GET /api/events?email=mahahmag1@secureteams.com
+User visited route: /homepage
+17/04/2024, 19:58:21 - GET /api/events?email=mahahmag1@secureteams.com
+17/04/2024, 19:58:21 - GET /api/events?email=mahahmag1@secureteams.com
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /login
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1haGFobWFnMUBzZWN1cmV0ZWFtcy5jb20iLCJpYXQiOjE3MTMzNjU5MzAsImV4cCI6MTcxMzM2OTUzMH0.vN3LBqy6DgP_7IbbzFj0XYgqiA4k9L4J7zE9khagkKE !!!
+User visited route: /homepage
+User visited route: /homepage
+17/04/2024, 19:58:50 - GET /api/events?email=mahahmag1@secureteams.com
+User visited route: /homepage
+17/04/2024, 19:58:51 - GET /api/events?email=mahahmag1@secureteams.com
+User visited route: /profile
+User visited route: /profile
+User visited route: /profile
+User visited route: /profile
+User visited route: /profile
+User visited route: /profile
+User visited route: /profile
+User visited route: /homepage
+17/04/2024, 20:50:23 - GET /api/events?email=mahahmag1@secureteams.com
+17/04/2024, 20:50:23 - GET /api/events?email=mahahmag1@secureteams.com
+17/04/2024, 20:50:54 - GET /api/contacts?email=mahahmag1%40secureteams.com
+User visited route: /messages
+17/04/2024, 20:50:55 - GET /api/contacts?email=mahahmag1%40secureteams.com
+User visited route: /homepage
+17/04/2024, 20:50:55 - GET /api/events?email=mahahmag1@secureteams.com
+17/04/2024, 20:50:56 - GET /api/events?email=mahahmag1@secureteams.com
+User visited route: /profile
+17/04/2024, 21:09:07 - POST /api/update
