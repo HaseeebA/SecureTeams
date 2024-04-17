@@ -214,7 +214,7 @@ const Sidepanel = ({ show, onThemeChange }) => {
 				<div className="flex items-center mb-9 cursor-pointer">
 					<Link to="/members" className="members-link">
 						<img src={members} alt="Members Icon" />
-						<span>Members</span>
+						<span>Teams</span>
 					</Link>
 				</div>
 				<div className="flex items-center mb-9 cursor-pointer">
@@ -299,12 +299,6 @@ const Sidepanel = ({ show, onThemeChange }) => {
 							</div>
 						</div>
 					)}
-				</div>
-				<div className="team-section2">
-					<Link to="/team" className="team-link">
-						<img src={team} alt="Team" />
-						<span>Our Team</span>
-					</Link>
 				</div>
 			</div>
 		);

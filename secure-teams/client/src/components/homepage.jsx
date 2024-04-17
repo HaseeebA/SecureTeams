@@ -5,10 +5,8 @@ import Sidepanel from "./sidepanel";
 import CalendarHomeComponent from "./calendarHomeComponent";
 import Dashboard from "./admin/dashboard";
 import Team from "./team.jsx";
-import axios from 'axios';
-import '../styles/tasks.css';
-
-
+import axios from "axios";
+import "../styles/tasks.css";
 
 const Homepage = () => {
 	const defaultTheme = "#68d391";
@@ -16,7 +14,6 @@ const Homepage = () => {
 	const [assignedTasks, setAssignedTasks] = useState([]);
 	const email = localStorage.getItem("email");
 	const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
-
 
 	const [theme, setTheme] = useState(
 		localStorage.getItem("themeColor") || defaultTheme
@@ -42,8 +39,8 @@ const Homepage = () => {
 		try {
 			const response = await axios.get(apiBaseUrl + "/tasks", {
 				params: {
-					userId: email
-				}
+					userId: email,
+				},
 			});
 			setAssignedTasks(response.data);
 		} catch (error) {
@@ -111,8 +108,6 @@ const Homepage = () => {
 						</div>
 					</div> */}
 				</div>
-
-				<Team />
 			</>
 		);
 	}

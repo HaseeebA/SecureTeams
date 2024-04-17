@@ -380,3 +380,36 @@ User visited route: /calendar
 User visited route: /
 User visited route: /
 User visited route: /
+User visited route: /login
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imhhc2VlYmFzYWQxQHNlY3VyZXRlYW1zLmNvbSIsImlhdCI6MTcxMzM3OTg2NSwiZXhwIjoxNzEzMzgzNDY1fQ.B9xrimCK_Wucfb2VEwmqX9h06AURb8wVYUJ7A_eCMbo !!!
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /tasks
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /team
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+!!! User logged out !!!
+
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /login
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imhhc2VlYmFzYWQxQHNlY3VyZXRlYW1zLmNvbSIsImlhdCI6MTcxMzM4MDAyNywiZXhwIjoxNzEzMzgzNjI3fQ.Cd7OK1PNook0i5GF9AOKgm_aDqIpLXfrYMRKg6vUGNw !!!
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /members
+User visited route: /tasks
+User visited route: /members
+User visited route: /members
+User visited route: /members
+User visited route: /members
