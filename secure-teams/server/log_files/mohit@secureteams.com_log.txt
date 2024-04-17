@@ -1,0 +1,15 @@
+User visited route: /homepage
+User visited route: /homepage
+!!! User logged out !!!
+
+User visited route: /
+User visited route: /
+User visited route: /login
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vaGl0QHNlY3VyZXRlYW1zLmNvbSIsImlhdCI6MTcxMzM3OTQyMSwiZXhwIjoxNzEzMzgzMDIxfQ.uV7l57lVisHnRS0LnXckmLKkkyZjmLE6oBipAW2DFzE !!!
+User visited route: /homepage
+User visited route: /homepage
+!!! User logged out !!!
+
+User visited route: /
+User visited route: /
