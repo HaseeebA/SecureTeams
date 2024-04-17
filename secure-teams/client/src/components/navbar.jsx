@@ -80,7 +80,7 @@ const Navbar = ({ selectedTheme }) => {
 	}, [selectedTheme]);
 
 	return (
-		<div className="navbar" style={{ backgroundColor: selectedTheme }}>
+		<div className="navbar sticky" style={{ backgroundColor: selectedTheme }}>
 			<div className="flex items-center">
 				<NavLink to="/homepage" className="text-2xl font-bold text-white">
 					<img
