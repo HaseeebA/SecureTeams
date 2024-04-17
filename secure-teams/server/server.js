@@ -145,38 +145,39 @@ mongoose
 
 
 const taskSchema = new mongoose.Schema({
-    userId: { type: String, required: true }, // Changed to store email directly
-    title: { type: String, required: true },
-    description: { type: String, required: true }
+	userId: { type: String, required: true }, // Changed to store email directly
+	title: { type: String, required: true },
+	description: { type: String, required: true }
 });
 
 const Task = mongoose.model('Task', taskSchema);
 
 app.post('/api/tasks', async (req, res) => {
-    const { userId, title, description } = req.body;
-    console.log('Received request to create task with title:', title);
-    console.log('User ID:', userId); // Make sure this is the correct user ID
-    try {
-        const newTask = new Task({ userId, title, description });
-        console.log('Creating new task:', newTask);
-        await newTask.save();
-        console.log('Task created successfully:', newTask);
-        res.status(201).json({ message: 'Task created successfully', task: newTask });
-    } catch (error) {
-        console.log('Error creating task:', error);
-        res.status(500).json({ message: 'Error creating task' });
-    }
+	const { userId, title, description } = req.body;
+	console.log('Received request to create task with title:', title);
+	console.log('User ID:', userId); // Make sure this is the correct user ID
+	try {
+		const newTask = new Task({ userId, title, description });
+		console.log('Creating new task:', newTask);
+		await newTask.save();
+		console.log('Task created successfully:', newTask);
+		res.status(201).json({ message: 'Task created successfully', task: newTask });
+	} catch (error) {
+		console.log('Error creating task:', error);
+		res.status(500).json({ message: 'Error creating task' });
+	}
 });
 
 app.get('/api/tasks', async (req, res) => {
-    const userEmail = req.query.userId; // Assuming the query parameter is userId
-    try {
-        const tasks = await Task.find({ userId: userEmail });
-        res.status(200).json(tasks);
-    } catch (error) {
-        console.log(error);
-        res.status(500).json({ message: 'Error fetching tasks' });
-    }
+	const userEmail = req.query.userId; // Assuming the query parameter is userId
+	console.log(userEmail)
+	try {
+		const tasks = await Task.find({ userId: userEmail });
+		res.status(200).json(tasks);
+	} catch (error) {
+		console.log(error);
+		res.status(500).json({ message: 'Error fetching tasks' });
+	}
 });
 
 
@@ -385,13 +386,94 @@ app.post("/api/signup", async (req, res) => {
 	}
 });
 
+const teamSchema = new mongoose.Schema({
+	name: {
+		type: String,
+		required: true
+	},
+	members: [{
+		type: String,
+		required: true
+	}]
+});
+
+const Team = mongoose.model("Team", teamSchema);
+
 app.get("/api/members", async (req, res) => {
 	try {
-		const users = await User.find().select("name -_id");
-		const names = users.map((user) );
-		res.status(200).json(names);
+		const users = await User.find().select("email");
+		res.status(200).json(users);
 	} catch (error) {
+		console.log("ok")
 		return res.status(500).json({ message: "Error fetching members", error });
+	}
+});
+
+app.post("/api/createTeams", async (req, res) => {
+	const { teamName, memberEmails } = req.body;
+	try {
+		// Create a new team
+		const team = new Team({
+			name: teamName,
+			members: memberEmails
+		});
+
+		await team.save();
+
+		res.status(201).json({ message: "Team created successfully" });
+	} catch (error) {
+		console.log("kajshd")
+		return res.status(500).json({ message: "Error creating team", error });
+	}
+});
+
+app.get("/api/userDetails", async (req, res) => {
+	try {
+		// Fetch user details from the database
+		const userDetails = await User.find({}, { name: 1, email: 1 }); // Projection to select only name and email fields
+		res.status(200).json(userDetails);
+	} catch (error) {
+		console.log("Error fetching user details:", error);
+		res.status(500).json({ message: "Error fetching user details" });
+	}
+});
+
+app.get("/api/membersInTeam", async (req, res) => {
+	const { teamName } = req.query;
+	try {
+		const team = await Team.findOne({
+			name: teamName
+		});
+		if (!team) {
+			return res.status(404).json({ message: "Team not found" });
+		}
+		const members = await User.find({ email: { $in: team.members } });
+		res.status(200).json(members);
+	} catch (error) {
+		return res.status(500).json({ message: "Error fetching members in team", error });
+	}
+});
+
+app.get("/api/teamNames", async (req, res) => {
+	try {
+		// Fetch user details from the database
+		const teams = await Team.find({}, { name: 1 }); // Projection to select only name and email fields
+		res.status(200).json(teams);
+	} catch (error) {
+		console.log("Error fetching user details:", error);
+		res.status(500).json({ message: "Error fetching user details" });
+	}
+});
+
+app.get("/api/teams", async (req, res) => {
+	const { email } = req.query;
+	try {
+		console.log(email)
+		const teams = await Team.find({ members: { $in: [email] } });
+		console.log(teams)
+		res.status(200).json(teams);
+	} catch (error) {
+		return res.status(500).json({ message: "Error fetching teams", error });
 	}
 });
 

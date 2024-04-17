@@ -24,11 +24,7 @@ const TasksPage = () => {
 
     const fetchAssignedTasks = async () => {
         try {
-            const response = await axios.get(apiBaseUrl + "/tasks", {
-                params: {
-                    userId: email
-                }
-            });
+            const response = await axios.get(`/api/tasks?userId=${email}`);
             setAssignedTasks(response.data);
         } catch (error) {
             console.log("Error fetching assigned tasks:", error);
@@ -100,9 +96,7 @@ const TasksPage = () => {
                 description: inputDesc,
                 userId: selectedUser // Ensure selectedUser is the correct email of the user
             };
-            const response = await axios.post(apiBaseUrl + "/tasks", {
-                ...newTask
-            });
+            const response = await axios.post("/api/tasks", newTask);
             if (response.status === 201) {
                 const updatedTasks = [...tasks, response.data];
                 setTasks(updatedTasks);
@@ -114,6 +108,11 @@ const TasksPage = () => {
             console.log("Error adding task:", error);
             alert("Error adding task. Please try again.");
         }
+    };
+
+
+    const handleSelectUser = (userId) => {
+        setSelectedUser(userId);
     };
 
     const handleTeamSelection = async (e) => {
@@ -171,7 +170,7 @@ const TasksPage = () => {
             <Sidepanel show={true} onThemeChange={handleThemeChange} />
             <Navbar selectedTheme={theme} onThemeChange={handleThemeChange} />
             <div className="flex-grow flex justify-center items-center">
-                <div className="container ml-8" style={{ backgroundColor: theme, color: 'white', maxHeight: '80vh', marginTop: '30px', overflow: 'auto', borderRadius: '10px', paddingTop: '0' }}>
+                <div className="container mx-auto max-w-md ml-8" style={{ backgroundColor: theme, color: 'white', maxHeight: '80vh', marginTop: '30px', overflow: 'auto', borderRadius: '10px', paddingTop: '0' }}>
                     {role === 'manager' ? (
                         <>
                             <div>
@@ -185,7 +184,7 @@ const TasksPage = () => {
                             </div>
                             <div>
                                 <h2>Team Members:</h2>
-                                <select onChange={handleNameSelection} style={{ color: 'black' }}>
+                                <select onChange ={handleNameSelection} style={{ color: 'black' }}>
                                     <option value="">Select a member</option>
                                     {/* Use names variable to render team members */}
                                     {users.map((member, index) => (
@@ -195,27 +194,27 @@ const TasksPage = () => {
                             </div>
 
                             <form onSubmit={handleAddTask} className="mx-auto max-w-md">
-                                <div className="mb-4">
-                                    <label htmlFor="title" className="mr-2">Title:</label>
-                                    <input
-                                        type="text"
-                                        id="title"
-                                        value={inputTitle}
-                                        onChange={(e) => setInputTitle(e.target.value)}
-                                        className="p-2 rounded border outline-none inputText"
-                                    />
-                                </div>
-                                <div className="mb-4">
-                                    <label htmlFor="description" className="mr-2">Description:</label>
-                                    <input
-                                        type="text"
-                                        id="description"
-                                        value={inputDesc}
-                                        onChange={(e) => setInputDesc(e.target.value)}
-                                        className="p-2 rounded border outline-none inputText"
-                                    />
-                                </div>
-                                <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Add Task</button>
+                                    <div className="mb-4">
+                                        <label htmlFor="title" className="mr-2">Title:</label>
+                                        <input
+                                            type="text"
+                                            id="title"
+                                            value={inputTitle}
+                                            onChange={(e) => setInputTitle(e.target.value)}
+                                            className="p-2 rounded border outline-none inputText"
+                                        />
+                                    </div>
+                                    <div className="mb-4">
+                                        <label htmlFor="description" className="mr-2">Description:</label>
+                                        <input
+                                            type="text"
+                                            id="description"
+                                            value={inputDesc}
+                                            onChange={(e) => setInputDesc(e.target.value)}
+                                            className="p-2 rounded border outline-none inputText"
+                                        />
+                                    </div>
+                                    <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Add Task</button>
                             </form>
 
                         </>
@@ -223,27 +222,25 @@ const TasksPage = () => {
                         <div>
                             {role === 'employee' && (
                                 <div>
-                                    <h2 className="text-lg font-semibold text-center" style={{ marginTop: '0' }}>Tasks</h2>
-                                    <table className="tasks-table">
-                                        <thead>
-                                            <tr>
-                                                <th>Task</th>
-                                                <th>Description</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            {assignedTasks.map((task) => (
-                                                <tr key={task._id}>
-                                                    <td>{task.title}</td>
-                                                    <td>{task.description}</td>
-                                                </tr>
-                                            ))}
-                                        </tbody>
-                                    </table>
+                                    <h2 className="text-lg font-semibold text-center" style={{ marginTop: '0' }}>WELCOME TO TASKS PAGE!</h2>
+                                    <ul>
+                                        {assignedTasks.map((task) => (
+                                            <li key={task._id}>
+                                                <strong>{task.title}</strong>: {task.description}
+                                            </li>
+                                        ))}
+                                    </ul>
                                 </div>
-
                             )}
-
+                            <div className="assigned-tasks-panel">
+                                <ul>
+                                    {assignedTasks.map((task) => (
+                                        <li key={task.id}>
+                                            <strong>{task.title}</strong>: {task.description} (Assigned to: {task.assignedTo})
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
                         </div>
                     )}
                 </div>

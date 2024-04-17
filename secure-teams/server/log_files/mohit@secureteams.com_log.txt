@@ -4,3 +4,500 @@ User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1v
 4/13/2024, 1:01:57 AM - GET /api/2faEnabled?email=mohit@secureteams.com
 
 User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vaGl0QHNlY3VyZXRlYW1zLmNvbSIsImlhdCI6MTcxMjk1MjExNywiZXhwIjoxNzEyOTU1NzE3fQ.cCB4H4-Whpj3vT9SuELh0Zukb2YBL_xiyMWVNN74rYs
+!!! User logged out !!!
+
+User visited route: /
+User visited route: /
+User visited route: /login
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vaGl0QHNlY3VyZXRlYW1zLmNvbSIsImlhdCI6MTcxMzM1NzUxMywiZXhwIjoxNzEzMzYxMTEzfQ.HDTvyAQcOu2bKCz6vO0IhhkDyUX9HR90sr2x8Opom1E !!!
+User visited route: /homepage
+4/17/2024, 5:38:34 PM - GET /api/events?email=mohit@secureteams.com
+User visited route: /homepage
+User visited route: /messages
+4/17/2024, 5:38:43 PM - GET /api/contacts?email=mohit%40secureteams.com
+User visited route: /tasks
+User visited route: /members
+User visited route: /messages
+4/17/2024, 5:38:50 PM - GET /api/contacts?email=mohit%40secureteams.com
+User visited route: /members
+User visited route: /tasks
+User visited route: /calendar
+4/17/2024, 5:39:13 PM - GET /api/events?email=mohit@secureteams.com
+User visited route: /team
+User visited route: /homepage
+4/17/2024, 5:39:19 PM - GET /api/events?email=mohit@secureteams.com
+User visited route: /team
+User visited route: /messages
+4/17/2024, 5:39:22 PM - GET /api/contacts?email=mohit%40secureteams.com
+User visited route: /tasks
+User visited route: /members
+User visited route: /calendar
+4/17/2024, 5:39:25 PM - GET /api/events?email=mohit@secureteams.com
+User visited route: /team
+User visited route: /calendar
+4/17/2024, 5:39:31 PM - GET /api/events?email=mohit@secureteams.com
+User visited route: /messages
+4/17/2024, 5:39:35 PM - GET /api/contacts?email=mohit%40secureteams.com
+User visited route: /homepage
+4/17/2024, 5:39:41 PM - GET /api/events?email=mohit@secureteams.com
+User visited route: /calendar
+4/17/2024, 5:39:51 PM - GET /api/events?email=mohit@secureteams.com
+!!! User logged out !!!
+
+User visited route: /
+User visited route: /
+User visited route: /login
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vaGl0QHNlY3VyZXRlYW1zLmNvbSIsImlhdCI6MTcxMzM1NzY0MCwiZXhwIjoxNzEzMzYxMjQwfQ.63yyB_Drl1sP7ttsE4t5wi12tRwPOHcXcgL57bwLp0Y !!!
+User visited route: /homepage
+4/17/2024, 5:40:40 PM - GET /api/events?email=mohit@secureteams.com
+User visited route: /homepage
+!!! User logged out !!!
+
+User visited route: /
+User visited route: /
+User visited route: /login
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vaGl0QHNlY3VyZXRlYW1zLmNvbSIsImlhdCI6MTcxMzM1OTA2NCwiZXhwIjoxNzEzMzYyNjY0fQ.23U-Pu9bzANiixFaSD-t-0EVAu1HEG_0Ub7tgb7yQDA !!!
+User visited route: /homepage
+4/17/2024, 6:04:25 PM - GET /api/events?email=mohit@secureteams.com
+User visited route: /homepage
+User visited route: /team
+User visited route: /settings
+User visited route: /tasks
+User visited route: /members
+User visited route: /messages
+4/17/2024, 6:05:42 PM - GET /api/contacts?email=mohit%40secureteams.com
+User visited route: /homepage
+4/17/2024, 6:05:47 PM - GET /api/events?email=mohit@secureteams.com
+User visited route: /members
+!!! User logged out !!!
+
+User visited route: /
+User visited route: /
+User visited route: /login
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /login
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vaGl0QHNlY3VyZXRlYW1zLmNvbSIsImlhdCI6MTcxMzM1OTQzNywiZXhwIjoxNzEzMzYzMDM3fQ.W21AWDMbpECjnp2eBPXGQnW5Br8xpG6QWQduYgOXGS8 !!!
+User visited route: /homepage
+User visited route: /homepage
+4/17/2024, 6:10:38 PM - GET /api/events?email=mohit@secureteams.com
+User visited route: /homepage
+4/17/2024, 6:10:38 PM - GET /api/events?email=mohit@secureteams.com
+User visited route: /members
+User visited route: /tasks
+User visited route: /members
+User visited route: /tasks
+User visited route: /members
+User visited route: /tasks
+User visited route: /members
+User visited route: /members
+User visited route: /members
+User visited route: /members
+!!! User logged out !!!
+
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /signup
+User visited route: /login
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vaGl0QHNlY3VyZXRlYW1zLmNvbSIsImlhdCI6MTcxMzM1OTg3MiwiZXhwIjoxNzEzMzYzNDcyfQ.fQIpxroB4wCpG3tTUmMgs855M_v3ybMtesdt3ZjUfXk !!!
+User visited route: /homepage
+User visited route: /homepage
+4/17/2024, 6:17:52 PM - GET /api/events?email=mohit@secureteams.com
+User visited route: /homepage
+4/17/2024, 6:17:53 PM - GET /api/events?email=mohit@secureteams.com
+User visited route: /members
+!!! User logged out !!!
+
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /login
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vaGl0QHNlY3VyZXRlYW1zLmNvbSIsImlhdCI6MTcxMzM1OTkxMywiZXhwIjoxNzEzMzYzNTEzfQ.UEF59ItDUCukcWtsRRIlQg9O_RvMl_grxlnhQdPhtUk !!!
+User visited route: /homepage
+4/17/2024, 6:18:34 PM - GET /api/events?email=mohit@secureteams.com
+User visited route: /homepage
+User visited route: /homepage
+4/17/2024, 6:18:34 PM - GET /api/events?email=mohit@secureteams.com
+User visited route: /homepage
+4/17/2024, 6:20:07 PM - GET /api/events?email=mohit@secureteams.com
+User visited route: /homepage
+User visited route: /homepage
+4/17/2024, 6:20:07 PM - GET /api/events?email=mohit@secureteams.com
+User visited route: /members
+User visited route: /members
+User visited route: /members
+User visited route: /members
+User visited route: /members
+User visited route: /members
+User visited route: /members
+User visited route: /members
+User visited route: /members
+User visited route: /members
+User visited route: /tasks
+User visited route: /members
+User visited route: /tasks
+User visited route: /members
+User visited route: /members
+User visited route: /members
+User visited route: /members
+User visited route: /tasks
+User visited route: /members
+!!! User logged out !!!
+
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /login
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vaGl0QHNlY3VyZXRlYW1zLmNvbSIsImlhdCI6MTcxMzM2MDU4NSwiZXhwIjoxNzEzMzY0MTg1fQ.XZfydZcJ1u_R1xcmw8DybsVH2UBSCNiSz3vk0GUeOno !!!
+User visited route: /homepage
+User visited route: /homepage
+4/17/2024, 6:29:45 PM - GET /api/events?email=mohit@secureteams.com
+User visited route: /homepage
+4/17/2024, 6:29:45 PM - GET /api/events?email=mohit@secureteams.com
+User visited route: /members
+!!! User logged out !!!
+
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /login
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vaGl0QHNlY3VyZXRlYW1zLmNvbSIsImlhdCI6MTcxMzM2MDg4NSwiZXhwIjoxNzEzMzY0NDg1fQ.c-_SkQQtqFRLQbf2kyzcJ5rw9Xujggsz6UnFWHXcEA4 !!!
+User visited route: /homepage
+User visited route: /homepage
+4/17/2024, 6:34:45 PM - GET /api/events?email=mohit@secureteams.com
+User visited route: /homepage
+4/17/2024, 6:34:46 PM - GET /api/events?email=mohit@secureteams.com
+User visited route: /members
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /login
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vaGl0QHNlY3VyZXRlYW1zLmNvbSIsImlhdCI6MTcxMzM2MTQ3MSwiZXhwIjoxNzEzMzY1MDcxfQ.Akbl8Vyykh5jywqVW_9k1vVMe9V7zLbPavkvS9wfLy4 !!!
+User visited route: /homepage
+User visited route: /homepage
+4/17/2024, 6:44:31 PM - GET /api/events?email=mohit@secureteams.com
+User visited route: /homepage
+4/17/2024, 6:44:32 PM - GET /api/events?email=mohit@secureteams.com
+User visited route: /members
+User visited route: /members
+User visited route: /members
+User visited route: /members
+User visited route: /members
+User visited route: /members
+User visited route: /members
+User visited route: /homepage
+4/17/2024, 7:12:05 PM - GET /api/events?email=mohit@secureteams.com
+4/17/2024, 7:12:05 PM - GET /api/events?email=mohit@secureteams.com
+User visited route: /members
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /login
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vaGl0QHNlY3VyZXRlYW1zLmNvbSIsImlhdCI6MTcxMzM2MzkzNywiZXhwIjoxNzEzMzY3NTM3fQ.9muQOrY1kj0QKg7SnCjsxZXOtrtIIUU7foAXEnhv0iY !!!
+User visited route: /homepage
+User visited route: /homepage
+4/17/2024, 7:25:38 PM - GET /api/events?email=mohit@secureteams.com
+User visited route: /homepage
+4/17/2024, 7:25:38 PM - GET /api/events?email=mohit@secureteams.com
+User visited route: /members
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /login
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vaGl0QHNlY3VyZXRlYW1zLmNvbSIsImlhdCI6MTcxMzM2NDA4MCwiZXhwIjoxNzEzMzY3NjgwfQ.GuRcDpvZQpQ1gouiDpLexsBNk3cOOHyXx4uHM4nGJ88 !!!
+User visited route: /homepage
+User visited route: /homepage
+4/17/2024, 7:28:00 PM - GET /api/events?email=mohit@secureteams.com
+User visited route: /homepage
+4/17/2024, 7:28:00 PM - GET /api/events?email=mohit@secureteams.com
+User visited route: /members
+User visited route: /members
+User visited route: /members
+User visited route: /members
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /login
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vaGl0QHNlY3VyZXRlYW1zLmNvbSIsImlhdCI6MTcxMzM2NTEzOSwiZXhwIjoxNzEzMzY4NzM5fQ.5HOt3Ngv2Q7_jZID9NTFzN2rfy14CtbTrlEFR5D2Ff8 !!!
+User visited route: /homepage
+4/17/2024, 7:45:39 PM - GET /api/events?email=mohit@secureteams.com
+User visited route: /homepage
+User visited route: /homepage
+4/17/2024, 7:45:40 PM - GET /api/events?email=mohit@secureteams.com
+User visited route: /members
+User visited route: /members
+User visited route: /members
+User visited route: /members
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /login
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vaGl0QHNlY3VyZXRlYW1zLmNvbSIsImlhdCI6MTcxMzM2NTQ2MiwiZXhwIjoxNzEzMzY5MDYyfQ.-BVPLNloxsH9OY6el9esGtT_N0VHhyjlRRF0M7SCHwk !!!
+User visited route: /homepage
+4/17/2024, 7:51:03 PM - GET /api/events?email=mohit@secureteams.com
+User visited route: /homepage
+User visited route: /homepage
+4/17/2024, 7:51:03 PM - GET /api/events?email=mohit@secureteams.com
+User visited route: /members
+User visited route: /members
+User visited route: /members
+User visited route: /members
+User visited route: /members
+User visited route: /members
+User visited route: /members
+User visited route: /members
+User visited route: /members
+User visited route: /members
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /login
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vaGl0QHNlY3VyZXRlYW1zLmNvbSIsImlhdCI6MTcxMzM2NTk5MiwiZXhwIjoxNzEzMzY5NTkyfQ.ui9hbZILBN1ZeWq3ilqQQqwYSnK9fKo2wAuvp1ZKy_4 !!!
+User visited route: /homepage
+User visited route: /homepage
+4/17/2024, 7:59:53 PM - GET /api/events?email=mohit@secureteams.com
+User visited route: /homepage
+4/17/2024, 7:59:53 PM - GET /api/events?email=mohit@secureteams.com
+User visited route: /members
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /login
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vaGl0QHNlY3VyZXRlYW1zLmNvbSIsImlhdCI6MTcxMzM2NjUzOCwiZXhwIjoxNzEzMzcwMTM4fQ.9eUK3PUnewDjlHS38inQxWsyEjlYBAizdvcpwcDRFSk !!!
+User visited route: /homepage
+User visited route: /homepage
+4/17/2024, 8:08:58 PM - GET /api/events?email=mohit@secureteams.com
+User visited route: /homepage
+4/17/2024, 8:08:59 PM - GET /api/events?email=mohit@secureteams.com
+User visited route: /members
+User visited route: /members
+User visited route: /members
+User visited route: /members
+User visited route: /members
+User visited route: /members
+User visited route: /members
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /login
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vaGl0QHNlY3VyZXRlYW1zLmNvbSIsImlhdCI6MTcxMzM2NjU3NywiZXhwIjoxNzEzMzcwMTc3fQ.wtJ-V3mO5pCcpEnW0auycSpAQKLXx_FFko9G3i68Mqs !!!
+User visited route: /homepage
+User visited route: /homepage
+4/17/2024, 8:09:38 PM - GET /api/events?email=mohit@secureteams.com
+User visited route: /homepage
+4/17/2024, 8:09:38 PM - GET /api/events?email=mohit@secureteams.com
+User visited route: /members
+User visited route: /members
+User visited route: /members
+User visited route: /members
+User visited route: /members
+User visited route: /members
+User visited route: /members
+User visited route: /members
+User visited route: /members
+User visited route: /members
+!!! User logged out !!!
+
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /login
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vaGl0QHNlY3VyZXRlYW1zLmNvbSIsImlhdCI6MTcxMzM2ODc0MywiZXhwIjoxNzEzMzcyMzQzfQ.yNmNZ0tv8rAsDhrD8SfbHg5noDlTOL-uCuGeB5KMDTk !!!
+User visited route: /homepage
+User visited route: /homepage
+4/17/2024, 8:45:44 PM - GET /api/events?email=mohit@secureteams.com
+User visited route: /homepage
+4/17/2024, 8:45:45 PM - GET /api/events?email=mohit@secureteams.com
+User visited route: /members
+User visited route: /tasks
+User visited route: /login
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vaGl0QHNlY3VyZXRlYW1zLmNvbSIsImlhdCI6MTcxMzM2ODk4NSwiZXhwIjoxNzEzMzcyNTg1fQ.xwZQK5cQ1YohLA3O4S8pADZDNuo2Gfxyz21n3bVC-hE !!!
+User visited route: /homepage
+User visited route: /homepage
+4/17/2024, 8:49:45 PM - GET /api/events?email=mohit@secureteams.com
+User visited route: /homepage
+4/17/2024, 8:49:46 PM - GET /api/events?email=mohit@secureteams.com
+User visited route: /tasks
+!!! User logged out !!!
+
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /login
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vaGl0QHNlY3VyZXRlYW1zLmNvbSIsImlhdCI6MTcxMzM2OTAwMSwiZXhwIjoxNzEzMzcyNjAxfQ.6e1G3vCI7KrSXAXAIjDhE-Wueo-Kw0JAA75B5IKvekg !!!
+User visited route: /homepage
+User visited route: /homepage
+4/17/2024, 8:50:02 PM - GET /api/events?email=mohit@secureteams.com
+User visited route: /homepage
+4/17/2024, 8:50:02 PM - GET /api/events?email=mohit@secureteams.com
+User visited route: /tasks
+!!! User logged out !!!
+
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /login
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vaGl0QHNlY3VyZXRlYW1zLmNvbSIsImlhdCI6MTcxMzM2OTAyMiwiZXhwIjoxNzEzMzcyNjIyfQ.zdf4rVyMoPgNd4xjhtWnJ454Z9r1D39ozhsg4VtG7Ls !!!
+User visited route: /homepage
+4/17/2024, 8:50:23 PM - GET /api/events?email=mohit@secureteams.com
+User visited route: /homepage
+User visited route: /homepage
+4/17/2024, 8:50:23 PM - GET /api/events?email=mohit@secureteams.com
+User visited route: /members
+User visited route: /tasks
+!!! User logged out !!!
+
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /login
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vaGl0QHNlY3VyZXRlYW1zLmNvbSIsImlhdCI6MTcxMzM2OTE2NSwiZXhwIjoxNzEzMzcyNzY1fQ.qx8ikShwNgAHFi4zwKFFVoexlAKwiA4GX3jmHU5brtY !!!
+User visited route: /homepage
+User visited route: /homepage
+4/17/2024, 8:52:46 PM - GET /api/events?email=mohit@secureteams.com
+User visited route: /homepage
+4/17/2024, 8:52:46 PM - GET /api/events?email=mohit@secureteams.com
+User visited route: /members
+!!! User logged out !!!
+
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /login
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vaGl0QHNlY3VyZXRlYW1zLmNvbSIsImlhdCI6MTcxMzM3Mjk4NSwiZXhwIjoxNzEzMzc2NTg1fQ._AJ4wYTUjIo8TAccExNWgJGqkyhLWE68VsgPgSX62nY !!!
+User visited route: /homepage
+User visited route: /homepage
+4/17/2024, 9:56:25 PM - GET /api/events?email=mohit@secureteams.com
+User visited route: /homepage
+4/17/2024, 9:56:26 PM - GET /api/events?email=mohit@secureteams.com
+User visited route: /messages
+4/17/2024, 10:09:45 PM - GET /api/contacts?email=mohit%40secureteams.com
+4/17/2024, 10:09:45 PM - GET /api/contacts?email=mohit%40secureteams.com
+4/17/2024, 10:09:49 PM - POST /api/contacts
+User visited route: /members
+User visited route: /tasks
+User visited route: /members
+!!! User logged out !!!
+
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /login
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vaGl0QHNlY3VyZXRlYW1zLmNvbSIsImlhdCI6MTcxMzM3NDEwOSwiZXhwIjoxNzEzMzc3NzA5fQ.mFGNphC1WAdGoWIA9XM0yAkWo3LeLGUjb5L61GSZuIY !!!
+User visited route: /homepage
+4/17/2024, 10:15:10 PM - GET /api/events?email=mohit@secureteams.com
+User visited route: /homepage
+User visited route: /homepage
+4/17/2024, 10:15:10 PM - GET /api/events?email=mohit@secureteams.com
+User visited route: /members
+User visited route: /tasks
+User visited route: /tasks
+User visited route: /tasks
+User visited route: /tasks
+User visited route: /tasks
+User visited route: /tasks
+User visited route: /tasks
+User visited route: /tasks
+User visited route: /tasks
+User visited route: /tasks
+User visited route: /tasks
+User visited route: /tasks
+User visited route: /tasks
+User visited route: /tasks
+User visited route: /tasks
+User visited route: /tasks
+User visited route: /tasks
+User visited route: /tasks
+User visited route: /tasks
+User visited route: /tasks
+User visited route: /tasks
+User visited route: /tasks
+User visited route: /tasks
+User visited route: /tasks
+User visited route: /tasks
+User visited route: /tasks
+User visited route: /tasks
+User visited route: /tasks
+User visited route: /tasks
+User visited route: /tasks
+User visited route: /tasks
+User visited route: /tasks
+User visited route: /tasks
+User visited route: /tasks
+User visited route: /tasks
+User visited route: /tasks
+User visited route: /tasks
+!!! User logged out !!!
+
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /login
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vaGl0QHNlY3VyZXRlYW1zLmNvbSIsImlhdCI6MTcxMzM3Njg5MCwiZXhwIjoxNzEzMzgwNDkwfQ.jYrvWI0S82naa-6m20O_QsxeZ7Kvq-yVwwd78mx04qU !!!
+User visited route: /homepage
+4/17/2024, 11:01:31 PM - GET /api/events?email=mohit@secureteams.com
+User visited route: /homepage
+User visited route: /homepage
+4/17/2024, 11:01:32 PM - GET /api/events?email=mohit@secureteams.com
+User visited route: /members
+User visited route: /tasks
+User visited route: /members
+!!! User logged out !!!
+
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /login
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vaGl0QHNlY3VyZXRlYW1zLmNvbSIsImlhdCI6MTcxMzM3Njk1NywiZXhwIjoxNzEzMzgwNTU3fQ.1G5cE2ttf-AQiK7ySNGiu-NzsGTa4LypKxArO4ktWBo !!!
+User visited route: /homepage
+User visited route: /homepage
+4/17/2024, 11:02:37 PM - GET /api/events?email=mohit@secureteams.com
+User visited route: /homepage
+4/17/2024, 11:02:38 PM - GET /api/events?email=mohit@secureteams.com
+User visited route: /tasks
+!!! User logged out !!!
+
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /login
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vaGl0QHNlY3VyZXRlYW1zLmNvbSIsImlhdCI6MTcxMzM3NzE1MCwiZXhwIjoxNzEzMzgwNzUwfQ.3yHy7iwlFeup0ms1WK8EwNRjL_yxrhhJG7K7hZojd54 !!!
+User visited route: /homepage
+User visited route: /homepage
+4/17/2024, 11:05:51 PM - GET /api/events?email=mohit@secureteams.com
+User visited route: /homepage
+4/17/2024, 11:05:52 PM - GET /api/events?email=mohit@secureteams.com
+!!! User logged out !!!
+
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /login
