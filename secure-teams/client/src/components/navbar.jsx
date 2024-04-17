@@ -91,7 +91,11 @@ const Navbar = ({ selectedTheme }) => {
 						}`}
 					/>
 				</NavLink>
+				<p style={{ fontSize: "large", textAlign: "center", paddingTop:"10px"}}>
+                Role: {localStorage.getItem("role")}
+            </p>
 			</div>
+			
 			<div className="relative inline-block">
 				<img
 					src={profilePhoto || profile}
@@ -99,7 +103,6 @@ const Navbar = ({ selectedTheme }) => {
 					className="profile-button w-10 h-10 rounded-full cursor-pointer"
 					onClick={handleProfileClick}
 				/>
-
 				{isProfileOpen && (
 					<div className="profile-dropdown show">
 						<button className="block w-full px-4 py-2 text-left hover:bg-gray-200">
