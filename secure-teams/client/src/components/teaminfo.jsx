@@ -3,11 +3,11 @@ import { mk, maha, anas, gilani, haseeb } from "../images/index";
 import '../styles/teaminfo.css';
 
 const teamMembers = [
-  { img: mk, name: "Momin Kashif" },
-  { img: anas, name: "Anas Sohail" },
-  { img: gilani, name: "SM Gilani" },
-  { img: maha, name: "Maha Humayun" },
-  { img: haseeb, name: "Haseeb Asad" },
+    { img: mk, name: "Momin Kashif", contact: "923458253935" },
+    { img: anas, name: "Anas Sohail", contact: "923001234567" },
+    { img: gilani, name: "SM Gilani", contact: "923112345678" },
+    { img: maha, name: "Maha Humayun", contact: "923223456789" },
+    { img: haseeb, name: "Haseeb Asad", contact: "923334567890" },
 ];
 
 const TeamInfo = () => {
@@ -29,11 +29,17 @@ const TeamInfo = () => {
     return (
         <div className="team-carousel-container">
             <div className="team-info">
-                <h1>Meet Our Team</h1>
+                <h1 className="text-white">Meet Our Team</h1>
                 <div className="team-member-container">
                     <div className="team-member">
                         <img src={teamMembers[currentIndex].img} alt={teamMembers[currentIndex].name} />
                         <span>{teamMembers[currentIndex].name}</span>
+                        <a href={`https://wa.me/${teamMembers[currentIndex].contact}`}
+                           className="whatsapp-contact-link"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            Contact on WhatsApp
+                        </a>
                     </div>
                     <button className="carousel-button next" onClick={() => moveCarousel(1)}>&gt;</button>
                 </div>

@@ -81,3 +81,28 @@ h1 {
     color: #000000;
     margin: 20px 0;
 }
+
+.whatsapp-contact-link {
+    display: inline-block;
+    background-color: #25D366;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0.5em 1em; 
+    border-radius: 1em; 
+    font-size: 1em;
+    margin-top: 0.25em; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; 
+}
+
+.whatsapp-contact-link:hover {
+    background-color: #1ebe51; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+@media (max-width: 600px) {
+    .whatsapp-contact-link {
+        padding: 0.4em 0.8em; 
+        font-size: 0.875em; 
+    }
+}

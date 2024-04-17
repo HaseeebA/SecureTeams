@@ -299,11 +299,7 @@ const Sidepanel = ({ show, onThemeChange }) => {
 						</div>
 					)}
 				</div>
-				<div className="flex items-center mb-9 cursor-pointer">
-					<img src={add} alt="Project Icon" />
-					<span>My Projects</span>
-				</div>
-				<div className="team-section">
+				<div className="team-section2">
 					<Link to="/team" className="team-link">
 						<img src={team} alt="Team" />
 						<span>Our Team</span>

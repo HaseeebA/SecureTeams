@@ -124,7 +124,7 @@
     color: inherit;
   }
   
-.team-section {
+.team-section2 {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -137,7 +137,7 @@
   justify-content: center;
 }
 
-.team-section img {
+.team-section2 img {
   width: 24px;
   height: 24px;
   margin-right: 8px;
@@ -189,14 +189,14 @@
   background-color: white;
 }
 
-.no-hover .side-panel>div:not(.team-section):hover {
+.no-hover .side-panel>div:not(.team-section2):hover {
   color: rgb(0, 0, 0);
   border-radius: 8px;
   background-color: rgb(185, 185, 185);
   width: calc(100% - 20px);
 }
 
-.no-hover .side-panel .team-section .team-link:hover {
+.no-hover .side-panel .team-section2 .team-link:hover {
   background-color: transparent !important;
   color: white !important; 
 }

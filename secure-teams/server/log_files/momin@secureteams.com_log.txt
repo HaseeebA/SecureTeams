@@ -46,3 +46,472 @@ User visited route: /homepage
 User visited route: /homepage
 User visited route: /homepage
 4/17/2024, 12:53:53 PM - GET /api/events?email=momin@secureteams.com
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+4/17/2024, 4:15:40 PM - GET /api/events?email=momin@secureteams.com
+User visited route: /
+4/17/2024, 4:15:43 PM - GET /api/events?email=momin@secureteams.com
+4/17/2024, 4:15:46 PM - GET /api/events?email=momin@secureteams.com
+User visited route: /
+User visited route: /
+User visited route: /
+4/17/2024, 4:15:46 PM - GET /api/events?email=momin@secureteams.com
+User visited route: /
+4/17/2024, 4:15:50 PM - GET /api/events?email=momin@secureteams.com
+User visited route: /
+User visited route: /
+4/17/2024, 4:15:51 PM - GET /api/events?email=momin@secureteams.com
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+4/17/2024, 4:27:21 PM - GET /api/events?email=momin@secureteams.com
+User visited route: /
+User visited route: /
+User visited route: /
+4/17/2024, 4:27:21 PM - GET /api/events?email=momin@secureteams.com
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /signup
+User visited route: /
+User visited route: /login
+User visited route: /
+User visited route: /signup
+User visited route: /signup
+User visited route: /signup
+User visited route: /signup
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /signup
+User visited route: /login
+User visited route: /login
+User visited route: /login
+User visited route: /login
+User visited route: /login
+User visited route: /login
+User visited route: /login
+User visited route: /signup
+User visited route: /signup
+User visited route: /signup
+User visited route: /signup
+User visited route: /signup
+User visited route: /signup
+User visited route: /signup
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /login
+User visited route: /signup
+User visited route: /signup
+User visited route: /signup
+User visited route: /signup
+User visited route: /login
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vbWluQHNlY3VyZXRlYW1zLmNvbSIsImlhdCI6MTcxMzM3MDI0NiwiZXhwIjoxNzEzMzczODQ2fQ.BJ3YBJe-LKVignFrWAMVpODO3NTsKVnwdYAywgsakN8 !!!
+4/17/2024, 9:10:46 PM - GET /api/events?email=momin@secureteams.com
+User visited route: /homepage
+4/17/2024, 9:10:46 PM - GET /api/events?email=momin@secureteams.com
+User visited route: /homepage
+User visited route: /homepage
+!!! User logged out !!!
+
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /login
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vbWluQHNlY3VyZXRlYW1zLmNvbSIsImlhdCI6MTcxMzM3MjMzNywiZXhwIjoxNzEzMzc1OTM3fQ.de3yZUa2hkXP_I2Iar1JZ23eTA8dNAJeq5LTEiwsPKE !!!
+4/17/2024, 9:45:38 PM - GET /api/events?email=momin@secureteams.com
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+4/17/2024, 9:45:38 PM - GET /api/events?email=momin@secureteams.com
+User visited route: /profile
+4/17/2024, 9:45:57 PM - GET /api/events?email=momin@secureteams.com
+User visited route: /homepage
+4/17/2024, 9:45:57 PM - GET /api/events?email=momin@secureteams.com
+4/17/2024, 9:51:06 PM - GET /api/contacts?email=momin%40secureteams.com
+User visited route: /messages
+4/17/2024, 9:51:06 PM - GET /api/contacts?email=momin%40secureteams.com
+User visited route: /members
+User visited route: /members
+User visited route: /members
+User visited route: /members
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /login
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vbWluQHNlY3VyZXRlYW1zLmNvbSIsImlhdCI6MTcxMzM3Mjc0NCwiZXhwIjoxNzEzMzc2MzQ0fQ.3CT3bUsdk2vpUZi78Qe0ifmT-3raKZqe-ExXodcoQto !!!
+4/17/2024, 9:52:25 PM - GET /api/events?email=momin@secureteams.com
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+4/17/2024, 9:52:25 PM - GET /api/events?email=momin@secureteams.com
+!!! User logged out !!!
+
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /login
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vbWluQHNlY3VyZXRlYW1zLmNvbSIsImlhdCI6MTcxMzM3Mjk1NCwiZXhwIjoxNzEzMzc2NTU0fQ.RjdF4WIIG5kLdsP6-cGeD5TzIcntLDvrkwFgD5pZq1w !!!
+4/17/2024, 9:55:55 PM - GET /api/events?email=momin@secureteams.com
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+4/17/2024, 9:55:55 PM - GET /api/events?email=momin@secureteams.com
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /login
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /homepage
+User visited route: /homepage
+4/17/2024, 10:08:49 PM - GET /api/events?email=momin@secureteams.com
+User visited route: /homepage
+4/17/2024, 10:08:49 PM - GET /api/events?email=momin@secureteams.com
+4/17/2024, 10:08:52 PM - GET /api/contacts?email=momin%40secureteams.com
+User visited route: /messages
+4/17/2024, 10:08:52 PM - GET /api/contacts?email=momin%40secureteams.com
+User visited route: /tasks
+User visited route: /members
+4/17/2024, 10:09:12 PM - GET /api/events?email=momin@secureteams.com
+User visited route: /calendar
+4/17/2024, 10:09:13 PM - GET /api/events?email=momin@secureteams.com
+User visited route: /team
+User visited route: /calendar
+4/17/2024, 10:09:20 PM - GET /api/events?email=momin@secureteams.com
+4/17/2024, 10:09:21 PM - GET /api/events?email=momin@secureteams.com
+User visited route: /homepage
+4/17/2024, 10:09:21 PM - GET /api/events?email=momin@secureteams.com
+4/17/2024, 10:09:21 PM - GET /api/events?email=momin@secureteams.com
+4/17/2024, 10:09:29 PM - GET /api/contacts?email=momin%40secureteams.com
+User visited route: /messages
+4/17/2024, 10:09:29 PM - GET /api/contacts?email=momin%40secureteams.com
+4/17/2024, 10:09:39 PM - POST /api/contacts
+4/17/2024, 10:09:41 PM - GET /api/contacts?email=momin%40secureteams.com
+User visited route: /messages
+User visited route: /messages
+User visited route: /messages
+4/17/2024, 10:09:42 PM - GET /api/contacts?email=momin%40secureteams.com
+4/17/2024, 10:09:47 PM - POST /api/messages
+User visited route: /tasks
+4/17/2024, 10:10:21 PM - GET /api/events?email=momin@secureteams.com
+User visited route: /homepage
+4/17/2024, 10:10:21 PM - GET /api/events?email=momin@secureteams.com
+!!! User logged out !!!
+
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /login
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vbWluQHNlY3VyZXRlYW1zLmNvbSIsImlhdCI6MTcxMzM3Mzg5NywiZXhwIjoxNzEzMzc3NDk3fQ.QQv7l0tet-rGE690lHWB3fa2OuysaG7Ji3C62_K4JfM !!!
+4/17/2024, 10:11:38 PM - GET /api/events?email=momin@secureteams.com
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+4/17/2024, 10:11:38 PM - GET /api/events?email=momin@secureteams.com
+User visited route: /tasks
+4/17/2024, 10:12:25 PM - GET /api/events?email=momin@secureteams.com
+User visited route: /homepage
+4/17/2024, 10:12:25 PM - GET /api/events?email=momin@secureteams.com
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /login
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vbWluQHNlY3VyZXRlYW1zLmNvbSIsImlhdCI6MTcxMzM3NTAxNSwiZXhwIjoxNzEzMzc4NjE1fQ.YVDLAN7dZ9jYK-FIPkVRuWOf-JgCFWFzndtKdA-J-7Y !!!
+4/17/2024, 10:30:16 PM - GET /api/events?email=momin@secureteams.com
+User visited route: /homepage
+User visited route: /homepage
+4/17/2024, 10:30:17 PM - GET /api/events?email=momin@secureteams.com
+User visited route: /homepage
+4/17/2024, 10:30:25 PM - GET /api/contacts?email=momin%40secureteams.com
+User visited route: /messages
+4/17/2024, 10:30:25 PM - GET /api/contacts?email=momin%40secureteams.com
+User visited route: /tasks
+User visited route: /members
+4/17/2024, 10:30:29 PM - GET /api/events?email=momin@secureteams.com
+User visited route: /calendar
+4/17/2024, 10:30:29 PM - GET /api/events?email=momin@secureteams.com
+User visited route: /team
+4/17/2024, 10:30:48 PM - GET /api/events?email=momin@secureteams.com
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+4/17/2024, 10:30:48 PM - GET /api/events?email=momin@secureteams.com
+User visited route: /team
+4/17/2024, 10:30:53 PM - GET /api/events?email=momin@secureteams.com
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+4/17/2024, 10:30:53 PM - GET /api/events?email=momin@secureteams.com
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /login
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vbWluQHNlY3VyZXRlYW1zLmNvbSIsImlhdCI6MTcxMzM3NTg1NiwiZXhwIjoxNzEzMzc5NDU2fQ.enpZNeV06xtzKrLr4RT4hNuYwsyOrgMev7bpDrVvqfU !!!
+4/17/2024, 10:44:17 PM - GET /api/events?email=momin@secureteams.com
+User visited route: /homepage
+User visited route: /homepage
+4/17/2024, 10:44:17 PM - GET /api/events?email=momin@secureteams.com
+User visited route: /homepage
+User visited route: /messages
+4/17/2024, 10:44:19 PM - GET /api/contacts?email=momin%40secureteams.com
+4/17/2024, 10:44:19 PM - GET /api/contacts?email=momin%40secureteams.com
+User visited route: /tasks
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /login
+User visited route: /
+User visited route: /
+User visited route: /

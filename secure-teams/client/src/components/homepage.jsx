@@ -4,7 +4,6 @@ import InformationPanel from "./infopanel";
 import Sidepanel from "./sidepanel";
 import CalendarHomeComponent from "./calendarHomeComponent";
 import Dashboard from "./admin/dashboard";
-import Team from "./team.jsx";
 
 const Homepage = () => {
 	const defaultTheme = "#68d391";
@@ -40,7 +39,6 @@ const Homepage = () => {
 					<Dashboard />
 				</div>
 			</div>
-			<Team />
 			</>
 		);
 	} else {
@@ -59,7 +57,6 @@ const Homepage = () => {
 					<CalendarHomeComponent />
 				</div>
 			</div>
-			<Team />
 			</>
 		);
 	}
