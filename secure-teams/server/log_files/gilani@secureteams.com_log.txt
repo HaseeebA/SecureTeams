@@ -126,3 +126,26 @@ User visited route: /
 User visited route: /login
 !!! locked out due to multiple incorrect password attempts !!!
 
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /login
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdpbGFuaUBzZWN1cmV0ZWFtcy5jb20iLCJpYXQiOjE3MTMzNTY1NTMsImV4cCI6MTcxMzM2MDE1M30.c1eAdXFQbKGSdZfibfOP_IVtacE4nx1t8KlBV-vJ3bw !!!
+User visited route: /homepage
+User visited route: /homepage
+4/17/2024, 5:22:34 PM - GET /api/events?email=gilani@secureteams.com
+User visited route: /homepage
+4/17/2024, 5:22:34 PM - GET /api/events?email=gilani@secureteams.com
+!!! User logged out !!!
+
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /login
+User visited route: /login
+User visited route: /login
+User visited route: /login
+User visited route: /login
+User visited route: /login
+User visited route: /login

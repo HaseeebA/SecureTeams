@@ -369,7 +369,7 @@ app.post("/api/login", async (req, res) => {
 			res.status(400).json({ message: "User not found" });
 			return;
 		}
-		if (user.isLocked && user.lockUntil > Date.now()) {
+		if (user.lockUntil > Date.now()) {
 			console.log("Account locked");
 			res.status(400).json({ message: "Account locked. Try again later." });
 			return;
