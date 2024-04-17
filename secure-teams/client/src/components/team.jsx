@@ -1,11 +1,7 @@
 import React, { useState } from 'react';
-import Navbar from './navbar';
 import TeamInfo from './teaminfo';
-import Sidepanel from './sidepanel';
 
 const Team = () => {
-
-  const [showSidePanel, setShowSidePanel] = useState(true);
   const initialTheme = localStorage.getItem('themeColor');
   const [theme, setTheme] = useState(initialTheme);
 
@@ -17,8 +13,6 @@ const Team = () => {
 
   return (
     <div >
-      <Sidepanel show={showSidePanel} onThemeChange={handleThemeChange}/>
-      <Navbar selectedTheme={theme}/>
       <TeamInfo />
     </div>
   );

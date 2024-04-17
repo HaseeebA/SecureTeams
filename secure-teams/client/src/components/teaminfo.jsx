@@ -1,30 +1,42 @@
-import React from "react";
-import { mk , maha , anas , gilani , haseeb } from "../images/index";
+import React, { useState } from "react";
+import { mk, maha, anas, gilani, haseeb } from "../images/index";
 import '../styles/teaminfo.css';
 
+const teamMembers = [
+  { img: mk, name: "Momin Kashif" },
+  { img: anas, name: "Anas Sohail" },
+  { img: gilani, name: "SM Gilani" },
+  { img: maha, name: "Maha Humayun" },
+  { img: haseeb, name: "Haseeb Asad" },
+];
+
 const TeamInfo = () => {
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    const moveCarousel = (direction) => {
+        setCurrentIndex((prevIndex) => {
+            const newIndex = prevIndex + direction;
+            if (newIndex < 0) {
+                return teamMembers.length - 1;
+            } else if (newIndex >= teamMembers.length) {
+                return 0;
+            } else {
+                return newIndex;
+            }
+        });
+    };
+
     return (
-        <div className="team-info">
-            <h1>Meet Our Team</h1>
-            <div className="team-member">
-                <img src={mk} alt="Momin Kashif" />
-                <span className="text-black font-bold">Momin Kashif</span>
-            </div>
-            <div className="team-member">
-                <img src={anas} alt="Anas" />
-                <span className="text-black font-bold">Anas Sohail</span>
-            </div>
-            <div className="team-member">
-                <img src={gilani} alt="Gilani" />
-                <span className="text-black font-bold">SM Gilani</span>
-            </div>
-            <div className="team-member">
-                <img src={maha} alt="Maha" />
-                <span className="text-black font-bold">Maha Humayun</span>
-            </div>
-            <div className="team-member">
-                <img src={haseeb} alt="Haseeb" />
-                <span className="text-black font-bold">Haseeb Asad</span>
+        <div className="team-carousel-container">
+            <div className="team-info">
+                <h1>Meet Our Team</h1>
+                <div className="team-member-container">
+                    <div className="team-member">
+                        <img src={teamMembers[currentIndex].img} alt={teamMembers[currentIndex].name} />
+                        <span>{teamMembers[currentIndex].name}</span>
+                    </div>
+                    <button className="carousel-button next" onClick={() => moveCarousel(1)}>&gt;</button>
+                </div>
             </div>
         </div>
     );
