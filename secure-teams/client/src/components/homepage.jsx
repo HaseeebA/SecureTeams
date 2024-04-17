@@ -4,6 +4,7 @@ import InformationPanel from "./infopanel";
 import Sidepanel from "./sidepanel";
 import CalendarHomeComponent from "./calendarHomeComponent";
 import Dashboard from "./admin/dashboard";
+import Team from "./team.jsx";
 
 const Homepage = () => {
 	const defaultTheme = "#68d391";
@@ -30,6 +31,7 @@ const Homepage = () => {
 	//const role = localStorage.getItem("role");
 	if (role === "admin") {
 		return (
+			<>
 			<div>
 				<Sidepanel show={showSidePanel} onThemeChange={handleThemeChange} />
 				<Navbar selectedTheme={theme} role={role} />
@@ -38,9 +40,12 @@ const Homepage = () => {
 					<Dashboard />
 				</div>
 			</div>
+			<Team />
+			</>
 		);
 	} else {
 		return (
+			<>
 			<div>
 				<Sidepanel show={showSidePanel} onThemeChange={handleThemeChange} />
 				<Navbar selectedTheme={theme} role={role} />
@@ -54,6 +59,8 @@ const Homepage = () => {
 					<CalendarHomeComponent />
 				</div>
 			</div>
+			<Team />
+			</>
 		);
 	}
 };
