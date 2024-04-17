@@ -5,7 +5,7 @@ import {
 	Route,
 	useLocation,
 } from "react-router-dom";
-import Welcome from "./components/welcome.js";
+import Welcome from "./components/welcome.jsx";
 import Homepage from "./components/homepage.jsx";
 import Login from "./components/login.js";
 import Signup from "./components/signup.js";

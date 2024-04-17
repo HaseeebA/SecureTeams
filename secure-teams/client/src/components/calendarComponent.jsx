@@ -189,7 +189,10 @@ const CalendarComponent = () => {
 					value={newEventTitle}
 					onChange={(e) => setNewEventTitle(e.target.value)}
 				/>
-				<button onClick={handleAddEvent} style={{ backgroundColor: theme }}>
+				<button
+					onClick={handleAddEvent}
+					style={{ backgroundColor: localStorage.getItem("themeColor") }}
+				>
 					Add Event
 				</button>
 			</div>

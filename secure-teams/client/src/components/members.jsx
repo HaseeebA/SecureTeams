@@ -13,14 +13,14 @@ const Members = () => {
 	const [userNames, setUserNames] = useState([]);
 	const [sortAsc, setSortAsc] = useState(true);
 	const makeWhite = ["#0b1623", "#540D0D", "#013220"];
-	const [role, setRole] = useState(localStorage.getItem('role') || 'employee');
+	const [role, setRole] = useState(localStorage.getItem("role") || "employee");
 	const [isDarkTheme, setIsDarkTheme] = useState(
 		makeWhite.includes(initialTheme)
 	);
 	const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
 	const [teamMembers, setTeamMembers] = useState([]);
 	const [showModal, setShowModal] = useState(false);
-	const [teamName, setTeamName] = useState('');
+	const [teamName, setTeamName] = useState("");
 	const [selectedMembers, setSelectedMembers] = useState([]);
 	// console.log("API Base URL", apiBaseUrl);
 	const socket = useSocket();
@@ -47,8 +47,7 @@ const Members = () => {
 			try {
 				const response = await axios.get(apiBaseUrl + "/userDetails");
 				setUserNames(response.data);
-			}
-			catch (error) {
+			} catch (error) {
 				console.log("Error fetching user names:", error);
 			}
 		};
@@ -58,12 +57,12 @@ const Members = () => {
 				// Make an API call to fetch team members' data
 				const response = await axios.get(apiBaseUrl + "/teams", {
 					params: {
-						email: localStorage.getItem("email")
-					}
+						email: localStorage.getItem("email"),
+					},
 				});
 
 				// Update state with fetched team members' data
-				console.log("Team members:", response.data)
+				console.log("Team members:", response.data);
 				setTeamMembers(response.data);
 			} catch (error) {
 				console.log("Error fetching team members:", error);
@@ -88,16 +87,15 @@ const Members = () => {
 		const memberEmails = selectedMembers; // Replace with actual member emails
 
 		try {
-
-			const response = axios.post(apiBaseUrl + '/createTeams', {
+			const response = axios.post(apiBaseUrl + "/createTeams", {
 				teamName: teamName1,
-				memberEmails: memberEmails
+				memberEmails: memberEmails,
 			});
 
-			console.log(response)
+			console.log(response);
 			if (response.ok) {
 				console.log("Team created successfully");
-				setTeamName('');
+				setTeamName("");
 				setSelectedMembers([]);
 				// Optionally, you can redirect the user to another page or update the UI as needed
 			} else {
@@ -117,10 +115,9 @@ const Members = () => {
 	const handleSaveTeam = () => {
 		setShowModal(false);
 		handleCreateNewTeam();
-		setTeamName('');
+		setTeamName("");
 		setSelectedMembers([]);
 	};
-
 
 	const handleThemeChange = (newTheme) => {
 		setTheme(newTheme);
@@ -136,25 +133,42 @@ const Members = () => {
 			<Sidepanel show={showSidePanel} onThemeChange={handleThemeChange} />
 			<Navbar selectedTheme={theme} />
 			<div className="members-container">
-				{role === 'manager' ? (
+				{role === "manager" ? (
 					<>
 						<h1 className={`members-header ${isDarkTheme ? "text-white" : ""}`}>
 							Teams
 						</h1>
 						<div className="edit-create-options">
-							<button onClick={() => setShowModal(true)}>Create New Team</button>
+							<button onClick={() => setShowModal(true)}>
+								Create New Team
+							</button>
 						</div>
 						{/* Render modal or form when showModal is true */}
 						{showModal && (
 							<div className="">
 								<div className="">
-									<span className="close" onClick={() => setShowModal(false)}>×</span>
-									<input type="text" value={teamName} onChange={handleTeamNameChange} placeholder="Enter team name" style={{ color: 'black' }} />
+									<span className="close" onClick={() => setShowModal(false)}>
+										×
+									</span>
+									<input
+										type="text"
+										value={teamName}
+										onChange={handleTeamNameChange}
+										placeholder="Enter team name"
+										style={{ color: "black" }}
+									/>
 									<select
 										multiple
 										className="block appearance-none w-full bg-white border border-gray-400 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:border-gray-500"
 										value={selectedMembers}
-										onChange={(e) => setSelectedMembers(Array.from(e.target.selectedOptions, option => option.value))}
+										onChange={(e) =>
+											setSelectedMembers(
+												Array.from(
+													e.target.selectedOptions,
+													(option) => option.value
+												)
+											)
+										}
 									>
 										{/* Render options for selecting multiple users */}
 										{names.map((user, index) => (
@@ -173,14 +187,18 @@ const Members = () => {
 					<div>
 						{teamMembers.map((team) => (
 							<div key={team._id}>
-								<h2>Team Name: {team.name}</h2>
+								<h2 style={{ color: "white" }}>Team Name: {team.name}</h2>
 								<div className="team-members-grid">
 									{team.members.map((email, index) => {
 										const user = userNames.find((user) => user.email === email);
 										return (
 											<div key={index} className="team-member-item">
-												<div><strong>Name:</strong> {user ? user.name : "Unknown"}</div>
-												<div><strong>Email:</strong> {email}</div>
+												<div>
+													<strong>Name:</strong> {user ? user.name : "Unknown"}
+												</div>
+												<div>
+													<strong>Email:</strong> {email}
+												</div>
 											</div>
 										);
 									})}
@@ -188,7 +206,6 @@ const Members = () => {
 							</div>
 						))}
 					</div>
-
 				)}
 			</div>
 		</>
