@@ -362,3 +362,21 @@ User visited route: /
 User visited route: /
 User visited route: /
 User visited route: /login
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imhhc2VlYmFzYWQxQHNlY3VyZXRlYW1zLmNvbSIsImlhdCI6MTcxMzM3OTMyMywiZXhwIjoxNzEzMzgyOTIzfQ.06et2Ecd0cujWpnR8RlwctSZiW3Nr_zmARAFZ0VfXbo !!!
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /calendar
+17/04/2024, 11:42:06 pm - GET /events?email=haseebasad1@secureteams.com
+17/04/2024, 11:42:08 pm - GET /events?email=haseebasad1@secureteams.com
+17/04/2024, 11:43:24 pm - GET /events?email=haseebasad1@secureteams.com
+User visited route: /calendar
+User visited route: /calendar
+User visited route: /calendar
+17/04/2024, 11:43:25 pm - GET /events?email=haseebasad1@secureteams.com
+!!! User logged out !!!
+
+User visited route: /
+User visited route: /
+User visited route: /

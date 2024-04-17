@@ -76,7 +76,7 @@ const Navbar = ({ selectedTheme }) => {
 	}, [selectedTheme]);
 
 	return (
-		<div className="navbar sticky" style={{ backgroundColor: selectedTheme }}>
+		<div className="navbar" style={{ backgroundColor: selectedTheme }}>
 			<div className="flex items-center">
 				<NavLink to="/homepage" className="text-2xl font-bold text-white">
 					<img
@@ -87,12 +87,9 @@ const Navbar = ({ selectedTheme }) => {
 						}`}
 					/>
 				</NavLink>
-				<div className="role-container">
-					{localStorage.getItem("role")}
-				</div>
+				<div className="role-container">{localStorage.getItem("role")}</div>
 			</div>
-			
-			
+
 			<div className="relative inline-flex items-center">
 				<img
 					src={profilePhoto || profile}

@@ -8,9 +8,9 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  position: sticky; /* Added */
-  top: 0; /* Added */
-  z-index: 1000; /* Added */
+  /* position: sticky; Added */
+  /* top: 0; Added */
+  /* z-index: 1000; Added */
 }
 
 .search-container {

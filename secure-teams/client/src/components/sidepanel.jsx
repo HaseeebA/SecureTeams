@@ -83,8 +83,9 @@ const Sidepanel = ({ show, onThemeChange }) => {
 	if (role === "admin") {
 		return (
 			<div
-				className={`side-panel ${show ? "visible" : ""} ${isPanelOpen ? "expanded" : "collapsed"
-					} ${invertImages ? "inverted-images" : ""}`}
+				className={`side-panel ${show ? "visible" : ""} ${
+					isPanelOpen ? "expanded" : "collapsed"
+				} ${invertImages ? "inverted-images" : ""}`}
 			>
 				<button onClick={togglePanel} className="toggle-panel-button">
 					<img src={rightarrow} alt="Toggle" />
@@ -185,8 +186,9 @@ const Sidepanel = ({ show, onThemeChange }) => {
 	} else {
 		return (
 			<div
-				className={`side-panel ${show ? "visible" : ""} ${isPanelOpen ? "expanded" : "collapsed"
-					} ${invertImages ? "inverted-images" : ""}`}
+				className={`side-panel ${show ? "visible" : ""} ${
+					isPanelOpen ? "expanded" : "collapsed"
+				} ${invertImages ? "inverted-images" : ""}`}
 			>
 				<button onClick={togglePanel} className="toggle-panel-button">
 					<img src={rightarrow} alt="Toggle" />
@@ -204,15 +206,15 @@ const Sidepanel = ({ show, onThemeChange }) => {
 					</Link>
 				</div>
 				<div className="flex items-center mb-9 cursor-pointer">
-				<img src={tasks} alt="Tasks Icon" />
-				<Link to="/tasks" className="tasks-link">
-					<span>Tasks</span>
-				</Link>
+					<img src={tasks} alt="Tasks Icon" />
+					<Link to="/tasks" className="tasks-link">
+						<span>Tasks</span>
+					</Link>
 				</div>
 				<div className="flex items-center mb-9 cursor-pointer">
 					<Link to="/members" className="members-link">
 						<img src={members} alt="Members Icon" />
-						<span>Teams</span>
+						<span>Members</span>
 					</Link>
 				</div>
 				<div className="flex items-center mb-9 cursor-pointer">
@@ -220,7 +222,6 @@ const Sidepanel = ({ show, onThemeChange }) => {
 						<img src={calendar} alt="Calendar Icon" />
 						<span>Calendar</span>
 					</Link>
-
 				</div>
 				<div
 					className="flex items-center mb-9 cursor-pointer relative"
@@ -299,11 +300,7 @@ const Sidepanel = ({ show, onThemeChange }) => {
 						</div>
 					)}
 				</div>
-				<div className="flex items-center mb-9 cursor-pointer">
-					<img src={add} alt="Project Icon" />
-					<span>My Projects</span>
-				</div>
-				<div className="team-section">
+				<div className="team-section2">
 					<Link to="/team" className="team-link">
 						<img src={team} alt="Team" />
 						<span>Our Team</span>
