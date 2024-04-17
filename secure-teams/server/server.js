@@ -104,6 +104,43 @@ mongoose
 
 // const socket = io("http://localhost:3000", { transports: ["websocket"] });
 
+
+const taskSchema = new mongoose.Schema({
+    userId: { type: String, required: true }, // Changed to store email directly
+    title: { type: String, required: true },
+    description: { type: String, required: true }
+});
+
+const Task = mongoose.model('Task', taskSchema);
+
+app.post('/api/tasks', async (req, res) => {
+    const { userId, title, description } = req.body;
+    console.log('Received request to create task with title:', title);
+    console.log('User ID:', userId); // Make sure this is the correct user ID
+    try {
+        const newTask = new Task({ userId, title, description });
+        console.log('Creating new task:', newTask);
+        await newTask.save();
+        console.log('Task created successfully:', newTask);
+        res.status(201).json({ message: 'Task created successfully', task: newTask });
+    } catch (error) {
+        console.log('Error creating task:', error);
+        res.status(500).json({ message: 'Error creating task' });
+    }
+});
+
+app.get('/api/tasks', async (req, res) => {
+    const userEmail = req.query.userId; // Assuming the query parameter is userId
+    try {
+        const tasks = await Task.find({ userId: userEmail });
+        res.status(200).json(tasks);
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ message: 'Error fetching tasks' });
+    }
+});
+
+
 const userSchema = new mongoose.Schema({
 	name: { type: String, required: true },
 	password: { type: String, required: true },
@@ -269,7 +306,7 @@ app.post("/api/signup", async (req, res) => {
 app.get("/api/members", async (req, res) => {
 	try {
 		const users = await User.find().select("name -_id");
-		const names = users.map((user) => user.name);
+		const names = users.map((user) );
 		res.status(200).json(names);
 	} catch (error) {
 		return res.status(500).json({ message: "Error fetching members", error });
@@ -729,16 +766,15 @@ app.delete("/api/delete-event/:email/:eventId", async (req, res) => {
 	}
 });
 
+
+
 const __dirname = path.resolve(
 	path.dirname(new URL(import.meta.url).pathname),
 	".."
 );
 
-// Serve static files from the React app's build directory
 app.use(express.static(path.join(__dirname, "client", "build")));
 
-// mountRoutes(app);
-// Serve the React app for any other routes
 app.get("*", (req, res) => {
 	res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 });
