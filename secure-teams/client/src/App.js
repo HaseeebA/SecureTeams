@@ -23,6 +23,7 @@ import CalendarPage from "./components/calendarPage.jsx";
 import Tasks from "./components/tasks.jsx";
 import NotFound from "./components/notfound.jsx";
 import Dashboard from "./components/admin/dashboard.jsx";
+import ComplianceDocument from "./components/compliance.jsx";
 import axios from "axios";
 import { SocketProvider } from "./socketProvider.js";
 
@@ -33,7 +34,7 @@ function LogUserEmail() {
 	useEffect(() => {
 		const userEmail = localStorage.getItem("email");
 		if (userEmail) {
-			axios.post(process.env.REACT_APP_API_BASE_URL + "/log", {
+			axios.post(process.env.REACT_APP_API_BASE_URL + "/auth/log", {
 				email: userEmail,
 				route: location.pathname,
 			});
@@ -87,6 +88,7 @@ function App() {
 						path="/admin/dashboard"
 						element={<AdminProtectedRoute component={Dashboard} />}
 					/>
+					<Route path="/compliance" element={<ComplianceDocument />} />
 					<Route path="*" element={<NotFound />} />
 				</Routes>
 			</SocketProvider>

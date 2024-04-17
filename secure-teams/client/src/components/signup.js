@@ -50,7 +50,7 @@ const Signup = (props) => {
         }
 
         try {
-            const response = await axios.post(apiBaseUrl + "/signup", {
+            const response = await axios.post(apiBaseUrl + "/auth/signup", {
                 name: name,
                 email: email,
                 password: password,

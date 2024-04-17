@@ -152,3 +152,194 @@ User visited route: /
 User visited route: /
 User visited route: /
 User visited route: /login
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imhhc2VlYmFzYWQxQHNlY3VyZXRlYW1zLmNvbSIsImlhdCI6MTcxMzM2NjI4MiwiZXhwIjoxNzEzMzY5ODgyfQ.NwdOJR6o_AGeBSE8A8J-48L5vdE53EI5-z44NKDlsf4 !!!
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imhhc2VlYmFzYWQxQHNlY3VyZXRlYW1zLmNvbSIsImlhdCI6MTcxMzM2Nzc3NSwiZXhwIjoxNzEzMzcxMzc1fQ.DGA8MrqcKeBy43AOduooH1aou7o9Fi-dyAeX0tDAmzg !!!
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /messages
+17/04/2024, 8:29:37 pm - GET /contacts?email=haseebasad1%40secureteams.com
+17/04/2024, 8:29:37 pm - GET /contacts?email=haseebasad1%40secureteams.com
+User visited route: /profile
+17/04/2024, 8:30:31 pm - POST /api/update
+User visited route: /profile
+User visited route: /profile
+User visited route: /profile
+User visited route: /calendar
+17/04/2024, 8:30:45 pm - GET /events?email=haseebasad1@secureteams.com
+17/04/2024, 8:30:46 pm - GET /events?email=haseebasad1@secureteams.com
+17/04/2024, 8:31:50 pm - GET /events?email=haseebasad1@secureteams.com
+17/04/2024, 8:31:50 pm - GET /events?email=haseebasad1@secureteams.com
+17/04/2024, 8:31:52 pm - GET /events?email=haseebasad1@secureteams.com
+17/04/2024, 8:32:19 pm - GET /events?email=haseebasad1@secureteams.com
+17/04/2024, 8:33:32 pm - GET /events?email=haseebasad1@secureteams.com
+17/04/2024, 8:34:31 pm - GET /events?email=haseebasad1@secureteams.com
+17/04/2024, 8:34:32 pm - GET /events?email=haseebasad1@secureteams.com
+17/04/2024, 8:34:34 pm - GET /events?email=haseebasad1@secureteams.com
+17/04/2024, 8:34:36 pm - GET /events?email=haseebasad1@secureteams.com
+User visited route: /calendar
+User visited route: /calendar
+User visited route: /calendar
+17/04/2024, 8:34:36 pm - GET /events?email=haseebasad1@secureteams.com
+17/04/2024, 8:35:08 pm - GET /events?email=haseebasad1@secureteams.com
+17/04/2024, 8:36:18 pm - GET /events?email=haseebasad1@secureteams.com
+17/04/2024, 8:36:20 pm - GET /events?email=haseebasad1@secureteams.com
+17/04/2024, 8:36:21 pm - GET /events?email=haseebasad1@secureteams.com
+17/04/2024, 8:38:08 pm - GET /events?email=haseebasad1@secureteams.com
+User visited route: /calendar
+User visited route: /calendar
+User visited route: /calendar
+17/04/2024, 8:38:08 pm - GET /events?email=haseebasad1@secureteams.com
+17/04/2024, 8:38:30 pm - GET /events?email=haseebasad1@secureteams.com
+17/04/2024, 8:38:44 pm - GET /events?email=haseebasad1@secureteams.com
+17/04/2024, 8:39:00 pm - GET /events?email=haseebasad1@secureteams.com
+17/04/2024, 8:39:09 pm - GET /events?email=haseebasad1@secureteams.com
+17/04/2024, 8:43:10 pm - GET /events?email=haseebasad1@secureteams.com
+User visited route: /calendar
+User visited route: /calendar
+User visited route: /calendar
+17/04/2024, 8:43:10 pm - GET /events?email=haseebasad1@secureteams.com
+17/04/2024, 8:43:31 pm - GET /events?email=haseebasad1@secureteams.com
+User visited route: /calendar
+User visited route: /calendar
+User visited route: /calendar
+17/04/2024, 8:43:31 pm - GET /events?email=haseebasad1@secureteams.com
+17/04/2024, 8:43:39 pm - GET /events?email=haseebasad1@secureteams.com
+User visited route: /calendar
+User visited route: /calendar
+User visited route: /calendar
+17/04/2024, 8:43:39 pm - GET /events?email=haseebasad1@secureteams.com
+17/04/2024, 8:44:09 pm - GET /events?email=haseebasad1@secureteams.com
+User visited route: /calendar
+User visited route: /calendar
+User visited route: /calendar
+17/04/2024, 8:44:09 pm - GET /events?email=haseebasad1@secureteams.com
+17/04/2024, 8:45:20 pm - GET /events?email=haseebasad1@secureteams.com
+User visited route: /calendar
+User visited route: /calendar
+User visited route: /calendar
+17/04/2024, 8:45:20 pm - GET /events?email=haseebasad1@secureteams.com
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+!!! User logged out !!!
+
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /login
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imhhc2VlYmFzYWQxQHNlY3VyZXRlYW1zLmNvbSIsImlhdCI6MTcxMzM3MTcyNCwiZXhwIjoxNzEzMzc1MzI0fQ.zXgNPipxY42HfHeysC7sQDQHjlErnTCDXx8S6OIX36U !!!
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /tasks
+User visited route: /profile
+!!! User logged out !!!
+
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance
+User visited route: /compliance

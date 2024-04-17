@@ -11,7 +11,16 @@ const CalendarComponent = () => {
 	const [showPopup, setShowPopup] = useState(false);
 	const [newEventTitle, setNewEventTitle] = useState("");
 	const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
-	console.log("API Base URL", apiBaseUrl);
+	const initialTheme = localStorage.getItem("themeColor") || "#68d391";
+	const [theme, setTheme] = useState(initialTheme);
+
+	const handleThemeChange = (newTheme) => {
+		setTheme(newTheme);
+		document.documentElement.style.setProperty(
+			"--navbar-theme-color",
+			newTheme
+		);
+	};
 
 	const socket = useSocket();
 
@@ -19,13 +28,12 @@ const CalendarComponent = () => {
 		const fetchEvents = async () => {
 			try {
 				const email = localStorage.getItem("email");
-				// const response = await fetch(
-				//   `https://secureteams.onrender.com/api/events?email=${email}`
-				// );
-				const response = await fetch(apiBaseUrl + "/events?email=" + email);
+				const response = await fetch(
+					apiBaseUrl + "/event/events?email=" + email
+				);
 				socket.emit("logActivity", {
 					method: "GET",
-					path: "/events?email=" + email,
+					path: "/event/events?email=" + email,
 					email: email,
 				});
 				if (response.ok) {
@@ -60,18 +68,14 @@ const CalendarComponent = () => {
 		try {
 			const email = localStorage.getItem("email");
 			const response = await fetch(
-				// `https://secureteams.onrender.com/api/delete-event/${email}/${eventId}`,
-				// {
-				//   method: "DELETE",
-				// }
-				apiBaseUrl + "/delete-event/" + email + "/" + eventId,
+				apiBaseUrl + "/event/delete-event/" + email + "/" + eventId,
 				{
 					method: "DELETE",
 				}
 			);
 			socket.emit("logActivity", {
 				method: "DELETE",
-				path: `/delete-event/${email}/${eventId}`,
+				path: `/event/delete-event/${email}/${eventId}`,
 				email: email,
 			});
 
@@ -104,7 +108,7 @@ const CalendarComponent = () => {
 			try {
 				const email = localStorage.getItem("email");
 				// const response = await fetch("https://secureteams.onrender.com/api/add-event", {
-				const response = await fetch(apiBaseUrl + "/add-event", {
+				const response = await fetch(apiBaseUrl + "/event/add-event", {
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json",
@@ -118,7 +122,7 @@ const CalendarComponent = () => {
 
 				socket.emit("logActivity", {
 					method: "POST",
-					path: "/add-event",
+					path: "/event/add-event",
 					email: email,
 				});
 
@@ -165,7 +169,10 @@ const CalendarComponent = () => {
 					}
 				})}
 				{exceededEventsCount > 0 && (
-					<div className="exceeded-events-message" style={{ backgroundColor: `white` }}>
+					<div
+						className="exceeded-events-message"
+						style={{ backgroundColor: `white` }}
+					>
 						{`+ ${exceededEventsCount} more`}
 					</div>
 				)}
@@ -182,7 +189,9 @@ const CalendarComponent = () => {
 					value={newEventTitle}
 					onChange={(e) => setNewEventTitle(e.target.value)}
 				/>
-				<button onClick={handleAddEvent}>Add Event</button>
+				<button onClick={handleAddEvent} style={{ backgroundColor: theme }}>
+					Add Event
+				</button>
 			</div>
 			<Calendar
 				onChange={handleDateChange}

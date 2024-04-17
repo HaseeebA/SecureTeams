@@ -46,7 +46,7 @@ const ContactDetailsComponent = ({ receiver, sender }) => {
 			// Make API request to fetch messages from sender to receiver
 			const response1 = await axios.get(
 				// "https://secureteams.onrender.com/api/messages",
-				apiBaseUrl + "/messages",
+				apiBaseUrl + "/message/messages",
 				{
 					params: { sender: sender, receiver: receiver },
 				}
@@ -58,7 +58,7 @@ const ContactDetailsComponent = ({ receiver, sender }) => {
 				// {
 				// 	params: { sender: receiver, receiver: sender },
 				// }
-				apiBaseUrl + "/messages",
+				apiBaseUrl + "/message/messages",
 				{
 					params: { sender: receiver, receiver: sender },
 				}

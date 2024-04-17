@@ -44,7 +44,7 @@ const Login = () => {
 		}
 
 		try {
-			const response = await axios.post(apiBaseUrl + "/login", {
+			const response = await axios.post(apiBaseUrl + "/auth/login", {
 				email: email,
 				password: password,
 			});
@@ -52,7 +52,7 @@ const Login = () => {
 
 			if (response.data.token) {
 				const is2FAEnabledResponse = await axios.get(
-					apiBaseUrl + "/2faEnabled?email=" + email
+					apiBaseUrl + "/auth/2faEnabled?email=" + email
 				);
 
 				setIs2FAEnabled(is2FAEnabledResponse.data.enabled);
@@ -90,12 +90,12 @@ const Login = () => {
 		if (loginSuccess) {
 			if (is2FAEnabled) {
 				console.log("Email", email);
-				axios.post(apiBaseUrl + "/2faSend", {
+				axios.post(apiBaseUrl + "/auth/2faSend", {
 					email: email,
 				});
 				socket.emit("logActivity", {
 					method: "POST",
-					url: "/2faSend",
+					url: "/auth/2faSend",
 					email: email,
 				});
 			} else {
@@ -117,7 +117,7 @@ const Login = () => {
 
 		try {
 			console.log("2FA Verification", email, twofaToken);
-			const response = await axios.post(apiBaseUrl + "/2faVerify", {
+			const response = await axios.post(apiBaseUrl + "/auth/2faVerify", {
 				email: email,
 				twofaToken: twofaToken,
 			});

@@ -1,59 +1,91 @@
 /* CalendarComponent.css */
 
 /* Style for the calendar container */
+:root {
+    --side-panel-background-color: #68d391;
+}
+
 .homepage-container {
-    max-width: 40%; /* Increase the maximum width of the calendar */
-    margin: 0 auto; 
+    max-width: 40%;
+    /* Increase the maximum width of the calendar */
+    margin: 0 auto;
     width: 100%;
 }
+
 .calendar-container {
-    max-width: 60%; /* Increase the maximum width of the calendar */
-    margin: 0 auto; /* Center the calendar horizontally */
+    max-width: 60%;
+    /* Increase the maximum width of the calendar */
+    margin: 0 auto;
+    /* Center the calendar horizontally */
     width: 100%;
 }
 
 .event-box {
-    min-height: 100px; /* Set the minimum height of the event box */
-    width: 100px; /* Set the width of the event box */
-    font-size: 14px; /* Adjust font size for events */
-    padding: 8px; /* Add padding to event box */
-    display: flex; /* Use flexbox for centering content */
-    justify-content: center; /* Center content horizontally */
-    align-items: center; /* Center content vertically */
-    flex-direction: column; /* Display items vertically */
-  }
-  
-  .event-box .event-found {
-    font-size: medium; /* Smaller font size for events with class 'event-found' */
-    color: black; /* Set the color of events with class 'event-found' to black */
-    margin-bottom: 5px; /* Reduce the bottom margin between events */
+    min-height: 100px;
+    /* Set the minimum height of the event box */
+    width: 100px;
+    /* Set the width of the event box */
+    font-size: 14px;
+    /* Adjust font size for events */
+    padding: 8px;
+    /* Add padding to event box */
+    display: flex;
+    /* Use flexbox for centering content */
+    justify-content: center;
+    /* Center content horizontally */
+    align-items: center;
+    /* Center content vertically */
+    flex-direction: column;
+    /* Display items vertically */
+}
+
+.event-box .event-found {
+    font-size: medium;
+    /* Smaller font size for events with class 'event-found' */
+    color: black;
+    /* Set the color of events with class 'event-found' to black */
+    margin-bottom: 5px;
+    /* Reduce the bottom margin between events */
     border-bottom: 1px solid black;
-  }
-  
+}
+
 
 /* Style for the calendar tiles (days) */
 .react-calendar__tile {
-    height: 100px; /* Set the fixed height of each calendar tile */
-    width: 100px; /* Set the fixed width of each calendar tile */
-    font-size: 18px; /* Increase the font size of the dates */
-    background-color: #f0f0f0; /* Set a light background color for the calendar tiles */
-    color: #333; /* Set text color for the dates */
-    border: 1px solid #ccc; /* Add a border to each calendar tile */
-    cursor: pointer; /* Change cursor to pointer on hover */
-    display: flex; /* Use flexbox for centering content */
-    justify-content: center; /* Center content horizontally */
-    align-items: center; /* Center content vertically */
+    height: 100px;
+    /* Set the fixed height of each calendar tile */
+    width: 100px;
+    /* Set the fixed width of each calendar tile */
+    font-size: 18px;
+    /* Increase the font size of the dates */
+    background-color: #f0f0f0;
+    /* Set a light background color for the calendar tiles */
+    color: #333;
+    /* Set text color for the dates */
+    border: 1px solid #ccc;
+    /* Add a border to each calendar tile */
+    cursor: pointer;
+    /* Change cursor to pointer on hover */
+    display: flex;
+    /* Use flexbox for centering content */
+    justify-content: center;
+    /* Center content horizontally */
+    align-items: center;
+    /* Center content vertically */
 }
 
 /* Hover effect for calendar tiles */
 .react-calendar__tile:hover {
-    background-color: #e6e6e6; /* Lighten the background color on hover */
+    background-color: #e6e6e6;
+    /* Lighten the background color on hover */
 }
 
 /* Style for the selected date */
 .react-calendar__tile--active {
-    background-color: grey; /* Set a different background color for the selected date */
-    color: #fff; /* Set text color for the selected date */
+    background-color: grey;
+    /* Set a different background color for the selected date */
+    color: #fff;
+    /* Set text color for the selected date */
 }
 
 /* Style for the event marker */
@@ -63,49 +95,66 @@
     align-items: center;
     padding: 5px;
     border-radius: 4px;
-    background-color: #68d391; /* Set the background color for event markers */
-    color: #fff; /* Set text color for event markers */
-    margin-bottom: 8px; /* Add margin between event markers */
+    background-color: var(--side-panel-background-color);
+    /* Set the background color for event markers */
+    color: #fff;
+    /* Set text color for event markers */
+    margin-bottom: 8px;
+    /* Add margin between event markers */
 }
 
 .react-calendar__navigation {
-    background-color: #68d391; /* Set background color for the month box and navigation buttons */
-    color: #fff; /* Set text color for the month box and navigation buttons */
-    border-radius: 5px; /* Add border radius for rounded corners */
-    display: flex; /* Use flexbox for alignment */
-    justify-content: space-between; /* Space evenly between elements */
-    align-items: center; /* Center items vertically */
-}
-
-/* Hover effect for month box and navigation buttons */
-.react-calendar__navigation:hover {
-    background-color: #5cbf79; /* Darken the background color on hover */
+    background-color: var(--side-panel-background-color);
+    /* Set background color for the month box and navigation buttons */
+    color: #fff;
+    /* Set text color for the month box and navigation buttons */
+    border-radius: 5px;
+    /* Add border radius for rounded corners */
+    display: flex;
+    /* Use flexbox for alignment */
+    justify-content: space-between;
+    /* Space evenly between elements */
+    align-items: center;
+    /* Center items vertically */
 }
 
 /* Style for the month label */
 .react-calendar__navigation__label {
-    font-size: 20px; /* Increase font size for the month label */
+    font-size: 20px;
+    background-color: var(--side-panel-background-color);
+
+    /* Increase font size for the month label */
 }
 
 /* Style for the navigation buttons */
 .react-calendar__navigation button {
-    background-color: transparent; /* Set background color for navigation buttons */
-    color: #fff; /* Set text color for navigation buttons */
-    border: none; /* Remove border from navigation buttons */
-    cursor: pointer; /* Change cursor to pointer on hover */
-    font-size: 20px; /* Set font size for navigation buttons */
-    padding: 8px 12px; /* Add padding to the navigation buttons (adjust as needed) */
+    background-color: transparent;
+    /* Set background color for navigation buttons */
+    color: #fff;
+    /* Set text color for navigation buttons */
+    border: none;
+    /* Remove border from navigation buttons */
+    cursor: pointer;
+    /* Change cursor to pointer on hover */
+    font-size: 20px;
+    /* Set font size for navigation buttons */
+    padding: 8px 12px;
+    /* Add padding to the navigation buttons (adjust as needed) */
 }
 
 /* Hover effect for navigation buttons */
 .react-calendar__navigation button:hover {
-    color: #f0f0f0; /* Change text color on hover */
+    color: #f0f0f0;
+    background-color: var(--side-panel-background-color);
+    /* Change text color on hover */
 }
 
 /* Style for the delete button */
 .event-marker button {
-    background-color: #ff5f5f; /* Set the background color of the delete button to red */
-    color: #fff; /* Set text color of the delete button to white */
+    background-color: #ff5f5f;
+    /* Set the background color of the delete button to red */
+    color: #fff;
+    /* Set text color of the delete button to white */
     border: none;
     border-radius: 4px;
     padding: 4px 8px;
@@ -114,7 +163,8 @@
 
 /* Hover effect for the delete button */
 .event-marker button:hover {
-    background-color: #ff0000; /* Darken the background color on hover */
+    background-color: #ff0000;
+    /* Darken the background color on hover */
 }
 
 .event-popup {
@@ -131,7 +181,8 @@
 
 .event-popup-content {
     max-width: 400px;
-    word-wrap: break-word; /* Add word-wrap property */
+    word-wrap: break-word;
+    /* Add word-wrap property */
 }
 
 
@@ -147,7 +198,8 @@
     font-weight: bold;
     margin-right: 10px;
     word-wrap: break-word;
-    max-width: 200px; /* Adjust the max-width value as needed */
+    max-width: 200px;
+    /* Adjust the max-width value as needed */
 }
 
 
@@ -162,7 +214,8 @@
 }
 
 .close-button {
-    background-color: red; /* Keep the close button red as requested */
+    background-color: red;
+    /* Keep the close button red as requested */
     color: white;
     border: none;
     padding: 8px 15px;
@@ -180,31 +233,44 @@
 
 /* Style for the add event section */
 .add-event-section {
-    margin-bottom: 20px; /* Add margin at the bottom of the add event section */
+    margin-bottom: 20px;
+    /* Add margin at the bottom of the add event section */
 }
 
 /* Style for the event title input */
 .add-event-section input[type="text"] {
-    width: 200px; /* Set the width of the input field */
-    padding: 8px; /* Add padding to the input field */
-    margin-right: 10px; /* Add margin to separate input field and button */
-    border: 1px solid #ccc; /* Add border to the input field */
-    border-radius: 4px; /* Add border radius for rounded corners */
+    width: 200px;
+    /* Set the width of the input field */
+    padding: 8px;
+    /* Add padding to the input field */
+    margin-right: 10px;
+    /* Add margin to separate input field and button */
+    border: 1px solid #ccc;
+    /* Add border to the input field */
+    border-radius: 4px;
+    /* Add border radius for rounded corners */
 }
 
 /* Style for the add event button */
 .add-event-section button {
-    padding: 8px 16px; /* Add padding to the button */
-    background-color: #68d391; /* Set background color for the button */
-    color: #fff; /* Set text color for the button */
-    border: none; /* Remove border from the button */
-    border-radius: 4px; /* Add border radius for rounded corners */
-    cursor: pointer; /* Change cursor to pointer on hover */
+    padding: 8px 16px;
+    /* Add padding to the button */
+    background-color: var(--side-panel-background-color);
+    color: #fff;
+    /* Set text color for the button */
+    border: none;
+    /* Remove border from the button */
+    border-radius: 4px;
+    /* Add border radius for rounded corners */
+    cursor: pointer;
+    /* Change cursor to pointer on hover */
 }
 
 /* Hover effect for the add event button */
 .add-event-section button:hover {
-    background-color: #5cbf79; /* Darken the background color on hover */
+    /* background-color: #5cbf79; */
+    background-color: var(--side-panel-background-color);
+    /* Darken the background color on hover */
 }
 
 .event-found {
@@ -212,5 +278,6 @@
     color: black;
     margin-bottom: 5px;
     border-bottom: 1px solid black;
-    word-wrap: break-word; /* Add word-wrap property */
+    word-wrap: break-word;
+    /* Add word-wrap property */
 }

@@ -17,7 +17,6 @@ const Roles = () => {
 			"--navbar-theme-color",
 			newTheme
 		);
-		console.log("homepage theme:", newTheme);
 	};
 
 	return (

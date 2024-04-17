@@ -15,14 +15,14 @@ const AssignRolesPage = () => {
 		console.log("Fetching users...");
 		try {
 			// axios.get("https://secureteams.onrender.com/api/newUsers").then((response) => {
-			axios.get(apiBaseUrl + "/newUsers").then((response) => {
+			axios.get(apiBaseUrl + "/user/newUsers").then((response) => {
 				console.log("Users:", response.data);
 				setUsers(response.data);
 			});
 
 			socket.emit("logActivity", {
 				method: "GET",
-				path: "/newUsers",
+				path: "/user/newUsers",
 				email: localStorage.getItem("email"),
 			});
 		} catch (error) {
@@ -34,7 +34,7 @@ const AssignRolesPage = () => {
 		try {
 			const response = await axios.put(
 				// `https://secureteams.onrender.com/api/users/${selectedUser}`,
-				apiBaseUrl + `/users/${selectedUser}`,
+				apiBaseUrl + `/user/users/${selectedUser}`,
 				{
 					role: selectedRole,
 					email: selectedUser,
@@ -42,7 +42,7 @@ const AssignRolesPage = () => {
 			);
 			socket.emit("logActivity", {
 				method: "PUT",
-				path: `/users/${selectedUser}`,
+				path: `/user/users/${selectedUser}`,
 				email: localStorage.getItem("email"),
 			});
 			console.log("Role assigned successfully:", response.data);

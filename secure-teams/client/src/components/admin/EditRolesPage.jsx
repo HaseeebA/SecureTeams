@@ -13,14 +13,14 @@ const EditRolesPage = () => {
 		console.log("Fetching users...");
 		try {
 			// axios.get("https://secureteams.onrender.com/api/users").then((response) => {
-			axios.get(apiBaseUrl + "/users").then((response) => {
+			axios.get(apiBaseUrl + "/user/users").then((response) => {
 				console.log("Users:", response.data);
 				setUsers(response.data);
 			});
 
 			socket.emit("logActivity", {
 				method: "GET",
-				path: "/users",
+				path: "/user/users",
 				email: localStorage.getItem("email"),
 			});
 		} catch (error) {
@@ -32,7 +32,7 @@ const EditRolesPage = () => {
 		try {
 			const response = await axios.put(
 				// `https://secureteams.onrender.com/api/users/${selectedUser}`,
-				apiBaseUrl + `/users/${selectedUser}`,
+				apiBaseUrl + `/user/users/${selectedUser}`,
 				{
 					role: selectedRole,
 					email: selectedUser,
@@ -40,7 +40,7 @@ const EditRolesPage = () => {
 			);
 			socket.emit("logActivity", {
 				method: "PUT",
-				path: `/users/${selectedUser}`,
+				path: `/user/users/${selectedUser}`,
 				email: localStorage.getItem("email"),
 			});
 			console.log("Role edited successfully:", response.data);

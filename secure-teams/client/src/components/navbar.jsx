@@ -20,21 +20,17 @@ const Navbar = ({ selectedTheme }) => {
 	useEffect(() => {
 		const fetchProfileData = async () => {
 			try {
-				// const response = await axios.get(
-				// 	"https://secureteams.onrender.com/api/profile?email=" +
-				// 	localStorage.getItem("email")
-				// );
 				const response = await axios.get(
-					apiBaseUrl + "/profile?email=" + localStorage.getItem("email")
+					apiBaseUrl +
+						"/profile/getprofile?email=" +
+						localStorage.getItem("email")
 				);
 
 				const { email, name, profilePhoto } = response.data;
 				if (profilePhoto) {
 					const profilePhotoUrl =
-						// "https://secureteams.onrender.com/uploads/" + profilePhoto;
-						apiBaseUrl + "/uploads/" + profilePhoto;
+						apiBaseUrl + "/profile/uploads/" + profilePhoto;
 
-					// console.log("Profile Photo URL", profilePhotoUrl);
 					setProfilePhoto(profilePhotoUrl);
 				}
 			} catch (error) {
@@ -91,11 +87,13 @@ const Navbar = ({ selectedTheme }) => {
 						}`}
 					/>
 				</NavLink>
-				<p style={{ fontSize: "large", textAlign: "center", paddingTop:"10px"}}>
-                Role: {localStorage.getItem("role")}
-            </p>
+				<p
+					style={{ fontSize: "large", textAlign: "center", paddingTop: "10px" }}
+				>
+					Role: {localStorage.getItem("role")}
+				</p>
 			</div>
-			
+
 			<div className="relative inline-block">
 				<img
 					src={profilePhoto || profile}

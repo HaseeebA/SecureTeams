@@ -76,7 +76,7 @@ const Settings = () => {
 				const userEmail = localStorage.getItem("email");
 				const response = await axios.post(
 					// "https://secureteams.onrender.com/api/updatePassword",
-					apiBaseUrl + "/updatePassword",
+					apiBaseUrl + "/auth/updatePassword",
 					{
 						userEmail,
 						password,
@@ -85,7 +85,7 @@ const Settings = () => {
 				);
 				socket.emit("logActivity", {
 					method: "POST",
-					path: "/updatePassword",
+					path: "/auth/updatePassword",
 					email: userEmail,
 				});
 
@@ -130,7 +130,7 @@ const Settings = () => {
 			try {
 				const userEmail = localStorage.getItem("email");
 				const response = await axios.post(
-					apiBaseUrl + "/settings",
+					apiBaseUrl + "/auth/settings",
 					{
 						is2FAEnabled,
 						secondaryEmail,
@@ -139,7 +139,7 @@ const Settings = () => {
 				);
 				socket.emit("logActivity", {
 					method: "POST",
-					path: "/settings",
+					path: "/auth/settings",
 					email: userEmail,
 				});
 				setError(response.data.message);

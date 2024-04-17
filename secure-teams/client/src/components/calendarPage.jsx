@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Navbar from './navbar';
 import InformationPanel from './infopanel';
 import Sidepanel from './sidepanel';
-import CalendarComponent from './calendarComponent'; // Import your calendar component here
+import CalendarComponent from './calendarComponent';
 
 const CalendarPage = () => {
     const [showSidePanel, setShowSidePanel] = useState(true);

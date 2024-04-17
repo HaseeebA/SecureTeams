@@ -26,16 +26,14 @@ const Profile = () => {
 	useEffect(() => {
 		const fetchProfileData = async () => {
 			try {
-				// const response = await axios.get(
-				// 	"https://secureteams.onrender.com/api/profile?email=" +
-				// 		localStorage.getItem("email")
-				// );
 				const response = await axios.get(
-					apiBaseUrl + "/profile?email=" + localStorage.getItem("email")
+					apiBaseUrl +
+						"/profile/getprofile?email=" +
+						localStorage.getItem("email")
 				);
 				socket.emit("logActivity", {
 					method: "GET",
-					path: "/profile?email=" + localStorage.getItem("email"),
+					path: "/profile/getprofile?email=" + localStorage.getItem("email"),
 					email: localStorage.getItem("email"),
 				});
 				const { email, name, profilePhoto } = response.data;
@@ -43,8 +41,8 @@ const Profile = () => {
 				setName(name);
 				if (profilePhoto) {
 					const profilePhotoUrl =
-						// "https://secureteams.onrender.com/uploads/" + profilePhoto;
-						apiBaseUrl + "/uploads/" + profilePhoto;
+						apiBaseUrl + "/profile/uploads/" + profilePhoto;
+
 					setProfilePhoto(profilePhotoUrl);
 				}
 			} catch (error) {
@@ -94,7 +92,7 @@ const Profile = () => {
 		formData.append("profilePhoto", profilePhoto);
 
 		try {
-			const response = await axios.post(
+			await axios.post(
 				// "https://secureteams.onrender.com/api/update",
 				apiBaseUrl + "/update",
 				formData,
@@ -110,17 +108,15 @@ const Profile = () => {
 				path: "/update",
 				email: email,
 			});
-			
+
 			// setPassword("");
 			// setNewPassword("");
 			setIsEditing(false);
 		} catch (error) {
 			console.log(error);
-			if(error.response.data.message)
-			{
+			if (error.response.data.message) {
 				setError(error.response.data.message);
-			}
-			else{
+			} else {
 				setError("Error updating profile");
 			}
 		}
@@ -205,7 +201,7 @@ const Profile = () => {
 						{error && (
 							<p
 								className="error-message"
-								style={{ color: 'yellow', fontSize: '1em'}}
+								style={{ color: "yellow", fontSize: "1em" }}
 							>
 								{error}
 							</p>

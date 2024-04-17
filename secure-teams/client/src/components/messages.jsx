@@ -39,12 +39,12 @@ const Messages = () => {
 			// Make a GET request to fetch the contacts
 			console.log(email);
 
-			const response = await axios.get(apiBaseUrl + "/contacts", {
+			const response = await axios.get(apiBaseUrl + "/message/contacts", {
 				params: { email: email }, // Pass the email as a query parameter
 			});
 			socket.emit("logActivity", {
 				method: "GET",
-				path: "/contacts",
+				path: "/message/contacts",
 				email: email,
 			});
 			if (response.status === 200) {
@@ -85,13 +85,13 @@ const Messages = () => {
 		try {
 			// Make POST request to the server's /api/contacts endpoint
 			// const response = await axios.post("https://secureteams.onrender.com/api/contacts", {
-			const response = await axios.post(apiBaseUrl + "/contacts", {
+			const response = await axios.post(apiBaseUrl + "/message/contacts", {
 				email: email, // Pass the user ID
 				contact: emailInput, // Pass the contact
 			});
 			socket.emit("logActivity", {
 				method: "POST",
-				path: "/contacts",
+				path: "/message/contacts",
 				email: email,
 			});
 
@@ -135,7 +135,7 @@ const Messages = () => {
 			// Make POST request to the server's /api/messages endpoint
 			const response = await axios.post(
 				// "https://secureteams.onrender.com/api/messages",
-				apiBaseUrl + "/messages",
+				apiBaseUrl + "/message/messages",
 				{
 					sender: email, // Pass the user ID
 					receiver: selectedContact, // Pass the contact
@@ -145,7 +145,7 @@ const Messages = () => {
 			);
 			socket.emit("logActivity", {
 				method: "POST",
-				path: "/messages",
+				path: "/message/messages",
 				email: email,
 			});
 
