@@ -35,7 +35,10 @@ const Settings = () => {
 	};
 
 	const handleToggleLogAlerts = () => {
-		setIsLogAlertsEnabled(!isLogAlertsEnabled);
+		const role = localStorage.getItem("role");
+		if (role === "admin") {
+			setIsLogAlertsEnabled(!isLogAlertsEnabled);
+		}
 	};
 
 	const handleTogglePassword = () => {
@@ -129,14 +132,11 @@ const Settings = () => {
 
 			try {
 				const userEmail = localStorage.getItem("email");
-				const response = await axios.post(
-					apiBaseUrl + "/auth/settings",
-					{
-						is2FAEnabled,
-						secondaryEmail,
-						userEmail,
-					}
-				);
+				const response = await axios.post(apiBaseUrl + "/auth/settings", {
+					is2FAEnabled,
+					secondaryEmail,
+					userEmail,
+				});
 				socket.emit("logActivity", {
 					method: "POST",
 					path: "/auth/settings",
@@ -188,23 +188,25 @@ const Settings = () => {
 					</div>
 				)}
 
-				<label
-					className="toggle"
-					style={{
-						marginBottom: "10px",
-						display: "flex",
-						justifyContent: "space-between",
-						marginRight: "85px",
-					}}
-				>
-					Enable Log Alerts
-					<Switch
-						onChange={handleToggleLogAlerts}
-						checked={isLogAlertsEnabled}
-					/>
-				</label>
+				{localStorage.getItem("role") === "admin" && (
+					<label
+						className="toggle"
+						style={{
+							marginBottom: "10px",
+							display: "flex",
+							justifyContent: "space-between",
+							marginRight: "85px",
+						}}
+					>
+						Enable Log Alerts
+						<Switch
+							onChange={handleToggleLogAlerts}
+							checked={isLogAlertsEnabled}
+						/>
+					</label>
+				)}
 
-				{isLogAlertsEnabled && (
+				{isLogAlertsEnabled && localStorage.getItem("role") === "admin" && (
 					<div>
 						<label>
 							Secondary Email:

@@ -343,3 +343,22 @@ User visited route: /compliance
 User visited route: /compliance
 User visited route: /compliance
 User visited route: /compliance
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /login
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imhhc2VlYmFzYWQxQHNlY3VyZXRlYW1zLmNvbSIsImlhdCI6MTcxMzM3ODQ5MywiZXhwIjoxNzEzMzgyMDkzfQ.OwNZsWbXDdTGp0QAY-63EDRxjRdGdMehHjHshcC8M3c !!!
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /settings
+User visited route: /settings
+User visited route: /settings
+User visited route: /settings
+!!! User logged out !!!
+
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /login
