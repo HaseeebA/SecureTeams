@@ -21,11 +21,11 @@ const ContactDetailsComponent = ({ receiver, sender }) => {
 	}, [receiver]); // Include receiver in the dependency array
 
 	// useEffect(() => {
-    //     // Scroll to the bottom of the message list
-    //     if (messageListRef.current) {
-    //         messageListRef.current.scrollTop = messageListRef.current.scrollHeight;
-    //     }
-    // }, [messages2]);
+	//     // Scroll to the bottom of the message list
+	//     if (messageListRef.current) {
+	//         messageListRef.current.scrollTop = messageListRef.current.scrollHeight;
+	//     }
+	// }, [messages2]);
 
 	const getLatestTimestamp = () => {
 		// Check if there are any messages
@@ -38,7 +38,7 @@ const ContactDetailsComponent = ({ receiver, sender }) => {
 			return latestMessage.timestamp; // Assuming each message object has a 'timestamp' property
 		}
 	};
-	
+
 	const [latestTimestamp, setLatestTimestamp] = useState(null);
 
 	const fetchMessages = async () => {
@@ -85,7 +85,6 @@ const ContactDetailsComponent = ({ receiver, sender }) => {
 			console.error("Error fetching messages:", error);
 		}
 	};
-	
 
 	// const scrollToBottom = () => {
 	// 	if (messageListRef.current) {
@@ -94,26 +93,27 @@ const ContactDetailsComponent = ({ receiver, sender }) => {
 	// };
 
 	return (
-        <div className="chat-container">
-            <div className="contact-info">
-                <h3>{receiver.split("@")[0]}</h3>
-            </div>
-            <div className="message-list" ref={messageListRef}>
-                {messages
-                    .sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp))
-                    .map((message, index) => (
-                        <div
-                            key={index}
-                            className={`message ${message.sender === receiver ? "received" : "sent"}`}
-                        >
-                            <p>{message.message}</p>
-                        </div>
-                    ))}
-            </div>
-        </div>
-    );
-	
-	
+		<div className="chat-container">
+			<div className="contact-info" style={{ marginBottom: "10px" }}>
+				<h3>{receiver.split("@")[0]}</h3>
+			</div>
+			<div className="message-list" ref={messageListRef}>
+				{messages
+					.sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp))
+					.map((message, index) => (
+						<div
+							key={index}
+							className={`message ${
+								message.sender === receiver ? "received" : "sent"
+							}`}
+						>
+							<p style={{ color: "white", marginBottom: "0", padding: "5px" }}>
+								{message.message}</p>
+						</div>
+					))}
+			</div>
+		</div>
+	);
 };
 
 export default ContactDetailsComponent;

@@ -88,9 +88,8 @@
 }
 
 .role-container {
-  float: right;
-  margin-right: 20px; 
+  margin-left: 85vw;
   color: white;
-
-
+  font-size: large;
+  font-weight: bold;
 }

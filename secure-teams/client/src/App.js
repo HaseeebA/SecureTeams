@@ -12,6 +12,7 @@ import Signup from "./components/signup.js";
 import Team from "./components/team.jsx";
 import Roles from "./components/admin/manageRoles.jsx";
 import {
+	MemberProtectedRoute,
 	EmployeeProtectedRoute,
 	AdminProtectedRoute,
 	ProtectedRoute,
@@ -78,9 +79,12 @@ function App() {
 					/>
 					<Route
 						path="/members"
-						element={<EmployeeProtectedRoute component={Members} />}
+						element={<MemberProtectedRoute component={Members} />}
 					/>
-					<Route path="/tasks" element={<EmployeeProtectedRoute component={Tasks} />} />
+					<Route
+						path="/tasks"
+						element={<MemberProtectedRoute component={Tasks} />}
+					/>
 					<Route
 						path="/calendar"
 						element={<EmployeeProtectedRoute component={CalendarPage} />}

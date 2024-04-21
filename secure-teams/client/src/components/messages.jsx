@@ -187,15 +187,18 @@ const Messages = () => {
 			<div className="flex h-screen">
 				{" "}
 				{/* Make this div flexible and allow it to grow, added relative positioning */}
-				<div className={`w-16 sm:w-48 ${abc ? "block" : "hidden"}`}>
-					<Sidepanel show={showSidePanel} onThemeChange={handleThemeChange} />
-				</div>
-				<div className={`relative h-full flex flex-col p-3 flex-1 bg-gray-100 transition-all duration-500 ease-in-out`}>
+				{/* <div className={`w-16 sm:w-48 ${abc ? "block" : "hidden"}`}> */}
+				<Sidepanel show={showSidePanel} onThemeChange={handleThemeChange} />
+				{/* </div> */}
+				<div
+					className={`relative h-full flex flex-col ml-56 p-3 flex-1 bg-gray-200 transition-all duration-500 ease-in-out`}
+				>
 					<div className="transform h-full">
 						<div className="h-full relative overflow-y-auto p-3 pr-4 rounded px-4">
 							<button
-								className="bg-blue-400 text-white px-1 py-1 rounded hover:bg-blue-500 flex items-center"
+								className="bg-blue-400 text-white mb-5 p-3 rounded hover:bg-blue-500 flex items-center"
 								onClick={handleAddContact}
+								style={{ backgroundColor: theme }}
 							>
 								Add Contact
 							</button>
@@ -247,9 +250,9 @@ const Messages = () => {
 									</div>
 								</div>
 							)}
-							<div>
+							<div className="contact-list">
 								{/* Display the list of contacts */}
-								<div>
+								<div className="scrollable-container" style={{ backgroundColor: theme }}>
 									{contacts ? (
 										contacts.map((contact, index) => {
 											// Split the contact string by "@" and take the first part
@@ -282,7 +285,7 @@ const Messages = () => {
 							</div>
 						)}
 					</div>
-					<div className="transform bg-orange-2 flex justify-end">
+					<div className="transform flex justify-end">
 						{" "}
 						{/* Removed absolute positioning */}
 						<textarea
@@ -291,12 +294,12 @@ const Messages = () => {
 							onChange={(e) => setMessage(e.target.value)}
 							onKeyDown={handleKeyPress} // Add key press event listener
 							placeholder="Type your message and press Enter to send"
-							style={{ margin: "10px" }}
+							style={{ margin: "10px", marginLeft: "200px" }}
 						/>
 						<button
-							className="bg-blue-400 text-white px-4 py-3 rounded hover:bg-blue-600 flex items-center"
+							className="text-white px-2 py-0 rounded hover:bg-blue-600 flex items-center"
 							onClick={handleSendMessage}
-							style={{ marginLeft: "10px", marginBottom: "1px" }}
+							style={{ margin: "10px", padding: "15px", backgroundColor: theme }}
 						>
 							Send
 						</button>

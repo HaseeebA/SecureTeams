@@ -47,4 +47,21 @@ const EmployeeProtectedRoute = ({ component: Component, ...rest }) => {
 	return <Component {...rest} />;
 };
 
-export { ProtectedRoute, AdminProtectedRoute, EmployeeProtectedRoute };
+const MemberProtectedRoute = ({ component: Component, ...rest }) => {
+	const authenticateToken = localStorage.getItem("token");
+	const role = localStorage.getItem("role");
+
+	if (!authenticateToken) {
+		// alert("You must be logged in to access this page");
+		return <Navigate to="/" />;
+	}
+
+	if (role === "employee") {
+		// alert("You must be an admin to access this page");
+		return <Navigate to="/homepage" />;
+	}
+
+	return <Component {...rest} />;
+};
+
+export { ProtectedRoute, AdminProtectedRoute, EmployeeProtectedRoute, MemberProtectedRoute };
