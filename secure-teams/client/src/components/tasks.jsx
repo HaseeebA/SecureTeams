@@ -221,7 +221,7 @@ const TasksPage = () => {
                         </>
                     ) : (
                         <div>
-                            {role === 'employee' && (
+                            {role === 'team-member'  && (
                                 <div>
                                     <h2 className="text-lg font-semibold text-center" style={{ marginTop: '0' }}>Tasks</h2>
                                     <table className="tasks-table">
