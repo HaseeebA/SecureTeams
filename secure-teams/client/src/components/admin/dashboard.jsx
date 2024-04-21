@@ -41,18 +41,6 @@ const Dashboard = () => {
 					</ul>
 				</div>
 			</div>
-
-			{/* Right Section - User Statistics
-			<div className="stats-container">
-				<div className="w-1/2 p-4">
-					<div className="stats1">
-						<h2 className="text-xl font-bold">Total Users: {totalUsers}</h2>
-					</div>
-					<div className="stats2">
-						<h2 className="text-xl font-bold">Active Users: {activeUsers}</h2>
-					</div>
-				</div>
-			</div> */}
 		</div>
 	);
 };

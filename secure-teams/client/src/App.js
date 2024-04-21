@@ -12,6 +12,7 @@ import Signup from "./components/signup.js";
 import Team from "./components/team.jsx";
 import Roles from "./components/admin/manageRoles.jsx";
 import {
+	EmployeeProtectedRoute,
 	AdminProtectedRoute,
 	ProtectedRoute,
 } from "./components/protectedRoutes.js";
@@ -73,21 +74,21 @@ function App() {
 					/>
 					<Route
 						path="/messages"
-						element={<ProtectedRoute component={Messages} />}
+						element={<EmployeeProtectedRoute component={Messages} />}
 					/>
 					<Route
 						path="/members"
-						element={<ProtectedRoute component={Members} />}
+						element={<EmployeeProtectedRoute component={Members} />}
 					/>
-					<Route path="/tasks" element={<ProtectedRoute component={Tasks} />} />
+					<Route path="/tasks" element={<EmployeeProtectedRoute component={Tasks} />} />
 					<Route
 						path="/calendar"
-						element={<ProtectedRoute component={CalendarPage} />}
+						element={<EmployeeProtectedRoute component={CalendarPage} />}
 					/>
-					<Route
+					{/* <Route
 						path="/admin/dashboard"
 						element={<AdminProtectedRoute component={Dashboard} />}
-					/>
+					/> */}
 					<Route path="/compliance" element={<ComplianceDocument />} />
 					<Route path="*" element={<NotFound />} />
 				</Routes>
