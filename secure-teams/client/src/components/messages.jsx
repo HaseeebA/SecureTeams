@@ -34,7 +34,7 @@ const Messages = () => {
 	};
 
 	const fetchContacts = async () => {
-		console.log("fetching contacts");
+		console.log("fetching contaccccts");
 		try {
 			// Make a GET request to fetch the contacts
 			console.log(email);
@@ -133,34 +133,36 @@ const Messages = () => {
 		try {
 			// console.log(message);
 			// Make POST request to the server's /api/messages endpoint
-			const response = await axios.post(
-				// "https://secureteams.onrender.com/api/messages",
-				apiBaseUrl + "/message/messages",
-				{
-					sender: email, // Pass the user ID
-					receiver: selectedContact, // Pass the contact
-					message: message, // Pass the message content
-					time: new Date().toISOString(), // Pass the current time
-				}
-			);
+			// const response = await axios.post(
+			// 	// "https://secureteams.onrender.com/api/messages",
+			// 	apiBaseUrl + "/message/messages",
+			// 	{
+			// 		sender: email, // Pass the user ID
+			// 		receiver: selectedContact, // Pass the contact
+			// 		message: message, // Pass the message content
+			// 		time: new Date().toISOString(), // Pass the current time
+			// 	}
+			// );
 			socket.emit("logActivity", {
 				method: "POST",
 				path: "/message/messages",
 				email: email,
 			});
 
+			socket.emit("sendMessage", {sender: email, receiver: selectedContact, message: message})
+			setMessage("");
 			// Check if the request was successful
-			if (response.status === 201) {
-				console.log("Message sent successfully");
-				// Clear the message input field
-				setMessage("");
-				// Optionally, display a success message to the user
-			} else {
-				// Handle error response
-				const data = response.json();
-				console.log("Error:", data.message);
-				// Optionally, display an error message to the user
-			}
+			// if (response.status === 201) {
+			// 	console.log("Message sent successfully");
+			// 	// Clear the message input field
+			// 	setMessage("");
+			// 	// Optionally, display a success message to the user
+			// } else {
+			// 	// Handle error response
+			// 	const data = response.json();
+			// 	console.log("Error:", data.message);
+			// 	// Optionally, display an error message to the user
+			// }
 		} catch (error) {
 			console.log("Error sending message:", error);
 			console.error("Error:", error);
@@ -283,8 +285,6 @@ const Messages = () => {
 						)}
 					</div>
 					<div className="transform bg-orange-2 flex justify-end">
-						{" "}
-						{/* Removed absolute positioning */}
 						<textarea
 							className="w-full h-1/8 p-2 mb-4 border border-gray-300 rounded px-4"
 							value={message}
