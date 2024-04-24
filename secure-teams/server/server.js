@@ -3,9 +3,10 @@ import http from "http";
 import { app } from "./app.js";
 import { config } from "dotenv";
 import { Message, Contact } from "./models/messages.js";
-
 import fs from "fs";
 import path from "path";
+import User from "./models/user.js";
+import { transporter } from "./middleware/mailer.js";
 
 // Create HTTP server
 const httpServer = http.createServer(app);

@@ -174,30 +174,6 @@ const Profile = () => {
 								<p>{name}</p>
 							)}
 						</div>
-						{/* <div
-							className="form-group"
-							style={{ display: isEditing ? "block" : "none" }}
-						>
-							<label htmlFor="password">Password</label>
-							<input
-								type="password"
-								id="password"
-								value={password}
-								onChange={(event) => setPassword(event.target.value)}
-							/>
-						</div>
-						<div
-							className="form-group"
-							style={{ display: isEditing ? "block" : "none" }}
-						>
-							<label htmlFor="newPassword">New Password</label>
-							<input
-								type="password"
-								id="newPassword"
-								value={newPassword}
-								onChange={(event) => setNewPassword(event.target.value)}
-							/>
-						</div> */}
 						{error && (
 							<p
 								className="error-message"

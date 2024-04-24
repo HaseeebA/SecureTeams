@@ -1,10 +1,11 @@
 .side-panel {
     display: flex;
-    flex-direction: column;   
+    flex-direction: column;
 }
 
 .messages-tab {
-    margin-top: max;         /* Push the tab to the bottom */
+    margin-top: max;
+    /* Push the tab to the bottom */
 }
 
 /* CSS */
@@ -17,12 +18,60 @@
     margin-bottom: 10px;
 }
 
+.contact-list {
+    max-height: 55vh;
+    max-width: fit-content;
+    overflow-y: auto;
+    border-radius: 20px;
+    box-sizing: border-box;
+
+    /* Style for WebKit-based browsers (Chrome, Safari) */
+    &::-webkit-scrollbar {
+        width: 12px;
+        /* Set the width of the scrollbar */
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: #000000;
+        /* Set the color of the scrollbar thumb */
+        border-radius: 10px;
+        /* Add rounded corners to the scrollbar thumb */
+    }
+
+    /* Style for Firefox */
+    scrollbar-width: thin;
+    /* Set the width of the scrollbar */
+    scrollbar-color: #ffffff rgba(0, 0, 0, 0);
+    /* Set the color of the scrollbar thumb and track */
+}
+
+
+.text-area {
+    /* Add styles for the text area container */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    /* Use the full height available */
+}
+
+.scrollable-container {
+    padding: 20px;
+    max-width: fit-content;
+    border-radius: 20px;
+    box-sizing: border-box;
+    /* background-color: #ffffff; */
+    /* Add padding to the container if needed */
+}
+
+
 .contact-button {
     /* Add styles for the contact buttons */
-    padding: 4px 4px;
-    background-color: #71a3be; /* Green */
+    padding: 10px 20px;
+    background-color: #ffffff;
+    /* Green */
     border: none;
-    color: white;
+    color: rgb(0, 0, 0);
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -33,12 +82,13 @@
 }
 
 .contact-button:hover {
-    background-color: #5f45a02d; /* Darker green on hover */
+    background-color: #5f45a02d;
+    /* Darker green on hover */
 }
 
 .modal {
     position: absolute;
-    top:0px;
+    top: 0px;
     bottom: 5px;
     right: 15px;
     left: 200px;
@@ -50,19 +100,26 @@
 }
 
 .modal-content {
-    background-color: #1716162c;
+    background-color: #ffffff;
     padding: 3px;
     border-radius: 20px;
-    box-sizing: border-box; /* Include padding and border in the element's total dimensions */
-    overflow: hidden; /* Hide overflow to allow scrolling within message-panel-container */
+    box-sizing: border-box;
+    /* Include padding and border in the element's total dimensions */
+    overflow: hidden;
+    /* Hide overflow to allow scrolling within message-panel-container */
     /* height: 80%; Take the full height of the modal */
     display: flex;
 }
 
 .message-panel-container {
-    width: 100%; /* Use the full width available */
-    height: 100%; /* Use the full height available */
-    max-height: 66vh; /* Limit the height of the message panel */
-    overflow-y: auto; /* Allow vertical scrolling */
-    box-sizing: border-box; /* Include padding and border in the element's total dimensions */
+    width: 100%;
+    /* Use the full width available */
+    height: 100%;
+    /* Use the full height available */
+    max-height: 66vh;
+    /* Limit the height of the message panel */
+    overflow-y: auto;
+    /* Allow vertical scrolling */
+    box-sizing: border-box;
+    /* Include padding and border in the element's total dimensions */
 }
