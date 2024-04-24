@@ -2,6 +2,7 @@ import { Socket, Server } from "socket.io";
 import http from "http";
 import { app } from "./app.js";
 import { config } from "dotenv";
+import { Message, Contact } from "./models/messages.js";
 
 import fs from "fs";
 import path from "path";
@@ -86,6 +87,19 @@ io.on("connection", (socket) => {
 			});
 		}
 	});
+
+	socket.on("sendMessage", async (data) => {
+		console.log("New message:", data);
+		io.emit("newMessage", data);
+		try {
+			const { sender, receiver, message } = data;
+			const newMessage = new Message({ sender, receiver, message });
+			await newMessage.save();
+		} catch (error) {
+			console.error("Error saving message:", error);
+		}
+	});
+	
 });
 
 // Start listening on the HTTP server
