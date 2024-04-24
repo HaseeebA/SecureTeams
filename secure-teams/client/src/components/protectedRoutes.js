@@ -9,6 +9,7 @@ const ProtectedRoute = ({ component: Component, ...rest }) => {
 		// alert("You must be logged in to access this page");
 		return <Navigate to="/" />;
 	}
+	
 
 	return <Component {...rest} />;
 };
