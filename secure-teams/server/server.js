@@ -1,10 +1,10 @@
 import { Socket, Server } from "socket.io";
 import http from "http";
-import { app } from "./app.js";
-import { config } from "dotenv";
-
 import fs from "fs";
 import path from "path";
+import { app } from "./app.js";
+import User from "./models/user.js";
+import { transporter } from "./middleware/mailer.js";
 
 // Create HTTP server
 const httpServer = http.createServer(app);

@@ -9,7 +9,6 @@ import Welcome from "./components/welcome.jsx";
 import Homepage from "./components/homepage.jsx";
 import Login from "./components/login.js";
 import Signup from "./components/signup.js";
-import Team from "./components/team.jsx";
 import Roles from "./components/admin/manageRoles.jsx";
 import {
 	MemberProtectedRoute,

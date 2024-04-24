@@ -5,8 +5,8 @@ import "../../styles/dashboard.css";
 import { useSocket } from "../../socketProvider.js";
 
 const Dashboard = () => {
-	const [totalUsers, setTotalUsers] = useState(0);
-	const [activeUsers, setActiveUsers] = useState(0);
+	// const [totalUsers, setTotalUsers] = useState(0);
+	// const [activeUsers, setActiveUsers] = useState(0);
 	const [activityLog, setActivityLog] = useState([]);
 
 	const socket = useSocket();

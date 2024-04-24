@@ -4,7 +4,6 @@ import InformationPanel from "./infopanel";
 import Sidepanel from "./sidepanel";
 import CalendarHomeComponent from "./calendarHomeComponent";
 import Dashboard from "./admin/dashboard";
-import Team from "./team.jsx";
 import axios from "axios";
 import "../styles/tasks.css";
 
