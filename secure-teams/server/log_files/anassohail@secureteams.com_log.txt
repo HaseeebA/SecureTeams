@@ -233,3 +233,44 @@ User visited route: /
 User visited route: /
 User visited route: /
 User visited route: /login
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuYXNzb2hhaWxAc2VjdXJldGVhbXMuY29tIiwiaWF0IjoxNzE0MDg3MzQ0LCJleHAiOjE3MTQwOTA5NDR9.k-0_F6jSbyo1aU_DRqVpwxFfZa07ljL_VrZKiBirghA !!!
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /messages
+26/04/2024, 4:22:26 am - GET /contacts?email=anassohail%40secureteams.com
+26/04/2024, 4:22:26 am - GET /contacts?email=anassohail%40secureteams.com
+26/04/2024, 4:22:28 am - GET /contacts?email=anassohail%40secureteams.com
+User visited route: /messages
+User visited route: /messages
+User visited route: /messages
+26/04/2024, 4:22:28 am - GET /contacts?email=anassohail%40secureteams.com
+User visited route: /messages
+User visited route: /messages
+26/04/2024, 4:22:30 am - GET /contacts?email=anassohail%40secureteams.com
+User visited route: /messages
+26/04/2024, 4:22:30 am - GET /contacts?email=anassohail%40secureteams.com
+26/04/2024, 4:24:35 am - POST /contacts
+26/04/2024, 4:24:39 am - GET /contacts?email=anassohail%40secureteams.com
+User visited route: /messages
+User visited route: /messages
+26/04/2024, 4:24:39 am - GET /contacts?email=anassohail%40secureteams.com
+User visited route: /messages
+26/04/2024, 4:25:18 am - GET /contacts?email=anassohail%40secureteams.com
+User visited route: /messages
+User visited route: /messages
+User visited route: /messages
+26/04/2024, 4:25:18 am - GET /contacts?email=anassohail%40secureteams.com
+26/04/2024, 4:25:26 am - POST /contacts
+26/04/2024, 4:25:29 am - GET /contacts?email=anassohail%40secureteams.com
+User visited route: /messages
+26/04/2024, 4:25:29 am - GET /contacts?email=anassohail%40secureteams.com
+User visited route: /messages
+User visited route: /messages
+!!! User logged out !!!
+
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /login

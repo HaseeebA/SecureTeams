@@ -19,6 +19,7 @@ const Messages = () => {
 	const [emailInput, setEmailInput] = useState("");
 	const [contacts, setContacts] = useState([]);
 	const [showComponent, setShowComponent] = useState(false);
+	const [selectedContactName, setSelectedContactName] = useState("");
 	const socket = useSocket();
 
 	useEffect(() => {
@@ -101,7 +102,8 @@ const Messages = () => {
 	};
 	const handleContactClick = (contact) => {
 		// Set the selected contact state when a contact is clicked
-		setSelectedContact(contact);
+		setSelectedContact(contact.email);
+		setSelectedContactName(contact.name);
 		// Show the component when a contact is clicked
 		// setShowComponent(true);
 		setShowComponent(!showComponent);
@@ -267,8 +269,8 @@ const Messages = () => {
 											.map((contact, index) => {
 												// Get the contact name
 												const contactName = contact.email
-													? contact.email.split("@")[0]
-													: "Unknown";
+													? contact.name
+													: contact.email.split("@")[0];
 												// Get the preview of the latest message
 												const messagePreview =
 													contact.latestMessage || "No messages";
@@ -276,7 +278,7 @@ const Messages = () => {
 													<div key={index} className="contact-item">
 														<button
 															className="contact-button"
-															onClick={() => handleContactClick(contact.email)}
+															onClick={() => handleContactClick(contact)}
 														>
 															<div className="contact-name">{contactName}</div>
 															<a className="message-preview">
@@ -298,6 +300,7 @@ const Messages = () => {
 									<ContactDetailsComponent
 										receiver={selectedContact}
 										sender={email}
+										receiverName={selectedContactName}
 									/>
 								</div>
 							</div>
@@ -326,7 +329,7 @@ const Messages = () => {
 							</button>
 						</div>
 					)}
-					{!showComponent && (
+					{/* {!showComponent && (
 						<div
 							className="flex justify-center items-center h-full top-0 bottom-0 absolute mr-10 text-2xl text-black select-contact-text"
 							style={{
@@ -340,7 +343,7 @@ const Messages = () => {
 						>
 							Select a contact to message them
 						</div>
-					)}
+					)} */}
 				</div>
 			</div>
 		</div>

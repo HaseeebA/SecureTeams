@@ -45,7 +45,7 @@ export const saveContact = async (req, res) => {
         if (!userExists) {
             return res.status(400).json({ message: "User does not exist" });
         }
-
+        const namee = userExists.name;
         // Update or create the contact for the current user
         let existingContactsCurrentUser = await Contact.findOne({ email });
         if (!existingContactsCurrentUser) {
@@ -59,6 +59,7 @@ export const saveContact = async (req, res) => {
         } else {
             // Create new contact
             existingContactsCurrentUser.contacts.push({
+                name: namee,
                 email: contact,
                 lastConversationTimestamp: Date.now(),
                 latestMessage: latestMessage
@@ -66,6 +67,11 @@ export const saveContact = async (req, res) => {
         }
         await existingContactsCurrentUser.save();
 
+        const userExists2 = await User.findOne({ email: email });
+        if (!userExists) {
+            return res.status(400).json({ message: "User does not exist" });
+        }
+        const namee2 = userExists2.name;
         // Update or create the contact for the contacted user
         let existingContactsContactedUser = await Contact.findOne({ email: contact });
         if (!existingContactsContactedUser) {
@@ -75,6 +81,7 @@ export const saveContact = async (req, res) => {
         if (currentUserIndex === -1) {
             // Create new contact for contacted user
             existingContactsContactedUser.contacts.push({
+                name: namee2,
                 email: email,
                 lastConversationTimestamp: Date.now(),
                 latestMessage: latestMessage
@@ -94,7 +101,6 @@ export const saveContact = async (req, res) => {
         res.status(500).json({ message: "Error adding contact" });
     }
 };
-
 
 
 export const getContacts = async (req, res) => {

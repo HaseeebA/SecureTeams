@@ -6,7 +6,7 @@ import { useSocket } from "../socketProvider.js";
 const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
 // console.log("API Base URL", apiBaseUrl);
 
-const ContactDetailsComponent = ({ receiver, sender }) => {
+const ContactDetailsComponent = ({ receiver, sender , receiverName }) => {
 	const [messages, setMessages] = useState([]);
 	const messageListRef = useRef(null);
 
@@ -71,7 +71,7 @@ const ContactDetailsComponent = ({ receiver, sender }) => {
 						textTransform: "capitalize",
 					}}
 				>
-					{receiver.split("@")[0]}
+					{receiverName}
 				</h3>
 			</div>
 			<div className="message-list" ref={messageListRef}>
