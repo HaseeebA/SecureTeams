@@ -69,6 +69,7 @@ const Homepage = () => {
 	} else {
 		return (
 			<>
+			<div className="homepagepc-container">
 				<Sidepanel show={false} onThemeChange={handleThemeChange} />
 				<Navbar selectedTheme={theme} role={role} />
 				<div style={{ display: "grid", gridTemplateColumns: "2fr 2fr" }}>
@@ -80,6 +81,7 @@ const Homepage = () => {
 					</div>
 				</div>
 				<InformationPanel />
+				</div>
 			</>
 		);
 	  }

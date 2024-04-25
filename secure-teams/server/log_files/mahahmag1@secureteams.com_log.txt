@@ -1,0 +1,9 @@
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /login
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1haGFobWFnMUBzZWN1cmV0ZWFtcy5jb20iLCJpYXQiOjE3MTQwODMwMTgsImV4cCI6MTcxNDA4NjYxOH0.sFRT9OGCj0xTEVPh6yYw6K_EhZSX_ht0i5qcmsCVyPY !!!
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
