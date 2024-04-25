@@ -97,6 +97,8 @@ io.on("connection", (socket) => {
 
 		try {
 			// Update the sender's contact
+			const newMessage = new Message({ sender, receiver, message, time });
+			await newMessage.save();
 			const senderContact = await Contact.findOneAndUpdate(
 				{ email: sender, "contacts.email": receiver },
 				{
