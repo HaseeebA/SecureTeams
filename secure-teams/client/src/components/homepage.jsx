@@ -69,9 +69,20 @@ const Homepage = () => {
 	} else {
 		return (
 			<>
+			<div className="homepagepc-container">
 				<Sidepanel show={false} onThemeChange={handleThemeChange} />
 				<Navbar selectedTheme={theme} role={role} />
 				<div style={{ display: "grid", gridTemplateColumns: "2fr 2fr" }}>
+				<div className="homepage-content"> 
+              </div>
+              <div className="flex justify-center items-center">
+				<div>
+					
+				</div>
+				<h1 className="text-title mt-10" style={{ color: theme }}>
+                    Welcome to Secure Teams!
+                </h1>
+                </div>
 					<div className="ml-4 mt-6">
 						<CalendarHomeComponent />
 					</div>
@@ -80,6 +91,7 @@ const Homepage = () => {
 					</div>
 				</div>
 				<InformationPanel />
+				</div>
 			</>
 		);
 	  }
