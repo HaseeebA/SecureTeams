@@ -239,25 +239,31 @@ const Messages = () => {
 							<div className="contact-list">
 								<div className="scrollable-container" style={{ backgroundColor: theme }}>
 									{contacts ? (
-										contacts.map((contact, index) => {
-											// Split the contact string by "@" and take the first part
-											const contactName = contact.split("@")[0];
-											return (
-												<div key={index} className="contact-item">
-													<button
-														className="contact-button"
-														onClick={() => handleContactClick(contact)}
-													>
-														{contactName}
-													</button>
-												</div>
-											);
-										})
+										// Sort contacts based on lastConversationTimestamp
+										contacts.sort((a, b) => b.lastConversationTimestamp - a.lastConversationTimestamp)
+											.map((contact, index) => {
+												// Get the contact name
+												const contactName = contact.email ? contact.email.split("@")[0] : "Unknown";
+												// Get the preview of the latest message
+												const messagePreview = contact.latestMessage || "No messages";
+												return (
+													<div key={index} className="contact-item">
+														<button
+															className="contact-button"
+															onClick={() => handleContactClick(contact.email)}
+														>
+															<div className="contact-name">{contactName}</div>
+															<div className="message-preview">{messagePreview}</div>
+														</button>
+													</div>
+												);
+											})
 									) : (
 										<div className="contact-item">No contacts available</div>
 									)}
 								</div>
 							</div>
+
 						</div>
 						{showComponent && (
 							<div className="modal">

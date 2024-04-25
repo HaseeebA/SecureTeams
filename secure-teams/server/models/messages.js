@@ -10,8 +10,12 @@ const messagesSchema = new mongoose.Schema({
 const Message = mongoose.model("Message", messagesSchema);
 
 const contactsSchema = new mongoose.Schema({
-	email: { type: String, required: true },
-	contacts: { type: Array, required: true },
+    email: { type: String, required: true },
+    contacts: [{
+        email: { type: String, required: true },
+        lastConversationTimestamp: { type: Date, default: Date.now },
+        latestMessage: { type: String, default: null }
+    }],
 });
 
 const Contact = mongoose.model("Contact", contactsSchema);

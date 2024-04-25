@@ -91,17 +91,41 @@ io.on("connection", (socket) => {
 	socket.on("sendMessage", async (data) => {
 		console.log("New message:", data);
 		const { sender, receiver, message, time } = data;
+
+		// Emit the new message to all clients
 		io.emit("newMessage", data);
-		{
-			try {
-				const newMessage = new Message({ sender, receiver, message, time });
-				await newMessage.save();
+
+		try {
+			// Update the sender's contact
+			const senderContact = await Contact.findOneAndUpdate(
+				{ email: sender, "contacts.email": receiver },
+				{
+					$set: {
+						"contacts.$.lastConversationTimestamp": time,
+						"contacts.$.latestMessage": message
+					}
+				}
+			);
+
+			// Update the receiver's contact
+			const receiverContact = await Contact.findOneAndUpdate(
+				{ email: receiver, "contacts.email": sender },
+				{
+					$set: {
+						"contacts.$.lastConversationTimestamp": time,
+						"contacts.$.latestMessage": message
+					}
+				}
+			);
+
+			if (!senderContact || !receiverContact) {
+				console.error("Error updating contacts");
 			}
-			catch (error) {
-				console.log(error);
-			}
+		} catch (error) {
+			console.error("Error sending message:", error);
 		}
-	})
+	});
+
 });
 
 // Start listening on the HTTP server
