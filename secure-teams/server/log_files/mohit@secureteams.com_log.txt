@@ -88,3 +88,59 @@ User visited route: /
 User visited route: /compliance
 User visited route: /
 User visited route: /login
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vaGl0QHNlY3VyZXRlYW1zLmNvbSIsImlhdCI6MTcxNDA4MzE1MiwiZXhwIjoxNzE0MDg2NzUyfQ.mcjAl47d6EVFni7Zs1NUrLy3tICCRTdNxdm1YqAf9Qc !!!
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /tasks
+User visited route: /members
+26/04/2024, 3:13:11 am - GET /events?email=mohit@secureteams.com
+User visited route: /calendar
+26/04/2024, 3:13:11 am - GET /events?email=mohit@secureteams.com
+User visited route: /members
+User visited route: /homepage
+!!! User logged out !!!
+
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /login
+User visited route: /
+User visited route: /compliance
+User visited route: /
+User visited route: /login
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vaGl0QHNlY3VyZXRlYW1zLmNvbSIsImlhdCI6MTcxNDA4MzIyMywiZXhwIjoxNzE0MDg2ODIzfQ.pVJ4eCPIoqo8T9qDVo6RZ-l85DQnqSQuCjTt-VTcr4g !!!
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /tasks
+User visited route: /homepage
+User visited route: /tasks
+User visited route: /homepage
+26/04/2024, 3:30:31 am - GET /contacts?email=mohit%40secureteams.com
+User visited route: /messages
+26/04/2024, 3:30:32 am - GET /contacts?email=mohit%40secureteams.com
+User visited route: /tasks
+User visited route: /messages
+26/04/2024, 3:30:33 am - GET /contacts?email=mohit%40secureteams.com
+26/04/2024, 3:30:34 am - GET /contacts?email=mohit%40secureteams.com

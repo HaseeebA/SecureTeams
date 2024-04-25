@@ -75,3 +75,11 @@ ul {
     overflow-y: auto;
     /* Allows scrolling if the content is too long */
 }
+
+.team-selection-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 20px; /* Adjust margin as needed */
+}

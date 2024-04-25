@@ -185,41 +185,42 @@ const TasksPage = () => {
 					>
 						{role === "manager" ? (
 							<>
-								<div>
-									<h2>Team Names:</h2>
-									<select
-										onChange={handleTeamSelection}
-										style={{ color: "black" }}
-									>
-										<option value="">Select a team</option>
-										{teams.map((team, index) => (
-											<option key={index} value={team.name}>
-												{team.name}
-											</option>
-										))}
-									</select>
-								</div>
-								<div>
-									<h2>Team Members:</h2>
-									<select
-										onChange={handleNameSelection}
-										style={{ color: "black" }}
-									>
-										<option value="">Select a member</option>
-										{/* Use names variable to render team members */}
-										{users.map((member, index) => (
-											<option key={index} value={member.email}>
-												{member.email}
-											</option>
-										))}
-									</select>
+								<div className="team-selection-container">
+									<div>
+										<h2>Team Names:</h2>
+										<select
+											onChange={handleTeamSelection}
+											style={{ color: "black", width: "200px" }}
+										>
+											<option value="">Select a team</option>
+											{teams.map((team, index) => (
+												<option key={index} value={team.name}>
+													{team.name}
+												</option>
+											))}
+										</select>
+									</div>
+									<div>
+										<h2>Team Members:</h2>
+										<select
+											onChange={handleNameSelection}
+											style={{ color: "black", width: "200px" }}
+										>
+											<option value="">Select a member</option>
+											{/* Use names variable to render team members */}
+											{users.map((member, index) => (
+												<option key={index} value={member.email}>
+													{member.email}
+												</option>
+											))}
+										</select>
+									</div>
 								</div>
 
 								<form onSubmit={handleAddTask} className="mx-auto max-w-md">
 									<div className="mb-4">
-										<label htmlFor="title" className="mr-2">
-											Title:
-										</label>
+										<h2>Task Title</h2>
+
 										<input
 											type="text"
 											id="title"
@@ -229,9 +230,8 @@ const TasksPage = () => {
 										/>
 									</div>
 									<div className="mb-4">
-										<label htmlFor="description" className="mr-2">
-											Description:
-										</label>
+										<h2>Task Description</h2>
+
 										<input
 											type="text"
 											id="description"

@@ -1767,3 +1767,75 @@ User visited route: /tasks
 User visited route: /tasks
 User visited route: /tasks
 User visited route: /tasks
+User visited route: /tasks
+User visited route: /tasks
+User visited route: /tasks
+!!! User logged out !!!
+
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /compliance
+User visited route: /
+User visited route: /compliance
+User visited route: /
+User visited route: /login
+User visited route: /
+User visited route: /signup
+User visited route: /
+User visited route: /login
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imhhc2VlYmFzYWQxQHNlY3VyZXRlYW1zLmNvbSIsImlhdCI6MTcxNDA4MDIyMSwiZXhwIjoxNzE0MDgzODIxfQ.f7fqNB-AIYR4MlVZ9JKhDGbDJzP5rKgNaeTKD_-p4rk !!!
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /tasks
+User visited route: /messages
+26/04/2024, 2:23:46 am - GET /contacts?email=haseebasad1%40secureteams.com
+26/04/2024, 2:23:46 am - GET /contacts?email=haseebasad1%40secureteams.com
+User visited route: /members
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /login
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imhhc2VlYmFzYWQxQHNlY3VyZXRlYW1zLmNvbSIsImlhdCI6MTcxNDA4MzEwNiwiZXhwIjoxNzE0MDg2NzA2fQ.pLbPzLWosIOrSsmpYGlGT6blMs6MwLOPuhwi5_XimHw !!!
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /tasks
+User visited route: /homepage
+User visited route: /messages
+26/04/2024, 3:11:59 am - GET /contacts?email=haseebasad1%40secureteams.com
+26/04/2024, 3:11:59 am - GET /contacts?email=haseebasad1%40secureteams.com
+User visited route: /tasks
+User visited route: /members
+!!! User logged out !!!
+
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /login
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imhhc2VlYmFzYWQxQHNlY3VyZXRlYW1zLmNvbSIsImlhdCI6MTcxNDA4MzI0NywiZXhwIjoxNzE0MDg2ODQ3fQ.Wc097UH_oewDBoCAIr1ZHe6UqspvXBUvVgW1_D3Q50I !!!
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /profile
+User visited route: /members
+User visited route: /tasks
+User visited route: /profile
+User visited route: /tasks
+User visited route: /tasks
+User visited route: /tasks
+User visited route: /tasks
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
