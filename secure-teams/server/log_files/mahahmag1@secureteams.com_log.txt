@@ -7,3 +7,18 @@ User visited route: /login
 User visited route: /homepage
 User visited route: /homepage
 User visited route: /homepage
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /login
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1haGFobWFnMUBzZWN1cmV0ZWFtcy5jb20iLCJpYXQiOjE3MTQwODMzNzgsImV4cCI6MTcxNDA4Njk3OH0.PrsKot08KPvOWArjWrpnR99hXBX27lnG9iiTwTyvtN4 !!!
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
