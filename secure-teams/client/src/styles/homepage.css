@@ -1,29 +1,85 @@
-.reminders-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  /* Other styles remain the same */
-  transform: translateX(130%) translateY(60%); /* Example transform, adjust as necessary */
+
+
+/* Style the container */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.homepagepc-container {
-  background-image: url('../../public/bgpc.jpg'); /* Path relative to the public directory */
-  background-size: cover;
-  background-position: center;
-  height: 70vh;
+/* Style the text elements to be top-aligned */
+.text-center {
+  text-align: center;
 }
 
-.homepage-content {
-  position: relative;
-  z-index: 1;
-  margin-top: 55vh; /* Push content down by the height of the background */
+/* Style the h2 elements */
+h2 {
+  margin-top: 0; /* Reset the default margin */
+}
+.tasks-table {
+  width: 100%;
+  border-collapse: collapse;
 }
 
-.text-title {
-  font-family: 'Roboto', sans-serif; 
-  font-weight: 700; 
-  font-size: 2.5rem;
-  transform: translateY(100%) translateX(-50%);
-
+.tasks-table th, .tasks-table td {
+  border: 1px solid #dddddd;
+  padding: 8px;
+  z-index: 200;
 }
 
+.tasks-table th {
+  background-color: #f2f2f20a;
+  text-align: left;
+}
+
+/* Style the form elements */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Style the list */
+ul {
+  margin-top: 0; /* Reset the default margin */
+  padding-left: 0; /* Reset the default padding */
+  list-style: none; /* Remove default list style */
+}
+
+.inputText {
+  color: black; /* This will set the text color to black */
+  /* Other styles can go here */
+}
+
+.tasks-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  /* If you need to adjust the spacing or width of the overall container, you can do it here. */
+}
+
+.tasks-form {
+  width: 60%;
+  /* Increase width percentage as desired */
+  padding: 20px;
+  /* background-color: white; */
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 30px auto;
+  /* Increased margin and auto to center it */
+  min-height: calc(100vh - 150px);
+  /* Ensure it at least covers the viewport height minus 120px */
+  max-height: 90vh;
+  /* You can set a max height if needed */
+  overflow-y: auto;
+  /* Allows scrolling if the content is too long */
+}
+
+.team-selection-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 20px; /* Adjust margin as needed */
+}

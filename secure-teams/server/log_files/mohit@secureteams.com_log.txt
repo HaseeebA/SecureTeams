@@ -144,3 +144,11 @@ User visited route: /tasks
 User visited route: /messages
 26/04/2024, 3:30:33 am - GET /contacts?email=mohit%40secureteams.com
 26/04/2024, 3:30:34 am - GET /contacts?email=mohit%40secureteams.com
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vaGl0QHNlY3VyZXRlYW1zLmNvbSIsImlhdCI6MTcxNDA4NDYyOSwiZXhwIjoxNzE0MDg4MjI5fQ.AH7fMTsj_mBEXrGCWvJh7kqW999zQD0W136lQihDnF8 !!!
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage

@@ -1839,3 +1839,12 @@ User visited route: /homepage
 User visited route: /homepage
 User visited route: /homepage
 User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+!!! User logged out !!!
+
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /login

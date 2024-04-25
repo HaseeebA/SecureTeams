@@ -6,9 +6,6 @@ import CalendarHomeComponent from "./calendarHomeComponent";
 import Dashboard from "./admin/dashboard";
 import axios from "axios";
 import Taskspage from "./tasksHomeComponent.jsx";
-import "../styles/tasks.css";
-// import Team from "./team.jsx";
-import RemindersList from "./reminders"; 
 import "../styles/homepage.css";
 
 const Homepage = () => {
@@ -79,9 +76,9 @@ const Homepage = () => {
 				<div>
 					
 				</div>
-				<h1 className="text-title mt-10" style={{ color: theme }}>
+				{/* <h1 className="text-title mt-10" style={{ color: theme }}>
                     Welcome to Secure Teams!
-                </h1>
+                </h1> */}
                 </div>
 					<div className="ml-4 mt-6">
 						<CalendarHomeComponent />
