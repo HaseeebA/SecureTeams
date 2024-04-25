@@ -7,6 +7,9 @@ import Dashboard from "./admin/dashboard";
 import axios from "axios";
 import Taskspage from "./tasksHomeComponent.jsx";
 import "../styles/tasks.css";
+// import Team from "./team.jsx";
+import RemindersList from "./reminders"; 
+import "../styles/homepage.css";
 
 const Homepage = () => {
 	const defaultTheme = "#68d391";
@@ -79,7 +82,7 @@ const Homepage = () => {
 				<InformationPanel />
 			</>
 		);
-	}
-};
-
-export default Homepage;
+	  }
+	};
+	
+	export default Homepage;

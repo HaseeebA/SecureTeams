@@ -1,0 +1,20 @@
+.reminders-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* Other styles remain the same */
+    transform: translateX(130%) translateY(60%); /* Example transform, adjust as necessary */
+  }
+
+  .homepagepc-container {
+    background-image: url('../../public/bgpc.jpg'); /* Path relative to the public directory */
+    background-size: cover;
+    background-position: center;
+    height: 70vh;
+  }
+  
+  .homepage-content {
+    position: relative;
+    z-index: 1;
+    margin-top: 40vh; /* Push content down by the height of the background */
+  }

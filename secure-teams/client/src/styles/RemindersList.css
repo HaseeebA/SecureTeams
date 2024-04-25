@@ -1,0 +1,108 @@
+.reminders1-container {
+    width: 300px; /* Adjust width as needed */
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    font-family: Arial, sans-serif;
+    position: fixed;
+    right: 20px; /* Adjust as needed for your layout */
+    top: 100px; /* Position the top of the container at 100px from the top of the viewport */
+  }
+  
+  .reminders-header {
+    background-color: #7F56D9;
+    color: white;
+    padding: 10px 20px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  
+  .reminders-list {
+    list-style: none;
+    margin: 0;
+    padding: 20px;
+    max-height: 400px; /* Maximum height before scrolling */
+    overflow-y: auto; /* Enable vertical scrolling */
+    flex-grow: 1;
+  }
+  .reminders-list li.completed label {
+    text-decoration: line-through;
+  }
+  
+  .reminders-list li {
+    display: flex;
+    align-items: center;
+    justify-content: start; /* Align items to the left */
+    margin-bottom: 15px;
+    padding-left: 0; /* Remove padding from the left */
+  }
+
+  .task-content {
+    display: flex;
+    align-items: center;
+    flex-grow: 1; /* Allow this div to grow and fill space */
+    margin-left: 0 px;
+    margin-right: 50px; /* Ensure some space between the text and delete button */
+  }
+  
+  .reminders-list input[type="checkbox"] {
+    margin-right: 10px;
+  }
+  
+  .reminders-list label {
+    flex: 1 1 auto; /* Allow label to grow and shrink as needed */
+    margin-right: 10px; /* Space before delete button */
+    white-space: normal; /* Allow wrapping */
+    word-wrap: break-word; /* Break long words if necessary */
+    overflow-wrap: break-word; /* Ensure wrapping at word boundaries */
+  }
+  
+ 
+  
+  .new-task-button {
+    display: block;
+    width: 100%;
+    background-color: #7F56D9;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    cursor: pointer;
+  }
+  
+  .new-task-button:hover {
+    background-color: #6847b0;
+  }
+  
+  .reminders-footer {
+    background-color: #f4f4f4;
+    color: #333;
+    text-align: center;
+    padding: 10px 20px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+
+  .task-delete-button {
+    display: block;
+    width: 30%;
+    background-color: #7F56D9;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    cursor: pointer;
+    padding: 10px;
+    flex-shrink: 0;
+
+    flex: 0 0 auto; /* Do not grow or shrink */
+    margin-left: auto; /* Push to the right */
+    padding: 10px;
+      
+  }
+
+  .new-task-input {
+    padding: 20px; /* Match the padding of the list for alignment */
+  }

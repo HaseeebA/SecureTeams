@@ -121,3 +121,12 @@
   font-size: 15px; /* Reduced font size for headings */
   color: #fff;
 }
+
+.footer {
+  background-color: #000;
+  width: 100%;
+  /* display: flex;
+  justify-content: space-between;
+  align-items: center; */
+  padding: 20px;
+}
