@@ -22,3 +22,12 @@ User visited route: /homepage
 User visited route: /homepage
 User visited route: /homepage
 User visited route: /homepage
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /login
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1haGFobWFnMUBzZWN1cmV0ZWFtcy5jb20iLCJpYXQiOjE3MTQwODM4NjcsImV4cCI6MTcxNDA4NzQ2N30.RN0xMPhxJfkzTOVhwFTaMwmd17n3GHaA8Lm1kODMOHo !!!
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
