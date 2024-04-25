@@ -27,8 +27,8 @@
 }
 
 .profile-button {
-  width: 40px;
-  height: 40px;
+  /* width: 40px; Remove fixed width */
+  /* height: 40px; Remove fixed height */
   border-radius: 50%;
   cursor: pointer;
   display: flex;

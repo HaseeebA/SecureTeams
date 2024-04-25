@@ -284,7 +284,7 @@ body {
   }
 }
 
-.footer {
+.footer1 {
   background-color: #000;
   width: 100%;
   /* display: flex;
@@ -292,12 +292,3 @@ body {
   align-items: center; */
   padding: 20px;
 }
-
-/* .footer-content {
-  flex-grow: 1;
-  text-align: center;
-}
-
-.footer-links {
-  margin-left: auto;
-} */
