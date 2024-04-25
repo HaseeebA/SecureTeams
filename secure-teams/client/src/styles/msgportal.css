@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .message-panel-container {
     display: flex;
     flex-direction: column;
@@ -52,4 +53,60 @@
     color: #ffffff;
     font-size: 20px;
     margin: 0;
+=======
+.message-panel-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.message-panel {
+    overflow-y: visible;
+    padding: 10px;
+    position: relative;
+}
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 30px;
+}
+
+.message-list {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.message {
+    padding: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    max-width: 70%;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
+.received {
+    background-color: #006b2b;
+    align-self: flex-start;
+    margin-right: auto; /* Push received messages to the left */
+}
+
+.sent {
+    background-color: #002d8ecb;
+    align-self: flex-end;
+    margin-left: auto; /* Push sent messages to the right */
+    color: #ffffff;
+}
+
+
+.yo{
+    margin-left: 10px;
+    color: #ffffff;
+    font-size: 20px;
+    margin: 0;
+>>>>>>> 97e7ce274ad5e694265cc3fb40daddee39466f81
 }

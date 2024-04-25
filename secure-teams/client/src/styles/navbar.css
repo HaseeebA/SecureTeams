@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 :root {
   --navbar-theme-color: #68d391;
 }
@@ -93,3 +94,100 @@
   font-size: large;
   font-weight: bold;
 }
+=======
+:root {
+  --navbar-theme-color: #68d391;
+}
+
+.navbar {
+  display: flex;
+  background-color: var(--navbar-theme-color);
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  /* position: sticky; Added */
+  /* top: 0; Added */
+  /* z-index: 1000; Added */
+}
+
+.search-container {
+  flex: 1;
+  text-align: center;
+}
+
+.search-input {
+  border: 1px solid #fff;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  width: 100%;
+  outline: none;
+}
+
+.profile-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 30;
+  position: relative;
+}
+
+.profile-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: 20;
+}
+
+.profile-dropdown.show {
+  display: block;
+}
+
+.profile-dropdown-item {
+  color: black;
+  padding: 10px;
+  text-align: left;
+  text-decoration: none;
+  display: block;
+}
+
+.profile-dropdown-item:hover {
+  background-color: #f2f2f2;
+}
+
+.invert {
+  filter: invert(100%);
+}
+
+.role-display {
+  position: absolute;
+  right: 0;
+  transform: translateX(-80%);
+  margin-right: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+}
+
+.role-text {
+  font-size: large;
+  text-align: right;
+  padding-top: 10px;
+  transform: translateX(20%) translateY(20%); /* Example transform, adjust as necessary */
+}
+
+.role-container {
+  margin-left: 85vw;
+  color: white;
+  font-size: large;
+  font-weight: bold;
+}
+>>>>>>> 97e7ce274ad5e694265cc3fb40daddee39466f81

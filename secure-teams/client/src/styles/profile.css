@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .profile-container {
     display: flex;
     justify-content: center;
@@ -138,4 +139,146 @@ input {
         /* Fixed typo from 'right' to 'center' */
         flex-direction: column;
     }
+=======
+.profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    /* If you need to adjust the spacing or width of the overall container, you can do it here. */
+}
+
+.profile-form {
+    width: 60%;
+    /* Increase width percentage as desired */
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 30px auto;
+    /* Increased margin and auto to center it */
+    min-height: calc(100vh - 130px);
+    /* Ensure it at least covers the viewport height minus 120px */
+    max-height: 90vh;
+    /* You can set a max height if needed */
+    overflow-y: auto;
+    /* Allows scrolling if the content is too long */
+}
+
+.profile-form form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 40px;
+}
+
+.profile-form h1 {
+    text-align: center;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.profile-form p {
+    color: white;
+    font-size: 16px;
+    margin-bottom: 20px;
+
+}
+
+
+.profile-form label {
+    display: block;
+    margin-bottom: 5px;
+    color: white;
+}
+
+.update-button {
+    width: 80%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    margin-left: 7%;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.edit-button {
+    width: 80%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 10%;
+    margin-right: 10%;
+    font-weight: bold;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    font-weight: bold;
+}
+
+
+
+
+input {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.profile-photo {
+    width: 50%;
+    /* display: flex;
+    justify-content: center;
+    align-items: right;
+    flex-direction: column; */
+}
+
+.profile-photo img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-top: 20px;
+}
+
+@media screen and (max-width: 700px) {
+    .profile-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile-form {
+        width: 90%;
+        /* Increase the width on smaller screens if needed */
+        margin: 20px auto;
+        /* Adjust margin to ensure it's centered with space around */
+    }
+
+    .profile-photo {
+        width: 100%;
+        /* Adjust the profile photo section on smaller screens */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* Fixed typo from 'right' to 'center' */
+        flex-direction: column;
+    }
+>>>>>>> 97e7ce274ad5e694265cc3fb40daddee39466f81
 }
