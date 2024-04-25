@@ -20,11 +20,13 @@ const Profile = () => {
 	const [profilePhoto, setProfilePhoto] = useState(null);
 	const [isEditing, setIsEditing] = useState(false);
 	const [error, setError] = useState("");
-
+	const [role, setRole] = useState("");
 	const socket = useSocket();
 
 	useEffect(() => {
 		const fetchProfileData = async () => {
+			setRole(localStorage.getItem("role"));
+			setEmail(localStorage.getItem("email"));
 			try {
 				const response = await axios.get(
 					apiBaseUrl +
@@ -37,7 +39,7 @@ const Profile = () => {
 					email: localStorage.getItem("email"),
 				});
 				const { email, name, profilePhoto } = response.data;
-				setEmail(email);
+				// setEmail(email);
 				setName(name);
 				if (profilePhoto) {
 					const profilePhotoUrl =
@@ -69,20 +71,6 @@ const Profile = () => {
 			return;
 		}
 
-		// if (!password || !newPassword) {
-		// 	alert("Password cannot be empty");
-		// 	return;
-		// }
-
-		// if (!/\d/.test(newPassword)) {
-		// 	alert("Password must contain at least one number");
-		// 	return;
-		// }
-
-		// if (!/[!@#$%^&*.]/.test(newPassword)) {
-		// 	alert("Password must contain at least one special character");
-		// 	return;
-		// }
 
 		const formData = new FormData();
 		formData.append("email", email);
@@ -173,6 +161,16 @@ const Profile = () => {
 							) : (
 								<p>{name}</p>
 							)}
+							
+						</div>
+						<div className="form-group">
+							<label htmlFor="name">Role</label>
+							{isEditing ? (
+								<p>{role.toUpperCase()}</p>
+							) : (
+								<p>{role.toUpperCase()}</p>
+							)}
+							
 						</div>
 						{error && (
 							<p

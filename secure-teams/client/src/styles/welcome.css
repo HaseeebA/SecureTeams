@@ -287,17 +287,17 @@ body {
 .footer {
   background-color: #000;
   width: 100%;
-  /* display: flex;
+  display: flex;
   justify-content: space-between;
-  align-items: center; */
-  padding: 20px;
+  align-items: center;
+  padding: 40px;
 }
 
-/* .footer-content {
+.footer-content {
   flex-grow: 1;
-  text-align: center;
+  text-align: start;
 }
 
 .footer-links {
   margin-left: auto;
-} */
+}

@@ -87,8 +87,8 @@ const Navbar = ({ selectedTheme }) => {
 						}`}
 					/>
 				</NavLink>
-				<div className="role-container">{localStorage.getItem("role")}</div>
 			</div>
+			<div className="role-container">{localStorage.getItem("role")}</div>
 
 			<div className="relative inline-flex items-center">
 				<img

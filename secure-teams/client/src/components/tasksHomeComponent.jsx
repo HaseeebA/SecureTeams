@@ -169,8 +169,6 @@ const TasksPage = () => {
 
 	return (
 		<div>
-			<Sidepanel show={true} onThemeChange={handleThemeChange} />
-			<Navbar selectedTheme={theme} onThemeChange={handleThemeChange} />
 			<div className="tasks-container">
 				<div className="tasks-form" style={{ backgroundColor: theme }}>
 					<div
@@ -253,7 +251,7 @@ const TasksPage = () => {
 								{role === "team-member" && (
 									<div>
 										<h2
-											className="font-semibold text-center"
+											className="text-lg font-semibold text-center"
 											style={{ marginTop: "0", fontSize: "2rem" }}
 										>
 											Tasks

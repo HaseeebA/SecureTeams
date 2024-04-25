@@ -5,6 +5,7 @@ import Sidepanel from "./sidepanel";
 import CalendarHomeComponent from "./calendarHomeComponent";
 import Dashboard from "./admin/dashboard";
 import axios from "axios";
+import Taskspage from "./tasksHomeComponent.jsx";
 import "../styles/tasks.css";
 
 const Homepage = () => {
@@ -53,7 +54,7 @@ const Homepage = () => {
 		return (
 			<>
 				<div>
-					<Sidepanel show={showSidePanel} onThemeChange={handleThemeChange} />
+					<Sidepanel show={false} onThemeChange={handleThemeChange} />
 					<Navbar selectedTheme={theme} role={role} />
 					<InformationPanel />
 					<div className="ml-10">
@@ -65,19 +66,17 @@ const Homepage = () => {
 	} else {
 		return (
 			<>
-				<div>
-					<Sidepanel show={showSidePanel} onThemeChange={handleThemeChange} />
-					<Navbar selectedTheme={theme} role={role} />
-					<InformationPanel />
-					<div className="flex justify-center items-center">
-						<h1 className="text-4xl font-bold text-gray-800 mt-10">
-							Welcome to Secure Teams
-						</h1>
-					</div>
-					<div className="ml-10">
+				<Sidepanel show={false} onThemeChange={handleThemeChange} />
+				<Navbar selectedTheme={theme} role={role} />
+				<div style={{ display: "grid", gridTemplateColumns: "2fr 2fr" }}>
+					<div className="ml-4 mt-6">
 						<CalendarHomeComponent />
 					</div>
+					<div>
+						<Taskspage />
+					</div>
 				</div>
+				<InformationPanel />
 			</>
 		);
 	}

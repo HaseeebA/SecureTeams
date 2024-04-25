@@ -89,21 +89,21 @@ io.on("connection", (socket) => {
 	});
 
 	socket.on("sendMessage", async (data) => {
-		console.log("New message:", data);
-		const { sender, receiver, message, time } = data;
+		const { sender, receiver, message, timestamp } = data;
+		// console.log("Time:", time);
 
 		// Emit the new message to all clients
 		io.emit("newMessage", data);
 
 		try {
 			// Update the sender's contact
-			const newMessage = new Message({ sender, receiver, message, time });
+			const newMessage = new Message({ sender, receiver, message, timestamp });
 			await newMessage.save();
 			const senderContact = await Contact.findOneAndUpdate(
 				{ email: sender, "contacts.email": receiver },
 				{
 					$set: {
-						"contacts.$.lastConversationTimestamp": time,
+						"contacts.$.lastConversationTimestamp": timestamp,
 						"contacts.$.latestMessage": message
 					}
 				}
@@ -114,7 +114,7 @@ io.on("connection", (socket) => {
 				{ email: receiver, "contacts.email": sender },
 				{
 					$set: {
-						"contacts.$.lastConversationTimestamp": time,
+						"contacts.$.lastConversationTimestamp": timestamp,
 						"contacts.$.latestMessage": message
 					}
 				}

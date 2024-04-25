@@ -69,3 +69,167 @@ User visited route: /messages
 User visited route: /messages
 User visited route: /messages
 21/04/2024, 11:11:33 pm - GET /contacts?email=anassohail%40secureteams.com
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuYXNzb2hhaWxAc2VjdXJldGVhbXMuY29tIiwiaWF0IjoxNzE0MDY3ODA3LCJleHAiOjE3MTQwNzE0MDd9.XvZOdCdimg6ERhBJAu_c3AVISN4yL08xAzlNlJkIuz4 !!!
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /messages
+25/04/2024, 10:56:51 pm - GET /contacts?email=anassohail%40secureteams.com
+25/04/2024, 10:56:51 pm - GET /contacts?email=anassohail%40secureteams.com
+User visited route: /profile
+User visited route: /messages
+25/04/2024, 10:57:43 pm - GET /contacts?email=anassohail%40secureteams.com
+25/04/2024, 10:57:43 pm - GET /contacts?email=anassohail%40secureteams.com
+User visited route: /messages
+User visited route: /messages
+25/04/2024, 10:57:45 pm - GET /contacts?email=anassohail%40secureteams.com
+User visited route: /messages
+25/04/2024, 10:57:46 pm - GET /contacts?email=anassohail%40secureteams.com
+User visited route: /messages
+25/04/2024, 10:57:47 pm - GET /contacts?email=anassohail%40secureteams.com
+User visited route: /messages
+User visited route: /messages
+25/04/2024, 10:57:47 pm - GET /contacts?email=anassohail%40secureteams.com
+25/04/2024, 10:57:48 pm - GET /contacts?email=anassohail%40secureteams.com
+User visited route: /messages
+User visited route: /messages
+User visited route: /messages
+25/04/2024, 10:57:48 pm - GET /contacts?email=anassohail%40secureteams.com
+User visited route: /messages
+25/04/2024, 10:57:49 pm - GET /contacts?email=anassohail%40secureteams.com
+User visited route: /messages
+User visited route: /messages
+25/04/2024, 10:57:49 pm - GET /contacts?email=anassohail%40secureteams.com
+User visited route: /homepage
+User visited route: /messages
+25/04/2024, 10:57:51 pm - GET /contacts?email=anassohail%40secureteams.com
+25/04/2024, 10:57:51 pm - GET /contacts?email=anassohail%40secureteams.com
+25/04/2024, 10:58:03 pm - GET /contacts?email=anassohail%40secureteams.com
+User visited route: /messages
+User visited route: /messages
+User visited route: /messages
+25/04/2024, 10:58:03 pm - GET /contacts?email=anassohail%40secureteams.com
+25/04/2024, 11:01:14 pm - GET /contacts?email=anassohail%40secureteams.com
+User visited route: /messages
+User visited route: /messages
+User visited route: /messages
+25/04/2024, 11:01:14 pm - GET /contacts?email=anassohail%40secureteams.com
+25/04/2024, 11:04:45 pm - GET /contacts?email=anassohail%40secureteams.com
+25/04/2024, 11:05:00 pm - GET /contacts?email=anassohail%40secureteams.com
+25/04/2024, 11:05:04 pm - GET /contacts?email=anassohail%40secureteams.com
+25/04/2024, 11:05:06 pm - GET /contacts?email=anassohail%40secureteams.com
+25/04/2024, 11:05:14 pm - GET /contacts?email=anassohail%40secureteams.com
+25/04/2024, 11:05:44 pm - GET /contacts?email=anassohail%40secureteams.com
+25/04/2024, 11:05:46 pm - GET /contacts?email=anassohail%40secureteams.com
+25/04/2024, 11:05:50 pm - GET /contacts?email=anassohail%40secureteams.com
+25/04/2024, 11:05:54 pm - GET /contacts?email=anassohail%40secureteams.com
+25/04/2024, 11:06:00 pm - GET /contacts?email=anassohail%40secureteams.com
+25/04/2024, 11:06:01 pm - GET /contacts?email=anassohail%40secureteams.com
+25/04/2024, 11:06:05 pm - GET /contacts?email=anassohail%40secureteams.com
+25/04/2024, 11:06:19 pm - GET /contacts?email=anassohail%40secureteams.com
+25/04/2024, 11:06:28 pm - GET /contacts?email=anassohail%40secureteams.com
+25/04/2024, 11:06:29 pm - GET /contacts?email=anassohail%40secureteams.com
+25/04/2024, 11:06:32 pm - GET /contacts?email=anassohail%40secureteams.com
+25/04/2024, 11:06:34 pm - GET /contacts?email=anassohail%40secureteams.com
+25/04/2024, 11:06:52 pm - GET /contacts?email=anassohail%40secureteams.com
+25/04/2024, 11:07:33 pm - GET /contacts?email=anassohail%40secureteams.com
+25/04/2024, 11:07:41 pm - GET /contacts?email=anassohail%40secureteams.com
+25/04/2024, 11:07:42 pm - GET /contacts?email=anassohail%40secureteams.com
+25/04/2024, 11:10:38 pm - GET /contacts?email=anassohail%40secureteams.com
+25/04/2024, 11:10:48 pm - GET /contacts?email=anassohail%40secureteams.com
+25/04/2024, 11:10:51 pm - GET /contacts?email=anassohail%40secureteams.com
+25/04/2024, 11:10:53 pm - GET /contacts?email=anassohail%40secureteams.com
+25/04/2024, 11:10:55 pm - GET /contacts?email=anassohail%40secureteams.com
+25/04/2024, 11:11:14 pm - GET /contacts?email=anassohail%40secureteams.com
+25/04/2024, 11:11:17 pm - GET /contacts?email=anassohail%40secureteams.com
+25/04/2024, 11:11:36 pm - GET /contacts?email=anassohail%40secureteams.com
+25/04/2024, 11:11:46 pm - GET /contacts?email=anassohail%40secureteams.com
+25/04/2024, 11:11:48 pm - GET /contacts?email=anassohail%40secureteams.com
+25/04/2024, 11:14:13 pm - GET /contacts?email=anassohail%40secureteams.com
+25/04/2024, 11:14:14 pm - GET /contacts?email=anassohail%40secureteams.com
+25/04/2024, 11:14:39 pm - GET /contacts?email=anassohail%40secureteams.com
+25/04/2024, 11:14:41 pm - GET /contacts?email=anassohail%40secureteams.com
+25/04/2024, 11:14:57 pm - GET /contacts?email=anassohail%40secureteams.com
+25/04/2024, 11:15:56 pm - GET /contacts?email=anassohail%40secureteams.com
+25/04/2024, 11:16:15 pm - GET /contacts?email=anassohail%40secureteams.com
+25/04/2024, 11:17:39 pm - GET /contacts?email=anassohail%40secureteams.com
+25/04/2024, 11:18:02 pm - GET /contacts?email=anassohail%40secureteams.com
+25/04/2024, 11:18:04 pm - GET /contacts?email=anassohail%40secureteams.com
+25/04/2024, 11:18:39 pm - GET /contacts?email=anassohail%40secureteams.com
+User visited route: /messages
+25/04/2024, 11:18:41 pm - GET /contacts?email=anassohail%40secureteams.com
+User visited route: /messages
+User visited route: /messages
+25/04/2024, 11:18:41 pm - GET /contacts?email=anassohail%40secureteams.com
+25/04/2024, 11:19:09 pm - GET /contacts?email=anassohail%40secureteams.com
+25/04/2024, 11:19:10 pm - GET /contacts?email=anassohail%40secureteams.com
+25/04/2024, 11:19:30 pm - GET /contacts?email=anassohail%40secureteams.com
+25/04/2024, 11:19:33 pm - GET /contacts?email=anassohail%40secureteams.com
+25/04/2024, 11:21:05 pm - GET /contacts?email=anassohail%40secureteams.com
+25/04/2024, 11:21:12 pm - GET /contacts?email=anassohail%40secureteams.com
+!!! User logged out !!!
+
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /login
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuYXNzb2hhaWxAc2VjdXJldGVhbXMuY29tIiwiaWF0IjoxNzE0MDcyNjI4LCJleHAiOjE3MTQwNzYyMjh9._nSXbRnXw7knaM5atYx75ZwgzTntXhKxR4pNf30OM0A !!!
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+26/04/2024, 12:17:09 am - GET /contacts?email=anassohail%40secureteams.com
+User visited route: /messages
+26/04/2024, 12:17:10 am - GET /contacts?email=anassohail%40secureteams.com
+26/04/2024, 12:17:20 am - POST /contacts
+26/04/2024, 12:17:23 am - GET /contacts?email=anassohail%40secureteams.com
+User visited route: /messages
+User visited route: /messages
+User visited route: /messages
+26/04/2024, 12:17:23 am - GET /contacts?email=anassohail%40secureteams.com
+26/04/2024, 12:17:34 am - POST /contacts
+26/04/2024, 12:17:37 am - GET /contacts?email=anassohail%40secureteams.com
+User visited route: /messages
+User visited route: /messages
+User visited route: /messages
+26/04/2024, 12:17:37 am - GET /contacts?email=anassohail%40secureteams.com
+26/04/2024, 12:18:17 am - GET /events?email=anassohail@secureteams.com
+User visited route: /calendar
+User visited route: /homepage
+User visited route: /tasks
+User visited route: /tasks
+User visited route: /homepage
+User visited route: /settings
+User visited route: /profile
+User visited route: /profile
+User visited route: /profile
+User visited route: /profile
+User visited route: /settings
+26/04/2024, 12:20:58 am - POST /settings
+User visited route: /profile
+User visited route: /settings
+User visited route: /profile
+User visited route: /settings
+User visited route: /homepage
+User visited route: /messages
+26/04/2024, 12:21:59 am - GET /contacts?email=anassohail%40secureteams.com
+26/04/2024, 12:21:59 am - GET /contacts?email=anassohail%40secureteams.com
+User visited route: /calendar
+26/04/2024, 12:22:00 am - GET /events?email=anassohail@secureteams.com
+26/04/2024, 12:22:00 am - GET /events?email=anassohail@secureteams.com
+User visited route: /homepage
+User visited route: /settings
+User visited route: /profile
+User visited route: /profile
+User visited route: /profile
+User visited route: /profile
+User visited route: /profile
+User visited route: /profile
+User visited route: /profile
+!!! User logged out !!!
+
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /login

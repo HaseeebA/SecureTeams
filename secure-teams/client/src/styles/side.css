@@ -19,7 +19,7 @@
   position: fixed;
   left: 10px;
   top: 100px;
-  bottom: 60px;
+  bottom: 50px;
   width: 10px;
   background-color: var(--side-panel-background-color);
   padding: 16px 0 16px 16px;
@@ -35,6 +35,10 @@
 
 .side-panel.expanded {
   width: 210px;
+}
+
+.side-panel.collapsed {
+  width: 10px; /* Set the collapsed width */
 }
 
 .toggle-panel-button {
@@ -81,7 +85,7 @@
 
 .side-panel>div:hover {
   color: #000000;
-  font-size: 20px;
+  /* font-size: 20px; */
 }
 
 .side-panel>div img {

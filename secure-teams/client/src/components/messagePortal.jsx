@@ -18,24 +18,17 @@ const ContactDetailsComponent = ({ receiver, sender }) => {
 	}, [receiver]); // Include receiver in the dependency array
 
 	useEffect(() => {
-        scrollToBottom();
-    }, [messages]); // Scroll to bottom whenever messages change
-
+		scrollToBottom();
+	}, [messages]); // Scroll to bottom whenever messages change
 
 	const fetchMessages = async () => {
 		try {
-			const response1 = await axios.get(
-				apiBaseUrl + "/message/messages",
-				{
-					params: { sender: sender, receiver: receiver },
-				}
-			);
-			const response2 = await axios.get(
-				apiBaseUrl + "/message/messages",
-				{
-					params: { sender: receiver, receiver: sender },
-				}
-			);
+			const response1 = await axios.get(apiBaseUrl + "/message/messages", {
+				params: { sender: sender, receiver: receiver },
+			});
+			const response2 = await axios.get(apiBaseUrl + "/message/messages", {
+				params: { sender: receiver, receiver: sender },
+			});
 
 			if (response1.status === 200 && response2.status === 200) {
 				const combinedMessages = response1.data.concat(response2.data);
@@ -53,21 +46,33 @@ const ContactDetailsComponent = ({ receiver, sender }) => {
 	};
 
 	socket.on("newMessage", (data) => {
-		if (data.receiver === sender && data.sender === receiver || data.receiver === receiver && data.sender === sender) {
+		if (
+			(data.receiver === sender && data.sender === receiver) ||
+			(data.receiver === receiver && data.sender === sender)
+		) {
 			setMessages([...messages, data]);
 		}
 	});
 
 	const scrollToBottom = () => {
-        if (messageListRef.current) {
-            messageListRef.current.scrollTop = messageListRef.current.scrollHeight;
-        }
-    };
+		if (messageListRef.current) {
+			messageListRef.current.scrollTop = messageListRef.current.scrollHeight;
+		}
+	};
 
 	return (
 		<div className="chat-container">
 			<div className="contact-info" style={{ marginBottom: "10px" }}>
-				<h3>{receiver.split("@")[0]}</h3>
+				<h3
+					style={{
+						color: "black",
+						fontWeight: "bold",
+						fontSize: "20px",
+						textTransform: "capitalize",
+					}}
+				>
+					{receiver.split("@")[0]}
+				</h3>
 			</div>
 			<div className="message-list" ref={messageListRef}>
 				{messages
@@ -80,7 +85,19 @@ const ContactDetailsComponent = ({ receiver, sender }) => {
 							}`}
 						>
 							<p style={{ color: "white", marginBottom: "0", padding: "5px" }}>
-								{message.message}</p>
+								{message.message}
+							</p>
+							<p
+								style={{
+									color: "white",
+									fontSize: "9px",
+									marginTop: "0",
+									paddingLeft: "5px",
+									paddingRight: "5px",
+								}}
+							>
+								{new Date(message.timestamp).toLocaleTimeString()}
+							</p>
 						</div>
 					))}
 			</div>

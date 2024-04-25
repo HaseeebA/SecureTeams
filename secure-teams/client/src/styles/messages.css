@@ -8,6 +8,17 @@
     /* Push the tab to the bottom */
 }
 
+
+.messages-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    flex: 1;
+    background-color: rgb(248, 247, 247);
+    margin-left: 16rem;
+    padding: 20px;
+}
+
 /* CSS */
 /* .contact-list {
     /* Add styles for the contact list container */
@@ -22,7 +33,7 @@
     max-height: 55vh;
     max-width: fit-content;
     overflow-y: auto;
-    border-radius: 20px;
+    /* border-radius: 20px; */
     box-sizing: border-box;
 
     /* Style for WebKit-based browsers (Chrome, Safari) */
@@ -41,7 +52,7 @@
     /* Style for Firefox */
     scrollbar-width: thin;
     /* Set the width of the scrollbar */
-    scrollbar-color: #ffffff rgba(0, 0, 0, 0);
+    scrollbar-color: var(--side-panel-background-color) rgba(0, 0, 0, 0);
     /* Set the color of the scrollbar thumb and track */
 }
 
@@ -58,7 +69,7 @@
 .scrollable-container {
     padding: 20px;
     max-width: fit-content;
-    border-radius: 20px;
+    border-radius: 10px;
     box-sizing: border-box;
     /* background-color: #ffffff; */
     /* Add padding to the container if needed */
@@ -82,8 +93,22 @@
 }
 
 .contact-button:hover {
-    background-color: #5f45a02d;
-    /* Darker green on hover */
+    background-color: rgb(185, 185, 185);
+}
+
+.contact-name {
+    font-size: 16px;
+    text-align: start;
+    font-weight: 900;
+    text-transform: capitalize;
+}
+
+.message-preview {
+    text-align: start;
+    /* font-size: 12px; */
+    color: var(--side-panel-background-color);
+    font-weight: 600;
+    text-decoration: overline;
 }
 
 .modal {
@@ -109,6 +134,7 @@
     /* Hide overflow to allow scrolling within message-panel-container */
     /* height: 80%; Take the full height of the modal */
     display: flex;
+    margin-left: 15px;
 }
 
 .message-panel-container {
@@ -122,4 +148,10 @@
     /* Allow vertical scrolling */
     box-sizing: border-box;
     /* Include padding and border in the element's total dimensions */
+}
+
+@media (max-width: 768px) {
+    .select-contact-text {
+        display: none;
+    }
 }

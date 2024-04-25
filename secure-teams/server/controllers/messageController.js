@@ -28,6 +28,7 @@ export const sendMessage = async (req, res) => {
 		res.status(500).json({ message: "Error sending message" });
 	}
 };
+
 export const saveContact = async (req, res) => {
     const { email, contact, latestMessage } = req.body;
 
@@ -65,13 +66,35 @@ export const saveContact = async (req, res) => {
         }
         await existingContactsCurrentUser.save();
 
-        // Rest of the code remains the same
-        // ...
+        // Update or create the contact for the contacted user
+        let existingContactsContactedUser = await Contact.findOne({ email: contact });
+        if (!existingContactsContactedUser) {
+            existingContactsContactedUser = new Contact({ email: contact, contacts: [] });
+        }
+        const currentUserIndex = existingContactsContactedUser.contacts.findIndex(c => c.email === email);
+        if (currentUserIndex === -1) {
+            // Create new contact for contacted user
+            existingContactsContactedUser.contacts.push({
+                email: email,
+                lastConversationTimestamp: Date.now(),
+                latestMessage: latestMessage
+            });
+        } else {
+            // Update existing contact for contacted user
+            existingContactsContactedUser.contacts[currentUserIndex].lastConversationTimestamp = Date.now();
+            existingContactsContactedUser.contacts[currentUserIndex].latestMessage = latestMessage;
+        }
+        await existingContactsContactedUser.save();
+
+        // Send success response
+        res.status(200).json({ message: "Contact added successfully" });
+
     } catch (error) {
         console.log(error);
         res.status(500).json({ message: "Error adding contact" });
     }
 };
+
 
 
 export const getContacts = async (req, res) => {
@@ -80,7 +103,6 @@ export const getContacts = async (req, res) => {
 	logtoFile(req.method, req.url, email);
 
 	try {
-		console.log("Email:", email);
 		const contacts = await Contact.findOne({ email });
 		if (!contacts) {
 			return res.status(404).json({ message: "Contacts not found" });

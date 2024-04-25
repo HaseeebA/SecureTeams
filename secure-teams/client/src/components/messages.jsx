@@ -4,11 +4,9 @@ import Sidepanel from "./sidepanel";
 import axios from "axios";
 import ContactDetailsComponent from "./messagePortal";
 import "../styles/messages.css";
-import abc from "./sidepanel";
 import { useSocket } from "../socketProvider";
 
 const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
-// console.log("API Base URL", apiBaseUrl);
 
 const Messages = () => {
 	const email = localStorage.getItem("email");
@@ -74,8 +72,6 @@ const Messages = () => {
 
 	const handleAddContactConfirm = async () => {
 		try {
-			// Make POST request to the server's /api/contacts endpoint
-			// const response = await axios.post("https://secureteams.onrender.com/api/contacts", {
 			const response = await axios.post(apiBaseUrl + "/message/contacts", {
 				email: email, // Pass the user ID
 				contact: emailInput, // Pass the contact
@@ -87,77 +83,91 @@ const Messages = () => {
 			});
 
 			// Check if the request was successful
-			if (response.status === 201) {
+			if (response.status === 200) {
 				console.log("Contact added successfully");
-				// Close the modal
 				window.alert("User added successfully");
 				setIsModalOpen(false);
 				reloadPage();
 			} else {
-				// Handle error response
 				const data = await response.json();
 				console.log("Error:", data.message);
 				window.alert("User does not exist, please try again");
-				// Set error message
-				// setErrorMessage(data.message);
 			}
 		} catch (error) {
 			console.log("Error adding contact:", error);
 			console.error("Error:", error);
 			window.alert("User does not exist, please try again");
-
-			// Handle network error or other issues
-			// setErrorMessage('Network error. Please try again later.');
 		}
 	};
 	const handleContactClick = (contact) => {
 		// Set the selected contact state when a contact is clicked
 		setSelectedContact(contact);
 		// Show the component when a contact is clicked
-		setShowComponent(true);
+		// setShowComponent(true);
+		setShowComponent(!showComponent);
 		// setShowComponent(false);
 	};
 
+	socket.on("newMessage", (data) => {
+		if (data.receiver === selectedContact && data.sender === email) {
+			setContacts((prevContacts) => {
+				const updatedContacts = [...prevContacts];
+				const contactIndex = updatedContacts.findIndex(
+					(contact) => contact.email === data.receiver
+				);
+				if (contactIndex !== -1) {
+					updatedContacts[contactIndex].latestMessage = data.message;
+					updatedContacts[contactIndex].lastConversationTimestamp =
+						data.timestamp;
+				} else {
+					updatedContacts.push({
+						email: data.sender,
+						latestMessage: data.message,
+						lastConversationTimestamp: data.timestamp,
+					});
+				}
+				return updatedContacts;
+			});
+		} else if (data.receiver === email && data.sender === selectedContact) {
+			setContacts((prevContacts) => {
+				const updatedContacts = [...prevContacts];
+				const contactIndex = updatedContacts.findIndex(
+					(contact) => contact.email === data.sender
+				);
+				if (contactIndex !== -1) {
+					updatedContacts[contactIndex].latestMessage = data.message;
+					updatedContacts[contactIndex].lastConversationTimestamp =
+						data.timestamp;
+				} else {
+					updatedContacts.push({
+						email: data.sender,
+						latestMessage: data.message,
+						lastConversationTimestamp: data.timestamp,
+					});
+				}
+				return updatedContacts;
+			});
+		}
+	});
+
 	const handleSendMessage = async () => {
-		// Implement logic to send message to selected contact
-		// This can include sending the message content to the backend and storing it in the database
 		try {
-			// console.log(message);
-			// Make POST request to the server's /api/messages endpoint
-			// const response = await axios.post(
-			// 	// "https://secureteams.onrender.com/api/messages",
-			// 	apiBaseUrl + "/message/messages",
-			// 	{
-			// 		sender: email, // Pass the user ID
-			// 		receiver: selectedContact, // Pass the contact
-			// 		message: message, // Pass the message content
-			// 		time: new Date().toISOString(), // Pass the current time
-			// 	}
-			// );
 			socket.emit("logActivity", {
 				method: "POST",
 				path: "/message/messages",
 				email: email,
 			});
 			console.log("Sending message to:", selectedContact);
-			socket.emit("sendMessage", { sender: email, receiver: selectedContact, message: message, time: new Date().toISOString() });
+			socket.emit("sendMessage", {
+				sender: email,
+				receiver: selectedContact,
+				message: message,
+				timestamp: new Date().toUTCString(),
+			});
 			setMessage("");
-			// Check if the request was successful
-			// if (response.status === 201) {
-			// 	console.log("Message sent successfully");
-			// 	// Clear the message input field
-			// 	setMessage("");
-			// 	// Optionally, display a success message to the user
-			// } else {
-			// 	// Handle error response
-			// 	const data = response.json();
-			// 	console.log("Error:", data.message);
-			// 	// Optionally, display an error message to the user
-			// }
 		} catch (error) {
 			console.log("Error sending message:", error);
 			console.error("Error:", error);
-			// Handle network error or other issues
 		}
 	};
 
@@ -177,14 +187,15 @@ const Messages = () => {
 			<div className="flex h-screen">
 				<Sidepanel show={showSidePanel} onThemeChange={handleThemeChange} />
 				<div
-					className={`relative h-full flex flex-col ml-56 p-3 flex-1 bg-gray-200 transition-all duration-500 ease-in-out`}
+					// className={`relative h-full flex flex-col ml-56 p-3 flex-1 bg-gray-200 transition-all duration-500 ease-in-out`}
+					className="messages-container"
 				>
 					<div className="transform h-full">
 						<div className="h-full relative overflow-y-auto p-3 pr-4 rounded px-4">
 							<button
-								className="bg-blue-400 text-white mb-5 p-3 rounded hover:bg-blue-500 flex items-center"
+								className="bg-blue-400 text-white mb-5 p-3 rounded hover:bg-gray-500 flex items-center"
 								onClick={handleAddContact}
-								style={{ backgroundColor: theme }}
+								style={{ backgroundColor: theme, borderRadius: "10px" }}
 							>
 								Add Contact
 							</button>
@@ -237,15 +248,30 @@ const Messages = () => {
 								</div>
 							)}
 							<div className="contact-list">
-								<div className="scrollable-container" style={{ backgroundColor: theme }}>
+								<div
+									className="scrollable-container"
+									style={{ backgroundColor: theme }}
+								>
 									{contacts ? (
 										// Sort contacts based on lastConversationTimestamp
-										contacts.sort((a, b) => b.lastConversationTimestamp - a.lastConversationTimestamp)
+										contacts
+											.sort((a, b) => {
+												const timestampA = new Date(
+													a.lastConversationTimestamp
+												);
+												const timestampB = new Date(
+													b.lastConversationTimestamp
+												);
+												return timestampB - timestampA;
+											})
 											.map((contact, index) => {
 												// Get the contact name
-												const contactName = contact.email ? contact.email.split("@")[0] : "Unknown";
+												const contactName = contact.email
+													? contact.email.split("@")[0]
+													: "Unknown";
 												// Get the preview of the latest message
-												const messagePreview = contact.latestMessage || "No messages";
+												const messagePreview =
+													contact.latestMessage || "No messages";
 												return (
 													<div key={index} className="contact-item">
 														<button
@@ -253,7 +279,9 @@ const Messages = () => {
 															onClick={() => handleContactClick(contact.email)}
 														>
 															<div className="contact-name">{contactName}</div>
-															<div className="message-preview">{messagePreview}</div>
+															<a className="message-preview">
+																{messagePreview}
+															</a>
 														</button>
 													</div>
 												);
@@ -263,7 +291,6 @@ const Messages = () => {
 									)}
 								</div>
 							</div>
-
 						</div>
 						{showComponent && (
 							<div className="modal">
@@ -276,23 +303,44 @@ const Messages = () => {
 							</div>
 						)}
 					</div>
-					<div className="transform flex justify-end">
-						<textarea
-							className="w-full h-1/8 p-2 mb-4 border border-gray-300 rounded px-4"
-							value={message}
-							onChange={(e) => setMessage(e.target.value)}
-							onKeyDown={handleKeyPress} // Add key press event listener
-							placeholder="Type your message and press Enter to send"
-							style={{ margin: "10px", marginLeft: "200px" }}
-						/>
-						<button
-							className="text-white px-2 py-0 rounded hover:bg-blue-600 flex items-center"
-							onClick={handleSendMessage}
-							style={{ margin: "10px", padding: "15px", backgroundColor: theme }}
+					{showComponent && selectedContact && (
+						<div className="transform flex justify-end">
+							<textarea
+								className="w-full h-1/8 p-2 mb-4 border border-gray-300 rounded px-4"
+								value={message}
+								onChange={(e) => setMessage(e.target.value)}
+								onKeyDown={handleKeyPress} // Add key press event listener
+								placeholder="Type your message and press Enter to send"
+								style={{ margin: "10px", marginLeft: "215px" }}
+							/>
+							<button
+								className="text-white px-2 py-0 rounded hover:bg-blue-600 flex items-center"
+								onClick={handleSendMessage}
+								style={{
+									margin: "10px",
+									padding: "15px",
+									backgroundColor: theme,
+								}}
+							>
+								Send
+							</button>
+						</div>
+					)}
+					{!showComponent && (
+						<div
+							className="flex justify-center items-center h-full top-0 bottom-0 absolute mr-10 text-2xl text-black select-contact-text"
+							style={{
+								zIndex: "1",
+								width: "500px",
+								height: "auto",
+								right: "auto",
+								left: "50%",
+								maxWidth: "fit-content",
+							}}
 						>
-							Send
-						</button>
-					</div>
+							Select a contact to message them
+						</div>
+					)}
 				</div>
 			</div>
 		</div>

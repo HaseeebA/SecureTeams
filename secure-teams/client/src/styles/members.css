@@ -22,7 +22,21 @@
     box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
     overflow-y: auto;
 }
-
+.members-form{
+    width: 60%;
+    /* Increase width percentage as desired */
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 30px auto;
+    /* Increased margin and auto to center it */
+    min-height: calc(90vh - 130px);
+    /* Ensure it at least covers the viewport height minus 120px */
+    max-height: 80vh;
+    /* You can set a max height if needed */
+    overflow-y: auto;
+}
 .edit-create-options {
     display: flex;
     align-items: center;

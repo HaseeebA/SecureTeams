@@ -83,7 +83,7 @@ const Sidepanel = ({ show, onThemeChange }) => {
 	if (role === "admin") {
 		return (
 			<div
-				className={`side-panel ${show ? "visible" : ""} ${
+				className={`side-panel ${show ? "" : ""} ${
 					isPanelOpen ? "expanded" : "collapsed"
 				} ${invertImages ? "inverted-images" : ""}`}
 			>
@@ -306,7 +306,7 @@ const Sidepanel = ({ show, onThemeChange }) => {
 		} else {
 			return (
 				<div
-					className={`side-panel ${show ? "visible" : ""} ${
+					className={`side-panel ${show ? "" : ""} ${
 						isPanelOpen ? "expanded" : "collapsed"
 					} ${invertImages ? "inverted-images" : ""}`}
 				>

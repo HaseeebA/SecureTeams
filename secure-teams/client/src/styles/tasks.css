@@ -1,40 +1,4 @@
-/* tasks.css
 
-/* Style the dropdown container */
-/* .mb-4 {
-    margin-bottom: 1rem; 
-} */
-
-/* Style the label for the dropdown */
-/* .mr-2 {
-    margin-right: 0.5rem; 
-} */
-
-/* Style the dropdown select element */
-/* .p-2 {
-    padding: 0.5rem; 
-} */
-
-/* Style the dropdown border and appearance */
-/* .rounded {
-    border-radius: 0.25rem; 
-    border: 1px solid #ccc; 
-} */
-
-/* Style the dropdown options */
-/* select {
-    width: 100%; 
-} */
-
-/* Style the dropdown hover and focus effects */
-/* select:focus, select:hover {
-    border-color: #aaa; 
-}
-
-.inputText {
-    color: black;
-}  */
-/* tasks.css */
 
 /* Style the container */
 .container {
@@ -87,3 +51,27 @@ ul {
     /* Other styles can go here */
 }
 
+.tasks-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    /* If you need to adjust the spacing or width of the overall container, you can do it here. */
+}
+
+.tasks-form {
+    width: 60%;
+    /* Increase width percentage as desired */
+    padding: 20px;
+    /* background-color: white; */
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 30px auto;
+    /* Increased margin and auto to center it */
+    min-height: calc(100vh - 150px);
+    /* Ensure it at least covers the viewport height minus 120px */
+    max-height: 90vh;
+    /* You can set a max height if needed */
+    overflow-y: auto;
+    /* Allows scrolling if the content is too long */
+}

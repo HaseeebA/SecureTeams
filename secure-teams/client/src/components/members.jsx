@@ -132,7 +132,7 @@ const Members = () => {
 		<>
 			<Sidepanel show={showSidePanel} onThemeChange={handleThemeChange} />
 			<Navbar selectedTheme={theme} />
-			<div className="members-container">
+			<div className="profile-container members-form"style={{ backgroundColor: theme }}>
 				{role === "manager" ? (
 					<>
 						<h1 className={`members-header ${isDarkTheme ? "text-white" : ""}`}>
@@ -187,12 +187,12 @@ const Members = () => {
 					<div>
 						{teamMembers.map((team) => (
 							<div key={team._id}>
-								<h2 style={{ color: "white" }}>Team Name: {team.name}</h2>
+								<h2 style={{ color: "White" }}>Team Name: {team.name}</h2>
 								<div className="team-members-grid">
 									{team.members.map((email, index) => {
 										const user = userNames.find((user) => user.email === email);
 										return (
-											<div key={index} className="team-member-item">
+											<div key={index} className="team-member-item" style={{ color: "White" }}>
 												<div>
 													<strong>Name:</strong> {user ? user.name : "Unknown"}
 												</div>
