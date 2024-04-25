@@ -142,3 +142,29 @@ User visited route: /messages
 4/25/2024, 6:00:51 PM - GET /contacts?email=momin%40secureteams.com
 User visited route: /messages
 4/25/2024, 6:00:51 PM - GET /contacts?email=momin%40secureteams.com
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /login
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vbWluQHNlY3VyZXRlYW1zLmNvbSIsImlhdCI6MTcxNDA1MTY4NCwiZXhwIjoxNzE0MDU1Mjg0fQ.ZG2fuEkgqi7FRkm_8XUnEsJHEOpOTu1eAPK9DgoASjc !!!
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /messages
+4/25/2024, 6:28:06 PM - GET /contacts?email=momin%40secureteams.com
+4/25/2024, 6:28:06 PM - GET /contacts?email=momin%40secureteams.com
+User visited route: /profile
+User visited route: /messages
+4/25/2024, 6:29:32 PM - GET /contacts?email=momin%40secureteams.com
+4/25/2024, 6:29:32 PM - GET /contacts?email=momin%40secureteams.com
+User visited route: /homepage
+User visited route: /messages
+4/25/2024, 6:30:12 PM - GET /contacts?email=momin%40secureteams.com
+4/25/2024, 6:30:12 PM - GET /contacts?email=momin%40secureteams.com

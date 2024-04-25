@@ -11,3 +11,16 @@ User visited route: /messages
 User visited route: /messages
 User visited route: /messages
 4/25/2024, 3:31:05 AM - GET /contacts?email=gilani%40secureteams.com
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdpbGFuaUBzZWN1cmV0ZWFtcy5jb20iLCJpYXQiOjE3MTQwNTE3MzksImV4cCI6MTcxNDA1NTMzOX0.EXg-HjLIWXeoAKIGWiuWtaWztJKHvAAPZxfNHQ1xSmI !!!
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+4/25/2024, 6:29:06 PM - GET /contacts?email=gilani%40secureteams.com
+User visited route: /messages
+4/25/2024, 6:29:06 PM - GET /contacts?email=gilani%40secureteams.com
+User visited route: /messages
+4/25/2024, 6:32:36 PM - GET /contacts?email=gilani%40secureteams.com
+User visited route: /messages
+User visited route: /messages
+4/25/2024, 6:32:36 PM - GET /contacts?email=gilani%40secureteams.com
