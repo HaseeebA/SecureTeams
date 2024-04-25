@@ -6,6 +6,9 @@ import CalendarHomeComponent from "./calendarHomeComponent";
 import Dashboard from "./admin/dashboard";
 import axios from "axios";
 import "../styles/tasks.css";
+// import Team from "./team.jsx";
+import RemindersList from "./reminders"; 
+import "../styles/homepage.css";
 
 const Homepage = () => {
 	const defaultTheme = "#68d391";
@@ -64,23 +67,29 @@ const Homepage = () => {
 		);
 	} else {
 		return (
-			<>
-				<div>
-					<Sidepanel show={showSidePanel} onThemeChange={handleThemeChange} />
-					<Navbar selectedTheme={theme} role={role} />
-					<InformationPanel />
-					<div className="flex justify-center items-center">
-						<h1 className="text-4xl font-bold text-gray-800 mt-10">
-							Welcome to Secure Teams!
-						</h1>
-					</div>
-					<div className="ml-10">
-						<CalendarHomeComponent />
-					</div>
+		  <>
+			<div className="homepagepc-container">
+			  <Sidepanel
+				show={showSidePanel}
+				onThemeChange={handleThemeChange}
+			  />
+			  <Navbar selectedTheme={theme} role={role} />
+			  <InformationPanel />
+			  <div className="homepage-bg" /> {/* Background image */}
+			  <div className="homepage-content">
+				<div className="flex justify-center items-center">
+				  <h1 className="text-4xl font-bold text-gray-800 mt-10">
+					Welcome to Secure Teams!
+				  </h1>
 				</div>
-			</>
+				<div className="ml-10">
+				  <CalendarHomeComponent />
+				</div>
+			  </div>
+			</div>
+		  </>
 		);
-	}
-};
-
-export default Homepage;
+	  }
+	};
+	
+	export default Homepage;
