@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import multer from "multer";
 import User from "./models/user.js";
+import { Task, Team } from "./models/tasks.js";
 import logtoFile from "./middleware/logger.js";
 import authRoutes from "./routes/authRoutes.js";
 import eventRoutes from "./routes/eventRoutes.js";
@@ -72,18 +73,10 @@ app.post("/api/update", upload.single("profilePhoto"), async (req, res) => {
 	}
 });
 
-const taskSchema = new mongoose.Schema({
-	userId: { type: String, required: true }, // Changed to store email directly
-	title: { type: String, required: true },
-	description: { type: String, required: true },
-});
-
-const Task = mongoose.model("Task", taskSchema);
-
 app.post("/api/tasks", async (req, res) => {
 	const { userId, title, description } = req.body;
 	console.log("Received request to create task with title:", title);
-	console.log("User ID:", userId); // Make sure this is the correct user ID
+	console.log("User ID:", userId);
 	try {
 		const newTask = new Task({ userId, title, description });
 		console.log("Creating new task:", newTask);
@@ -99,7 +92,7 @@ app.post("/api/tasks", async (req, res) => {
 });
 
 app.get("/api/tasks", async (req, res) => {
-	const userEmail = req.query.userId; // Assuming the query parameter is userId
+	const userEmail = req.query.userId;
 	try {
 		const tasks = await Task.find({ userId: userEmail });
 		res.status(200).json(tasks);
@@ -108,21 +101,6 @@ app.get("/api/tasks", async (req, res) => {
 		res.status(500).json({ message: "Error fetching tasks" });
 	}
 });
-
-const teamSchema = new mongoose.Schema({
-	name: {
-		type: String,
-		required: true,
-	},
-	members: [
-		{
-			type: String,
-			required: true,
-		},
-	],
-});
-
-const Team = mongoose.model("Team", teamSchema);
 
 app.get("/api/members", async (req, res) => {
 	try {

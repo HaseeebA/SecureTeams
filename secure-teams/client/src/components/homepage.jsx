@@ -4,7 +4,6 @@ import InformationPanel from "./infopanel";
 import Sidepanel from "./sidepanel";
 import CalendarHomeComponent from "./calendarHomeComponent";
 import Dashboard from "./admin/dashboard";
-import Team from "./team.jsx";
 import axios from "axios";
 import "../styles/tasks.css";
 
@@ -61,7 +60,6 @@ const Homepage = () => {
 						<Dashboard />
 					</div>
 				</div>
-				<Team />
 			</>
 		);
 	} else {
@@ -79,34 +77,6 @@ const Homepage = () => {
 					<div className="ml-10">
 						<CalendarHomeComponent />
 					</div>
-
-					{/* <div className="flex flex-col h-screen">
-						<div className="flex-grow flex justify-center items-center">
-							<div className="container ml-8" style={{ backgroundColor: theme, color: 'white', maxHeight: '80vh', marginTop: '30px', overflow: 'auto', borderRadius: '10px', paddingTop: '0' }}></div>
-							{role === 'employee' && (
-								<div>
-									<h2 className="text-lg font-semibold text-center" style={{ marginTop: '0' }}>Tasks</h2>
-									<table className="tasks-table">
-										<thead>
-											<tr>
-												<th>Task</th>
-												<th>Description</th>
-											</tr>
-										</thead>
-										<tbody>
-											{assignedTasks.map((task) => (
-												<tr key={task._id}>
-													<td>{task.title}</td>
-													<td>{task.description}</td>
-												</tr>
-											))}
-										</tbody>
-									</table>
-								</div>
-
-							)}
-						</div>
-					</div> */}
 				</div>
 			</>
 		);

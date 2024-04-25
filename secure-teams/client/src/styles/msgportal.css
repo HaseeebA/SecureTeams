@@ -14,6 +14,7 @@
     display: flex;
     flex-direction: column;
     height: 100%;
+    padding: 30px;
 }
 
 .message-list {
@@ -33,21 +34,22 @@
 }
 
 .received {
-    background-color: #18e2b0;
+    background-color: #006b2b;
     align-self: flex-start;
     margin-right: auto; /* Push received messages to the left */
 }
 
 .sent {
-    background-color: #b700ff;
+    background-color: #002d8ecb;
     align-self: flex-end;
     margin-left: auto; /* Push sent messages to the right */
+    color: #ffffff;
 }
 
 
 .yo{
     margin-left: 10px;
-    color: #fafafa;
+    color: #ffffff;
     font-size: 20px;
     margin: 0;
 }

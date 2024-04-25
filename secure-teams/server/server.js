@@ -1,11 +1,11 @@
 import { Socket, Server } from "socket.io";
 import http from "http";
-import { app } from "./app.js";
-import { config } from "dotenv";
-import { Message, Contact } from "./models/messages.js";
-
 import fs from "fs";
 import path from "path";
+import { app } from "./app.js";
+import User from "./models/user.js";
+import { transporter } from "./middleware/mailer.js";
+import { Message, Contact } from "./models/messages.js";
 
 // Create HTTP server
 const httpServer = http.createServer(app);
@@ -90,16 +90,18 @@ io.on("connection", (socket) => {
 
 	socket.on("sendMessage", async (data) => {
 		console.log("New message:", data);
+		const { sender, receiver, message, time } = data;
 		io.emit("newMessage", data);
-		try {
-			const { sender, receiver, message } = data;
-			const newMessage = new Message({ sender, receiver, message });
-			await newMessage.save();
-		} catch (error) {
-			console.error("Error saving message:", error);
+		{
+			try {
+				const newMessage = new Message({ sender, receiver, message, time });
+				await newMessage.save();
+			}
+			catch (error) {
+				console.log(error);
+			}
 		}
-	});
-	
+	})
 });
 
 // Start listening on the HTTP server

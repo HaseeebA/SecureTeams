@@ -5,8 +5,8 @@ import "../../styles/dashboard.css";
 import { useSocket } from "../../socketProvider.js";
 
 const Dashboard = () => {
-	const [totalUsers, setTotalUsers] = useState(0);
-	const [activeUsers, setActiveUsers] = useState(0);
+	// const [totalUsers, setTotalUsers] = useState(0);
+	// const [activeUsers, setActiveUsers] = useState(0);
 	const [activityLog, setActivityLog] = useState([]);
 
 	const socket = useSocket();
@@ -41,18 +41,6 @@ const Dashboard = () => {
 					</ul>
 				</div>
 			</div>
-
-			{/* Right Section - User Statistics
-			<div className="stats-container">
-				<div className="w-1/2 p-4">
-					<div className="stats1">
-						<h2 className="text-xl font-bold">Total Users: {totalUsers}</h2>
-					</div>
-					<div className="stats2">
-						<h2 className="text-xl font-bold">Active Users: {activeUsers}</h2>
-					</div>
-				</div>
-			</div> */}
 		</div>
 	);
 };

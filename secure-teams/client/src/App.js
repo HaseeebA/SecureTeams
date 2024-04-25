@@ -9,9 +9,10 @@ import Welcome from "./components/welcome.jsx";
 import Homepage from "./components/homepage.jsx";
 import Login from "./components/login.js";
 import Signup from "./components/signup.js";
-import Team from "./components/team.jsx";
 import Roles from "./components/admin/manageRoles.jsx";
 import {
+	MemberProtectedRoute,
+	EmployeeProtectedRoute,
 	AdminProtectedRoute,
 	ProtectedRoute,
 } from "./components/protectedRoutes.js";
@@ -73,21 +74,24 @@ function App() {
 					/>
 					<Route
 						path="/messages"
-						element={<ProtectedRoute component={Messages} />}
+						element={<EmployeeProtectedRoute component={Messages} />}
 					/>
 					<Route
 						path="/members"
-						element={<ProtectedRoute component={Members} />}
+						element={<MemberProtectedRoute component={Members} />}
 					/>
-					<Route path="/tasks" element={<ProtectedRoute component={Tasks} />} />
+					<Route
+						path="/tasks"
+						element={<MemberProtectedRoute component={Tasks} />}
+					/>
 					<Route
 						path="/calendar"
-						element={<ProtectedRoute component={CalendarPage} />}
+						element={<EmployeeProtectedRoute component={CalendarPage} />}
 					/>
-					<Route
+					{/* <Route
 						path="/admin/dashboard"
 						element={<AdminProtectedRoute component={Dashboard} />}
-					/>
+					/> */}
 					<Route path="/compliance" element={<ComplianceDocument />} />
 					<Route path="*" element={<NotFound />} />
 				</Routes>

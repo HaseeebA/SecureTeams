@@ -1,58 +1,98 @@
-User visited route: /homepage
+User visited route: /
+User visited route: /
+User visited route: /
+User visited route: /login
 
-!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vbWluQHNlY3VyZXRlYW1zLmNvbSIsImlhdCI6MTcxMzk5MTc2NiwiZXhwIjoxNzEzOTk1MzY2fQ.4mYS0kU22Uvf6DtXGnaXYfeQujmb_RBcKGVNIoNCMmY !!!
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vbWluQHNlY3VyZXRlYW1zLmNvbSIsImlhdCI6MTcxMzk5Nzc3MiwiZXhwIjoxNzE0MDAxMzcyfQ.X54WMQrZ68DyYJp2bjeL-ofu8XuDNzEzKGfAyikAZFc !!!
 User visited route: /homepage
 User visited route: /homepage
 User visited route: /homepage
-4/25/2024, 1:49:32 AM - GET /contacts?email=momin%40secureteams.com
+4/25/2024, 3:29:38 AM - GET /contacts?email=momin%40secureteams.com
 User visited route: /messages
-4/25/2024, 1:49:33 AM - GET /contacts?email=momin%40secureteams.com
+4/25/2024, 3:29:38 AM - GET /contacts?email=momin%40secureteams.com
 User visited route: /messages
-User visited route: /messages
-4/25/2024, 1:50:37 AM - GET /contacts?email=momin%40secureteams.com
-User visited route: /messages
-4/25/2024, 1:50:38 AM - GET /contacts?email=momin%40secureteams.com
+4/25/2024, 3:32:59 AM - GET /contacts?email=momin%40secureteams.com
 User visited route: /messages
 User visited route: /messages
-4/25/2024, 1:50:55 AM - GET /contacts?email=momin%40secureteams.com
+4/25/2024, 3:33:00 AM - GET /contacts?email=momin%40secureteams.com
 User visited route: /messages
-4/25/2024, 1:50:55 AM - GET /contacts?email=momin%40secureteams.com
-User visited route: /messages
-4/25/2024, 1:52:09 AM - GET /contacts?email=momin%40secureteams.com
+4/25/2024, 3:33:30 AM - GET /contacts?email=momin%40secureteams.com
 User visited route: /messages
 User visited route: /messages
-User visited route: /messages
-4/25/2024, 1:52:12 AM - GET /contacts?email=momin%40secureteams.com
-User visited route: /messages
+4/25/2024, 3:33:30 AM - GET /contacts?email=momin%40secureteams.com
 User visited route: /messages
 User visited route: /messages
-4/25/2024, 1:52:16 AM - GET /contacts?email=momin%40secureteams.com
+4/25/2024, 3:33:40 AM - GET /contacts?email=momin%40secureteams.com
+User visited route: /messages
+4/25/2024, 3:33:40 AM - GET /contacts?email=momin%40secureteams.com
+4/25/2024, 3:34:06 AM - GET /contacts?email=momin%40secureteams.com
 User visited route: /messages
 User visited route: /messages
-4/25/2024, 1:52:17 AM - GET /contacts?email=momin%40secureteams.com
 User visited route: /messages
-4/25/2024, 1:52:17 AM - GET /contacts?email=momin%40secureteams.com
-User visited route: /messages
-User visited route: /messages
-4/25/2024, 1:52:17 AM - GET /contacts?email=momin%40secureteams.com
+4/25/2024, 3:34:10 AM - GET /contacts?email=momin%40secureteams.com
+4/25/2024, 3:34:11 AM - GET /contacts?email=momin%40secureteams.com
+4/25/2024, 3:34:18 AM - GET /contacts?email=momin%40secureteams.com
 User visited route: /messages
 User visited route: /messages
-4/25/2024, 1:53:35 AM - GET /contacts?email=momin%40secureteams.com
+4/25/2024, 3:34:20 AM - GET /contacts?email=momin%40secureteams.com
 User visited route: /messages
-4/25/2024, 1:53:37 AM - GET /contacts?email=momin%40secureteams.com
+4/25/2024, 3:34:21 AM - GET /contacts?email=momin%40secureteams.com
+4/25/2024, 3:34:24 AM - GET /contacts?email=momin%40secureteams.com
+4/25/2024, 3:34:32 AM - GET /contacts?email=momin%40secureteams.com
+4/25/2024, 3:34:40 AM - GET /contacts?email=momin%40secureteams.com
+4/25/2024, 3:34:44 AM - GET /contacts?email=momin%40secureteams.com
+4/25/2024, 3:34:44 AM - GET /contacts?email=momin%40secureteams.com
+4/25/2024, 3:34:47 AM - GET /contacts?email=momin%40secureteams.com
+4/25/2024, 3:34:51 AM - GET /contacts?email=momin%40secureteams.com
+4/25/2024, 3:34:56 AM - GET /contacts?email=momin%40secureteams.com
+4/25/2024, 3:34:57 AM - GET /contacts?email=momin%40secureteams.com
+4/25/2024, 3:35:02 AM - GET /contacts?email=momin%40secureteams.com
+4/25/2024, 3:35:09 AM - GET /contacts?email=momin%40secureteams.com
+4/25/2024, 3:35:16 AM - GET /contacts?email=momin%40secureteams.com
+4/25/2024, 3:35:21 AM - GET /contacts?email=momin%40secureteams.com
+4/25/2024, 3:35:35 AM - GET /contacts?email=momin%40secureteams.com
+4/25/2024, 3:35:38 AM - GET /contacts?email=momin%40secureteams.com
+4/25/2024, 3:35:41 AM - GET /contacts?email=momin%40secureteams.com
+4/25/2024, 3:35:44 AM - GET /contacts?email=momin%40secureteams.com
+4/25/2024, 3:35:48 AM - GET /contacts?email=momin%40secureteams.com
+4/25/2024, 3:35:55 AM - GET /contacts?email=momin%40secureteams.com
+4/25/2024, 3:35:57 AM - GET /contacts?email=momin%40secureteams.com
+4/25/2024, 3:36:00 AM - GET /contacts?email=momin%40secureteams.com
+4/25/2024, 3:36:07 AM - GET /contacts?email=momin%40secureteams.com
+4/25/2024, 3:36:10 AM - GET /contacts?email=momin%40secureteams.com
+4/25/2024, 3:36:15 AM - GET /contacts?email=momin%40secureteams.com
+4/25/2024, 3:36:22 AM - GET /contacts?email=momin%40secureteams.com
+4/25/2024, 3:36:26 AM - GET /contacts?email=momin%40secureteams.com
+4/25/2024, 3:36:29 AM - GET /contacts?email=momin%40secureteams.com
+4/25/2024, 3:36:32 AM - GET /contacts?email=momin%40secureteams.com
+4/25/2024, 3:37:02 AM - GET /contacts?email=momin%40secureteams.com
+4/25/2024, 3:37:16 AM - GET /contacts?email=momin%40secureteams.com
+4/25/2024, 3:37:24 AM - GET /contacts?email=momin%40secureteams.com
+4/25/2024, 3:37:37 AM - GET /contacts?email=momin%40secureteams.com
+4/25/2024, 3:37:44 AM - GET /contacts?email=momin%40secureteams.com
+4/25/2024, 3:37:50 AM - GET /contacts?email=momin%40secureteams.com
 User visited route: /messages
 User visited route: /messages
-4/25/2024, 1:56:40 AM - GET /contacts?email=momin%40secureteams.com
+4/25/2024, 3:37:53 AM - GET /contacts?email=momin%40secureteams.com
 User visited route: /messages
-4/25/2024, 1:56:40 AM - GET /contacts?email=momin%40secureteams.com
-4/25/2024, 2:00:56 AM - GET /contacts?email=momin%40secureteams.com
+4/25/2024, 3:37:54 AM - GET /contacts?email=momin%40secureteams.com
+4/25/2024, 3:38:00 AM - GET /contacts?email=momin%40secureteams.com
+4/25/2024, 3:38:05 AM - GET /contacts?email=momin%40secureteams.com
+4/25/2024, 3:38:07 AM - GET /contacts?email=momin%40secureteams.com
+4/25/2024, 3:38:15 AM - GET /contacts?email=momin%40secureteams.com
 User visited route: /messages
-User visited route: /messages
-4/25/2024, 2:05:10 AM - GET /contacts?email=momin%40secureteams.com
-User visited route: /messages
-4/25/2024, 2:05:11 AM - GET /contacts?email=momin%40secureteams.com
-User visited route: /messages
-4/25/2024, 2:09:47 AM - GET /contacts?email=momin%40secureteams.com
+4/25/2024, 3:38:58 AM - GET /contacts?email=momin%40secureteams.com
 User visited route: /messages
 User visited route: /messages
-4/25/2024, 2:09:47 AM - GET /contacts?email=momin%40secureteams.com
+4/25/2024, 3:38:58 AM - GET /contacts?email=momin%40secureteams.com
+4/25/2024, 3:39:32 AM - GET /contacts?email=momin%40secureteams.com
+4/25/2024, 3:39:38 AM - GET /contacts?email=momin%40secureteams.com
+4/25/2024, 3:39:44 AM - GET /contacts?email=momin%40secureteams.com
+4/25/2024, 3:39:48 AM - GET /contacts?email=momin%40secureteams.com
+User visited route: /messages
+User visited route: /messages
+4/25/2024, 3:39:49 AM - GET /contacts?email=momin%40secureteams.com
+User visited route: /messages
+4/25/2024, 3:39:50 AM - GET /contacts?email=momin%40secureteams.com
+4/25/2024, 3:39:58 AM - GET /contacts?email=momin%40secureteams.com
+4/25/2024, 3:40:34 AM - GET /contacts?email=momin%40secureteams.com

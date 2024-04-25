@@ -20,6 +20,7 @@ const Settings = () => {
 	const [password, setPassword] = useState("");
 	const [newPassword, setNewPassword] = useState("");
 	const [error, setError] = useState("");
+	const [is2FAAlreadyEnabled, setIsAlready2FAEnabled] = useState(false);
 	const socket = useSocket();
 
 	const handleThemeChange = (newTheme) => {
@@ -29,6 +30,20 @@ const Settings = () => {
 			newTheme
 		);
 	};
+
+	useEffect(() => {
+		const fetchSettings = async () => {
+			const is2FAAlreadyEnabledResponse = await axios.get(
+				apiBaseUrl + "/auth/2faEnabled?email=" + localStorage.getItem("email")
+			);
+			// console.log(
+			// 	"is2FAAlreadyEnabledResponse",
+			// 	is2FAAlreadyEnabledResponse.data.enabled
+			// );
+			setIsAlready2FAEnabled(is2FAAlreadyEnabledResponse.data.enabled);
+		};
+		fetchSettings();
+	}, []);
 
 	const handleToggle2FA = () => {
 		setIs2FAEnabled(!is2FAEnabled);
@@ -170,7 +185,7 @@ const Settings = () => {
 						marginRight: "85px",
 					}}
 				>
-					Enable 2FA
+					Enable 2FA: {is2FAAlreadyEnabled ? "Already Enabled" : ""}
 					<Switch onChange={handleToggle2FA} checked={is2FAEnabled} />
 				</label>
 
@@ -198,7 +213,7 @@ const Settings = () => {
 							marginRight: "85px",
 						}}
 					>
-						Enable Log Alerts
+						Enable Log Alerts: {is2FAAlreadyEnabled ? "Already Enabled" : ""}
 						<Switch
 							onChange={handleToggleLogAlerts}
 							checked={isLogAlertsEnabled}

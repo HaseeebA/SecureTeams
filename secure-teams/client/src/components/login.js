@@ -5,7 +5,7 @@ import StarsCanvas from "./canvas/Stars.jsx";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { closed, open } from "../images/index.js";
-import io from "socket.io-client";
+// import io from "socket.io-client";
 import { useSocket } from "../socketProvider.js";
 
 const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
@@ -38,10 +38,10 @@ const Login = () => {
 			return;
 		}
 
-		if (!/^.+@secureteams\.com$/.test(email)) {
-			setError("Email must be in the format _@secureteams.com");
-			return;
-		}
+		// if (!/^.+@secureteams\.com$/.test(email)) {
+		// 	setError("Email must be in the format _@secureteams.com");
+		// 	return;
+		// }
 
 		try {
 			const response = await axios.post(apiBaseUrl + "/auth/login", {

@@ -24,19 +24,16 @@ const Messages = () => {
 	const socket = useSocket();
 
 	useEffect(() => {
-		// Fetch contacts from the server when the component mounts
 		fetchContacts();
 	}, []);
 
 	const reloadPage = () => {
-		// Reload the entire page
 		window.location.reload();
 	};
 
 	const fetchContacts = async () => {
-		console.log("fetching contaccccts");
+		console.log("fetching contacts");
 		try {
-			// Make a GET request to fetch the contacts
 			console.log(email);
 
 			const response = await axios.get(apiBaseUrl + "/message/contacts", {
@@ -48,16 +45,10 @@ const Messages = () => {
 				email: email,
 			});
 			if (response.status === 200) {
-				// If the request is successful, extract the array of emails from the response data
 				const data = response.data;
-				console.log("dataaaaa:", data);
 				const emailsArray = data;
-				// const emailsArray = data[2]; // Access the array of emails at the third index
-				// Set the contacts state with the extracted array
-				console.log("emailsArray:", emailsArray);
 				setContacts(emailsArray);
 			} else {
-				// If the request fails, log the error
 				console.error("Failed to fetch contacts");
 			}
 		} catch (error) {
@@ -148,8 +139,8 @@ const Messages = () => {
 				path: "/message/messages",
 				email: email,
 			});
-
-			socket.emit("sendMessage", {sender: email, receiver: selectedContact, message: message})
+			console.log("Sending message to:", selectedContact);
+			socket.emit("sendMessage", { sender: email, receiver: selectedContact, message: message, time: new Date().toISOString() });
 			setMessage("");
 			// Check if the request was successful
 			// if (response.status === 201) {
@@ -182,22 +173,18 @@ const Messages = () => {
 
 	return (
 		<div className="flex flex-col h-screen relative">
-			{" "}
-			{/* Added relative positioning */}
 			<Navbar selectedTheme={theme} />
-			{/* <InformationPanel /> */}
 			<div className="flex h-screen">
-				{" "}
-				{/* Make this div flexible and allow it to grow, added relative positioning */}
-				<div className={`w-16 sm:w-48 ${abc ? "block" : "hidden"}`}>
-					<Sidepanel show={showSidePanel} onThemeChange={handleThemeChange} />
-				</div>
-				<div className={`relative h-full flex flex-col p-3 flex-1 bg-gray-100 transition-all duration-500 ease-in-out`}>
+				<Sidepanel show={showSidePanel} onThemeChange={handleThemeChange} />
+				<div
+					className={`relative h-full flex flex-col ml-56 p-3 flex-1 bg-gray-200 transition-all duration-500 ease-in-out`}
+				>
 					<div className="transform h-full">
 						<div className="h-full relative overflow-y-auto p-3 pr-4 rounded px-4">
 							<button
-								className="bg-blue-400 text-white px-1 py-1 rounded hover:bg-blue-500 flex items-center"
+								className="bg-blue-400 text-white mb-5 p-3 rounded hover:bg-blue-500 flex items-center"
 								onClick={handleAddContact}
+								style={{ backgroundColor: theme }}
 							>
 								Add Contact
 							</button>
@@ -249,9 +236,8 @@ const Messages = () => {
 									</div>
 								</div>
 							)}
-							<div>
-								{/* Display the list of contacts */}
-								<div>
+							<div className="contact-list">
+								<div className="scrollable-container" style={{ backgroundColor: theme }}>
 									{contacts ? (
 										contacts.map((contact, index) => {
 											// Split the contact string by "@" and take the first part
@@ -284,19 +270,19 @@ const Messages = () => {
 							</div>
 						)}
 					</div>
-					<div className="transform bg-orange-2 flex justify-end">
+					<div className="transform flex justify-end">
 						<textarea
 							className="w-full h-1/8 p-2 mb-4 border border-gray-300 rounded px-4"
 							value={message}
 							onChange={(e) => setMessage(e.target.value)}
 							onKeyDown={handleKeyPress} // Add key press event listener
 							placeholder="Type your message and press Enter to send"
-							style={{ margin: "10px" }}
+							style={{ margin: "10px", marginLeft: "200px" }}
 						/>
 						<button
-							className="bg-blue-400 text-white px-4 py-3 rounded hover:bg-blue-600 flex items-center"
+							className="text-white px-2 py-0 rounded hover:bg-blue-600 flex items-center"
 							onClick={handleSendMessage}
-							style={{ marginLeft: "10px", marginBottom: "1px" }}
+							style={{ margin: "10px", padding: "15px", backgroundColor: theme }}
 						>
 							Send
 						</button>
