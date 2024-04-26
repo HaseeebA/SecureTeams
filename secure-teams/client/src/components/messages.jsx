@@ -13,7 +13,7 @@ const Messages = () => {
 	const [selectedContact, setSelectedContact] = useState(""); // Selected contact for sending messages
 	const [message, setMessage] = useState(""); // Message to be sent
 	const [showSidePanel, setShowSidePanel] = useState(true);
-	const initialTheme = localStorage.getItem("themeColor");
+	const initialTheme = (localStorage.getItem("themeColor") || "#ddb892");
 	const [theme, setTheme] = useState(initialTheme);
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	const [emailInput, setEmailInput] = useState("");

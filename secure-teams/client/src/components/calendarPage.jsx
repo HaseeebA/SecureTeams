@@ -6,7 +6,7 @@ import CalendarComponent from './calendarComponent';
 
 const CalendarPage = () => {
     const [showSidePanel, setShowSidePanel] = useState(true);
-    const initialTheme = localStorage.getItem('themeColor') || '#68d391';
+    const initialTheme = localStorage.getItem("themeColor") || "#ddb892";
     const [theme, setTheme] = useState(initialTheme);
 
     const handleThemeChange = (newTheme) => {
