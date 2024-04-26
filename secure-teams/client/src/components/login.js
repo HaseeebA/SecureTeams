@@ -227,30 +227,23 @@ const Login = () => {
 					</form>
 				)}
 			</div>
-			<div className="footer">
-                <footer className="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-                    <p className="col-md-4 mb-0" style={{ color: "#fff" }}>
-                        © 2024 Secure Teams. All Rights Reserved.
-                    </p>
-
-                    <ul className="nav col-md-4 justify-content-end">
-                        <li className="nav-item">
-                            <a href="#" className="nav-link px-2" style={{ color: "#fff" }}>
-                                Home
-                            </a>
-                        </li>
-                        <li className="nav-item">
-                            <a
-                                href="/compliance"
-                                className="nav-link px-2"
-                                style={{ color: "#fff" }}
-                            >
-                                Terms & Conditions
-                            </a>
-                        </li>
-                    </ul>
-                </footer>
-            </div>
+			<div className="footer1">
+				{" "}
+				{/* Footer Section */}
+				<div className="footer-content">
+					<p style={{ color: "#fff", margin: 0 }}>
+						© 2024 Secure Teams. All Rights Reserved.
+					</p>
+				</div>
+				<div className="footer-links">
+					<Link to="/" style={{ color: "#fff", marginRight: "1rem" }}>
+						Home
+					</Link>
+					<Link to="/compliance" style={{ color: "#fff" }}>
+						Terms and Conditions
+					</Link>
+				</div>
+			</div>
 		</div>
 	);
 };

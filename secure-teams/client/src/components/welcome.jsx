@@ -232,7 +232,7 @@ const Welcome = () => {
 					</div>
 				</div>
 			</div>
-			<div className="footer">
+			<div className="footer1">
 				{" "}
 				{/* Footer Section */}
 				<div className="footer-content">
