@@ -19,7 +19,7 @@ const CalendarComponent = () => {
 				// const response = await fetch(
 				//   `https://secureteams.onrender.com/api/events?email=${email}`
 				// );
-				const response = await fetch(apiBaseUrl + "/events?email=" + email);
+				const response = await fetch(apiBaseUrl + "/event/events?email=" + email);
 				socket.emit("logActivity", {
 					method: "GET",
 					path: "/events?email=" + email,
