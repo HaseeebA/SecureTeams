@@ -112,7 +112,7 @@ const EditRolesPage = () => {
 									onChange={(e) => setSelectedRole(e.target.value)}
 								>
 									<option value="">Select a role</option>
-									<option value="Team Lead">Team Lead</option>
+									{/* <option value="Team Lead">Team Lead</option> */}
 									<option value="Team Member">Team Member</option>
 									<option value="Manager">Manager</option>
 								</select>
