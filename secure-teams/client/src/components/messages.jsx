@@ -88,7 +88,8 @@ const Messages = () => {
 				console.log("Contact added successfully");
 				window.alert("User added successfully");
 				setIsModalOpen(false);
-				reloadPage();
+				// reloadPage();
+				window.location.reload();
 			} else {
 				const data = await response.json();
 				console.log("Error:", data.message);
