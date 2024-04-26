@@ -36,7 +36,7 @@ const Members = () => {
 					path: "/members",
 					email: localStorage.getItem("email"),
 				});
-				// console.log("Members:", response.data);
+				console.log("Members:", response.data);
 				setNames(response.data);
 			} catch (error) {
 				console.log("Error fetching members:", error);
@@ -46,6 +46,7 @@ const Members = () => {
 		const fetchNames = async () => {
 			try {
 				const response = await axios.get(apiBaseUrl + "/userDetails");
+				// console.log("User names:", response.data);
 				setUserNames(response.data);
 			} catch (error) {
 				console.log("Error fetching user names:", error);
@@ -62,7 +63,7 @@ const Members = () => {
 				});
 
 				// Update state with fetched team members' data
-				console.log("Team members:", response.data);
+				// console.log("Team members:", response.data);
 				setTeamMembers(response.data);
 			} catch (error) {
 				console.log("Error fetching team members:", error);
@@ -75,11 +76,11 @@ const Members = () => {
 		fetchTeamMembers();
 	}, []);
 
-	const handleEditTeam = () => {
-		// Placeholder code for handling edit team action
-		console.log("Editing current team...");
-		// You can replace this with actual logic for editing the team
-	};
+	// const handleEditTeam = () => {
+	// 	// Placeholder code for handling edit team action
+	// 	console.log("Editing current team...");
+	// 	// You can replace this with actual logic for editing the team
+	// };
 
 	const handleCreateNewTeam = async () => {
 		// Assuming you have the necessary data available
@@ -132,18 +133,24 @@ const Members = () => {
 		<>
 			<Sidepanel show={showSidePanel} onThemeChange={handleThemeChange} />
 			<Navbar selectedTheme={theme} />
-			<div className="profile-container members-form"style={{ backgroundColor: theme }}>
+			<div className="members-form" style={{ backgroundColor: theme }}>
 				{role === "manager" ? (
 					<>
-						<h1 className={`members-header ${isDarkTheme ? "text-white" : ""}`}>
-							Teams
-						</h1>
-						<div className="edit-create-options">
-							<button onClick={() => setShowModal(true)}>
+						<div className="members-header-container">
+							<h1
+								className="members-header"
+								style={{ color: "white", marginBottom: "10px" }}
+							>
+								Teams
+							</h1>
+							<button
+								className="edit-create-options"
+								onClick={() => setShowModal(true)}
+							>
 								Create New Team
 							</button>
 						</div>
-						{/* Render modal or form when showModal is true */}
+
 						{showModal && (
 							<div className="">
 								<div className="">
@@ -170,7 +177,6 @@ const Members = () => {
 											)
 										}
 									>
-										{/* Render options for selecting multiple users */}
 										{names.map((user, index) => (
 											<option key={index} value={user.email}>
 												{user.email}
@@ -178,7 +184,13 @@ const Members = () => {
 											</option>
 										))}
 									</select>
-									<button onClick={handleSaveTeam}>Save</button>
+									<button
+										className="edit-create-options"
+										style={{ marginTop: "10px" }}
+										onClick={handleSaveTeam}
+									>
+										Save
+									</button>
 								</div>
 							</div>
 						)}
@@ -192,7 +204,11 @@ const Members = () => {
 									{team.members.map((email, index) => {
 										const user = userNames.find((user) => user.email === email);
 										return (
-											<div key={index} className="team-member-item" style={{ color: "White" }}>
+											<div
+												key={index}
+												className="team-member-item"
+												style={{ color: "White" }}
+											>
 												<div>
 													<strong>Name:</strong> {user ? user.name : "Unknown"}
 												</div>

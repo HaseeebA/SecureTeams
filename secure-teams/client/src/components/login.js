@@ -19,10 +19,8 @@ const Login = () => {
 	const [role, setRole] = useState("");
 	const [loginSuccess, setLoginSuccess] = useState(false);
 	const [error, setError] = useState("");
-	const [twofaToken, setTwofaToken] = useState(
-		Array.from({ length: 6 }, () => "")
-	);
 	localStorage.setItem("themeColor","#ddb892");
+	const [twofaToken, setTwofaToken] = useState("");
 
 	const socket = useSocket();
 
@@ -38,12 +36,6 @@ const Login = () => {
 			setError("Password field empty");
 			return;
 		}
-
-		// if (!/^.+@secureteams\.com$/.test(email)) {
-		// 	setError("Email must be in the format _@secureteams.com");
-		// 	return;
-		// }
-
 		try {
 			const response = await axios.post(apiBaseUrl + "/auth/login", {
 				email: email,
@@ -160,6 +152,7 @@ const Login = () => {
 							type="submit"
 							onClick={handle2FAVerification}
 							className="login-button"
+							style={{ marginTop: "10px" }}
 						>
 							Verify
 						</button>
@@ -228,6 +221,7 @@ const Login = () => {
 					</form>
 				)}
 			</div>
+// <<<<<<< dynamic-color-final
 			<div className="footer1">
 				{" "}
 				{/* Footer Section */}
@@ -244,6 +238,31 @@ const Login = () => {
 						Terms and Conditions
 					</Link>
 				</div>
+// =======
+// 			<div className="footer">
+// 				<footer className="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+// 					<p className="col-md-4 mb-0" style={{ color: "#fff" }}>
+// 						© 2024 Secure Teams. All Rights Reserved.
+// 					</p>
+
+// 					<ul className="nav col-md-4 justify-content-end">
+// 						<li className="nav-item">
+// 							<a href="#" className="nav-link px-2" style={{ color: "#fff" }}>
+// 								Home
+// 							</a>
+// 						</li>
+// 						<li className="nav-item">
+// 							<a
+// 								href="/compliance"
+// 								className="nav-link px-2"
+// 								style={{ color: "#fff" }}
+// 							>
+// 								Terms & Conditions
+// 							</a>
+// 						</li>
+// 					</ul>
+// 				</footer>
+// >>>>>>> main
 			</div>
 		</div>
 	);

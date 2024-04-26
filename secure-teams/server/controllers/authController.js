@@ -120,10 +120,8 @@ export const send2FACode = async (req, res) => {
 			return res.status(400).json({ message: "Secondary email not found" });
 		}
 
-		// Generate a random 6-digit code for 2FA
 		const code = Math.floor(100000 + Math.random() * 900000);
 
-		// Email content
 		const mailOptions = {
 			from: process.env.EMAIL_USERNAME,
 			to: receiverEmail,
@@ -138,16 +136,14 @@ export const send2FACode = async (req, res) => {
 
 		emailSent = true;
 
-		// Send email with 2FA code
 		transporter.sendMail(mailOptions, async (error, info) => {
 			if (error) {
 				console.log(error);
-				emailSent = false; // Reset the flag if there was an error sending the email
+				emailSent = false;
 				return res.status(500).json({ message: "Error sending 2FA token" });
 			}
 			console.log("2FA token sent to", receiverEmail);
 
-			// Store the 2FA code in the user document after email sent successfully
 			user.settings.twoFactorAuthCode = code;
 			console.log("2FA code:", code);
 			await user.save();

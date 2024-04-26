@@ -104,10 +104,12 @@ app.get("/api/tasks", async (req, res) => {
 
 app.get("/api/members", async (req, res) => {
 	try {
-		const users = await User.find().select("email");
+		const users = await User.find({
+			role: { $ne: "admin", $ne: "employee" },
+		}).select("email");
 		res.status(200).json(users);
 	} catch (error) {
-		console.log("ok");
+		console.log("Error fetching members:", error);
 		return res.status(500).json({ message: "Error fetching members", error });
 	}
 });

@@ -41,11 +41,17 @@ io.on("connection", (socket) => {
 		}
 	});
 
+	let isAlertPending = false;
+
 	socket.on("logActivity", (data) => {
 		const { method, path, email } = data;
-		if (email !== "admin@secureteams.com") {
+		if (email !== "admin@secureteams.com" && !isAlertPending) {
 			const logMessage = `>> <span style="color: lime;">${email}</span> - <span style="color: red;">${method}</span> ${path}`;
 			io.emit("logMessage", logMessage);
+			isAlertPending = true;
+			setTimeout(() => {
+				isAlertPending = false;
+			}, 400);
 		}
 	});
 
@@ -104,8 +110,8 @@ io.on("connection", (socket) => {
 				{
 					$set: {
 						"contacts.$.lastConversationTimestamp": timestamp,
-						"contacts.$.latestMessage": message
-					}
+						"contacts.$.latestMessage": message,
+					},
 				}
 			);
 
@@ -115,8 +121,8 @@ io.on("connection", (socket) => {
 				{
 					$set: {
 						"contacts.$.lastConversationTimestamp": timestamp,
-						"contacts.$.latestMessage": message
-					}
+						"contacts.$.latestMessage": message,
+					},
 				}
 			);
 
@@ -127,7 +133,6 @@ io.on("connection", (socket) => {
 			console.error("Error sending message:", error);
 		}
 	});
-
 });
 
 // Start listening on the HTTP server
@@ -176,3 +181,17 @@ const logAlert = async (email, message, type) => {
 		console.log(error);
 	}
 };
+
+function debounce(func, delay) {
+	let timeoutId;
+	return function (...args) {
+		clearTimeout(timeoutId);
+		timeoutId = setTimeout(() => {
+			func.apply(this, args);
+		}, delay);
+	};
+}
+
+const emitLogMessageWithDelay = debounce((logMessage) => {
+	io.emit("logMessage", logMessage);
+}, 1000); // Adjust the delay as needed (in milliseconds)

@@ -36,7 +36,7 @@ const Messages = () => {
 			console.log(email);
 
 			const response = await axios.get(apiBaseUrl + "/message/contacts", {
-				params: { email: email }, // Pass the email as a query parameter
+				params: { email: email },
 			});
 			socket.emit("logActivity", {
 				method: "GET",
@@ -159,7 +159,7 @@ const Messages = () => {
 				path: "/message/messages",
 				email: email,
 			});
-			console.log("Sending message to:", selectedContact);
+			// console.log("Sending message to:", selectedContact);
 			socket.emit("sendMessage", {
 				sender: email,
 				receiver: selectedContact,
