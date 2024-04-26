@@ -28,6 +28,9 @@ import ComplianceDocument from "./components/compliance.jsx";
 import axios from "axios";
 import { SocketProvider } from "./socketProvider.js";
 
+import LogList from "./components/admin/log.jsx";
+import SpecificLog from "./components/admin/specificLog.jsx";
+
 function LogUserEmail() {
 	const location = useLocation();
 	const [logged, setLogged] = useState(false);
@@ -87,6 +90,14 @@ function App() {
 					<Route
 						path="/calendar"
 						element={<EmployeeProtectedRoute component={CalendarPage} />}
+					/>
+					<Route
+						path="/logs"
+						element={<AdminProtectedRoute component={LogList} />}
+					/>
+					<Route
+						path="/logfile/:logFileName"
+						element={<AdminProtectedRoute component={SpecificLog} />}
 					/>
 					{/* <Route
 						path="/admin/dashboard"

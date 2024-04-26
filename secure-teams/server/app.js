@@ -12,6 +12,7 @@ import userRoutes from "./routes/userRoutes.js";
 import profileRoutes from "./routes/profileRoutes.js";
 import messageRoutes from "./routes/messageRoutes.js";
 import path from "path";
+import fs from "fs";
 
 export const app = express();
 
@@ -47,6 +48,51 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage: storage });
+
+app.get("/api/allLogs", async (req, res) => {
+	const logFilesDirectory = "log_files"; // Replace with the actual directory name where log files are stored
+
+	try {
+		// Read the contents of the log files directory
+		fs.readdir(logFilesDirectory, (err, files) => {
+			if (err) {
+				console.log("Error reading log files directory:", err);
+				res.status(500).json({ message: "Error reading log files directory" });
+			} else {
+				const logFileNames = files.filter((file) => file.endsWith(".txt")); // Assuming log files have a .log extension
+				res.status(200).json(logFileNames);
+			}
+		});
+	} catch (error) {
+		console.log("Error fetching log file names:", error);
+		res.status(500).json({ message: "Error fetching log file names" });
+	}
+});
+
+app.get("/api/logFile/:logFileName", async (req, res) => {
+	const logFileName = req.params.logFileName;
+	try {
+		console.log("Directory name:", __dirname);
+		const logFilePath = path.join(
+			__dirname,
+			"server",
+			"log_files",
+			logFileName
+		);
+		// Use a callback function to handle the result
+		fs.readFile(logFilePath, "utf-8", (err, logContent) => {
+			if (err) {
+				console.error("Error reading log file:", err);
+				res.status(500).send("Error reading log file");
+			} else {
+				res.send(logContent);
+			}
+		});
+	} catch (error) {
+		console.error("Error reading log file:", error);
+		res.status(500).send("Error reading log file");
+	}
+});
 
 app.post("/api/update", upload.single("profilePhoto"), async (req, res) => {
 	const { email, name } = req.body;
