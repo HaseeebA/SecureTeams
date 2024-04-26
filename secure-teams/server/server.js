@@ -18,6 +18,7 @@ const io = new Server(httpServer, {
 	},
 });
 
+
 io.on("connection", (socket) => {
 	socket.on("login", (data) => {
 		const { email, token } = data;

@@ -29,12 +29,14 @@ mongoose
 		console.log("Error connecting to MongoDB", err);
 	});
 
+//routes
 app.use("/api/auth", authRoutes);
 app.use("/api/event", eventRoutes);
 app.use("/api/user", userRoutes);
 app.use("/api/profile", profileRoutes);
 app.use("/api/message", messageRoutes);
 
+//storage for profile photo
 const storage = multer.diskStorage({
 	destination: function (req, file, cb) {
 		cb(null, "uploads/");
@@ -48,6 +50,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
+//update profile photo
 app.post("/api/update", upload.single("profilePhoto"), async (req, res) => {
 	const { email, name } = req.body;
 
@@ -73,6 +76,7 @@ app.post("/api/update", upload.single("profilePhoto"), async (req, res) => {
 	}
 });
 
+//assign new tasks to users
 app.post("/api/tasks", async (req, res) => {
 	const { userId, title, description } = req.body;
 	console.log("Received request to create task with title:", title);
@@ -91,6 +95,7 @@ app.post("/api/tasks", async (req, res) => {
 	}
 });
 
+//fetch all tasks for a user
 app.get("/api/tasks", async (req, res) => {
 	const userEmail = req.query.userId;
 	try {
@@ -102,6 +107,7 @@ app.get("/api/tasks", async (req, res) => {
 	}
 });
 
+//get members
 app.get("/api/members", async (req, res) => {
 	try {
 		const users = await User.find({
@@ -114,6 +120,7 @@ app.get("/api/members", async (req, res) => {
 	}
 });
 
+//create new team with the given member emails and team name
 app.post("/api/createTeams", async (req, res) => {
 	const { teamName, memberEmails } = req.body;
 	try {
@@ -132,6 +139,7 @@ app.post("/api/createTeams", async (req, res) => {
 	}
 });
 
+//fetch user details
 app.get("/api/userDetails", async (req, res) => {
 	try {
 		// Fetch user details from the database
@@ -143,6 +151,7 @@ app.get("/api/userDetails", async (req, res) => {
 	}
 });
 
+//api call to fetch members in the given team
 app.get("/api/membersInTeam", async (req, res) => {
 	const { teamName } = req.query;
 	try {
@@ -161,6 +170,7 @@ app.get("/api/membersInTeam", async (req, res) => {
 	}
 });
 
+//fetch all team names
 app.get("/api/teamNames", async (req, res) => {
 	try {
 		// Fetch user details from the database
@@ -172,6 +182,7 @@ app.get("/api/teamNames", async (req, res) => {
 	}
 });
 
+//fetch all teams
 app.get("/api/teams", async (req, res) => {
 	const { email } = req.query;
 	try {

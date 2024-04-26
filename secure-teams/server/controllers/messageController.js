@@ -2,6 +2,7 @@ import { Message, Contact } from "../models/messages.js";
 import logtoFile from "../middleware/logger.js";
 import User from "../models/user.js";
 
+//get all the messages between two users
 export const getMessages = async (req, res) => {
 	const { sender, receiver } = req.query;
 	try {
@@ -13,6 +14,7 @@ export const getMessages = async (req, res) => {
 	}
 };
 
+//save sent message to backend
 export const sendMessage = async (req, res) => {
 	const { sender, receiver, message } = req.body;
 
@@ -29,6 +31,7 @@ export const sendMessage = async (req, res) => {
 	}
 };
 
+//save new contact for messaging
 export const saveContact = async (req, res) => {
     const { email, contact, latestMessage } = req.body;
 
@@ -102,7 +105,7 @@ export const saveContact = async (req, res) => {
     }
 };
 
-
+//get contacts user has been connected with before
 export const getContacts = async (req, res) => {
 	const { email } = req.query; // Access email from query parameters
 

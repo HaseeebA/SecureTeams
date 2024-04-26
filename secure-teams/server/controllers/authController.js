@@ -6,6 +6,7 @@ import logtoFile from "../middleware/logger.js";
 import fs from "fs";
 import path from "path";
 
+//api call for login
 export const loginUser = async (req, res) => {
 	const { email, password } = req.body;
 
@@ -60,6 +61,7 @@ export const loginUser = async (req, res) => {
 	}
 };
 
+//api call for signup
 export const signupUser = async (req, res) => {
 	const { name, email, password } = req.body;
 	try {
@@ -81,6 +83,7 @@ export const signupUser = async (req, res) => {
 	}
 };
 
+//api call to check if 2FA is enabled
 export const is2FAEnabled = async (req, res) => {
 	const email = req.query.email;
 
@@ -99,6 +102,7 @@ export const is2FAEnabled = async (req, res) => {
 	}
 };
 
+//api call to send 2FA code to secondary email using nodemailer
 export const send2FACode = async (req, res) => {
 	let emailSent = false;
 	const { email } = req.body;
@@ -157,6 +161,7 @@ export const send2FACode = async (req, res) => {
 	}
 };
 
+//api call to check OTP entered by user to verify login
 export const verify2FACode = async (req, res) => {
 	const { email, twofaToken } = req.body;
 
@@ -187,6 +192,7 @@ export const verify2FACode = async (req, res) => {
 	}
 };
 
+//save the updated settings by the user to enable 2FA
 export const saveSettings = async (req, res) => {
 	const { is2FAEnabled, secondaryEmail, userEmail } = req.body;
 
@@ -209,6 +215,7 @@ export const saveSettings = async (req, res) => {
 	}
 };
 
+//save updated settings to update password
 export const updatePassword = async (req, res) => {
 	const { userEmail, password, newPassword } = req.body;
 
@@ -257,6 +264,7 @@ export const updatePassword = async (req, res) => {
 	}
 };
 
+//send log activity to admin and save it in mongo
 export const logActivity = async (req, res) => {
 	const { email, route } = req.body;
 	if (email !== "admin@secureteams.com") {

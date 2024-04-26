@@ -1,5 +1,6 @@
 import User from "../models/user.js";
 
+//get profile info
 export const fetchProfile = async (req, res) => {
 	const email = req.query.email;
 
@@ -16,6 +17,7 @@ export const fetchProfile = async (req, res) => {
 	}
 };
 
+//get profile photo
 export const getProfilePhoto = async (req, res) => {
 	const profilePhoto = req.params.profilePhoto;
 	res.sendFile(profilePhoto, { root: "uploads" });

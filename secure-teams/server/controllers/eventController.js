@@ -1,6 +1,7 @@
 import Events from "../models/events.js";
 import logtoFile from "../middleware/logger.js";
 
+//fetch events saved by user in the calender
 export const fetchEvents = async (req, res) => {
 	const { email } = req.query;
 
@@ -27,6 +28,7 @@ export const fetchEvents = async (req, res) => {
 	}
 };
 
+//add new event to calendar
 export const addEvent = async (req, res) => {
 	const { email, title, date } = req.body;
 
@@ -55,6 +57,7 @@ export const addEvent = async (req, res) => {
 	}
 };
 
+//delete event from calendar
 export const deleteEvent = async (req, res) => {
 	const { email, eventId } = req.params;
 

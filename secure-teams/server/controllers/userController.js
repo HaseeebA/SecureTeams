@@ -1,6 +1,7 @@
 import User from "../models/user.js";
 import logtoFile from "../middleware/logger.js";
 
+//get all users
 export const getUsers = async (req, res) => {
 	try {
 		const users = await User.find();
@@ -11,6 +12,8 @@ export const getUsers = async (req, res) => {
 	}
 };
 
+
+//get users that have just signed up and not been assigned a role yet
 export const getNewUsers = async (req, res) => {
 	try {
 		const users = await User.find({ role: "employee" });
@@ -21,6 +24,7 @@ export const getNewUsers = async (req, res) => {
 	}
 };
 
+//update role of new employees
 export const putUser = async (req, res) => {
 	const { role, email } = req.body;
 
