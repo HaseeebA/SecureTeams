@@ -83,8 +83,9 @@ const Sidepanel = ({ show, onThemeChange }) => {
 	if (role === "admin") {
 		return (
 			<div
-				className={`side-panel ${show ? "" : ""} ${isPanelOpen ? "expanded" : "collapsed"
-					} ${invertImages ? "inverted-images" : ""}`}
+				className={`side-panel ${show ? "" : ""} ${
+					isPanelOpen ? "expanded" : "collapsed"
+				} ${invertImages ? "inverted-images" : ""}`}
 			>
 				<button onClick={togglePanel} className="toggle-panel-button">
 					<img src={rightarrow} alt="Toggle" />
@@ -111,6 +112,12 @@ const Sidepanel = ({ show, onThemeChange }) => {
 					<span>Change Theme</span>
 					{isThemeOptionsOpen && (
 						<div className="theme-options absolute bg-white p-2 shadow-md">
+							<div
+								className="theme-option"
+								onClick={() => handleThemeChange("#6f6f6f")}
+							>
+								Grey
+							</div>
 							<div
 								className="theme-option"
 								onClick={() => handleThemeChange("#ddb892")}
@@ -144,8 +151,9 @@ const Sidepanel = ({ show, onThemeChange }) => {
 		if (role !== "employee") {
 			return (
 				<div
-					className={`side-panel ${show ? "visible" : ""} ${isPanelOpen ? "expanded" : "collapsed"
-						} ${invertImages ? "inverted-images" : ""}`}
+					className={`side-panel ${show ? "visible" : ""} ${
+						isPanelOpen ? "expanded" : "collapsed"
+					} ${invertImages ? "inverted-images" : ""}`}
 				>
 					<button onClick={togglePanel} className="toggle-panel-button">
 						<img src={rightarrow} alt="Toggle" />
@@ -188,31 +196,31 @@ const Sidepanel = ({ show, onThemeChange }) => {
 						<span>Change Theme</span>
 						{isThemeOptionsOpen && (
 							<div className="theme-options absolute bg-white p-2 shadow-md">
-								<div
+								{/* <div
 									className="theme-option"
 									onClick={() => handleThemeChange("#68d391")}
 								>
 									Green
-								</div>
+								</div> */}
 								<div
 									className="theme-option"
 									onClick={() => handleThemeChange("#5DADE2")}
 								>
 									Blue
 								</div>
-								<div
+								{/* <div
 									className="theme-option"
 									onClick={() => handleThemeChange("#d873c9")}
 								>
 									Pink
-								</div>
+								</div> */}
 								<div
 									className="theme-option"
 									onClick={() => handleThemeChange("#6f6f6f")}
 								>
 									Grey
 								</div>
-								<div
+								{/* <div
 									className="theme-option"
 									onClick={() => handleThemeChange("#b5c99a")}
 								>
@@ -223,19 +231,19 @@ const Sidepanel = ({ show, onThemeChange }) => {
 									onClick={() => handleThemeChange("#9c6644")}
 								>
 									Brown
-								</div>
+								</div> */}
 								<div
 									className="theme-option"
 									onClick={() => handleThemeChange("#ddb892")}
 								>
 									Peach
 								</div>
-								<div
+								{/* <div
 									className="theme-option"
 									onClick={() => handleThemeChange("#45dfb1")}
 								>
 									Neon Green
-								</div>
+								</div> */}
 								<div
 									className="theme-option"
 									onClick={() => handleThemeChange("#0b1623")}
@@ -262,8 +270,9 @@ const Sidepanel = ({ show, onThemeChange }) => {
 		} else {
 			return (
 				<div
-					className={`side-panel ${show ? "" : ""} ${isPanelOpen ? "expanded" : "collapsed"
-						} ${invertImages ? "inverted-images" : ""}`}
+					className={`side-panel ${show ? "" : ""} ${
+						isPanelOpen ? "expanded" : "collapsed"
+					} ${invertImages ? "inverted-images" : ""}`}
 				>
 					<button onClick={togglePanel} className="toggle-panel-button">
 						<img src={rightarrow} alt="Toggle" />
@@ -306,6 +315,12 @@ const Sidepanel = ({ show, onThemeChange }) => {
 						<span>Change Theme</span>
 						{isThemeOptionsOpen && (
 							<div className="theme-options absolute bg-white p-2 shadow-md">
+								<div
+									className="theme-option"
+									onClick={() => handleThemeChange("#6f6f6f")}
+								>
+									Grey
+								</div>
 								<div
 									className="theme-option"
 									onClick={() => handleThemeChange("#ddb892")}

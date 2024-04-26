@@ -84,6 +84,14 @@
     font-weight: bold;
 }
 
+.edit-button:hover {
+    background-color: grey;
+}
+
+.update-button:hover {
+    background-color: grey;
+}
+
 .form-group {
     margin-bottom: 10px;
 }

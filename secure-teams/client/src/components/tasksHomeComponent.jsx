@@ -170,10 +170,10 @@ const TasksPage = () => {
 	return (
 		<div>
 			<div className="tasks-container">
-				<div className="tasks-form" style={{ backgroundColor: theme }}>
+				<div className="tasks-form">
 					<div
 						style={{
-							backgroundColor: theme,
+							// backgroundColor: theme,
 							color: "white",
 							maxHeight: "80vh",
 							marginTop: "30px",
@@ -240,7 +240,7 @@ const TasksPage = () => {
 									</div>
 									<button
 										type="submit"
-										className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+										className="bg-white hover:bg-gray-500 text-black font-bold py-2 px-4 rounded"
 									>
 										Add Task
 									</button>

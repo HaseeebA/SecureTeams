@@ -93,7 +93,7 @@ const Welcome = () => {
 							onClick={scrollToTestimonials}
 							className="btn-scroll btn-contact-us"
 						>
-							Contact Us
+							Our Team
 						</button>
 					</div>
 				</div>
