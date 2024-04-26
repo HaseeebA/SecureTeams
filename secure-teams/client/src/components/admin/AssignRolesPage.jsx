@@ -14,7 +14,6 @@ const AssignRolesPage = () => {
 	useEffect(() => {
 		console.log("Fetching users...");
 		try {
-			// axios.get("https://secureteams.onrender.com/api/newUsers").then((response) => {
 			axios.get(apiBaseUrl + "/user/newUsers").then((response) => {
 				console.log("Users:", response.data);
 				setUsers(response.data);
@@ -33,7 +32,6 @@ const AssignRolesPage = () => {
 	const assignRole = async () => {
 		try {
 			const response = await axios.put(
-				// `https://secureteams.onrender.com/api/users/${selectedUser}`,
 				apiBaseUrl + `/user/users/${selectedUser}`,
 				{
 					role: selectedRole,
@@ -86,13 +84,11 @@ const AssignRolesPage = () => {
 								onChange={(e) => setSelectedUser(e.target.value)}
 							>
 								<option value="">Select an email</option>
-								{users
-									// .filter((user) => user.role === "employee")
-									.map((user) => (
-										<option key={user.id} value={user.email}>
-											{user.email}
-										</option>
-									))}
+								{users.map((user) => (
+									<option key={user.id} value={user.email}>
+										{user.email}
+									</option>
+								))}
 							</select>
 						</div>
 						<div

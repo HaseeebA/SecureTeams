@@ -1848,3 +1848,32 @@ User visited route: /
 User visited route: /
 User visited route: /
 User visited route: /login
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imhhc2VlYmFzYWQxQHNlY3VyZXRlYW1zLmNvbSIsImlhdCI6MTcxNDA5MTEyNiwiZXhwIjoxNzE0MDk0NzI2fQ.BmzBzowYqIOe4ijVILY2OslkDWHGGUNcMHubEDrRIjg !!!
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /members
+26/04/2024, 5:25:33 am - GET /events?email=haseebasad1@secureteams.com
+User visited route: /calendar
+26/04/2024, 5:25:33 am - GET /events?email=haseebasad1@secureteams.com
+User visited route: /members
+User visited route: /homepage
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imhhc2VlYmFzYWQxQHNlY3VyZXRlYW1zLmNvbSIsImlhdCI6MTcxNDA5MTE1OSwiZXhwIjoxNzE0MDk0NzU5fQ.ncyyuvy7BHUha0gMzSLpIMWipDLiiJo9VtZtYTxYrDY !!!
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /members
+User visited route: /tasks
+User visited route: /members
+User visited route: /members
+User visited route: /members
+User visited route: /members
+User visited route: /members
+User visited route: /members
+User visited route: /members
+User visited route: /tasks
+User visited route: /members
+User visited route: /tasks
+User visited route: /homepage
