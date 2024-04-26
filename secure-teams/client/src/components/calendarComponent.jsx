@@ -11,7 +11,7 @@ const CalendarComponent = () => {
 	const [showPopup, setShowPopup] = useState(false);
 	const [newEventTitle, setNewEventTitle] = useState("");
 	const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
-	const initialTheme = localStorage.getItem("themeColor") || "#68d391";
+	const initialTheme = localStorage.getItem("themeColor") || "#ddb892";
 	const [theme, setTheme] = useState(initialTheme);
 
 	const handleThemeChange = (newTheme) => {

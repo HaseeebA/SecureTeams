@@ -6,7 +6,7 @@ import "../styles/tasks.css";
 import { useSocket } from "../socketProvider";
 
 const TasksPage = () => {
-	const initialTheme = localStorage.getItem("themeColor") || "#68d391";
+	const initialTheme = localStorage.getItem("themeColor") || "#ddb892";
 	const [theme, setTheme] = useState(initialTheme);
 	const [inputTitle, setInputTitle] = useState("");
 	const [inputDesc, setInputDesc] = useState("");

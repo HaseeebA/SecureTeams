@@ -22,6 +22,7 @@ const Login = () => {
 	const [twofaToken, setTwofaToken] = useState(
 		Array.from({ length: 6 }, () => "")
 	);
+	localStorage.setItem("themeColor","#ddb892");
 
 	const socket = useSocket();
 

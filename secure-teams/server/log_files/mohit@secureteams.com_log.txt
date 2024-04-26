@@ -209,3 +209,10 @@ User visited route: /messages
 User visited route: /messages
 User visited route: /messages
 26/04/2024, 4:26:14 am - GET /contacts?email=mohit%40secureteams.com
+
+!!! User logged in with token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vaGl0QHNlY3VyZXRlYW1zLmNvbSIsImlhdCI6MTcxNDA5MTEzOCwiZXhwIjoxNzE0MDk0NzM4fQ.vTiwPhAuFzaV5gu5x0JGruMGzjyhI-d_BYDuggxS628 !!!
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /homepage
+User visited route: /members
+User visited route: /homepage
