@@ -9,7 +9,7 @@ import Taskspage from "./tasksHomeComponent.jsx";
 import "../styles/homepage.css";
 
 const Homepage = () => {
-	const defaultTheme = "#68d391";
+	const defaultTheme = "#ddb892";
 	const [showSidePanel, setShowSidePanel] = useState(true);
 	const [assignedTasks, setAssignedTasks] = useState([]);
 	const email = localStorage.getItem("email");

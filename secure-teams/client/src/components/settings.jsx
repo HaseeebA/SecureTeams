@@ -15,7 +15,7 @@ const Settings = () => {
 	const [secondaryEmail, setSecondaryEmail] = useState("");
 	const [isPasswordEnabled, setIsPasswordEnabled] = useState(false);
 	const [showSidePanel, setShowSidePanel] = useState(true);
-	const initialTheme = localStorage.getItem("themeColor") || "#68d391";
+	const initialTheme = localStorage.getItem("themeColor") || "#ddb892";
 	const [theme, setTheme] = useState(initialTheme);
 	const [password, setPassword] = useState("");
 	const [newPassword, setNewPassword] = useState("");

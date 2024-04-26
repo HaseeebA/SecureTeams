@@ -11,7 +11,7 @@ const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
 
 const Profile = () => {
 	const [showSidePanel, setShowSidePanel] = useState(true);
-	const initialTheme = localStorage.getItem("themeColor") || "#68d391";
+	const initialTheme = localStorage.getItem("themeColor") || "#ddb892";
 	const [theme, setTheme] = useState(initialTheme);
 	const [email, setEmail] = useState("");
 	// const [password, setPassword] = useState("");
